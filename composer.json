@@ -1,0 +1,15 @@
+{
+	"name": "rctnet/Cnab",
+	"type": "library",
+	"description": "Conjunto de classes para geração e leitura de arquivos Cnab de remessa e retorno",
+	"keywords": ["boleto", "remessa", "retorno", "cnab", "cnab240", "cnab400"],
+	"licence": "MIT",
+	"authors": [
+		{
+			"name": "Rogerio Muniz de Castro",
+			"email": "rogerio@ciatec.net"
+		}
+	],
+	"require": {},
+	"config": {}
+}
