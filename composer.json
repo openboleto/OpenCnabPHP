@@ -10,6 +10,9 @@
 			"email": "rogerio@ciatec.net"
 		}
 	],
+	"autoload": {
+		"psr-0": {"rctnet\\": "src/"}
+	},
 	"require": {},
 	"config": {}
 }

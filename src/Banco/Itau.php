@@ -1,7 +1,8 @@
 <?php
-namespace rctnet\Banco;
-use rctnet\ArquvioAbstract;
-class Itau extends ArquvioAbstract{
-	
+namespace CnabPHP\Banco;
+use \CnabPHP\ArquivoAbstract;
+use \CnabPHP;
+class Itau extends ArquivoAbstract{
+	protected $banco = 'Itau';
 }
 ?>
