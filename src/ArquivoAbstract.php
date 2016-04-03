@@ -23,7 +23,7 @@ abstract class ArquivoAbstract
 		$class = 'CnabPHP\resources\\'.$this->banco.'\remessa\\'.$this->layout.'\Registro1';
 		$data['NSR'] = $counter; 
 		$data['header'] = $this->hearder;
-		$this->$children[] = new $class($data);
+		$this->children[] = new $class($data);
 		$counter++;
 	}
 	public function getText(){
