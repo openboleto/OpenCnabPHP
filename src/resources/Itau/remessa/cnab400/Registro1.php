@@ -12,12 +12,7 @@ class Registro1 extends Generico1
 		array('posicao'=>array('i'=>2,'f'=>2),'tamanho'=>1,'default'=>'1','tipo'=>'numero')
 		// definir todos os campos do registro nesse formato
 	);
-	public function get_nosso_numero(){
-		$teste  = $this->data['nosso_numero'];
-		$teste = $teste + 1;
-		$this->data['nosso_numero']  = $teste;
-		return $this->___get('nosso_numero');
-	}
+	
 }
 
 ?>
