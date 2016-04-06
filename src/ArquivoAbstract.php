@@ -3,34 +3,35 @@ namespace CnabPHP;
 
 abstract class ArquivoAbstract
 {
-	protected $counter = 1;
-	protected $hearder;
-	protected $banco;
-	protected $layout;
-	protected $children;
+	public static $banco;
+	public static $layout;
+	//public static $counter = 1;
+	public static $hearder;
+	public static $entryData;
+	public static $loteCounter = 0;
+	protected $children = array();
+	public static $retorno = array();
+	
 	public function __construct($layout,$data){
 		
-		$this->layout = $layout;
-		$class = 'CnabPHP\resources\\'.$this->banco.'\remessa\\'.$this->layout.'\Registro0';
-		$data['NSR'] = $counter; 
-		 
-		$this->hearder = new $class($data);
-		$this->$children[] = $this->hearder;
-		$counter++;
+		self::$layout = $layout;
+		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
+		self::$entryData = $data; 
+		self::$hearder = new $class($data);
+		$this->children[] = self::$hearder;
 	}
 	public function inserirDetalhe($data){
 		
-		$class = 'CnabPHP\resources\\'.$this->banco.'\remessa\\'.$this->layout.'\Registro1';
-		$data['NSR'] = $counter; 
-		$data['header'] = $this->hearder;
+		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
 		$this->children[] = new $class($data);
-		$counter++;
+		//self::$counter++;
 	}
 	public function getText(){
 		foreach($this->children as $child){
 			$child->getText();
 		}
+		return implode(PHP_EOL,self::$retorno);
 	}
-	// metodos para o controle da geração do arquivo etste
+	// metodos para o controle da geração do arquivo
 }
 ?>

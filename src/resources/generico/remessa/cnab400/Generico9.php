@@ -5,5 +5,4 @@ use rctnet\RegistroAbstract;
 class Generico9 extends RegistroAbstract
 {
 }
-
 ?>

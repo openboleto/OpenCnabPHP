@@ -11,11 +11,13 @@
 * 2016.04.02 -- criação
 **/
 namespace CnabPHP;
+use Exception;
 
 abstract class RegistroAbstract
 {
 	protected $data; // array contendo os dados do objeto
 	protected $meta;
+	protected $children;
 
 	/* método __construct()
 	* instancia um Active Record. Se passado o $id, já carrega o objeto
@@ -26,8 +28,8 @@ abstract class RegistroAbstract
 		if ($data) // se o ID for informado
 		{
 			// carrega o objeto correspondente
-			foreach($data as $key =>$value){
-				$this->$key = $value;
+			foreach($this->meta as $key =>$value){
+				$this->$key = (isset($data[$key]))?$data[$key]:$this->meta[$key]['default'];
 			}
 		}
 	}
@@ -47,7 +49,7 @@ abstract class RegistroAbstract
 		}
 		else
 		{
-
+			$metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
 			if(($value=="" || $value === NULL) && $metaData[$prop]['default']!="")
 			{
 				$this->data[$prop] = $metaData[$prop]['default'];  
@@ -85,16 +87,21 @@ abstract class RegistroAbstract
 	public function ___get($prop)
 	{
 		// retorna o valor da propriedade
-		if (isset($this->data[$prop]))
+		if (isset($this->meta[$prop]))
 		{
 			$metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
+			$this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop]==''?$metaData['default']:$this->data[$prop];
+			if($metaData['required']==true && ($this->data[$prop]=='' || !isset($this->data[$prop])))
+			{
+				throw new Exception('Campo faltante ou com valor nulo:'.$prop);
+			}
 			switch ($metaData['tipo']) {
 				case 'decimal':
 					$retorno = ($this->data[$prop])?number_format($this->data[$prop],$metaData['precision'],'',''):''; 
 					return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
 					break;
 				case 'inteiro':
-					$retorno = ($this->data[$prop])?abs($this->data[$prop]):''; 
+					$retorno = (isset($this->data[$prop]))?abs($this->data[$prop]):''; 
 					return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
 					break;
 				case 'alfa':
@@ -113,7 +120,6 @@ abstract class RegistroAbstract
 					return null;
 					break;
 			}
-
 		}
 	}
 
@@ -169,7 +175,7 @@ abstract class RegistroAbstract
 	}
 	private function prepareText($text, $remove=null)
 	{
-		$result = strtoupper($this->removeAccents(trim(html_entity_decode($text))));;
+		$result = strtoupper($this->removeAccents(trim(html_entity_decode($text))));
 		if($remove)
 			$result = str_replace(str_split($remove), '', $result);
 		return $result;
@@ -212,6 +218,26 @@ abstract class RegistroAbstract
 			)*$%xs',
 			$string
 		);
+	}
+	public function inserirDetalhe($data)
+	{
+		$class = 'CnabPHP\resources\\'.ArquivoAbstract::$banco.'\remessa\\'.ArquivoAbstract::$layout.'\Registro3';
+		$this->children[] = new $class($data);
+	}
+	public function getText(){
+		$retorno = '';
+		foreach($this->meta as $key=>$value){
+			$retorno .= $this->$key;
+		}
+		ArquivoAbstract::$retorno[] = $retorno;
+		if ($this->children)
+		{
+			// percorre todos objetos filhos
+			foreach ($this->children as $child)
+			{
+				$child->getText();
+			}
+		}
 	}
 }
 ?>

@@ -3,7 +3,7 @@ namespace CnabPHP\resources\generico\remessa\cnab240;
 use CnabPHP\RegistroAbstract;
 use cnabphp\ArquivoAbstract;
 
-class Generico1 extends RegistroAbstract
+class Generico3 extends RegistroAbstract
 {
 	protected function set_codigo_lote($value)
 	{
@@ -58,7 +58,7 @@ class Generico1 extends RegistroAbstract
 	public function __construct($data = null)
 	{
 		if(empty($this->data))parent::__construct($data);
-		$this->inserirDetalhe($data);
+		//$this->inserirDetalhe($data);
 	}    
 }
 ?>
