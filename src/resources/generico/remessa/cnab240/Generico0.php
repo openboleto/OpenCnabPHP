@@ -4,6 +4,7 @@ use CnabPHP\RegistroAbstract;
 
 class Generico0 extends RegistroAbstract
 {
+	protected $counter;
 	protected function set_situacao_arquivo($value)
 	{
 		$this->data['situacao_arquivo'] = ($value=='T')?"REMESSA-TESTE":"REMESSA-PRODUCAO";   
@@ -20,5 +21,9 @@ class Generico0 extends RegistroAbstract
 	{
 		$this->data['numero_inscricao'] =  str_ireplace(array('.','/','-'),array(''),$value);
 	}
+	public function get_numero_registro(){
+		return null;
+	}
+
 }
 ?>

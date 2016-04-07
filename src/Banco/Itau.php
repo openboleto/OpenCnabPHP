@@ -1,7 +1,7 @@
 <?php
 namespace CnabPHP\Banco;
-use \CnabPHP\ArquivoAbstract;
+use \CnabPHP\RemessaAbstract;
 use \CnabPHP;
-class Itau extends ArquivoAbstract{
+class Itau extends RemessaAbstract{
 }
 ?>

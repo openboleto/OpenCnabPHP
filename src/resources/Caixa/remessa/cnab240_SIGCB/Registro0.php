@@ -8,17 +8,17 @@ class Registro0 extends Generico0
 		'codigo_banco'=>array(
 			'tamanho'=>3,
 			'default'=>'104',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(
 			'tamanho'=>4,
 			'default'=>'0000',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'tipo_registro'=>array(
 			'tamanho'=>1,
 			'default'=>'0',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'filler1'=>array(
 			'tamanho'=>9,
@@ -28,65 +28,65 @@ class Registro0 extends Generico0
 		'tipo_inscricao'=>array(
 			'tamanho'=>1,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'numero_inscricao'=>array(
 			'tamanho'=>14,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'uso_caixa1'=>array(
 			'tamanho'=>20,
 			'default'=>'0',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'agencia'=>array(
 			'tamanho'=>5,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'agencia_dv'=>array(
 			'tamanho'=>1,
 			'default'=>'',
-			'tipo'=>'inteiro','required'=>true),
+			'tipo'=>'int','required'=>true),
 		'codigo_beneficiario'=>array(
 			'tamanho'=>6,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'uso_caixa2'=>array(
 			'tamanho'=>8,
 			'default'=>'0',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'numero_inscricao'=>array(
 			'tamanho'=>14,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'uso_caixa1'=>array(
 			'tamanho'=>20,
 			'default'=>'0',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'agencia'=>array(
 			'tamanho'=>5,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'agencia_dv'=>array(
 			'tamanho'=>1,
 			'default'=>'',
-			'tipo'=>'inteiro','required'=>true),
+			'tipo'=>'int','required'=>true),
 		'codigo_beneficiario'=>array(
 			'tamanho'=>6,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'uso_caixa2'=>array(
 			'tamanho'=>8,
 			'default'=>'0',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'nome_empresa'=>array(
 			'tamanho'=>30,
@@ -106,7 +106,7 @@ class Registro0 extends Generico0
 		'codigo_remessa'=>array(
 			'tamanho'=>1,
 			'default'=>'1',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'data_geracao'=>array(
 			'tamanho'=>8,
@@ -116,22 +116,22 @@ class Registro0 extends Generico0
 		'hora_geracao'=>array(
 			'tamanho'=>6,
 			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'numero_sequencial_arquivo'=>array(
 			'tamanho'=>6,
 			'default'=>'',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'versao_layout'=>array(
 			'tamanho'=>3,
 			'default'=>'050',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'densidade_gravacao'=>array(
 			'tamanho'=>5,
 			'default'=>'0',
-			'tipo'=>'inteiro',
+			'tipo'=>'int',
 			'required'=>true),
 		'filler4'=>array(
 			'tamanho'=>20,
@@ -154,10 +154,6 @@ class Registro0 extends Generico0
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
-	public function __construct($data = null)
-	{
-		parent::__construct($data);
-	}
 }
 
 ?>

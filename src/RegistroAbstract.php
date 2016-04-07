@@ -100,7 +100,7 @@ abstract class RegistroAbstract
 					$retorno = ($this->data[$prop])?number_format($this->data[$prop],$metaData['precision'],'',''):''; 
 					return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
 					break;
-				case 'inteiro':
+				case 'int':
 					$retorno = (isset($this->data[$prop]))?abs($this->data[$prop]):''; 
 					return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
 					break;
@@ -173,6 +173,7 @@ abstract class RegistroAbstract
 	{
 		return $this->data;
 	}
+	
 	private function prepareText($text, $remove=null)
 	{
 		$result = strtoupper($this->removeAccents(trim(html_entity_decode($text))));
@@ -219,17 +220,12 @@ abstract class RegistroAbstract
 			$string
 		);
 	}
-	public function inserirDetalhe($data)
-	{
-		$class = 'CnabPHP\resources\\'.ArquivoAbstract::$banco.'\remessa\\'.ArquivoAbstract::$layout.'\Registro3';
-		$this->children[] = new $class($data);
-	}
 	public function getText(){
 		$retorno = '';
 		foreach($this->meta as $key=>$value){
 			$retorno .= $this->$key;
 		}
-		ArquivoAbstract::$retorno[] = $retorno;
+		RemessaAbstract::$retorno[] = $retorno;
 		if ($this->children)
 		{
 			// percorre todos objetos filhos
