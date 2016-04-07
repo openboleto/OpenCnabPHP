@@ -15,5 +15,5 @@ RegitroAbstract cuida de metodos unicos para qualquer registro de qualquer layou
 Uma classe genérico herda registroAbstract e implementa setters e getters comuns ao registro de um determinado layout
 </li>
 e por fim uma classe registro herda de genérico e define o layout que sera usado e se por ventura for necessario sobrepõe ou implementa novos getters e setters do arquivo generico.
-</li>
+</li><br>
 Agaurdando volutarios para edição e testes dos layouts.
