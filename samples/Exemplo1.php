@@ -1,22 +1,28 @@
-# CnabPHP
-Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400<br>
-Novo projeto orientado a objeto com tr√™s n√≠veis de hierarquia
-<ul>
-<li>
-Um arquivo remessaAbstract cuida das quest√µes sobre arquivos em geral.
-</li>
-<li>
-Uma classe para cada banco herda remssaAbstract e seta o nome do banco que √© a pasta para os layouts personalizados
-</li>
-<li>
-RegitroAbstract cuida de metodos unicos para qualquer registro de qualquer layout,
-</li>
-<li>
-Uma classe gen√©rico herda registroAbstract e implementa setters e getters comuns ao registro de um determinado layout
-</li>
-e por fim uma classe registro herda de gen√©rico e define o layout que sera usado e se por ventura for necessario sobrep√µe ou implementa novos getters e setters do arquivo generico.
-</li><br>
-<pre>
+<?php
+/*
+* CnabPHP - GeraÁ„o de arquivos de remessa e retorno em PHP
+*
+* LICENSE: The MIT License (MIT)
+*
+* Copyright (C) 2013 Ciatec.net
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this
+* software and associated documentation files (the "Software"), to deal in the Software
+* without restriction, including without limitation the rights to use, copy, modify,
+* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to the following
+* conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies
+* or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 use \CnabPHP\Remessa;
 
 $arquivo = new Remessa('Caixa','cnab240_SIGCB',array(
@@ -60,5 +66,4 @@ $lote->inserirDetalhe(array(
 	'valor_multa'        => 30.00, // valor da multa
 ));        
 echo $arquivo->getText();
-</pre>
-Agaurdando volutarios para ediÁ„o e testes dos layouts.
+?>

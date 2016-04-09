@@ -24,131 +24,80 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\caixa\remessa\cnab240_SIGCB;
-use CnabPHP\resources\generico\remessa\cnab240\Generico0;
+use CnabPHP\resources\generico\remessa\cnab240\Generico5;
+use CnabPHP\Exception;
 
-class Registro0 extends Generico0
+class Registro5 extends Generico5
 {
 	protected $meta = array(
-		'codigo_banco'=>array(
+		'codigo_banco'=>array(      //01.5
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(
+		'codigo_lote'=>array(       //02.5
 			'tamanho'=>4,
-			'default'=>'0000',
+			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(
+		'tipo_registro'=>array(     //03.5
 			'tamanho'=>1,
-			'default'=>'0',
+			'default'=>'5',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler1'=>array(
+		'filler1'=>array(          //04.5
 			'tamanho'=>9,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'tipo_inscricao'=>array(
-			'tamanho'=>1,
-			'default'=>'',
+		'qtd_registros'=>array(      //05.5
+			'tamanho'=>7,
+			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_inscricao'=>array(
-			'tamanho'=>14,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'uso_caixa1'=>array(
-			'tamanho'=>20,
+		'qtd_titulos_simples'=>array(           //06.5
+			'tamanho'=>6,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'agencia'=>array(
-			'tamanho'=>5,
-			'default'=>'',
-			'tipo'=>'int',
+		'vrl_titulos_simples'=>array(      //07.5
+			'tamanho'=>17,
+			'default'=>'0',
+			'tipo'=>'decimal',
+			'precision'=>'2',
 			'required'=>true),
-		'agencia_dv'=>array(
-			'tamanho'=>1,
-			'default'=>'',
-			'tipo'=>'int','required'=>true),
-		'codigo_beneficiario'=>array(
+		'qtd_titulos_caucionada'=>array(           //08.5
 			'tamanho'=>6,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'uso_caixa2'=>array(
-			'tamanho'=>8,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'nome_empresa'=>array(
-			'tamanho'=>30,
-			'default'=>'',
-			'tipo'=>'alfa',
+		'vlr_titulos_caucionada'=>array(    //09.5
+			'tamanho'=>17,
+			'default'=>'0',
+			'tipo'=>'decimal',
+			'precision'=>'2',
 			'required'=>true),
-		'nome_banco'=>array(
-			'tamanho'=>30,
-			'default'=>'CAIXA ECONOMICA FEDERAL',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler3'=>array(
-			'tamanho'=>10,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'codigo_remessa'=>array(
-			'tamanho'=>1,
-			'default'=>'1',
-			'tipo'=>'int',
-			'required'=>true),
-		'data_geracao'=>array(
-			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
-			'tipo'=>'date',
-			'required'=>true),
-		'hora_geracao'=>array(
+		'qtd_titulos_descontada'=>array(           //10.5
 			'tamanho'=>6,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
-			'tipo'=>'int',
-			'required'=>true),
-		'numero_sequencial_arquivo'=>array(
-			'tamanho'=>6,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'versao_layout'=>array(
-			'tamanho'=>3,
-			'default'=>'050',
-			'tipo'=>'int',
-			'required'=>true),
-		'densidade_gravacao'=>array(
-			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler4'=>array(
-			'tamanho'=>20,
+		'vlr_titulos_descontada'=>array(    //11.5
+			'tamanho'=>17,
+			'default'=>'0',
+			'tipo'=>'decimal',
+			'precision'=>'2',
+			'required'=>true),
+		'filler2'=>array(        //12.5
+			'tamanho'=>31,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'situacao_arquivo'=>array(
-			'tamanho'=>20,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'versao_aplicativo'=>array(
-			'tamanho'=>4,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler5'=>array(
-			'tamanho'=>25,
+		'filler3'=>array(           //13.5
+			'tamanho'=>117,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
 }
-
 ?>

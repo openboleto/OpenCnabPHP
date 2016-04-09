@@ -20,8 +20,8 @@ abstract class RegistroAbstract
 	protected $children;
 
 	/* método __construct()
-	* instancia um Active Record. Se passado o $id, já carrega o objeto
-	* @param [$id] = ID do objeto
+	* instancia registro qualquer
+	* @$data = array de dados para o registro
 	*/
 	public function __construct($data = NULL)
 	{
@@ -135,45 +135,10 @@ abstract class RegistroAbstract
 			return $this->data[$prop];
 		}
 	}
-
-	/*
-	* método set_meta()
-	* executado quando o objeto for clonado.
-	* limpa o ID para que seja gerado um novo ID para o clone.
+	/* método prepareText()
+	* metodo retirado do projeto andersondanilo/CnabPHP e usado como esta sem alteração
+	* recebe um texto e prepara para inserir no arquivo de texto
 	*/
-	public function set_meta($meta)
-	{
-		$this->meta = $meta;
-	}
-	/*
-	* método get_meta()
-	* executado quando o objeto for clonado.
-	* limpa o ID para que seja gerado um novo ID para o clone.
-	*/
-	public function get_meta()
-	{
-		return $this->meta;
-	}
-
-
-	/*
-	* método fromArray
-	* preenche os dados do objeto com um array
-	*/
-	public function fromArray($data)
-	{
-		$this->data = $data;
-	}
-
-	/*
-	* método toArray
-	* retorna os dados do objeto como array
-	*/
-	public function toArray()
-	{
-		return $this->data;
-	}
-	
 	private function prepareText($text, $remove=null)
 	{
 		$result = strtoupper($this->removeAccents(trim(html_entity_decode($text))));
@@ -182,6 +147,11 @@ abstract class RegistroAbstract
 		return $result;
 	}
 
+	/*
+	* método removeAccents()
+	* metodo retirado do projeto andersondanilo/CnabPHP e usado como esta sem alteração
+	* recebe um texto e prepara para inserir no arquivo de texto
+	*/
 	private function removeAccents($string)
 	{
 		return preg_replace(
@@ -204,7 +174,11 @@ abstract class RegistroAbstract
 			$this->isUtf8( $string ) ? $string : utf8_encode( $string )
 		);
 	}
-
+	/*
+	* método removeAccents()
+	* metodo retirado do projeto andersondanilo/CnabPHP e usado como esta sem alteração
+	* recebe um texto e prepara para inserir no arquivo de texto
+	*/
 	private function isUtf8($string)
 	{
 		return preg_match( '%^(?:
@@ -220,6 +194,11 @@ abstract class RegistroAbstract
 			$string
 		);
 	}
+	/*
+	* método getText()
+	* metodo magico que trabalha recursivamente nos filhos e netos desse objeto 
+	* prepara as linhas para serem exportadas para txt
+	*/
 	public function getText(){
 		$retorno = '';
 		foreach($this->meta as $key=>$value){

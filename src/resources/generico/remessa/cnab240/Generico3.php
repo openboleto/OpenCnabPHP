@@ -1,7 +1,33 @@
 <?php
+/*
+* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+*
+* LICENSE: The MIT License (MIT)
+*
+* Copyright (C) 2013 Ciatec.net
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this
+* software and associated documentation files (the "Software"), to deal in the Software
+* without restriction, including without limitation the rights to use, copy, modify,
+* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to the following
+* conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies
+* or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
 namespace CnabPHP\resources\generico\remessa\cnab240;
 use CnabPHP\RegistroAbstract;
-use cnabphp\RemessaAbstract;
+use CnabPHP\RemessaAbstract;
+use CnabPHP\Exception;
+use CnabPHP\Especie;
 
 class Generico3 extends RegistroAbstract
 {
@@ -9,6 +35,11 @@ class Generico3 extends RegistroAbstract
 	{
 		//ArquivoAbstract::$loteCounter++; 
 		$this->data['codigo_lote'] = RemessaAbstract::$loteCounter;
+	}
+	protected function set_numero_registro($value)
+	{
+		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+		$this->data['numero_registro'] = $lote->get_counter();
 	}
 	protected function set_tipo_inscricao($value)
 	{
@@ -34,31 +65,93 @@ class Generico3 extends RegistroAbstract
 	{
 		$this->data['codigo_convenio'] = RemessaAbstract::$entryData['codigo_beneficiario'];
 	}
-	protected function set_nome_empresa($value)
+	protected function set_com_registro($value)
 	{
-		$this->data['nome_empresa'] = RemessaAbstract::$entryData['nome_empresa'];
+		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+		$this->data['com_registro'] = $lote->tipo_servico;
 	}
-	protected function set_mensagem_fixa1($value)
+	protected function set_emissao_boleto($value)
 	{
-		$this->data['mensagem_fixa1'] = isset(RemessaAbstract::$entryData['mensagem_fixa1'])?RemessaAbstract::$entryData['mensagem_fixa1']:' ';
+		$this->data['emissao_boleto'] = $value;
+		if($this->data['nosso_numero']==0)
+		{
+			$this->data['carteira'] = '00'; 
+		}
+		elseif($this->data['com_registro']==1 && $value==1)
+		{
+			$this->data['carteira'] = 11;
+		}
+		elseif($this->data['com_registro']==1 && $value==2)
+		{
+			$this->data['carteira'] = 14;
+		}
+		elseif($this->data['com_registro']==2 && $value==1)
+		{
+			$this->data['carteira'] = 21;
+		}
+		else
+		{
+			throw new Exception("Registros com emissao pelo beneficiario e sem registro nao sao enviados"); 
+		}   
 	}
-	protected function set_mensagem_fixa2($value)
+	protected function set_seu_numero($value)
 	{
-		$this->data['mensagem_fixa2'] = isset(RemessaAbstract::$entryData['mensagem_fixa2'])?RemessaAbstract::$entryData['mensagem_fixa2']:' ';
+		if($this->data['nosso_numero']==0 && $value==' ')
+		{
+			throw new Exception('O campo "seu_numero" e obrigatorio, na sua falta usareio o nosso numero, porem esse tambem no foi inserido!!!');
+		}
+		else
+		{
+			$this->data['seu_numero'] = $value != ' ' ? $value : $this->data['nosso_numero'];    
+		}
 	}
-	protected function set_numero_remessa($value)
+	protected function set_especie_titulo($value)
 	{
-		$this->data['numero_remessa'] = RemessaAbstract::$entryData['numero_sequencial_arquivo'];
+		if(is_int($value))
+		{
+			$this->data['especie_titulo'] = $value; 
+		}
+		else
+		{
+			$especie = new Especie($this->data['codigo_banco']);
+			$this->data['especie_titulo'] = $especie->getCodigo($value);
+		}
 	}
-	protected function set_data_gravacao($value)
+	protected function set_cep_sufixo($value)
 	{
-		$this->data['data_gravacao'] = date('Y-m-d');
+		$cep = $this->data['cep_pagador'];
+		$this->data['cep_pagador'] = explode('-',$cep)[0];
+		$this->data['cep_sufixo'] = explode('-',$cep)[1];
 	}
-	
-	public function __construct($data = null)
+protected function set_mensagem_3($value)
 	{
-		if(empty($this->data))parent::__construct($data);
-		//$this->inserirDetalhe($data);
+		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+		$this->data['mensagem_3'] = count($mensagem)>=1?$mensagem[0]:' ';
+	}
+	protected function set_mensagem_4($value)
+	{
+		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+		$this->data['mensagem_4'] = count($mensagem)>=2?$mensagem[1]:' ';
+	}
+	protected function set_mensagem_5($value)
+	{
+		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+		$this->data['mensagem_5'] = count($mensagem)>=3?$mensagem[2]:' ';
+	}
+	protected function set_mensagem_6($value)
+	{
+		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+		$this->data['mensagem_6'] = count($mensagem)>=4?$mensagem[3]:' ';
+	}
+	protected function set_mensagem_7($value)
+	{
+		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+		$this->data['mensagem_7'] = count($mensagem)>=5?$mensagem[4]:' ';
+	}
+	protected function set_mensagem_8($value)
+	{
+		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+		$this->data['mensagem_8'] = count($mensagem)>=6?$mensagem[5]:' ';
 	}    
 }
 ?>

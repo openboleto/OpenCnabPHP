@@ -1,6 +1,33 @@
 <?php
+/*
+ * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ *
+ * LICENSE: The MIT License (MIT)
+ *
+ * Copyright (C) 2013 Ciatec.net
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this
+ * software and associated documentation files (the "Software"), to deal in the Software
+ * without restriction, including without limitation the rights to use, copy, modify,
+ * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies
+ * or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+ * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 namespace CnabPHP\resources\caixa\remessa\cnab240_SIGCB;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
+use CnabPHP\RegistroAbstract;
+use CnabPHP\RemessaAbstract;
+use CnabPHP\Exception;
 
 class Registro3P extends Generico3
 {
@@ -17,7 +44,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'tipo_registro'=>array(         // 3.3P
 			'tamanho'=>1,
-			'default'=>'1',
+			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_registro'=>array(       // 4.3P
@@ -37,9 +64,12 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'codigo_movimento'=>array(      // 7.3P
 			'tamanho'=>2,
-			'default'=>'01',
+			'default'=>'01', // entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
+			
+		// - ------------------ até aqui é igual para todo registro tipo 3
+
 		'agencia'=>array(               // 8.3P
 			'tamanho'=>5,
 			'default'=>'',
@@ -67,7 +97,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'carteira'=>array(      //13.3P
 			'tamanho'=>2,
-			'default'=>'',
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
 		'nosso_numero'=>array(  //13.3P
@@ -82,7 +112,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'com_registro'=>array(      //15.3P
 			'tamanho'=>1,
-			'default'=>'2',  // combrança sem registro
+			'default'=>'1',  // combrança com registro
 			'tipo'=>'int',
 			'required'=>true),
 		'tipo_documento'=>array(        //16.3P
@@ -92,7 +122,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'emissao_boleto'=>array(          // 17.3
 			'tamanho'=>1,
-			'default'=>'2',
+			'default'=>2,
 			'tipo'=>'int',
 			'required'=>true),
 		'entrega_boleto'=>array(        //18.3P
@@ -102,7 +132,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'seu_numero'=>array(            //19.3P   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
 			'tamanho'=>11,
-			'default'=>' ',
+			'default'=>' ',      // este espaço foi colocado para passa a validação para os seters do generico
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler4'=>array(               //19.3P
@@ -231,6 +261,49 @@ class Registro3P extends Generico3
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
+	public function __construct($data = null)
+	{
+		if(empty($this->data))parent::__construct($data);
+		$this->inserirDetalhe($data);
+	}
+	public function inserirDetalhe($data)
+	{
+		$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3Q';
+		$this->children[] = new $class($data);
+		if( isset($data['codigo_desconto2']) || 
+		isset($data['codigo_desconto3']) ||
+		isset($data['codigo_multa']) ||
+		isset($data['mensagem']) ||
+		isset($data['email_pagador']))
+		{
+			$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3R';
+			$this->children[] = new $class($data);
+		}
+		if($data['emissao_boleto']==1)
+		{
+			if(isset($data['mensagem_frente']))
+			{
+				$data['mensagem_140'] = $data['mensagem_frente'];
+				$data['tipo_impressao'] = 1; 
+				$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3S1e2';
+				$this->children[] = new $class($data);
+			}   
+			if(isset($data['mensagem_verso']))
+			{
+				$data['mensagem_140'] = $data['mensagem_verso'];
+				$data['tipo_impressao'] = 2; 
+				$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3S1e2';
+				$this->children[] = new $class($data);
+			}   
+			if(isset($data['mensagem']))
+			{
+				if(count(explode(PHP_EOL,$data['mensagem']))>4){
+					$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3S3';
+					$this->children[] = new $class($data);
+				}
+			}
+		}
+	}    
 }
 
 ?>
