@@ -1,9 +1,9 @@
-# CnabPHP
+# OpenCnabPHP
 Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400<br>
-Novo projeto orientado a objeto com trÃªs nÃ­veis de hierarquia
+Novo projeto orientado a objeto com três níveis de hierarquia
 <ul>
 <li>
-Um arquivo remessaAbstract cuida das questÃµes sobre arquivos em geral.
+Um arquivo remessaAbstract cuida das questões sobre arquivos em geral.
 </li>
 <li>
 Uma classe para cada banco herda remssaAbstract e seta o nome do banco que Ã© a pasta para os layouts personalizados
