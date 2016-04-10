@@ -6,15 +6,15 @@ Novo projeto orientado a objeto com três níveis de hierarquia
 Um arquivo remessaAbstract cuida das questões sobre arquivos em geral.
 </li>
 <li>
-Uma classe para cada banco herda remssaAbstract e seta o nome do banco que Ã© a pasta para os layouts personalizados
+A classe para cada Remessa herda remssaAbstract e seta o nome do banco que é a pasta para os layouts personalizados
 </li>
 <li>
 RegitroAbstract cuida de metodos unicos para qualquer registro de qualquer layout,
 </li>
 <li>
-Uma classe genÃ©rico herda registroAbstract e implementa setters e getters comuns ao registro de um determinado layout
+Uma classe genérico herda registroAbstract e implementa setters e getters comuns ao registro de um determinado layout
 </li>
-e por fim uma classe registro herda de genÃ©rico e define o layout que sera usado e se por ventura for necessario sobrepÃµe ou implementa novos getters e setters do arquivo generico.
+e por fim uma classe registro herda de genérico e define o layout que sera usado e se por ventura for necessario sobrepÃµe ou implementa novos getters e setters do arquivo generico.
 </li><br>
 <pre>
 use \CnabPHP\Remessa;
