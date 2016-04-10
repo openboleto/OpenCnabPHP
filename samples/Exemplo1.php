@@ -36,7 +36,7 @@ $arquivo = new Remessa('Caixa','cnab240_SIGCB',array(
 	'codigo_beneficiario'     => '123456', // codigo fornecido pelo banco
 	'numero_sequencial_arquivo'     => 1, // sequencial do arquivo um numero novo para cada arquivo gerado
 ));
-$lote  = $arquivo->addLote(array('tipo_servico'=> $carteira->carteiras_registro)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
+$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
 	'codigo_ocorrencia' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
