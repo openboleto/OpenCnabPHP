@@ -26,7 +26,7 @@
 namespace CnabPHP;
 use Exception;
 
-abstract class RegistroAbstract
+abstract class RegistroRetAbstract
 {
 	protected $data; // array contendo os dados do objeto
 	protected $meta;
@@ -36,14 +36,13 @@ abstract class RegistroAbstract
 	* instancia registro qualquer
 	* @$data = array de dados para o registro
 	*/
-	public function __construct($data = NULL)
+	public function __construct($linhaTxt)
 	{
-		if ($data) // se o ID for informado
-		{
-			// carrega o objeto correspondente
-			foreach($this->meta as $key =>$value){
-				$this->$key = (isset($data[$key]))?$data[$key]:$this->meta[$key]['default'];
-			}
+		// carrega o objeto correspondente
+		$posicao = 0;
+		foreach($this->meta as $key =>$value){
+			$this->$key = substr($linhaTxt,$posicao,$value['tamanho']);
+			$posicao += $value['tamanho'];
 		}
 	}
 
@@ -63,14 +62,32 @@ abstract class RegistroAbstract
 		else
 		{
 			$metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
-			if(($value=="" || $value === NULL) && $metaData[$prop]['default']!="")
-			{
-				$this->data[$prop] = $metaData[$prop]['default'];  
-			}
-			else
-			{
-				// atribui o valor da propriedade
-				$this->data[$prop] = $value;
+			switch ($metaData['tipo']) {
+				case 'decimal':
+					$inteiro    = abs(substr($value, 0, $metaData['tamanho']-$metaData['precision'])); 
+					$decimal   = abs(substr($value, $metaData['tamanho']-$metaData['precision'], $metaData['precision']))/100;
+					$retorno = ($inteiro+$decimal); 
+					return $retorno;
+					break;
+				case 'int':
+					$retorno = abs($value); 
+					return $retorno;
+					break;
+				case 'alfa':
+					$retorno = trim($value); 
+					return $retorno;
+					break;
+				case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
+					$retorno = date("y-m-d",strtotime($value));
+					return $retorno;
+					break;
+				case $metaData['tipo'] == 'date' && $metaData['tamanho']==8:
+					$retorno = date("Y-m-d",strtotime($value));
+					return $retorno;
+					break;
+				default:
+					return null;
+					break;
 			}
 		}
 	}

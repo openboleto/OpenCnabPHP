@@ -24,10 +24,10 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\remessa\cnab240;
-use CnabPHP\RegistroAbstract;
+use CnabPHP\RegistroRemAbstract;
 use cnabPHP\RemessaAbstract;
 
-class Generico1 extends RegistroAbstract
+class Generico1 extends RegistroRemAbstract
 {
 	protected $counter = 1;
 	protected function set_codigo_lote($value)
@@ -67,7 +67,7 @@ class Generico1 extends RegistroAbstract
 	}
 	protected function set_codigo_convenio($value)
 	{
-		$this->data['codigo_convenio'] =  $value == '' ?  RemessaAbstract::$entryData['codigo_beneficiario'] : $value;
+		$this->data['codigo_convenio'] =  RemessaAbstract::$entryData['codigo_beneficiario'];
 	}
 	protected function set_nome_empresa($value)
 	{

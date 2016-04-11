@@ -24,10 +24,10 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\remessa\cnab240;
-use CnabPHP\RegistroAbstract;
+use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 
-class Generico9 extends RegistroAbstract
+class Generico9 extends RegistroRemAbstract
 {
 	protected function set_qtd_lotes($value)
 	{

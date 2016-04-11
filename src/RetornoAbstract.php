@@ -1,12 +1,12 @@
 <?php
 namespace CnabPHP;
 
-abstract class RemessaAbstract
+abstract class RetornoAbstract
 {
-	public static $banco; // sera atribuido o nome do banco que tambem ? o nome da pasta que contem os layouts
+	public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
 	public static $layout;// recebera o nome do layout na instacia?ao  
 	public static $hearder; // armazena o objeto registro 0 do arquivo
-	public static $entryData; // mantem os dados passados em $data na instanciação
+	public static $conteudo; // mantem os dados passados em $data na instanciação
 	public static $loteCounter = 1; // contador de lotes
 	private static $children = array(); // armazena os registros filhos da classe remessa
 	public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
@@ -18,14 +18,39 @@ abstract class RemessaAbstract
 	* @$layout = nome do layout no momento so Cnab240_SIGCB
 	* @$data = um array contendo os dados nessesarios para o arquvio
 	*/
-	
-	public function __construct($banco,$layout,$data){
-		
-		self::$banco = "B".$banco;
-		self::$layout = $layout;
-		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
-		self::$entryData = $data; 
-		self::$hearder = new $class($data);
+
+	public function __construct($conteudo){
+
+		$conteudo = str_replace("\r\n", "\n", $conteudo);
+		$lines = explode("\n", $conteudo);
+		if (count($lines) < 2) {
+			throw new Exception("Arquivo sem Conteudo");
+		}
+		$length = strlen($lines[0]);
+		$layout_versao = null;
+
+		if ($length == 240 || $length == 241) {
+			$bytes = 240;
+			$layout_versao = substr($lines[0], 163, 3);
+			$codigo_banco = substr($lines[0], 0, 3);
+			$codigo_tipo = substr($lines[0],  142, 1);
+		} elseif ($length == 400 || $length == 401) {
+			$bytes = 400;
+			$codigo_banco = substr($lines[0], 76, 3);
+			$codigo_tipo = substr($lines[0],  1, 1);
+		}
+		else
+		{
+			throw new Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
+		}
+		if($codigo_tipo == '1'){
+			throw new Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
+		}
+		self::$banco = "B".$codigo_banco;
+		self::$layout = "L".$layout_versao;
+		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro0';
+		self::$conteudo = $conteudo; 
+		self::$hearder = new $class($lines[0]);
 		self::$children[] = self::$hearder;
 	}
 	/*
@@ -34,8 +59,8 @@ abstract class RemessaAbstract
 	* @$data = um array contendo os dados nessesarios para o arquvio
 	*/
 	public function inserirDetalhe($data){
-		
-		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
+
+		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro1';
 		self::addChild(new $class($data));
 		//self::$counter++;
 	}

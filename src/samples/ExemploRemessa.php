@@ -23,12 +23,14 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-use \CnabPHP\Remessa;
+namespace CnabPHP\samples;
+use CnabPHP\Remessa;
 
-$arquivo = new Remessa('Caixa','cnab240_SIGCB',array(
+include("../../autoloader.php");
+$arquivo = new Remessa(104,'cnab240_SIGCB',array(
 	'nome_empresa' =>"Empresa ABC", // seu nome de empresa
 	'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
-	'numero_inscricao' => $empresa->empresas_cnpjcpf, // seu cpf ou cnpj completo
+	'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
 	'agencia'       => '1234', // agencia sem o digito verificador 
 	'agencia_dv'    => 1, // somente o digito verificador da agencia 
 	'conta'         => '12345', // número da conta

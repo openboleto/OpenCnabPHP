@@ -1,5 +1,5 @@
 <?php
-namespace CnabPHP\resources\caixa\remessa\cnab240_SIACC;
+namespace CnabPHP\resources\B104\remessa\cnab240_SIACC;
 use CnabPHP\resources\generico\remessa\cnab240\Generico0;
 
 class Registro0 extends Generico0

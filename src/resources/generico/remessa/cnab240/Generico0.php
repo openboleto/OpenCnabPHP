@@ -24,9 +24,9 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\remessa\cnab240;
-use CnabPHP\RegistroAbstract;
+use CnabPHP\RegistroRemAbstract;
 
-class Generico0 extends RegistroAbstract
+class Generico0 extends RegistroRemAbstract
 {
 	protected $counter;
 	protected function set_situacao_arquivo($value)

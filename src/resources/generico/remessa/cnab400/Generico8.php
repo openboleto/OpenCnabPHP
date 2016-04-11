@@ -1,8 +1,8 @@
 <?php
 namespace rctnet\resources\generico\remessa\cnab400;
-use rctnet\RegistroAbstract;
+use rctnet\RegistroRemAbstract;
 
-class Generico8 extends RegistroAbstract
+class Generico8 extends RegistroRemAbstract
 {
 }
 

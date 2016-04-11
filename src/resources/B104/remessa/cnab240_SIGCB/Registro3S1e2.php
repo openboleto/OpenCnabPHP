@@ -23,44 +23,44 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\caixa\remessa\cnab240_SIGCB;
+namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\Exception;
 
-class Registro3R extends Generico3
+class Registro3S1e2 extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(          // 1.3R
+		'codigo_banco'=>array(          // 1.3S
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(           // 2.3R
+		'codigo_lote'=>array(           // 2.3S
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(         // 3.3R
+		'tipo_registro'=>array(         // 3.3S
 			'tamanho'=>1,
 			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_registro'=>array(       // 4.3R
+		'numero_registro'=>array(       // 4.3S
 			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'seguimento'=>array(            // 5.3R
+		'seguimento'=>array(            // 5.3S
 			'tamanho'=>1,
-			'default'=>'R',
+			'default'=>'S',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler1'=>array(               // 6.3R
+		'filler1'=>array(               // 6.3S
 			'tamanho'=>1,
-			'default'=>'0',
+			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_movimento'=>array(      // 7.3R
+		'codigo_movimento'=>array(      // 7.3S
 			'tamanho'=>2,
 			'default'=>'01', // entrada de titulo
 			'tipo'=>'int',
@@ -68,76 +68,28 @@ class Registro3R extends Generico3
 			
 			// - ------------------ até aqui é igual para todo registro tipo 3
 			
-		'codigo_desconto2'=>array(               // 8.3R
+		'tipo_impressao'=>array(               // 8.3S
 			'tamanho'=>1,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_desconto2'=>array(            // 9.3R
-			'tamanho'=>8,
+		'filler'=>array(            // 9.3S
+			'tamanho'=>2,
 			'default'=>'0',
 			'tipo'=>'date',
 			'required'=>true),
-		'vlr_desconto2'=>array(       //10.3R
-			'tamanho'=>15,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
+		'mensagem_140'=>array(       //10.3S
+			'tamanho'=>140,
+			'default'=>' ',
+			'tipo'=>'alfa',
 			'required'=>true),
-		'codigo_desconto3'=>array(               // 11.3R
-			'tamanho'=>1,
+		'filler2'=>array(               // 11.3S
+			'tamanho'=>2,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_desconto3'=>array(               //12.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto3'=>array(      //13.3R   
-			'tamanho'=>15,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'codigo_multa'=>array(  //14.3R
-			'tamanho'=>1,
-			'default'=>'0',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'data_multa'=>array(   //15.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_multa'=>array(      //16.3R
-			'tamanho'=>15,
-			'default'=>'0',  
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'informacao_pagador'=>array(        //17.3R
-			'tamanho'=>10,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'mensagem_3'=>array(          // 18.3
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'mensagem_4'=>array(        //19.3R
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'email_pagador'=>array(    //20.3R   
-			'tamanho'=>50,
-			'default'=>' ', 
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler4'=>array(         //21.3R
-			'tamanho'=>11,
+		'filler3'=>array(               //12.3S
+			'tamanho'=>78,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),

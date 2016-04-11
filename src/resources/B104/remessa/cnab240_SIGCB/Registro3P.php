@@ -23,9 +23,9 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\caixa\remessa\cnab240_SIGCB;
+namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
-use CnabPHP\RegistroAbstract;
+use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 use CnabPHP\Exception;
 
@@ -59,8 +59,8 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'filler1'=>array(               // 6.3P
 			'tamanho'=>1,
-			'default'=>'0',
-			'tipo'=>'int',
+			'default'=>' ',
+			'tipo'=>'alfa',
 			'required'=>true),
 		'codigo_movimento'=>array(      // 7.3P
 			'tamanho'=>2,
@@ -128,7 +128,7 @@ class Registro3P extends Generico3
 		'entrega_boleto'=>array(        //18.3P
 			'tamanho'=>1,
 			'default'=>'0',
-			'tipo'=>'alfa',
+			'tipo'=>'int', // originalmente no manual esta alfa mas foi mudado para int para funcionar 
 			'required'=>true),
 		'seu_numero'=>array(            //19.3P   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
 			'tamanho'=>11,
@@ -159,7 +159,7 @@ class Registro3P extends Generico3
 		'agencia_cobradora_dv'=>array(    //23.3P
 			'tamanho'=>1,
 			'default'=>'0',
-			'tipo'=>'alfa',
+			'tipo'=>'int', // originalmente no manual esta alfa mas foi mudado para int para funcionar
 			'required'=>true),
 		'especie_titulo'=>array(    //24.3P
 			'tamanho'=>2,
@@ -169,7 +169,7 @@ class Registro3P extends Generico3
 		'aceite'=>array(            //25.3P
 			'tamanho'=>1,
 			'default'=>'N',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
 		'data_emissao'=>array(            //26.3P
 			'tamanho'=>8,
@@ -206,19 +206,19 @@ class Registro3P extends Generico3
 			'tamanho'=>13,
 			'default'=>'0',
 			'tipo'=>'decimal',
-			'precicion'=>2,
+			'precision'=>2,
 			'required'=>true),
 		'vlr_IOF'=>array(            //33.3P
 			'tamanho'=>13,
 			'default'=>'0',
 			'tipo'=>'decimal',
-			'precicion'=>2,
+			'precision'=>2,
 			'required'=>true),
 		'vlr_abatimento'=>array(            //34.3P
 			'tamanho'=>13,
 			'default'=>'0',
 			'tipo'=>'decimal',
-			'precicion'=>2,
+			'precision'=>2,
 			'required'=>true),
 		'seu_numero2'=>array(            //35.3P
 			'tamanho'=>25,
@@ -242,7 +242,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'prazo_baixar'=>array(            //39.3P
 			'tamanho'=>3,
-			'default'=>' ',
+			'default'=>'90',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'codigo_moeda'=>array(            //40.3P

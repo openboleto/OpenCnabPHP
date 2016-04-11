@@ -1,8 +1,8 @@
 <?php
 namespace CnabPHP\resources\generico\remessa\cnab400;
-use CnabPHP\RegistroAbstract;
+use CnabPHP\RegistroRemAbstract;
 
-class Generico0 extends RegistroAbstract
+class Generico0 extends RegistroRemAbstract
 {
 }
 

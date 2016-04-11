@@ -23,11 +23,11 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\caixa\remessa\cnab240_SIGCB;
+namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\Exception;
 
-class Registro3S1e2 extends Generico3
+class Registro3S3 extends Generico3
 {
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3S
@@ -57,7 +57,7 @@ class Registro3S1e2 extends Generico3
 			'required'=>true),
 		'filler1'=>array(               // 6.3S
 			'tamanho'=>1,
-			'default'=>'0',
+			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_movimento'=>array(      // 7.3S
@@ -70,27 +70,37 @@ class Registro3S1e2 extends Generico3
 			
 		'tipo_impressao'=>array(               // 8.3S
 			'tamanho'=>1,
-			'default'=>'0',
+			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler'=>array(            // 9.3S
-			'tamanho'=>2,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'mensagem_140'=>array(       //10.3S
-			'tamanho'=>140,
+		'mensagem_5'=>array(                // 9.3S
+			'tamanho'=>40,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler2'=>array(               // 11.3S
-			'tamanho'=>2,
-			'default'=>'0',
-			'tipo'=>'int',
+		'mensagem_6'=>array(                //10.3S
+			'tamanho'=>40,
+			'default'=>' ',
+			'tipo'=>'alfa',
 			'required'=>true),
-		'filler3'=>array(               //12.3S
-			'tamanho'=>78,
-			'default'=>'0',
+		'mensagem_7'=>array(               // 11.3S
+			'tamanho'=>40,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'mensagem_8'=>array(               //12.3S
+			'tamanho'=>40,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler2'=>array(               //13.3S
+			'tamanho'=>40,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler3'=>array(               //14.3S
+			'tamanho'=>22,
+			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);

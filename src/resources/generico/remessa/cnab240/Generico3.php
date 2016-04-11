@@ -24,12 +24,12 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\remessa\cnab240;
-use CnabPHP\RegistroAbstract;
+use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 use CnabPHP\Exception;
 use CnabPHP\Especie;
 
-class Generico3 extends RegistroAbstract
+class Generico3 extends RegistroRemAbstract
 {
 	protected function set_codigo_lote($value)
 	{
@@ -104,6 +104,10 @@ class Generico3 extends RegistroAbstract
 		{
 			$this->data['seu_numero'] = $value != ' ' ? $value : $this->data['nosso_numero'];    
 		}
+	}
+	protected function set_seu_numero2($value)
+	{
+		$this->data['seu_numero2'] = $value != ' ' ? $value : $this->data['nosso_numero'];    
 	}
 	protected function set_especie_titulo($value)
 	{
