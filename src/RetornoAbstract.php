@@ -5,11 +5,11 @@ abstract class RetornoAbstract
 {
 	public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
 	public static $layout;// recebera o nome do layout na instacia?ao  
-	public static $hearder; // armazena o objeto registro 0 do arquivo
-	public static $conteudo; // mantem os dados passados em $data na instanciação
-	public static $loteCounter = 1; // contador de lotes
-	private static $children = array(); // armazena os registros filhos da classe remessa
-	public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
+	public  $hearder; // armazena o objeto registro 0 do arquivo
+	public  $conteudo; // mantem os dados passados em $data na instanciação
+	//public static $loteCounter = 1; // contador de lotes
+	private  $children = array(); // armazena os registros filhos da classe remessa
+	//public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
 
 	/*
 	* método __construct()
@@ -49,9 +49,9 @@ abstract class RetornoAbstract
 		self::$banco = "B".$codigo_banco;
 		self::$layout = "L".$layout_versao;
 		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro0';
-		self::$conteudo = $conteudo; 
-		self::$hearder = new $class($lines[0]);
-		self::$children[] = self::$hearder;
+		$this->conteudo = $conteudo; 
+		$this->hearder = new $class($lines[0]);
+		$this->children[] = $this->hearder;
 	}
 	/*
 	* método inserirDetalhe()
@@ -114,7 +114,7 @@ abstract class RetornoAbstract
 	* Metodo que percorre todos os filhos acionando o metodo getText() deles
 	*/
 	public function getText(){
-		foreach(self::$children as $child){
+		foreach($this->$children as $child){
 			$child->getText();
 		}
 		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';

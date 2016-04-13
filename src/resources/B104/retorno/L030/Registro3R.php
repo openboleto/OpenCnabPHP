@@ -23,140 +23,125 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B104\retorno\L030; // SIGCB
-use CnabPHP\resources\generico\retorno\L030\Generico0;
+namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
+use CnabPHP\resources\generico\remessa\cnab240\Generico3;
+use CnabPHP\Exception;
 
-class Registro0 extends Generico0
+class Registro3R extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(
+		'codigo_banco'=>array(          // 1.3R
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(
+		'codigo_lote'=>array(           // 2.3R
 			'tamanho'=>4,
-			'default'=>'0000',
+			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(
+		'tipo_registro'=>array(         // 3.3R
 			'tamanho'=>1,
+			'default'=>'3',
+			'tipo'=>'int',
+			'required'=>true),
+		'numero_registro'=>array(       // 4.3R
+			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler1'=>array(
-			'tamanho'=>9,
-			'default'=>' ',
+		'seguimento'=>array(            // 5.3R
+			'tamanho'=>1,
+			'default'=>'R',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'tipo_inscricao'=>array(
+		'filler1'=>array(               // 6.3R
 			'tamanho'=>1,
-			'default'=>'',
+			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_inscricao'=>array(
-			'tamanho'=>14,
-			'default'=>'',
+		'codigo_movimento'=>array(      // 7.3R
+			'tamanho'=>2,
+			'default'=>'01', // entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
-		'uso_caixa1'=>array(
-			'tamanho'=>20,
+			
+			// - ------------------ até aqui é igual para todo registro tipo 3
+			
+		'codigo_desconto2'=>array(               // 8.3R
+			'tamanho'=>1,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'agencia'=>array(
-			'tamanho'=>5,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'agencia_dv'=>array(
-			'tamanho'=>1,
-			'default'=>'',
-			'tipo'=>'int','required'=>true),
-		'codigo_beneficiario'=>array(
-			'tamanho'=>6,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'uso_caixa2'=>array(
+		'data_desconto2'=>array(            // 9.3R
 			'tamanho'=>8,
 			'default'=>'0',
+			'tipo'=>'date',
+			'required'=>true),
+		'vlr_desconto2'=>array(       //10.3R
+			'tamanho'=>15,
+			'default'=>'0',
+			'tipo'=>'decimal',
+			'precision'=>2,
+			'required'=>true),
+		'codigo_desconto3'=>array(               // 11.3R
+			'tamanho'=>1,
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'nome_empresa'=>array(
-			'tamanho'=>30,
-			'default'=>'',
+		'data_desconto3'=>array(               //12.3R
+			'tamanho'=>8,
+			'default'=>'0',
+			'tipo'=>'date',
+			'required'=>true),
+		'vlr_desconto3'=>array(      //13.3R   
+			'tamanho'=>15,
+			'default'=>'0',
+			'tipo'=>'decimal',
+			'precision'=>2,
+			'required'=>true),
+		'codigo_multa'=>array(  //14.3R
+			'tamanho'=>1,
+			'default'=>'0',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'nome_banco'=>array(
-			'tamanho'=>30,
-			'default'=>'CAIXA ECONOMICA FEDERAL',
-			'tipo'=>'alfa',
+		'data_multa'=>array(   //15.3R
+			'tamanho'=>8,
+			'default'=>'0',
+			'tipo'=>'date',
 			'required'=>true),
-		'filler3'=>array(
+		'vlr_multa'=>array(      //16.3R
+			'tamanho'=>15,
+			'default'=>'0',  
+			'tipo'=>'decimal',
+			'precision'=>2,
+			'required'=>true),
+		'informacao_pagador'=>array(        //17.3R
 			'tamanho'=>10,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'codigo_remessa'=>array(
-			'tamanho'=>1,
-			'default'=>'1',
-			'tipo'=>'int',
-			'required'=>true),
-		'data_geracao'=>array(
-			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
-			'tipo'=>'date',
-			'required'=>true),
-		'hora_geracao'=>array(
-			'tamanho'=>6,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
-			'tipo'=>'int',
-			'required'=>true),
-		'numero_sequencial_arquivo'=>array(
-			'tamanho'=>6,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'versao_layout'=>array(
-			'tamanho'=>3,
-			'default'=>'050',
-			'tipo'=>'int',
-			'required'=>true),
-		'densidade_gravacao'=>array(
-			'tamanho'=>5,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler4'=>array(
-			'tamanho'=>20,
+		'mensagem_3'=>array(          // 18.3
+			'tamanho'=>40,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'situacao_arquivo'=>array(
-			'tamanho'=>20,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'versao_aplicativo'=>array(
-			'tamanho'=>4,
+		'mensagem_4'=>array(        //19.3R
+			'tamanho'=>40,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler5'=>array(
-			'tamanho'=>25,
+		'email_pagador'=>array(    //20.3R   
+			'tamanho'=>50,
+			'default'=>' ', 
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler4'=>array(         //21.3R
+			'tamanho'=>11,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
-	public function __construct($linhaTxt)
-	{
-		parent::__construct($linhaTxt);
-		$this->inserirDetalhe($linhaTxt);
-	}
-	public function inserirDetalhe($linhaTxt)
-	{
-
-	}
 }
+
 ?>

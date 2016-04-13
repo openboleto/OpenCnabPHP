@@ -23,10 +23,10 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B104\retorno\L030; // SIGCB
-use CnabPHP\resources\generico\retorno\L030\Generico0;
+namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
+use CnabPHP\resources\generico\remessa\cnab240\Generico1;
 
-class Registro0 extends Generico0
+class Registro1 extends Generico1
 {
 	protected $meta = array(
 		'codigo_banco'=>array(
@@ -36,16 +36,36 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'codigo_lote'=>array(
 			'tamanho'=>4,
-			'default'=>'0000',
+			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
 		'tipo_registro'=>array(
 			'tamanho'=>1,
-			'default'=>'0',
+			'default'=>1,
+			'tipo'=>'int',
+			'required'=>true),
+		'operacao'=>array(
+			'tamanho'=>1,
+			'default'=>'R',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'tipo_servico'=>array(
+			'tamanho'=>2,
+			'default'=>'01',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler1'=>array(
-			'tamanho'=>9,
+			'tamanho'=>2,
+			'default'=>'0',
+			'tipo'=>'int',
+			'required'=>true),
+		'versa_layout'=>array(
+			'tamanho'=>3,
+			'default'=>'030',
+			'tipo'=>'int',
+			'required'=>true),
+		'filler2'=>array(
+			'tamanho'=>1,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
@@ -55,12 +75,17 @@ class Registro0 extends Generico0
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_inscricao'=>array(
-			'tamanho'=>14,
+			'tamanho'=>15,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'codigo_beneficiario'=>array(
+			'tamanho'=>6,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'uso_caixa1'=>array(
-			'tamanho'=>20,
+			'tamanho'=>14,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
@@ -73,13 +98,18 @@ class Registro0 extends Generico0
 			'tamanho'=>1,
 			'default'=>'',
 			'tipo'=>'int','required'=>true),
-		'codigo_beneficiario'=>array(
+		'codigo_convenio'=>array(
 			'tamanho'=>6,
-			'default'=>'',
+			'default'=>'0',
+			'tipo'=>'int',
+			'required'=>true),
+		'modelo_boleto'=>array(
+			'tamanho'=>7,
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
 		'uso_caixa2'=>array(
-			'tamanho'=>8,
+			'tamanho'=>1,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
@@ -88,75 +118,37 @@ class Registro0 extends Generico0
 			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'nome_banco'=>array(
-			'tamanho'=>30,
-			'default'=>'CAIXA ECONOMICA FEDERAL',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler3'=>array(
-			'tamanho'=>10,
+		'mensagem_fixa1'=>array(// mensagems 1 e 2 : somente use para mensagens que serao impressas de forma identica em todos os boletos do lote
+			'tamanho'=>40,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'codigo_remessa'=>array(
-			'tamanho'=>1,
-			'default'=>'1',
+		'mensagem_fixa2'=>array(// mensagems 1 e 2 : somente use para mensagens que serao impressas de forma identica em todos os boletos do lote
+			'tamanho'=>40,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'numero_remessa'=>array(
+			'tamanho'=>8,
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_geracao'=>array(
+		'data_gravacao'=>array(
 			'tamanho'=>8,
 			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
 			'tipo'=>'date',
 			'required'=>true),
-		'hora_geracao'=>array(
-			'tamanho'=>6,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
-			'tipo'=>'int',
-			'required'=>true),
-		'numero_sequencial_arquivo'=>array(
-			'tamanho'=>6,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'versao_layout'=>array(
-			'tamanho'=>3,
-			'default'=>'050',
-			'tipo'=>'int',
-			'required'=>true),
-		'densidade_gravacao'=>array(
-			'tamanho'=>5,
+		'filler3'=>array(
+			'tamanho'=>8,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler4'=>array(
-			'tamanho'=>20,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'situacao_arquivo'=>array(
-			'tamanho'=>20,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'versao_aplicativo'=>array(
-			'tamanho'=>4,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler5'=>array(
-			'tamanho'=>25,
+			'tamanho'=>33,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
-	public function __construct($linhaTxt)
-	{
-		parent::__construct($linhaTxt);
-		$this->inserirDetalhe($linhaTxt);
-	}
-	public function inserirDetalhe($linhaTxt)
-	{
-
-	}
 }
+
 ?>

@@ -26,12 +26,14 @@
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
 include("../../autoloader.php");
-$fileContent = file_get_contents("cnab240_bb.ret");
+$fileContent = file_get_contents("retorno_cnab240_caixa.ret");
 
 $arquivo = new Retorno($fileContent);
-$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
-$lote->inserirDetalhe(array(
+var_dump($arquivo->hearder);
+//$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
+
+/*$lote->inserirDetalhe(array(
 	'codigo_ocorrencia' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
 	'nosso_numero'      => 1, // numero sequencial de boleto
 	'seu_numero'        => 1,// se nao informado usarei o nosso numero 
@@ -57,6 +59,6 @@ $lote->inserirDetalhe(array(
 	'email_pagador'         => 'rogerio@ciatec.net', // data da multa
 	'data_multa'         => '2016-04-09', // informar a data neste formato, // data da multa
 	'valor_multa'        => 30.00, // valor da multa
-));        
-echo $arquivo->getText();
+));        */
+//echo $arquivo->getText();
 ?>

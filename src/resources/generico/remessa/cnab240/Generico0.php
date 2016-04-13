@@ -24,7 +24,7 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\remessa\cnab240;
-use CnabPHP\RegistroRemAbstract;
+use \CnabPHP\RegistroRemAbstract;
 
 class Generico0 extends RegistroRemAbstract
 {

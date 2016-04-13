@@ -24,124 +24,80 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
-use CnabPHP\resources\generico\remessa\cnab240\Generico3;
+use CnabPHP\resources\generico\remessa\cnab240\Generico5;
 use CnabPHP\Exception;
 
-class Registro3R extends Generico3
+class Registro5 extends Generico5
 {
 	protected $meta = array(
-		'codigo_banco'=>array(          // 1.3R
+		'codigo_banco'=>array(      //01.5
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(           // 2.3R
+		'codigo_lote'=>array(       //02.5
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(         // 3.3R
+		'tipo_registro'=>array(     //03.5
 			'tamanho'=>1,
-			'default'=>'3',
+			'default'=>'5',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_registro'=>array(       // 4.3R
-			'tamanho'=>5,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'seguimento'=>array(            // 5.3R
-			'tamanho'=>1,
-			'default'=>'R',
+		'filler1'=>array(          //04.5
+			'tamanho'=>9,
+			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler1'=>array(               // 6.3R
-			'tamanho'=>1,
+		'qtd_registros'=>array(      //05.5
+			'tamanho'=>6,
 			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_movimento'=>array(      // 7.3R
-			'tamanho'=>2,
-			'default'=>'01', // entrada de titulo
-			'tipo'=>'int',
-			'required'=>true),
-			
-			// - ------------------ até aqui é igual para todo registro tipo 3
-			
-		'codigo_desconto2'=>array(               // 8.3R
-			'tamanho'=>1,
+		'qtd_titulos_simples'=>array(           //06.5
+			'tamanho'=>6,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_desconto2'=>array(            // 9.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto2'=>array(       //10.3R
-			'tamanho'=>13,
+		'vrl_titulos_simples'=>array(      //07.5
+			'tamanho'=>15,
 			'default'=>'0',
 			'tipo'=>'decimal',
-			'precision'=>2,
+			'precision'=>'2',
 			'required'=>true),
-		'codigo_desconto3'=>array(               // 11.3R
-			'tamanho'=>1,
+		'qtd_titulos_caucionada'=>array(           //08.5
+			'tamanho'=>6,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_desconto3'=>array(               //12.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto3'=>array(      //13.3R   
-			'tamanho'=>13,
+		'vlr_titulos_caucionada'=>array(    //09.5
+			'tamanho'=>15,
 			'default'=>'0',
 			'tipo'=>'decimal',
-			'precision'=>2,
+			'precision'=>'2',
 			'required'=>true),
-		'codigo_multa'=>array(  //14.3R
-			'tamanho'=>1,
+		'qtd_titulos_descontada'=>array(           //10.5
+			'tamanho'=>6,
 			'default'=>'0',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
-		'data_multa'=>array(   //15.3R
-			'tamanho'=>8,
+		'vlr_titulos_descontada'=>array(    //11.5
+			'tamanho'=>15,
 			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_multa'=>array(      //16.3R
-			'tamanho'=>13,
-			'default'=>'0',  
 			'tipo'=>'decimal',
-			'precision'=>2,
+			'precision'=>'2',
 			'required'=>true),
-		'informacao_pagador'=>array(        //17.3R
-			'tamanho'=>10,
+		'filler2'=>array(        //12.5
+			'tamanho'=>31,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'mensagem_3'=>array(          // 18.3
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'mensagem_4'=>array(        //19.3R
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'email_pagador'=>array(    //20.3R   
-			'tamanho'=>50,
-			'default'=>' ', 
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler4'=>array(         //21.3R
-			'tamanho'=>11,
+		'filler3'=>array(           //13.5
+			'tamanho'=>117,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
 }
-
 ?>

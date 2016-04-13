@@ -29,7 +29,7 @@ use CnabPHP\RegistroRetAbstract;
 class Generico0 extends RegistroRetAbstract
 {
 	protected $counter;
-	protected function set_situacao_arquivo($value)
+	/*protected function set_situacao_arquivo($value)
 	{
 		$this->data['situacao_arquivo'] = ($value=='T')?"REMESSA-TESTE":"REMESSA-PRODUCAO";   
 	}
@@ -48,6 +48,6 @@ class Generico0 extends RegistroRetAbstract
 	public function get_numero_registro(){
 		return null;
 	}
-
+*/
 }
 ?>

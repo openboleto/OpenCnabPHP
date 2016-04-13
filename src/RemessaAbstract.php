@@ -23,7 +23,7 @@ abstract class RemessaAbstract
 		
 		self::$banco = "B".$banco;
 		self::$layout = $layout;
-		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
+		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
 		self::$entryData = $data; 
 		self::$hearder = new $class($data);
 		self::$children[] = self::$hearder;
@@ -35,7 +35,7 @@ abstract class RemessaAbstract
 	*/
 	public function inserirDetalhe($data){
 		
-		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
+		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
 		self::addChild(new $class($data));
 		//self::$counter++;
 	}
@@ -66,7 +66,7 @@ abstract class RemessaAbstract
 	{
 		if(strpos(self::$layout,'240'))
 		{
-			$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
+			$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
 			$loteData = $data ? $data:RemessaAbstract::$entryData; 
 			$lote = new $class($loteData);
 			self::addChild($lote);
@@ -92,7 +92,7 @@ abstract class RemessaAbstract
 		foreach(self::$children as $child){
 			$child->getText();
 		}
-		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
+		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
 		$headerArquivo = new $class(array('1'=>1));
 		$headerArquivo->getText();
 		return implode(PHP_EOL,self::$retorno);

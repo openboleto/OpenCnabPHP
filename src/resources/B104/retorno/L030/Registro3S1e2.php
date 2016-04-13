@@ -27,40 +27,40 @@ namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\Exception;
 
-class Registro3Q extends Generico3
+class Registro3S1e2 extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(          // 1.3Q
+		'codigo_banco'=>array(          // 1.3S
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(           // 2.3Q
+		'codigo_lote'=>array(           // 2.3S
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(         // 3.3Q
+		'tipo_registro'=>array(         // 3.3S
 			'tamanho'=>1,
 			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_registro'=>array(       // 4.3Q
+		'numero_registro'=>array(       // 4.3S
 			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'seguimento'=>array(            // 5.3Q
+		'seguimento'=>array(            // 5.3S
 			'tamanho'=>1,
-			'default'=>'Q',
+			'default'=>'S',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler1'=>array(               // 6.3Q
+		'filler1'=>array(               // 6.3S
 			'tamanho'=>1,
 			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_movimento'=>array(      // 7.3Q
+		'codigo_movimento'=>array(      // 7.3S
 			'tamanho'=>2,
 			'default'=>'01', // entrada de titulo
 			'tipo'=>'int',
@@ -68,82 +68,31 @@ class Registro3Q extends Generico3
 			
 			// - ------------------ até aqui é igual para todo registro tipo 3
 			
-		'tipo_inscricao'=>array(               // 8.3Q
+		'tipo_impressao'=>array(               // 8.3S
 			'tamanho'=>1,
-			'default'=>'',
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_inscricao'=>array(            // 9.3Q
-			'tamanho'=>15,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'nome_pagador'=>array(       //10.3Q
-			'tamanho'=>40,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'endereco_pagador'=>array(               // 11.3Q
-			'tamanho'=>40,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'bairro_pagador'=>array(               //12.3Q
-			'tamanho'=>15,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'cep_pagador'=>array(      //13.3Q   
-			'tamanho'=>5,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'cep_sufixo'=>array(  //14.3Q
-			'tamanho'=>3,
-			'default'=>' ',
-			'tipo'=>'int',
-			'required'=>true),
-		'cidade_pagador'=>array(   //15.3Q
-			'tamanho'=>15,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'uf_pagador'=>array(      //16.3Q
+		'filler'=>array(            // 9.3S
 			'tamanho'=>2,
-			'default'=>'',  // combrança com registro
-			'tipo'=>'alfa',
-			'required'=>true),
-		'tipo_incricao_avalista'=>array(        //17.3Q
-			'tamanho'=>1,
 			'default'=>'0',
-			'tipo'=>'int',
+			'tipo'=>'date',
 			'required'=>true),
-		'numero_incricao_avalista'=>array(          // 18.3
-			'tamanho'=>15,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'nome_avalista'=>array(        //18.3Q
-			'tamanho'=>40,
+		'mensagem_140'=>array(       //10.3S
+			'tamanho'=>140,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'codigo_banco_correspondente'=>array(        //18.3Q
-			'tamanho'=>3,
+		'filler2'=>array(               // 11.3S
+			'tamanho'=>2,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'nosso_numero_banco_correspondente'=>array(            //19.3Q   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
-			'tamanho'=>20,
-			'default'=>' ', // este espaço foi colocado para passa a validação para os seters do generico
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler4'=>array(               //19.3Q
-			'tamanho'=>8,
+		'filler3'=>array(               //12.3S
+			'tamanho'=>78,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		
 	);
 }
 
