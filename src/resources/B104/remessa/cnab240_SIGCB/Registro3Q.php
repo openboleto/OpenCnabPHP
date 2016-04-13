@@ -58,7 +58,7 @@ class Registro3Q extends Generico3
 		'filler1'=>array(               // 6.3Q
 			'tamanho'=>1,
 			'default'=>' ',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
 		'codigo_movimento'=>array(      // 7.3Q
 			'tamanho'=>2,

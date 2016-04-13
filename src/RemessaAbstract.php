@@ -95,7 +95,15 @@ abstract class RemessaAbstract
 		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
 		$headerArquivo = new $class(array('1'=>1));
 		$headerArquivo->getText();
-		return utf8_encode(implode(PHP_EOL,self::$retorno));
+		return implode(PHP_EOL,self::$retorno);
+	}
+	public function save($filename)
+	{        
+		$text = $this->getText();
+
+		file_put_contents($filename, $text);
+
+		return $filename;
 	}
 }
 ?>
