@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -66,7 +66,7 @@ class Registro9 extends Generico9
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler3'=>array(           //13.5
-			'tamanho'=>105,
+			'tamanho'=>205,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
