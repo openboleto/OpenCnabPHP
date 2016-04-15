@@ -16,6 +16,44 @@ Uma classe genérico herda registroAbstract e implementa setters e getters comuns
 </li>
 e por fim uma classe registro herda de genérico e define o layout que sera usado e se por ventura for necessario sobrepÃµe ou implementa novos getters e setters do arquivo generico.
 </li><br>
+<table>
+	<tr>
+		<td colspan="2">
+			REMESSA
+		</td>
+		<td colspan="2">
+			RETORNO
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Layout
+		</td>
+		<td>
+		   Situação 
+		</td>
+		<td>
+			Layout
+		</td>
+		<td>
+		   Situação 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Cnab240_SIGDB
+		</td>
+		<td>
+			Homologado
+		</td>
+		<td>
+			Cnab240_SIGDB
+		</td>
+		<td>
+			em produção
+		</td>
+	</tr>
+</table>
 <pre>
 use \CnabPHP\Remessa;
 

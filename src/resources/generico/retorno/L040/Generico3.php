@@ -25,9 +25,11 @@
 */
 namespace CnabPHP\resources\generico\retorno\L040;
 use CnabPHP\RegistroRetAbstract;
+use CnabPHP\RemessaAbstract;
+use CnabPHP\Exception;
+use CnabPHP\Especie;
 
-class Generico0 extends RegistroRetAbstract
+class Generico3 extends RegistroRetAbstract
 {
-	protected $counter;
 }
 ?>

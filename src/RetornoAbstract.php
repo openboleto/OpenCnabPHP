@@ -3,12 +3,13 @@ namespace CnabPHP;
 
 abstract class RetornoAbstract
 {
+	public  $hearder; // armazena o objeto registro 0 do arquivo
+	private  $children = array(); // armazena os registros filhos da classe remessa
 	public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
 	public static $layout;// recebera o nome do layout na instacia?ao  
-	public  $hearder; // armazena o objeto registro 0 do arquivo
-	public  $conteudo; // mantem os dados passados em $data na instanciação
-	//public static $loteCounter = 1; // contador de lotes
-	private  $children = array(); // armazena os registros filhos da classe remessa
+	public static $loteCounter = 1; // contador de lotes
+	public static $lines; // mantem os dados passados em $data na instanciação
+	public static $linesCounter = 0;
 	//public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
 
 	/*
@@ -36,6 +37,7 @@ abstract class RetornoAbstract
 			$codigo_tipo = substr($lines[0],  142, 1);
 		} elseif ($length == 400 || $length == 401) {
 			$bytes = 400;
+			$layout_versao = '400';
 			$codigo_banco = substr($lines[0], 76, 3);
 			$codigo_tipo = substr($lines[0],  1, 1);
 		}
@@ -49,20 +51,12 @@ abstract class RetornoAbstract
 		self::$banco = "B".$codigo_banco;
 		self::$layout = "L".$layout_versao;
 		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro0';
-		$this->conteudo = $conteudo; 
+		self::$lines = $lines; 
 		$this->hearder = new $class($lines[0]);
 		$this->children[] = $this->hearder;
-	}
-	/*
-	* método inserirDetalhe()
-	* Recebe os parametros
-	* @$data = um array contendo os dados nessesarios para o arquvio
-	*/
-	public function inserirDetalhe($data){
+		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro9';
+		$this->children[] = new $class($lines[count($lines)-1]);
 
-		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro1';
-		self::addChild(new $class($data));
-		//self::$counter++;
 	}
 	/*
 	* m?todo changeLayout()
@@ -72,34 +66,6 @@ abstract class RetornoAbstract
 	public function changeLayout($newLayout)
 	{
 		self::$layout = $newLayout;
-	}
-	/*
-	* m?todo addChild()
-	* Recebe os parametros abaixo e insere num array para uso fururo
-	* @RegistroRemAbstract $child = recebe um filho de RegistroRemAbstract
-	*/
-
-	static private function addChild(RegistroRemAbstract $child){
-		self::$children[] = $child;   
-	}
-	/*
-	* método addLote()
-	* Recebe os parametros abaixo e insere num array para uso fururo
-	* @array $data = recebe um array contendo os dados do lote a sera aberto e retorna para qualqer layout 240 o lote criado ou $this se outro 
-	*/
-	public function addLote(array $data)
-	{
-		if(strpos(self::$layout,'240'))
-		{
-			$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
-			$loteData = $data ? $data:RemessaAbstract::$entryData; 
-			$lote = new $class($loteData);
-			self::addChild($lote);
-		}else{
-			$lote = $this;
-		} 
-		return $lote;
-		self::$loteCounter++;
 	}
 	/*
 	* método getLote()
@@ -117,7 +83,7 @@ abstract class RetornoAbstract
 		foreach($this->$children as $child){
 			$child->getText();
 		}
-		$class = 'CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
+		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro9';
 		$headerArquivo = new $class(array('1'=>1));
 		$headerArquivo->getText();
 		return implode(PHP_EOL,self::$retorno);

@@ -30,7 +30,7 @@ $fileContent = file_get_contents("retorno_cnab240_caixa.ret");
 
 $arquivo = new Retorno($fileContent);
 
-var_dump($arquivo->hearder);
+var_dump($arquivo);
 //$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 /*$lote->inserirDetalhe(array(

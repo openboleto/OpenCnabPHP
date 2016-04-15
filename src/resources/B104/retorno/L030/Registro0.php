@@ -25,6 +25,7 @@
  */
 namespace CnabPHP\resources\B104\retorno\L030; // SIGCB
 use CnabPHP\resources\generico\retorno\L030\Generico0;
+use CnabPHP\RetornoAbstract;
 
 class Registro0 extends Generico0
 {
@@ -149,14 +150,23 @@ class Registro0 extends Generico0
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
+	
 	public function __construct($linhaTxt)
 	{
 		parent::__construct($linhaTxt);
-		$this->inserirDetalhe($linhaTxt);
+		$this->inserirDetalhe(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 	}
-	public function inserirDetalhe($linhaTxt)
-	{
+	/*
+	* método inserirDetalhe()
+	* Recebe os parametros
+	* @$data = um array contendo os dados nessesarios para o arquvio
+	*/
+	public function inserirDetalhe($linhaTxt){
 
+		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro1';
+		self::addChild(new $class($linhaTxt));
+		RetornoAbstract::$linesCounter++;
+		//self::$counter++;
 	}
 }
 ?>

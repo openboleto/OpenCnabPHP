@@ -25,9 +25,10 @@
 */
 namespace CnabPHP\resources\generico\retorno\L040;
 use CnabPHP\RegistroRetAbstract;
+use CnabPHP\RetornoAbstract;
 
-class Generico0 extends RegistroRetAbstract
+class Generico5 extends RegistroRetAbstract
 {
-	protected $counter;
 }
+
 ?>

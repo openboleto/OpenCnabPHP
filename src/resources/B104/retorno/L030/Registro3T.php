@@ -24,12 +24,11 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
-use CnabPHP\resources\generico\remessa\cnab240\Generico3;
-use CnabPHP\RegistroRemAbstract;
-use CnabPHP\RemessaAbstract;
+use CnabPHP\resources\generico\retorno\cnab240\Generico3;
+use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
-class Registro3P extends Generico3
+class Registro3T extends Generico3
 {
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3P
@@ -248,8 +247,7 @@ class Registro3P extends Generico3
 		'codigo_moeda'=>array(            //40.3P
 			'tamanho'=>2,
 			'default'=>'9',
-			'tipo'=>'int',
-			'required'=>true),
+			'tipo'=>'int','required'=>true),
 		'filler5'=>array(            //41.3P
 			'tamanho'=>10,
 			'default'=>'0',
@@ -268,41 +266,9 @@ class Registro3P extends Generico3
 	}
 	public function inserirDetalhe($data)
 	{
-		$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3Q';
+		$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\remessa\\'.RetornoAbstract::$layout.'\Registro3U';
 		$this->children[] = new $class($data);
-		if( isset($data['codigo_desconto2']) || 
-		isset($data['codigo_desconto3']) ||
-		isset($data['codigo_multa']) ||
-		isset($data['mensagem']) ||
-		isset($data['email_pagador']))
-		{
-			$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3R';
-			$this->children[] = new $class($data);
-		}
-		if($data['emissao_boleto']==1)
-		{
-			if(isset($data['mensagem_frente']))
-			{
-				$data['mensagem_140'] = $data['mensagem_frente'];
-				$data['tipo_impressao'] = 1; 
-				$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3S1e2';
-				$this->children[] = new $class($data);
-			}   
-			if(isset($data['mensagem_verso']))
-			{
-				$data['mensagem_140'] = $data['mensagem_verso'];
-				$data['tipo_impressao'] = 2; 
-				$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3S1e2';
-				$this->children[] = new $class($data);
-			}   
-			if(isset($data['mensagem']))
-			{
-				if(count(explode(PHP_EOL,$data['mensagem']))>4){
-					$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3S3';
-					$this->children[] = new $class($data);
-				}
-			}
-		}
+		RetornoAbstract::$linesCounter++;
 	}    
 }
 

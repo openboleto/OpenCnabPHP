@@ -23,11 +23,12 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
-use CnabPHP\resources\generico\remessa\cnab240\Generico3;
+namespace CnabPHP\resources\B104\retorno\L040;
+use CnabPHP\resources\generico\retorno\L040\Generico3;
+//use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
-class Registro3Q extends Generico3
+class Registro3U extends Generico3
 {
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3Q

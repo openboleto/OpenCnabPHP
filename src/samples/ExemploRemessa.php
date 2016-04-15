@@ -68,6 +68,6 @@ $lote->inserirDetalhe(array(
 	'data_multa'         => '2016-04-09', // informar a data neste formato, // data da multa
 	'valor_multa'        => 30.00, // valor da multa
 ));        
-//echo $arquivo->getText();
-$arquivo->save("teste.rem");
+echo $arquivo->getText();
+//$arquivo->save("teste.rem");
 ?>
