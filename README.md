@@ -41,13 +41,13 @@ e por fim uma classe registro herda de genérico e define o layout que sera usado
 	</tr>
 	<tr>
 		<td>
-			Cnab240_SIGDB
+			Cnab240_SIGCB
 		</td>
 		<td>
 			Homologado
 		</td>
 		<td>
-			Cnab240_SIGDB
+			Cnab240_SIGCB
 		</td>
 		<td>
 			em produção
