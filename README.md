@@ -50,7 +50,7 @@ e por fim uma classe registro herda de genérico e define o layout que sera usad
 			Cnab240_SIGCB
 		</td>
 		<td>
-			em produção
+			aguardando voluntario para teste
 		</td>
 	</tr>
 </table>
