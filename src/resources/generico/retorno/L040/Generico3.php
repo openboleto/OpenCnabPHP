@@ -31,5 +31,9 @@ use CnabPHP\Especie;
 
 class Generico3 extends RegistroRetAbstract
 {
+	public function get_R3U()
+	{
+		return $this->children[0];
+	}
 }
 ?>

@@ -29,6 +29,7 @@ use CnabPHP\RetornoAbstract;
 
 class Registro0 extends Generico0
 {
+	public $trailler;
 	protected $meta = array(
 		'codigo_banco'=>array(
 			'tamanho'=>3,
@@ -73,7 +74,8 @@ class Registro0 extends Generico0
 		'agencia_dv'=>array(
 			'tamanho'=>1,
 			'default'=>'',
-			'tipo'=>'int','required'=>true),
+			'tipo'=>'int',
+			'required'=>true),
 		'codigo_beneficiario'=>array(
 			'tamanho'=>6,
 			'default'=>'',
@@ -106,12 +108,12 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'data_geracao'=>array(
 			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',
 			'tipo'=>'date',
 			'required'=>true),
 		'hora_geracao'=>array(
 			'tamanho'=>6,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_sequencial_arquivo'=>array(
@@ -160,11 +162,13 @@ class Registro0 extends Generico0
 	{
 		while(RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines)-4))
 		{
+			
 			$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
-			$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			$lote = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro5';
+			$lote->trailler = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			$this->children[] = $lote;
 		}
-		$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro5';
-		$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 	}
 }
 ?>

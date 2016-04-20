@@ -3,7 +3,7 @@ namespace CnabPHP;
 
 abstract class RetornoAbstract
 {
-	public  $hearder; // armazena o objeto registro 0 do arquivo
+	//public  $hearder; // armazena o objeto registro 0 do arquivo
 	private  $children = array(); // armazena os registros filhos da classe remessa
 	public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
 	public static $layout;// recebera o nome do layout na instacia?ao  
@@ -52,11 +52,9 @@ abstract class RetornoAbstract
 		self::$layout = "L".$layout_versao;
 		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro0';
 		self::$lines = $lines; 
-		$this->hearder = new $class($lines[0]);
-		$this->children[] = $this->hearder;
+		$this->children[] = new $class($lines[0]);
 		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro9';
-		$this->children[] = new $class($lines[count($lines)-1]);
-
+		$this->children[] = new $class($lines[count($lines)-2]);
 	}
 	/*
 	* m?todo changeLayout()
@@ -72,21 +70,24 @@ abstract class RetornoAbstract
 	* Metodo statico para pegar o objeto do lote
 	* @$index = o indice do lote , normalmente 1
 	*/
-	public static function getLote($index){
-		return self::$children[$index];
+	public function getRegistros($lote = 1)
+	{
+		$arquivo = $this->children[0];
+		return $arquivo->getRegistros($lote);
 	}	
 	/*
-	* método getText()
-	* Metodo que percorre todos os filhos acionando o metodo getText() deles
+	* método getChilds()
+	* Metodo que retorna todos os filhos
 	*/
-	public function getText(){
-		foreach($this->$children as $child){
-			$child->getText();
-		}
-		$class = 'CnabPHP\resources\\'.self::$banco.'\retorno\\'.self::$layout.'\Registro9';
-		$headerArquivo = new $class(array('1'=>1));
-		$headerArquivo->getText();
-		return implode(PHP_EOL,self::$retorno);
+	public function getChilds()
+	{
+		$arquivo = $this->children[0];
+		return $arquivo->getChilds();
+	}
+	public function getChild($index = 0)
+	{
+		$arquivo = $this->children[0];
+		return $arquivo->getChild($index);
 	}
 }
 ?>

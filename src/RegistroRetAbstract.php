@@ -41,8 +41,10 @@ abstract class RegistroRetAbstract
 		// carrega o objeto correspondente
 		$posicao = 0;
 		foreach($this->meta as $key =>$value){
-			$this->$key = substr($linhaTxt,$posicao,$value['tamanho']);
-			$posicao += $value['tamanho'];
+			$this->$key = (isset($value['precision']))?
+			substr($linhaTxt,$posicao,$value['tamanho']+$value['precision']):substr($linhaTxt,$posicao,$value['tamanho']);
+			$posicao += (isset($value['precision']))?$value['tamanho']+$value['precision']:$value['tamanho'];
+
 		}
 	}
 
@@ -64,8 +66,8 @@ abstract class RegistroRetAbstract
 			$metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
 			switch ($metaData['tipo']) {
 				case 'decimal':
-					$inteiro = abs(substr($value, 0, $metaData['tamanho']-$metaData['precision'])); 
-					$decimal = abs(substr($value, $metaData['tamanho']-$metaData['precision'], $metaData['precision']))/100;
+					$inteiro = abs(substr($value, 0, $metaData['tamanho'])); 
+					$decimal = abs(substr($value, $metaData['tamanho'], $metaData['precision']))/100;
 					$retorno = ($inteiro+$decimal); 
 					$this->data[$prop] =  $retorno;
 					break;
@@ -78,11 +80,13 @@ abstract class RegistroRetAbstract
 					$this->data[$prop] =  $retorno;
 					break;
 				case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
-					$retorno = date("y-m-d",strtotime($value));
+					$date = \DateTime::createFromFormat('dmY',sprintf( '%06d' , $value));
+					$retorno = date("Y-m-d",strtotime($date->date));
 					$this->data[$prop] =  $retorno;
 					break;
 				case $metaData['tipo'] == 'date' && $metaData['tamanho']==8:
-					$retorno = date("Y-m-d",strtotime($value));
+					$date = \DateTime::createFromFormat('dmY',sprintf( '%08d' , $value));
+					$retorno = $date->format("Y-m-d");
 					$this->data[$prop] =  $retorno;
 					break;
 				default:
@@ -106,7 +110,7 @@ abstract class RegistroRetAbstract
 		}
 		else
 		{
-			return $this->___get($prop);
+			return $this->data[$prop];
 		}
 	}
 
@@ -119,7 +123,7 @@ abstract class RegistroRetAbstract
 		// retorna o valor da propriedade
 		if (isset($this->meta[$prop]))
 		{
-			//$metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
+			$metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
 			//$this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop]==''?$metaData['default']:$this->data[$prop];
 			//if($metaData['required']==true && ($this->data[$prop]=='' || !isset($this->data[$prop])))
 			//{
@@ -164,5 +168,22 @@ abstract class RegistroRetAbstract
 			return $this->data[$prop];
 		}
 	}
+	/*
+	* método getChilds()
+	* Metodo que retorna todos os filhos
+	*/
+	public function getChilds()
+	{
+		return $this->children;
+	}
+	/*
+	* método getChild()
+	* Metodo que retorna um filho
+	*/
+	public function getChild($index = 0)
+	{
+		return $this->children[$index];
+	}
+
 }
 ?>

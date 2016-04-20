@@ -28,6 +28,10 @@ use CnabPHP\RegistroRetAbstract;
 
 class Generico0 extends RegistroRetAbstract
 {
-	protected $counter;
+	public function getRegistros($lote = 1)
+	{
+		$lote = $this->children[$lote-1];
+		return $lote->getChilds();
+	}
 }
 ?>

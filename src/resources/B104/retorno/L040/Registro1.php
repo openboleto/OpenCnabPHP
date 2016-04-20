@@ -29,6 +29,7 @@ use CnabPHP\RetornoAbstract;
 
 class Registro1 extends Generico1
 {
+	public $trailler;
 	protected $meta = array(
 		'codigo_banco'=>array(
 			'tamanho'=>3,
@@ -142,7 +143,7 @@ class Registro1 extends Generico1
 		'data_credito'=>array(
 			'tamanho'=>8,
 			'default'=>'0',
-			'tipo'=>'int',
+			'tipo'=>'date',
 			'required'=>true),
 		'filler4'=>array(
 			'tamanho'=>33,
@@ -168,9 +169,8 @@ class Registro1 extends Generico1
 			$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 			
 		}
-		RetornoAbstract::$linesCounter++;
-		$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro5';
-		$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+		RetornoAbstract::$linesCounter--;
+		$teste = array_pop($this->children);
 	}
 
 }
