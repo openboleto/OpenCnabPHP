@@ -99,4 +99,23 @@ $lote->inserirDetalhe(array(
 ));        
 echo $arquivo->getText();
 </pre>
+<line>
+<h3>Lendo retorno</h3>
+<pre>
+$fileContent = file_get_contents("retorno_cnab240_caixa.ret");
+
+$arquivo = new Retorno($fileContent);
+
+$registros = $arquivo->getRegistros();
+foreach($registros as $registro)
+{
+	if($registro->R3U->codigo_movimento==6){
+		$nossoNumero   = $registro->nosso_numero;
+		$valorRecebido = $registro->R3U->vlr_pago;
+		$dataPagamento = $registro->R3U->data_ocorrencia;
+		$carteira      = $registro->carteira;
+		// você ja pode dar baixa
+	}
+}
+</pre>
 Agaurdando volutarios para edição e testes dos layouts.
