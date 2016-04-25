@@ -36,7 +36,7 @@ foreach($registros as $registro)
 	if($registro->R3U->codigo_movimento==6){
 		$nossoNumero   = $registro->nosso_numero;
 		$valorRecebido = $registro->R3U->vlr_pago;
-		$dataPagamento = $registro->R3U->data_ocorrencia;
+		$dataPagamento = $registro->data_ocorrencia;
 		$carteira      = $registro->carteira;
 		// você ja pode dar baixa
 	}

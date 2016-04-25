@@ -79,18 +79,21 @@ abstract class RegistroRetAbstract
 					$retorno = trim($value); 
 					$this->data[$prop] =  $retorno;
 					break;
-				case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
-					$date = \DateTime::createFromFormat('dmY',sprintf( '%06d' , $value));
-					$retorno = date("Y-m-d",strtotime($date->date));
-					$this->data[$prop] =  $retorno;
-					break;
-				case $metaData['tipo'] == 'date' && $metaData['tamanho']==8:
-					$date = \DateTime::createFromFormat('dmY',sprintf( '%08d' , $value));
-					$retorno = $date->format("Y-m-d");
-					$this->data[$prop] =  $retorno;
+				case 'date':
+					if($metaData['tamanho']==6)
+					{
+						$date = \DateTime::createFromFormat('dmY',sprintf( '%06d' , $value));
+						$retorno = date("Y-m-d",strtotime($date->date));
+						$this->data[$prop] =  $retorno;
+					}elseif($metaData['tamanho']==8)
+					{
+						$date = \DateTime::createFromFormat('dmY',sprintf( '%08d' , $value));
+						$retorno = $date->format("Y-m-d");
+						$this->data[$prop] =  $retorno;
+					}
 					break;
 				default:
-					$this->data[$prop] = null;
+					$this->data[$prop] = $value;
 					break;
 			}
 		}
@@ -143,11 +146,11 @@ abstract class RegistroRetAbstract
 					//return str_pad(substr($retorno,0,$metaData['tamanho']),$metaData['tamanho'],' ',STR_PAD_RIGHT);
 					break;
 				case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
-					return ($this->data[$prop])?date("dmy",strtotime($this->data[$prop])):'';
+					return ($this->data[$prop])?date("d/m/y",strtotime($this->data[$prop])):'';
 					//return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
 					break;
 				case $metaData['tipo'] == 'date' && $metaData['tamanho']==8:
-					return ($this->data[$prop])?date("dmY",strtotime($this->data[$prop])):'';
+					return ($this->data[$prop])?date("d/m/Y",strtotime($this->data[$prop])):'';
 					//return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
 					break;
 				default:
@@ -155,6 +158,9 @@ abstract class RegistroRetAbstract
 					break;
 			}
 		}
+	}
+	public function get_meta(){
+		return $this->meta;
 	}
 	/*
 	* método getUnformated()

@@ -231,5 +231,17 @@ class Registro3T extends Generico3
 			}
 		}
 	}
+	public function get_data_ocorrencia(){
+		$r3u = $this->R3U;
+		return $r3u->___get('data_ocorrencia');
+	}
+	public function get_vlr_pago(){
+		$r3u = $this->R3U;
+		return $r3u->___get('vlr_pago');
+	}
+	public function get_codigo_movimento(){
+		$r3u = $this->R3U;
+		return $r3u->codigo_movimento;
+	}
 }
 ?>

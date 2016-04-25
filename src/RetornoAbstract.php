@@ -89,5 +89,10 @@ abstract class RetornoAbstract
 		$arquivo = $this->children[0];
 		return $arquivo->getChild($index);
 	}
+	public function getLayout()
+	{
+		 $arquivo = $this->children[0];   
+		 return $arquivo->versao_layout;
+	}
 }
 ?>
