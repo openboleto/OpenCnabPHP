@@ -43,11 +43,11 @@ class Generico3 extends RegistroRemAbstract
 	}
 	protected function set_tipo_inscricao($value)
 	{
-		$this->data['tipo_inscricao'] = RemessaAbstract::$entryData['tipo_inscricao'];
+		$this->data['tipo_inscricao'] = $value;
 	}
 	protected function set_numero_inscricao($value)
 	{
-		$this->data['numero_inscricao'] = ($value!='')?str_ireplace(array('.','/','-'),array(''),$value):str_ireplace(array('.','/','-'),array(''),RemessaAbstract::$entryData['numero_inscricao']);
+		$this->data['numero_inscricao'] = str_ireplace(array('.','/','-'),array(''),$value);
 	}
 	protected function set_codigo_beneficiario($value)
 	{
@@ -96,7 +96,7 @@ class Generico3 extends RegistroRemAbstract
 	}
 	protected function set_seu_numero($value)
 	{
-		if($this->data['nosso_numero']==0 && $value==' ')
+		if($this->data['nosso_numero']==0 && $value=='')
 		{
 			throw new Exception('O campo "seu_numero" e obrigatorio, na sua falta usareio o nosso numero, porem esse tambem no foi inserido!!!');
 		}
@@ -128,7 +128,7 @@ class Generico3 extends RegistroRemAbstract
 		$this->data['cep_pagador'] = $cep_array[0];
 		$this->data['cep_sufixo'] = $cep_array[1];
 	}
-protected function set_mensagem_3($value)
+	protected function set_mensagem_3($value)
 	{
 		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
 		$this->data['mensagem_3'] = count($mensagem)>=1?$mensagem[0]:' ';
@@ -157,6 +157,17 @@ protected function set_mensagem_3($value)
 	{
 		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
 		$this->data['mensagem_8'] = count($mensagem)>=6?$mensagem[5]:' ';
+	}    
+	protected function set_prazo($value)
+	{
+		if($this->data['protestar']==1 && $value = '')
+		{
+			throw new Exception('O campo "protestar" deve ser 3 para nao protesto e caso querira protetar deve ser informado um prazo maior que 1');
+		}
+		else
+		{
+			$this->data['prazo'] = $value;
+		}
 	}    
 }
 ?>

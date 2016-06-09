@@ -103,7 +103,7 @@ class Registro3R extends Generico3
 		'codigo_multa'=>array(  //14.3R
 			'tamanho'=>1,
 			'default'=>'0',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
 		'data_multa'=>array(   //15.3R
 			'tamanho'=>8,

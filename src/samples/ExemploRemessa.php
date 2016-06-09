@@ -48,7 +48,7 @@ $lote->inserirDetalhe(array(
 	'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
 	'valor'             => 100.00, // Valor do boleto como float valido em php
 	'emissao_boleto'        => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
-	'protestar'        => 2, // 1 = Protestar com (Prazo) dias, 2 = Devolver após (Prazo) dias
+	'protestar'        => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
 	'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador é o cliente, preste atenção nos campos abaixo
 	'tipo_inscricao'    => 1, //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
 	'numero_inscricao'  => '123.122.123-56',//cpf ou ncpj do pagador

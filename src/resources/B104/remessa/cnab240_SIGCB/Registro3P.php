@@ -243,7 +243,7 @@ class Registro3P extends Generico3
 		'prazo_baixar'=>array(            //39.3P
 			'tamanho'=>3,
 			'default'=>'90',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
 		'codigo_moeda'=>array(            //40.3P
 			'tamanho'=>2,
