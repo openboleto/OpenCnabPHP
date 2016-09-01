@@ -29,7 +29,7 @@ use cnabPHP\RemessaAbstract;
 
 class Generico1 extends RegistroRemAbstract
 {
-	protected $counter = 1;
+	protected $counter = 0;
 	protected function set_codigo_lote($value)
 	{ 
 		$this->data['codigo_lote'] = RemessaAbstract::$loteCounter;

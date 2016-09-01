@@ -38,7 +38,7 @@ $arquivo = new Remessa(104,'cnab240_SIGCB',array(
 	'conta_dac'     => 1, // digito da conta
 	'codigo_beneficiario'     => '123456', // codigo fornecido pelo banco
 	'numero_sequencial_arquivo'     => 1,
-    'situacao_arquivo' =>'R' // use T para teste e P para produção
+    'situacao_arquivo' =>'P' // use T para teste e P para produção
 ));
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
