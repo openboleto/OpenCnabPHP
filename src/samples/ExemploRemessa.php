@@ -64,6 +64,7 @@ $lote->inserirDetalhe(array(
 	'vlr_juros'          => 0.15, // Valor do juros de 1 dia'
 	'data_desconto'      => '2016-04-09', // informar a data neste formato
 	'vlr_desconto'       => '0', // Valor do desconto
+    'baixar'              => 2, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (Não Baixar / Não Devolver)
 	'prazo_baixa'              => 120, // prazo de dias para o cliente pagar após o vencimento
 	'mensagem'           => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
 	'email_pagador'         => 'rogerio@ciatec.net', // data da multa
