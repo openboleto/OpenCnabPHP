@@ -230,7 +230,7 @@ class Registro3P extends Generico3
 			'default'=>'3',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'prazo'=>array(            //37.3P
+		'prazo_protesto'=>array(            //37.3P
 			'tamanho'=>2,
 			'default'=>'0',
 			'tipo'=>'int',

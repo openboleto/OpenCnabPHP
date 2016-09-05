@@ -49,7 +49,8 @@ $lote->inserirDetalhe(array(
 	'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
 	'valor'             => 100.00, // Valor do boleto como float valido em php
 	'emissao_boleto'        => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
-	'protestar'        => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
+    'protestar'        => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
+	'prazo_protesto'        => 5, // Informar o numero de dias apos o vencimento para iniciar o protesto
 	'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador é o cliente, preste atenção nos campos abaixo
 	'tipo_inscricao'    => 1, //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
 	'numero_inscricao'  => '123.122.123-56',//cpf ou ncpj do pagador
@@ -63,7 +64,7 @@ $lote->inserirDetalhe(array(
 	'vlr_juros'          => 0.15, // Valor do juros de 1 dia'
 	'data_desconto'      => '2016-04-09', // informar a data neste formato
 	'vlr_desconto'       => '0', // Valor do desconto
-	'prazo'              => 5, // prazo de dias para o cliente pagar após o vencimento
+	'prazo_baixa'              => 120, // prazo de dias para o cliente pagar após o vencimento
 	'mensagem'           => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
 	'email_pagador'         => 'rogerio@ciatec.net', // data da multa
 	'data_multa'         => '2016-04-09', // informar a data neste formato, // data da multa

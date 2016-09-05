@@ -158,7 +158,7 @@ class Generico3 extends RegistroRemAbstract
 		$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
 		$this->data['mensagem_8'] = count($mensagem)>=6?$mensagem[5]:' ';
 	}    
-	protected function set_prazo($value)
+	protected function set_prazo_protesto($value)
 	{
 		if($this->data['protestar']==1 && $value = '')
 		{
@@ -166,7 +166,7 @@ class Generico3 extends RegistroRemAbstract
 		}
 		else
 		{
-			$this->data['prazo'] = $value;
+			$this->data['prazo_protesto'] = $value;
 		}
 	}    
 }
