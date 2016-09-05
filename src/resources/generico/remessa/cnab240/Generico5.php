@@ -37,7 +37,7 @@ class Generico5 extends RegistroRemAbstract
 	protected function set_qtd_registros($value)
 	{
 		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
-		$this->data['qtd_registros'] = $lote->get_counter();
+		$this->data['qtd_registros'] = $lote->get_counter()+1;
 	}
 }
 
