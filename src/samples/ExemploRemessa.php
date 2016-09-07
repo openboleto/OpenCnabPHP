@@ -69,7 +69,7 @@ $lote->inserirDetalhe(array(
 	'mensagem'           => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
 	'email_pagador'         => 'rogerio@ciatec.net', // data da multa
 	'data_multa'         => '2016-04-09', // informar a data neste formato, // data da multa
-	'valor_multa'        => 30.00, // valor da multa
+	'vlr_multa'        => 30.00, // valor da multa
 ));        
 echo $arquivo->getText();
 //$arquivo->save("teste.rem");
