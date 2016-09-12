@@ -18,7 +18,7 @@ e por fim uma classe registro herda de genérico e define o layout que sera usad
 </li><br>
 <table>
 	<tr>
-		<td colspan="2">
+		<td colspan="3">
 			REMESSA
 		</td>
 		<td colspan="2">
@@ -64,11 +64,14 @@ e por fim uma classe registro herda de genérico e define o layout que sera usad
 			Itau
 		</td>
 		<td>
-			Beta
-		</td>
-		<td>
 			Cnab240
 		</td>
+		<td>
+			Beta
+		</td>
+        <td>
+            Cnab240
+        </td>
 		<td>
 			Beta
 		</td>
