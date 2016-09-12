@@ -26,6 +26,9 @@ e por fim uma classe registro herda de genérico e define o layout que sera usad
 		</td>
 	</tr>
 	<tr>
+        <td>
+            Banco
+        </td>
 		<td>
 			Layout
 		</td>
@@ -39,18 +42,35 @@ e por fim uma classe registro herda de genérico e define o layout que sera usad
 		   Situação 
 		</td>
 	</tr>
+    <tr>
+        <td>
+            Caixa
+        </td>
+        <td>
+            Cnab240_SIGCB
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab240_SIGCB
+        </td>
+        <td>
+            aguardando voluntario para teste
+        </td>
+    </tr>
 	<tr>
 		<td>
-			Cnab240_SIGCB
+			Itau
 		</td>
 		<td>
-			Homologado
+			Beta
 		</td>
 		<td>
-			Cnab240_SIGCB
+			Cnab240
 		</td>
 		<td>
-			aguardando voluntario para teste
+			Beta
 		</td>
 	</tr>
 </table>

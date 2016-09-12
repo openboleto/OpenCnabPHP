@@ -53,7 +53,7 @@ class Registro3U extends Generico3
 			'required'=>true),
 		'seguimento'=>array(            // 5.3Q
 			'tamanho'=>1,
-			'default'=>'Q',
+			'default'=>'U',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler1'=>array(               // 6.3Q

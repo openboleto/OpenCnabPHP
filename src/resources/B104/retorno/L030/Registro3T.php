@@ -247,7 +247,8 @@ class Registro3T extends Generico3
 		'codigo_moeda'=>array(            //40.3P
 			'tamanho'=>2,
 			'default'=>'9',
-			'tipo'=>'int','required'=>true),
+			'tipo'=>'int',
+            'required'=>true),
 		'filler5'=>array(            //41.3P
 			'tamanho'=>10,
 			'default'=>'0',
