@@ -23,23 +23,15 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\samples;
-use \CnabPHP\Retorno;
-include("../../autoloader.php");
-$fileContent = file_get_contents("retorno_cnab400_itau.ret");
+namespace CnabPHP\resources\generico\retorno\L400;
+use CnabPHP\RegistroRetAbstract;
 
-$arquivo = new Retorno($fileContent);
-
-$registros = $arquivo->getRegistros();
-foreach($registros as $registro)
+class Generico0 extends RegistroRetAbstract
 {
-	if($registro->R3U->codigo_movimento==6){
-		$nossoNumero   = $registro->nosso_numero;
-		$valorRecebido = $registro->R3U->vlr_pago;
-		$dataPagamento = $registro->data_ocorrencia;
-		$carteira      = $registro->carteira;
-		// você ja pode dar baixa
+	public function getRegistros($lote = 1)
+	{
+		//$lote = $this->children[$lote-1];
+		return $this->getChilds();
 	}
-    var_dump($registro);
 }
 ?>

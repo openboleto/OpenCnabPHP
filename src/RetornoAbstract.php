@@ -1,5 +1,6 @@
 <?php
 namespace CnabPHP;
+use Exception;
 
 abstract class RetornoAbstract
 {

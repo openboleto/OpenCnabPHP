@@ -82,8 +82,8 @@ abstract class RegistroRetAbstract
 				case 'date':
 					if($metaData['tamanho']==6)
 					{
-						$date = \DateTime::createFromFormat('dmY',sprintf( '%06d' , $value));
-						$retorno = date("Y-m-d",strtotime($date->date));
+						$date = \DateTime::createFromFormat('dmy',sprintf( '%06d' , $value));
+						$retorno = (isset($date->date))?date("Y-m-d",strtotime($date->date)):null;
 						$this->data[$prop] =  $retorno;
 					}elseif($metaData['tamanho']==8)
 					{

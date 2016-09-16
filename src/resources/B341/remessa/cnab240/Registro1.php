@@ -90,7 +90,7 @@ class Registro1 extends Generico1
 			'tipo'=>'int',
 			'required'=>true),
 		'agencia'=>array(
-			'tamanho'=>5,
+			'tamanho'=>4,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),

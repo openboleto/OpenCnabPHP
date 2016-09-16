@@ -59,18 +59,35 @@ e por fim uma classe registro herda de genérico e define o layout que sera usad
             aguardando voluntario para teste
         </td>
     </tr>
+    <tr>
+        <td>
+            Itau
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
 	<tr>
 		<td>
 			Itau
 		</td>
 		<td>
-			Cnab240
+			Cnab400
 		</td>
 		<td>
 			Beta
 		</td>
         <td>
-            Cnab240
+            Cnab400
         </td>
 		<td>
 			Beta

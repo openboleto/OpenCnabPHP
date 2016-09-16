@@ -1,9 +1,9 @@
 <?php
 namespace CnabPHP\resources\generico\remessa\cnab400;
 use CnabPHP\RegistroRemAbstract;
-use cnabPHP\RemessaAbstract;
+use CnabPHP\RemessaAbstract;
 
-class Generico9 extends RegistroRemAbstract
+class Generico2 extends RegistroRemAbstract
 {
     protected function set_numero_registro($value)
     {
@@ -11,5 +11,7 @@ class Generico9 extends RegistroRemAbstract
         $this->data['numero_registro'] = $lote->get_counter();
     }
 
+
 }
+
 ?>

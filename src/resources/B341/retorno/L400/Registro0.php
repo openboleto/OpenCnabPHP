@@ -1,36 +1,36 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
- *
- * LICENSE: The MIT License (MIT)
- *
- * Copyright (C) 2013 Ciatec.net
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this
- * software and associated documentation files (the "Software"), to deal in the Software
- * without restriction, including without limitation the rights to use, copy, modify,
- * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies
- * or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
- * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
-namespace CnabPHP\resources\b341\remessa\cnab400;
-
-use CnabPHP\resources\generico\remessa\cnab400\Generico0;
+* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+*
+* LICENSE: The MIT License (MIT)
+*
+* Copyright (C) 2013 Ciatec.net
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this
+* software and associated documentation files (the "Software"), to deal in the Software
+* without restriction, including without limitation the rights to use, copy, modify,
+* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to the following
+* conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies
+* or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+namespace CnabPHP\resources\B341\retorno\L400; 
+use CnabPHP\resources\generico\retorno\L400\Generico0;
+use CnabPHP\RetornoAbstract;
 
 class Registro0 extends Generico0
 {
-        protected $meta = array(
+    public $trailler;
+    protected $meta = array(
         'tipo_registro'=>array(
             'tamanho'=>1,
             'default'=>'0',
@@ -38,12 +38,12 @@ class Registro0 extends Generico0
             'required'=>true),
         'operacao'=>array(
             'tamanho'=>1,
-            'default'=>'1',
+            'default'=>'2',
             'tipo'=>'int',
             'required'=>true),
         'literal_remessa'=>array(
             'tamanho'=>7,
-            'default'=>'remessa',
+            'default'=>'RETORNO',
             'tipo'=>'alfa',
             'required'=>true),
         'tipo_servico'=>array(
@@ -111,7 +111,21 @@ class Registro0 extends Generico0
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        );
+    );
+    public function __construct($linhaTxt)
+    {
+        parent::__construct($linhaTxt);
+        RetornoAbstract::$linesCounter++;
+        $this->inserirDetalhe();
+    }
+    public function inserirDetalhe()
+    {
+        while(RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines)-2))
+        {
+            $class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
+            $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+        }
+        //RetornoAbstract::$linesCounter--;
+    }
 }
-
 ?>
