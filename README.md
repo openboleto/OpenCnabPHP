@@ -16,6 +16,15 @@ Uma classe genérico herda registroAbstract e implementa setters e getters comun
 </li>
 e por fim uma classe registro herda de genérico e define o layout que sera usado e se por ventura for necessario sobrepõe ou implementa novos getters e setters do arquivo generico.
 </li><br>
+
+## Utilizando docker:
+Esteja na raiz do projeto e execute:
+```shell
+docker-compose up -d
+```
+Acesse a url de exemplo: 
+`http://localhost:8080/src/samples/ExemploRemessa.php`
+
 <table>
 	<tr>
 		<td colspan="3">
@@ -94,7 +103,9 @@ e por fim uma classe registro herda de genérico e define o layout que sera usad
 		</td>
 	</tr>
 </table>
-<pre>
+
+```php
+<?php
 use \CnabPHP\Remessa;
 
 $arquivo = new Remessa('Caixa','cnab240_SIGCB',array(
@@ -138,10 +149,13 @@ $lote->inserirDetalhe(array(
 	'valor_multa'        => 30.00, // valor da multa
 ));        
 echo $arquivo->getText();
-</pre>
+```
+
 <line>
 <h3>Lendo retorno</h3>
-<pre>
+
+```php
+<?php
 $fileContent = file_get_contents("retorno_cnab240_caixa.ret");
 
 $arquivo = new Retorno($fileContent);
@@ -157,5 +171,6 @@ foreach($registros as $registro)
 		// você ja pode dar baixa
 	}
 }
-</pre>
+```
+
 Agaurdando volutarios para edição e testes dos layouts.

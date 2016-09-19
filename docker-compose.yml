@@ -5,4 +5,4 @@ services:
     volumes:
       - ./:/var/www/app/public/
     ports:
-      - 8000:8080
+      - 8080:8080
