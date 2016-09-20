@@ -69,7 +69,7 @@ class Registro1 extends Generico1
             'tipo'=>'decimal',
             'precision'=>5,
             'required'=>true),
-        'carteira'=>array(      //13.3P
+        'carteira_banco'=>array(      //13.3P
             'tamanho'=>3,
             'default'=>'0',
             'tipo'=>'int',

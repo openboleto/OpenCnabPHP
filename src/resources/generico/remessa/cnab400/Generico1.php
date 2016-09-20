@@ -22,6 +22,12 @@ class Generico1 extends RegistroRemAbstract
 
     }
 
+    protected function set_numero_inscricao($value)
+    {
+        $this->data['numero_inscricao'] = str_ireplace(array('.','/','-'),array(''), $value);
+
+    }
+
     protected function set_agencia($value)
     {
         $this->data['agencia'] = RemessaAbstract::$entryData['agencia'];
@@ -42,6 +48,15 @@ class Generico1 extends RegistroRemAbstract
         $cep = $value;
         $cep_array =  str_ireplace('-','',$cep);
         $this->data['cep_pagador'] = $cep_array;
+    }
+    protected function set_cod_instrucao1($value)
+    {
+       $this->data['cod_instrucao1'] = ($this->protestar==2)?'10':'09';
+    }
+
+    protected function set_cod_instrucao2($value)
+    {
+       $this->data['cod_instrucao2'] = 67;
     }
 
 }
