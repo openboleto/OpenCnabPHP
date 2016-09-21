@@ -125,6 +125,12 @@ $lote->inserirDetalhe(array(
 	'codigo_ocorrencia' => 1, //1 = Entrada de tÃ­tulo, para outras opÃ§oes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
 	'nosso_numero'      => 1, // numero sequencial de boleto
 	'seu_numero'        => 1,// se nao informado usarei o nosso numero 
+
+    /* campos necessarios somente para itau cnab400, não precisa comentar se for outro layout    */
+    'carteira_banco'    => 109, // codigo da carteira ex: 109,RG esse vai o nome da carteira no banco
+    'cod_carteira'      => "I", // I para a maioria ddas carteiras do itau
+    /* campos necessarios somente para itau, não precisa comentar se for outro layout   */
+    
 	'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
 	'valor'             => 100.00, // Valor do boleto como float valido em php
 	'emissao_boleto'        => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
