@@ -56,7 +56,7 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_cod_instrucao2($value)
     {
-       $this->data['cod_instrucao2'] = 67;
+       $this->data['cod_instrucao2'] = ($value!=' ')?$value:'00';
     }
 
 }

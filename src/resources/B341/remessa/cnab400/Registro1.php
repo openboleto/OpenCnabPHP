@@ -249,7 +249,7 @@ class Registro1 extends Generico1
     public function __construct($data = null)
     {
         if(empty($this->data))parent::__construct($data);
-        $this->inserirMulta($data);
+        //$this->inserirMulta($data); não consegui validar o arquivo enviando o registro 2, entao temporariamente ficara desativado
     }
     public function inserirMulta($data)
     {

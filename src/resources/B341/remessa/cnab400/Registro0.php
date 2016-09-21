@@ -106,9 +106,9 @@ class Registro0 extends Generico0
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'numero_sequencial_arquivo'=>array(
+        'numero_sequencial'=>array(
             'tamanho'=>6,
-            'default'=>'',
+            'default'=>'1',
             'tipo'=>'int',
             'required'=>true),
         );
