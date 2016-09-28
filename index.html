@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="OpenCnabPHP : Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>OpenCnabPHP</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Rctnet/OpenCnabPHP">View on GitHub</a>
+
+          <h1 id="project_title">OpenCnabPHP</h1>
+          <h2 id="project_tagline">Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Rctnet/OpenCnabPHP/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Rctnet/OpenCnabPHP/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="opencnabphp" class="anchor" href="#opencnabphp" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>OpenCnabPHP</h1>
+
+<p>Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400<br>
+Novo projeto orientado a objeto com três níveis de hierarquia
+</p><ul>
+<li>
+Um arquivo remessaAbstract cuida das questões sobre arquivos em geral.
+</li>
+<li>
+A classe para cada Remessa herda remssaAbstract e seta o nome do banco que é a pasta para os layouts personalizados
+</li>
+<li>
+RegitroAbstract cuida de metodos unicos para qualquer registro de qualquer layout,
+</li>
+<li>
+Uma classe genérico herda registroAbstract e implementa setters e getters comuns ao registro de um determinado layout
+</li>
+e por fim uma classe registro herda de genérico e define o layout que sera usado e se por ventura for necessario sobrepõe ou implementa novos getters e setters do arquivo generico.
+<br>
+
+<h2>
+<a id="utilizando-docker" class="anchor" href="#utilizando-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilizando docker:</h2>
+
+<p>Esteja na raiz do projeto e execute:</p>
+
+</ul><div class="highlight highlight-source-shell"><pre>docker-compose up -d</pre></div>
+
+<p>Acesse a url de exemplo: 
+<code>http://localhost:8080/src/samples/ExemploRemessa.php</code></p>
+
+<table>
+    <tr>
+        <td colspan="3">
+            REMESSA
+        </td>
+        <td colspan="2">
+            RETORNO
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Banco
+        </td>
+        <td>
+            Layout
+        </td>
+        <td>
+           Situação 
+        </td>
+        <td>
+            Layout
+        </td>
+        <td>
+           Situação 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Caixa
+        </td>
+        <td>
+            Cnab240_SIGCB
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab240_SIGCB
+        </td>
+        <td>
+            aguardando voluntario para teste
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Itau
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Itau
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
+</table>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">\CnabPHP\Remessa</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$arquivo</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Remessa</span>(<span class="pl-s"><span class="pl-pds">'</span>Caixa<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>cnab240_SIGCB<span class="pl-pds">'</span></span>,<span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>nome_empresa<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span><span class="pl-s"><span class="pl-pds">"</span>Empresa ABC<span class="pl-pds">"</span></span>, <span class="pl-c">// seu nome de empresa</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>tipo_inscricao<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>, <span class="pl-c">// 1 para cpf, 2 cnpj </span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>numero_inscricao<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-smi">$empresa</span><span class="pl-k">-&gt;</span><span class="pl-smi">empresas_cnpjcpf</span>, <span class="pl-c">// seu cpf ou cnpj completo</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>agencia<span class="pl-pds">'</span></span>       <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>1234<span class="pl-pds">'</span></span>, <span class="pl-c">// agencia sem o digito verificador </span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>agencia_dv<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c">// somente o digito verificador da agencia </span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>conta<span class="pl-pds">'</span></span>         <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>12345<span class="pl-pds">'</span></span>, <span class="pl-c">// número da conta</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>conta_dac<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c">// digito da conta</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>codigo_beneficiario<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>123456<span class="pl-pds">'</span></span>, <span class="pl-c">// codigo fornecido pelo banco</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>numero_sequencial_arquivo<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c">// sequencial do arquivo um numero novo para cada arquivo gerado</span></span>
+<span class="pl-s1">));</span>
+<span class="pl-s1"><span class="pl-smi">$lote</span>  <span class="pl-k">=</span> <span class="pl-smi">$arquivo</span><span class="pl-k">-&gt;</span>addLote(<span class="pl-c1">array</span>(<span class="pl-s"><span class="pl-pds">'</span>tipo_servico<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>)); <span class="pl-c">// tipo_servico  = 1 para cobrança registrada, 2 para sem registro</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$lote</span><span class="pl-k">-&gt;</span>inserirDetalhe(<span class="pl-c1">array</span>(</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>codigo_ocorrencia<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c">//1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>nosso_numero<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c">// numero sequencial de boleto</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>seu_numero<span class="pl-pds">'</span></span>        <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>,<span class="pl-c">// se nao informado usarei o nosso numero </span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/* campos necessarios somente para itau cnab400, não precisa comentar se for outro layout    */</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>carteira_banco<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span> <span class="pl-c1">109</span>, <span class="pl-c">// codigo da carteira ex: 109,RG esse vai o nome da carteira no banco</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>cod_carteira<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>I<span class="pl-pds">"</span></span>, <span class="pl-c">// I para a maioria ddas carteiras do itau</span></span>
+<span class="pl-s1">    <span class="pl-c">/* campos necessarios somente para itau, não precisa comentar se for outro layout   */</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>especie_titulo<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>DM<span class="pl-pds">"</span></span>, <span class="pl-c">// informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>valor<span class="pl-pds">'</span></span>             <span class="pl-k">=&gt;</span> <span class="pl-c1">100.00</span>, <span class="pl-c">// Valor do boleto como float valido em php</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>emissao_boleto<span class="pl-pds">'</span></span>        <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>, <span class="pl-c">// tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>protestar<span class="pl-pds">'</span></span>        <span class="pl-k">=&gt;</span> <span class="pl-c1">2</span>, <span class="pl-c">// 1 = Protestar com (Prazo) dias, 2 = Devolver após (Prazo) dias</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>nome_pagador<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">"</span>JOSÉ da SILVA ALVES<span class="pl-pds">"</span></span>, <span class="pl-c">// O Pagador é o cliente, preste atenção nos campos abaixo</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>tipo_inscricao<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span> <span class="pl-c1">1</span>, <span class="pl-c">//campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>numero_inscricao<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>123.122.123-56<span class="pl-pds">'</span></span>,<span class="pl-c">//cpf ou ncpj do pagador</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>endereco_pagador<span class="pl-pds">'</span></span>  <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Rua dos developers,123 sl 103<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>bairro_pagador<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Bairro da insonia<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>cep_pagador<span class="pl-pds">'</span></span>        <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>12345-123<span class="pl-pds">'</span></span>, <span class="pl-c">// com hífem</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>cidade_pagador<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>Londrina<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>uf_pagador<span class="pl-pds">'</span></span>         <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>PR<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>data_vencimento<span class="pl-pds">'</span></span>    <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>2016-04-09<span class="pl-pds">'</span></span>, <span class="pl-c">// informar a data neste formato</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>data_emissao<span class="pl-pds">'</span></span>       <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>2016-04-09<span class="pl-pds">'</span></span>, <span class="pl-c">// informar a data neste formato</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>vlr_juros<span class="pl-pds">'</span></span>          <span class="pl-k">=&gt;</span> <span class="pl-c1">0.15</span>, <span class="pl-c">// Valor do juros de 1 dia'</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>data_desconto<span class="pl-pds">'</span></span>      <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>2016-04-09<span class="pl-pds">'</span></span>, <span class="pl-c">// informar a data neste formato</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>vlr_desconto<span class="pl-pds">'</span></span>       <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>0<span class="pl-pds">'</span></span>, <span class="pl-c">// Valor do desconto</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>prazo<span class="pl-pds">'</span></span>              <span class="pl-k">=&gt;</span> <span class="pl-c1">5</span>, <span class="pl-c">// prazo de dias para o cliente pagar após o vencimento</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>mensagem<span class="pl-pds">'</span></span>           <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>JUROS de R$0,15 ao dia<span class="pl-pds">'</span></span><span class="pl-k">.</span><span class="pl-c1">PHP_EOL</span><span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">"</span>Não receber apos 30 dias<span class="pl-pds">"</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>email_pagador<span class="pl-pds">'</span></span>         <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>rogerio@ciatec.net<span class="pl-pds">'</span></span>, <span class="pl-c">// data da multa</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>data_multa<span class="pl-pds">'</span></span>         <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>2016-04-09<span class="pl-pds">'</span></span>, <span class="pl-c">// informar a data neste formato, // data da multa</span></span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>valor_multa<span class="pl-pds">'</span></span>        <span class="pl-k">=&gt;</span> <span class="pl-c1">30.00</span>, <span class="pl-c">// valor da multa</span></span>
+<span class="pl-s1">));        </span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-smi">$arquivo</span><span class="pl-k">-&gt;</span>getText();</span></pre></div>
+
+<p></p>
+
+<h3>
+<a id="lendo-retorno" class="anchor" href="#lendo-retorno" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lendo retorno</h3>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$fileContent</span> <span class="pl-k">=</span> <span class="pl-c1">file_get_contents</span>(<span class="pl-s"><span class="pl-pds">"</span>retorno_cnab240_caixa.ret<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$arquivo</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Retorno</span>(<span class="pl-smi">$fileContent</span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$registros</span> <span class="pl-k">=</span> <span class="pl-smi">$arquivo</span><span class="pl-k">-&gt;</span>getRegistros();</span>
+<span class="pl-s1"><span class="pl-k">foreach</span>(<span class="pl-smi">$registros</span> <span class="pl-k">as</span> <span class="pl-smi">$registro</span>)</span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-k">if</span>(<span class="pl-smi">$registro</span><span class="pl-k">-&gt;</span><span class="pl-smi">R3U</span><span class="pl-k">-&gt;</span><span class="pl-smi">codigo_movimento</span><span class="pl-k">==</span><span class="pl-c1">6</span>){</span>
+<span class="pl-s1">        <span class="pl-smi">$nossoNumero</span>   <span class="pl-k">=</span> <span class="pl-smi">$registro</span><span class="pl-k">-&gt;</span><span class="pl-smi">nosso_numero</span>;</span>
+<span class="pl-s1">        <span class="pl-smi">$valorRecebido</span> <span class="pl-k">=</span> <span class="pl-smi">$registro</span><span class="pl-k">-&gt;</span><span class="pl-smi">R3U</span><span class="pl-k">-&gt;</span><span class="pl-smi">vlr_pago</span>;</span>
+<span class="pl-s1">        <span class="pl-smi">$dataPagamento</span> <span class="pl-k">=</span> <span class="pl-smi">$registro</span><span class="pl-k">-&gt;</span><span class="pl-smi">R3U</span><span class="pl-k">-&gt;</span><span class="pl-smi">data_ocorrencia</span>;</span>
+<span class="pl-s1">        <span class="pl-smi">$carteira</span>      <span class="pl-k">=</span> <span class="pl-smi">$registro</span><span class="pl-k">-&gt;</span><span class="pl-smi">carteira</span>;</span>
+<span class="pl-s1">        <span class="pl-c">// você ja pode dar baixa</span></span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span></pre></div>
+
+<p>Agaurdando volutarios para edição e testes dos layouts.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">OpenCnabPHP maintained by <a href="https://github.com/Rctnet">Rctnet</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
