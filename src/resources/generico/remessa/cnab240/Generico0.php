@@ -41,6 +41,15 @@ class Generico0 extends RegistroRemAbstract
 	{
 		$this->data['hora_geracao'] = date('His');
 	}
+    protected function set_tipo_inscricao($value)
+    {
+        if($value==1 || $value==2)
+        {
+            $this->data['tipo_inscricao'] =  $value;
+        }else{
+            throw new Exception("O tipo de incrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+        }
+    }
 	protected function set_numero_inscricao($value)
 	{
 		$this->data['numero_inscricao'] =  str_ireplace(array('.','/','-'),array(''),$value);
