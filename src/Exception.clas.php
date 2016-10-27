@@ -25,7 +25,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CnabPHP;
+//namespace CnabPHP;
 
 /**
  * Classe exception

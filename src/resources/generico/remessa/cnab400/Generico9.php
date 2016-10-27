@@ -2,6 +2,7 @@
 namespace CnabPHP\resources\generico\remessa\cnab400;
 use CnabPHP\RegistroRemAbstract;
 use cnabPHP\RemessaAbstract;
+use Exception;
 
 class Generico9 extends RegistroRemAbstract
 {

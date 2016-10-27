@@ -25,6 +25,7 @@
  */
 namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
 use CnabPHP\resources\generico\remessa\cnab240\Generico1;
+use Exception;
 
 class Registro1 extends Generico1
 {
