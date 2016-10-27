@@ -13,11 +13,12 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_tipo_inscricao_empresa($value)
     {
+        $value = RemessaAbstract::$entryData['tipo_inscricao'];
         if($value==1 || $value==2)
         {
             $this->data['tipo_inscricao_empresa'] = RemessaAbstract::$entryData['tipo_inscricao'];
         }else{
-            throw new Exception("O tipo de incrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+            throw new Exception("O tipo de incriÃ§Ã£o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
         }
     }
     
@@ -27,7 +28,7 @@ class Generico1 extends RegistroRemAbstract
         {
             $this->data['tipo_inscricao'] =  $value;
         }else{
-            throw new Exception("O tipo de incrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+            throw new Exception("O tipo de incriÃ§Ã£o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
         }
     }
 
