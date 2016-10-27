@@ -14,6 +14,7 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_tipo_inscricao_empresa($value)
     {
+        $value = RemessaAbstract::$entryData['tipo_inscricao'];
         if($value==1 || $value==2)
         {
             $this->data['tipo_inscricao_empresa'] = RemessaAbstract::$entryData['tipo_inscricao'];
