@@ -2,6 +2,7 @@
 namespace CnabPHP\resources\generico\remessa\cnab400;
 use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
+use CnabPHP\Especie;
 
 class Generico1 extends RegistroRemAbstract
 {
@@ -74,6 +75,24 @@ class Generico1 extends RegistroRemAbstract
     protected function set_cod_instrucao2($value)
     {
         $this->data['cod_instrucao2'] = ($value!=' ')?$value:'00';
+    }
+    protected function set_cod_instrucao2($value)
+    {
+        
+        $this->data['cod_instrucao2'] = ($value!=' ')?$value:'00';
+    }
+    
+    protected function set_especie_titulo($value)
+    {
+        if(is_int($value))
+        {
+            $this->data['especie_titulo'] = $value; 
+        }
+        else
+        {
+            $especie = new Especie($this->data['codigo_banco']);
+            $this->data['especie_titulo'] = $especie->getCodigo($value);
+        }
     }
 
 }
