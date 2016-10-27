@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - GeraÁ„o de arquivos de remessa e retorno em PHP
+* CnabPHP - Gera√ß√£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -50,12 +50,14 @@ class Generico1 extends RegistroRemAbstract
     
     protected function set_tipo_inscricao($value)
 	{
-		if($value==1 || $value==2)
-        {
-            $this->data['tipo_inscricao'] =  $value ? $value : RemessaAbstract::$entryData['tipo_inscricao'];
-        }else{
-            throw new Exception("O tipo de incriÁ„o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
-        }
+		
+	    	$value = $value ? $value : RemessaAbstract::$entryData['tipo_inscricao'];
+	    	if($value==1 || $value==2)
+        	{
+            		$this->data['tipo_inscricao'] =  $value;
+        	}else{
+            		throw new Exception("O tipo de incri√ß√£o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+        	}
 	}
     
 	protected function set_numero_inscricao($value)
