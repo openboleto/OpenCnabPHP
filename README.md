@@ -113,7 +113,7 @@ Acesse a url de exemplo:
 <?php
 use \CnabPHP\Remessa;
 
-$arquivo = new Remessa('Caixa','cnab240_SIGCB',array(
+$arquivo = new Remessa(104,'cnab240_SIGCB',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => $empresa->empresas_cnpjcpf, // seu cpf ou cnpj completo
