@@ -107,6 +107,23 @@ Acesse a url de exemplo:
             Beta
         </td>
     </tr>
+    <tr>
+        <td>
+            SICOOB
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
 </table>
 
 ```php
