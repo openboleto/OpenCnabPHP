@@ -1,5 +1,5 @@
 <?php
-namespace CnabPHP\resources\b341\remessa\cnab400;
+namespace CnabPHP\resources\b756\remessa\cnab400;
 
 use CnabPHP\resources\generico\remessa\cnab400\Generico1;
 use CnabPHP\RegistroRemAbstract;
@@ -28,13 +28,13 @@ class Registro1 extends Generico1
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'filler1'=>array(
-            'tamanho'=>2,
+        'agencia_dv'=>array(
+            'tamanho'=>1,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
         'conta'=>array(
-            'tamanho'=>5,
+            'tamanho'=>8,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
@@ -43,13 +43,8 @@ class Registro1 extends Generico1
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'filler2'=>array(
-            'tamanho'=>4,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'cod_intrucao'=>array(
-            'tamanho'=>4,
+        'numero_convenio'=>array(
+            'tamanho'=>6,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
@@ -59,30 +54,79 @@ class Registro1 extends Generico1
             'tipo'=>'alfa',
             'required'=>true),
         'nosso_numero'=>array(
-            'tamanho'=>8,
+            'tamanho'=>11,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'qtd_moeda'=>array(            //34.3P
-            'tamanho'=>8,
+        'nosso_numero_dv'=>array(
+            'tamanho'=>1,
+            'default'=>'',
+            'tipo'=>'int',
+            'required'=>true),
+        'numero_parcela'=>array(            //34.3P
+            'tamanho'=>2,
+            'default'=>'1',
+            'tipo'=>'int',
+            'required'=>true),
+        'grupo_valor'=>array(            //34.3P
+            'tamanho'=>2,
             'default'=>'0',
-            'tipo'=>'decimal',
-            'precision'=>5,
+            'tipo'=>'int',
+            'required'=>true),
+        'filler3'=>array(
+            'tamanho'=>3,
+            'default'=>' ',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'indicador_mens_aval'=>array(
+            'tamanho'=>1,
+            'default'=>' ',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'prefixo_titulo'=>array(
+            'tamanho'=>3,
+            'default'=>' ',
+            'tipo'=>'alfa',
             'required'=>true),
         'carteira_banco'=>array(      //13.3P
             'tamanho'=>3,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'filler3'=>array(
-            'tamanho'=>21,
+        'conta_caucao'=>array(      //13.3P
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'numero_contrato'=>array(      //13.3P
+            'tamanho'=>5,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'numero_contrato_dv'=>array(      //13.3P
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'numero_bordero'=>array(      //13.3P
+            'tamanho'=>6,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'filler32'=>array(
+            'tamanho'=>4,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'cod_carteira'=>array(      //13.3P
+        'emissao_boleto'=>array(
             'tamanho'=>1,
-            'default'=>' ',
-            'tipo'=>'alfa',
+            'default'=>'2',
+            'tipo'=>'int',
+            'required'=>true),
+        'cod_carteira'=>array(      //13.3P
+            'tamanho'=>2,
+            'default'=>'1',
+            'tipo'=>'int',
             'required'=>true),
         'codigo_movimento'=>array(      // codigo da ocorrencia no manual itau
             'tamanho'=>2,
@@ -107,22 +151,27 @@ class Registro1 extends Generico1
             'required'=>true),
         'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'341',
+            'default'=>'756',
             'tipo'=>'int',
             'required'=>true),
         'agencia_cobradora'=>array(    //22.3P
-            'tamanho'=>5,
+            'tamanho'=>4,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
+        'agencia_cobradora_dv'=>array(    //22.3P
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'alfa',
+            'required'=>true),
         'especie_titulo'=>array(    //24.3P
             'tamanho'=>2,
-            'default'=>'2',
+            'default'=>'1',
             'tipo'=>'int',
             'required'=>true),
         'aceite'=>array(            //25.3P
             'tamanho'=>1,
-            'default'=>'N',
+            'default'=>'0',
             'tipo'=>'alfa',
             'required'=>true),
         'data_emissao'=>array(            //26.3P
@@ -132,19 +181,30 @@ class Registro1 extends Generico1
             'required'=>true),
         'cod_instrucao1'=>array(    //24.3P
             'tamanho'=>2,
-            'default'=>' ',
-            'tipo'=>'alfa',
+            'default'=>'0',
+            'tipo'=>'int',
             'required'=>true),
         'cod_instrucao2'=>array(    //24.3P
             'tamanho'=>2,
-            'default'=>' ',
-            'tipo'=>'alfa',
+            'default'=>'0',
+            'tipo'=>'int',
             'required'=>true),
-        'vlr_juros'=>array(            //29.3P
-            'tamanho'=>11,
+        'taxa_juros'=>array(            //29.3P
+            'tamanho'=>2,
             'default'=>'0',
             'tipo'=>'decimal',
-            'precision'=>2,
+            'precision'=>4,
+            'required'=>true),
+        'taxa_multa'=>array(            //29.3P
+            'tamanho'=>2,
+            'default'=>'0',
+            'tipo'=>'decimal',
+            'precision'=>4,
+            'required'=>true),
+        'tipo_distribuicao'=>array(
+            'tamanho'=>1,
+            'default'=>'2',
+            'tipo'=>'int',
             'required'=>true),
         'data_desconto'=>array(            //31.3P
             'tamanho'=>6,
@@ -157,8 +217,13 @@ class Registro1 extends Generico1
             'tipo'=>'decimal',
             'precision'=>2,
             'required'=>true),
+        'codigo_moeda'=>array(            //40.3P
+            'tamanho'=>1,
+            'default'=>'9',
+            'tipo'=>'int',
+            'required'=>true),
         'vlr_IOF'=>array(            //33.3P
-            'tamanho'=>11,
+            'tamanho'=>10,
             'default'=>'0',
             'tipo'=>'decimal',
             'precision'=>2,
@@ -180,22 +245,17 @@ class Registro1 extends Generico1
             'tipo'=>'int',
             'required'=>true),
         'nome_pagador'=>array(       //10.3Q
-            'tamanho'=>30,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'filler4'=>array(
-            'tamanho'=>10,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'endereco_pagador'=>array(               // 11.3Q
             'tamanho'=>40,
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
+        'endereco_pagador'=>array(               // 11.3Q
+            'tamanho'=>37,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
         'bairro_pagador'=>array(               //12.3Q
-            'tamanho'=>12,
+            'tamanho'=>15,
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
@@ -214,27 +274,17 @@ class Registro1 extends Generico1
             'default'=>'',  // combrança com registro
             'tipo'=>'alfa',
             'required'=>true),
-        'nome_avalista'=>array(        //18.3Q
-            'tamanho'=>30,
+        'nome_avalista_mensagem'=>array(        //18.3Q
+            'tamanho'=>40,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'filler5'=>array(
-            'tamanho'=>4,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'data_mora'=>array(            //31.3P
-            'tamanho'=>6,
-            'default'=>'0',
-            'tipo'=>'date',
-            'required'=>true),
-        'prazo_baixa'=>array(            //31.3P
+        'prazo_protesto'=>array(
             'tamanho'=>2,
             'default'=>'0',
-            'tipo'=>'int',
+            'tipo'=>'alfa',
             'required'=>true),
-        'filler6'=>array(
+        'filler4'=>array(            //31.3P
             'tamanho'=>1,
             'default'=>' ',
             'tipo'=>'alfa',
@@ -245,31 +295,6 @@ class Registro1 extends Generico1
             'tipo'=>'int',
             'required'=>true),
     );
-
-    public function __construct($data = null)
-    {
-        if(empty($this->data))parent::__construct($data);
-        //$this->inserirMulta($data); não consegui validar o arquivo enviando o registro 2, entao temporariamente ficara desativado
-    }
-    public function inserirMulta($data)
-    {
-        if( isset($data['data_multa']))
-        {
-            $class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro2';
-            $this->children[] = new $class($data);
-        }
-    } 
-    protected function set_cod_instrucao1($value)
-    {
-        $this->data['cod_instrucao1'] = ($this->protestar==2)?'10':'09';
-    }
-
-    protected function set_cod_instrucao2($value)
-    {
-        $this->data['cod_instrucao2'] = ($value!=' ')?$value:'00';
-    }
-
-
 
 }
 
