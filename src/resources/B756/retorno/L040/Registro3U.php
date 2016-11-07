@@ -23,11 +23,12 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
-use CnabPHP\resources\generico\remessa\cnab240\Generico3;
-use Exception;
+namespace CnabPHP\resources\B341\retorno\L040;
+use CnabPHP\resources\generico\retorno\L040\Generico3;
+//use CnabPHP\RetornoAbstract;
+use CnabPHP\Exception;
 
-class Registro3Q extends Generico3
+class Registro3U extends Generico3
 {
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3Q
@@ -52,13 +53,13 @@ class Registro3Q extends Generico3
 			'required'=>true),
 		'seguimento'=>array(            // 5.3Q
 			'tamanho'=>1,
-			'default'=>'Q',
+			'default'=>'U',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler1'=>array(               // 6.3Q
 			'tamanho'=>1,
 			'default'=>' ',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
 		'codigo_movimento'=>array(      // 7.3Q
 			'tamanho'=>2,
@@ -68,78 +69,85 @@ class Registro3Q extends Generico3
 			
 			// - ------------------ até aqui é igual para todo registro tipo 3
 			
-		'tipo_inscricao'=>array(               // 8.3Q
-			'tamanho'=>1,
+		'vlr_juros_multa'=>array(               // 8.3Q
+			'tamanho'=>13,
 			'default'=>'',
+			'tipo'=>'decimal',
+            'precision'=>2,
+			'required'=>true),
+		'vlr_desconto'=>array(            // 9.3Q
+			'tamanho'=>13,
+			'default'=>'',
+			'tipo'=>'decimal',
+            'precision'=>2,
+			'required'=>true),
+		'vlr_abatimento'=>array(       //10.3Q
+			'tamanho'=>13,
+			'default'=>'',
+			'tipo'=>'decimal',
+            'precision'=>2,
+			'required'=>true),
+		'vlr_iof'=>array(               // 11.3Q
+			'tamanho'=>13,
+			'default'=>'',
+			'tipo'=>'decimal',
+            'precision'=>2,
+			'required'=>true),
+		'vlr_pago'=>array(               //12.3Q
+			'tamanho'=>13,
+			'default'=>'',
+			'tipo'=>'decimal',
+            'precision'=>2,
+			'required'=>true),
+		'vlr_liquido'=>array(      //13.3Q   
+			'tamanho'=>13,
+			'default'=>'',
+			'tipo'=>'decimal',
+            'precision'=>2,
+			'required'=>true),
+		'filler2'=>array(  //14.3Q
+			'tamanho'=>30,
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_inscricao'=>array(            // 9.3Q
-			'tamanho'=>15,
+		'data_arquivo'=>array(   //15.3Q
+			'tamanho'=>8,
 			'default'=>'',
-			'tipo'=>'int',
+			'tipo'=>'date',
 			'required'=>true),
-		'nome_pagador'=>array(       //10.3Q
-			'tamanho'=>40,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'endereco_pagador'=>array(               // 11.3Q
-			'tamanho'=>40,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'bairro_pagador'=>array(               //12.3Q
-			'tamanho'=>15,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'cep_pagador'=>array(      //13.3Q   
-			'tamanho'=>5,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'cep_sufixo'=>array(  //14.3Q
-			'tamanho'=>3,
-			'default'=>' ',
-			'tipo'=>'int',
-			'required'=>true),
-		'cidade_pagador'=>array(   //15.3Q
-			'tamanho'=>15,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'uf_pagador'=>array(      //16.3Q
-			'tamanho'=>2,
+		'data_credito'=>array(      //16.3Q
+			'tamanho'=>8,
 			'default'=>'',  // combrança com registro
-			'tipo'=>'alfa',
+			'tipo'=>'date',
 			'required'=>true),
-		'tipo_incricao_avalista'=>array(        //17.3Q
-			'tamanho'=>1,
+		'ocorrencia_pagador'=>array(        //17.3Q
+			'tamanho'=>4,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_incricao_avalista'=>array(          // 18.3
-			'tamanho'=>15,
+        'data_ocorrencia'=>array(   //15.3Q
+            'tamanho'=>8,
+            'default'=>'',
+            'tipo'=>'date',
+            'required'=>true),
+		'vlr_ocorrencia_pagador'=>array(          // 18.3
+			'tamanho'=>13,
 			'default'=>'0',
-			'tipo'=>'int',
+			'tipo'=>'decimal',
+            'precision'=>2,
 			'required'=>true),
-		'nome_avalista'=>array(        //18.3Q
-			'tamanho'=>40,
+		'filler3'=>array(        //18.3Q
+			'tamanho'=>30,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'codigo_banco_correspondente'=>array(        //18.3Q
-			'tamanho'=>3,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'nosso_numero_banco_correspondente'=>array(            //19.3Q   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
-			'tamanho'=>20,
+		'filler4'=>array(            //19.3Q   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
+			'tamanho'=>23,
 			'default'=>' ', // este espaço foi colocado para passa a validação para os seters do generico
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler4'=>array(               //19.3Q
-			'tamanho'=>8,
+		'filler5'=>array(               //19.3Q
+			'tamanho'=>7,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),

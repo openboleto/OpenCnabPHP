@@ -23,23 +23,29 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\generico\remessa\cnab240;
-use CnabPHP\RegistroRemAbstract;
-use CnabPHP\RemessaAbstract;
-use Exception;
+namespace CnabPHP\resources\b756\retorno\L400;
+use CnabPHP\resources\generico\retorno\L400\Generico9;
+use CnabPHP\Exception;
 
-class Generico5 extends RegistroRemAbstract
+class Registro9 extends Generico9
 {
-	protected function set_codigo_lote($value)
-	{
-		//ArquivoAbstract::$loteCounter++; 
-		$this->data['codigo_lote'] = RemessaAbstract::$loteCounter;
-	}
-	protected function set_qtd_registros($value)
-	{
-		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
-		$this->data['qtd_registros'] = $lote->get_counter()+1;
-	}
-}
+    protected $meta = array(
+        'tipo_registro'=>array(
+            'tamanho'=>1,
+            'default'=>'9',
+            'tipo'=>'int',
+            'required'=>true),
+        'tipo_servico'=>array(
+            'tamanho'=>2,
+            'default'=>'',
+            'tipo'=>'int',
+            'required'=>true),
+        'codigo_banco'=>array(      //01.5
+            'tamanho'=>3,
+            'default'=>'756',
+            'tipo'=>'int',
+            'required'=>true),
 
+    );
+}
 ?>

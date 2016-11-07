@@ -25,7 +25,7 @@
  */
 namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
 use CnabPHP\resources\generico\remessa\cnab240\Generico9;
-use CnabPHP\Exception;
+use Exception;
 
 class Registro9 extends Generico9
 {

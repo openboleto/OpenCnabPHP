@@ -26,6 +26,7 @@
 namespace CnabPHP\resources\generico\retorno\L400;
 use CnabPHP\RegistroRetAbstract;
 use CnabPHP\RetornoAbstract;
+use Exception;
 
 class Generico1 extends RegistroRetAbstract
 {
