@@ -67,7 +67,7 @@ abstract class RemessaAbstract
 		if(strpos(self::$layout,'240'))
 		{
 			$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
-			$loteData = $data ? $data:RemessaAbstract::$entryData; 
+			$loteData = $data ? $data : RemessaAbstract::$entryData; 
 			$lote = new $class($loteData);
 			self::addChild($lote);
 		}else{
