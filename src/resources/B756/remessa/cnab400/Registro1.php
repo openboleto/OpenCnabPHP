@@ -295,7 +295,5 @@ class Registro1 extends Generico1
             'tipo'=>'int',
             'required'=>true),
     );
-
 }
-
 ?>

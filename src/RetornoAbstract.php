@@ -93,7 +93,8 @@ abstract class RetornoAbstract
 	public function getLayout()
 	{
 		 $arquivo = $this->children[0];   
-		 return $arquivo->versao_layout;
+		 return (self::$layout!='L400')?$arquivo->versao_layout:'L400';
+         
 	}
 }
 ?>
