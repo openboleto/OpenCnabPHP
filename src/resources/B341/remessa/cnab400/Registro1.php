@@ -211,7 +211,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'uf_pagador'=>array(      //16.3Q
             'tamanho'=>2,
-            'default'=>'',  // combran�a com registro
+            'default'=>'',  // combranÃ§a com registro
             'tipo'=>'alfa',
             'required'=>true),
         'nome_avalista'=>array(        //18.3Q
@@ -249,7 +249,7 @@ class Registro1 extends Generico1
     public function __construct($data = null)
     {
         if(empty($this->data))parent::__construct($data);
-        //$this->inserirMulta($data); n�o consegui validar o arquivo enviando o registro 2, entao temporariamente ficara desativado
+        //$this->inserirMulta($data); nÃ£o consegui validar o arquivo enviando o registro 2, entao temporariamente ficara desativado
     }
     public function inserirMulta($data)
     {

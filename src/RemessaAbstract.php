@@ -6,13 +6,13 @@ abstract class RemessaAbstract
 	public static $banco; // sera atribuido o nome do banco que tambem ? o nome da pasta que contem os layouts
 	public static $layout;// recebera o nome do layout na instacia?ao  
 	public static $hearder; // armazena o objeto registro 0 do arquivo
-	public static $entryData; // mantem os dados passados em $data na instanciação
+	public static $entryData; // mantem os dados passados em $data na instanciaÃ§Ã£o
 	public static $loteCounter = 1; // contador de lotes
 	private static $children = array(); // armazena os registros filhos da classe remessa
-	public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
+	public static $retorno = array(); // durante a geraÃ§Ã£o do txt de retorno se tornara um array com as linhas do arquvio
 
 	/*
-	* método __construct()
+	* mÃ©todo __construct()
 	* Recebe os parametros
 	* @$banco = nome do banco no momento so Caixa
 	* @$layout = nome do layout no momento so Cnab240_SIGCB
@@ -29,7 +29,7 @@ abstract class RemessaAbstract
 		self::$children[] = self::$hearder;
 	}
 	/*
-	* método inserirDetalhe()
+	* mÃ©todo inserirDetalhe()
 	* Recebe os parametros
 	* @$data = um array contendo os dados nessesarios para o arquvio
 	*/
@@ -58,7 +58,7 @@ abstract class RemessaAbstract
 		self::$children[] = $child;   
 	}
 	/*
-	* método addLote()
+	* mÃ©todo addLote()
 	* Recebe os parametros abaixo e insere num array para uso fururo
 	* @array $data = recebe um array contendo os dados do lote a sera aberto e retorna para qualqer layout 240 o lote criado ou $this se outro 
 	*/
@@ -67,7 +67,7 @@ abstract class RemessaAbstract
 		if(strpos(self::$layout,'240'))
 		{
 			$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
-			$loteData = $data ? $data : RemessaAbstract::$entryData; 
+			$loteData = $data ? $data:RemessaAbstract::$entryData; 
 			$lote = new $class($loteData);
 			self::addChild($lote);
 		}else{
@@ -77,7 +77,7 @@ abstract class RemessaAbstract
 		self::$loteCounter++;
 	}
 	/*
-	* método getLote()
+	* mÃ©todo getLote()
 	* Metodo statico para pegar o objeto do lote
 	* @$index = o indice do lote , normalmente 1
 	*/
@@ -85,7 +85,7 @@ abstract class RemessaAbstract
 		return self::$children[$index];
 	}	
 	/*
-	* método getText()
+	* mÃ©todo getText()
 	* Metodo que percorre todos os filhos acionando o metodo getText() deles
 	*/
 	public function getText(){

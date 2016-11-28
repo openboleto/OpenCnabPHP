@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -26,19 +26,20 @@
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
 include("../../autoloader.php");
-$fileContent = file_get_contents("retorno_cnab400_itau.ret");
+$fileContent = file_get_contents("teste.RET");
 
 $arquivo = new Retorno($fileContent);
 
 $registros = $arquivo->getRegistros();
 foreach($registros as $registro)
 {
-	if($registro->R3U->codigo_movimento==6){
+	if($registro->codigo_movimento==6){
 		$nossoNumero   = $registro->nosso_numero;
-		$valorRecebido = $registro->R3U->vlr_pago;
+		$valorRecebido = $registro->vlr_pago;
 		$dataPagamento = $registro->data_ocorrencia;
 		$carteira      = $registro->carteira;
-		// você ja pode dar baixa
+        echo $dataPagamento;
+		// vocÃª ja pode dar baixa
 	}
     var_dump($registro);
 }

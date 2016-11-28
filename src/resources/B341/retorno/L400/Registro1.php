@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Gera��o de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -278,7 +278,7 @@ class Registro1 extends Generico1
         //$this->inserirDetalhe();
     }
     /*
-    * m�todo inserirDetalhe()
+    * mÃ©todo inserirDetalhe()
     * Recebe os parametros
     * @$data = um array contendo os dados nessesarios para o arquvio
     */
@@ -297,7 +297,7 @@ class Registro1 extends Generico1
     {
         return $this;
     }
-
+    
 }
 
 ?>

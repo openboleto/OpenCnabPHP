@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -66,7 +66,7 @@ class Registro3Q extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 			
-			// - ------------------ até aqui é igual para todo registro tipo 3
+			// - ------------------ atÃ© aqui Ã© igual para todo registro tipo 3
 			
 		'tipo_inscricao'=>array(               // 8.3Q
 			'tamanho'=>1,
@@ -110,7 +110,7 @@ class Registro3Q extends Generico3
 			'required'=>true),
 		'uf_pagador'=>array(      //16.3Q
 			'tamanho'=>2,
-			'default'=>'',  // combrança com registro
+			'default'=>'',  // combranÃ§a com registro
 			'tipo'=>'alfa',
 			'required'=>true),
 		'tipo_incricao_avalista'=>array(        //17.3Q
@@ -133,9 +133,9 @@ class Registro3Q extends Generico3
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'nosso_numero_banco_correspondente'=>array(            //19.3Q   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
+		'nosso_numero_banco_correspondente'=>array(            //19.3Q   Campo de preenchimento obrigatÃ³rio; preencher com Seu NÃºmero de controle do tÃ­tulo
 			'tamanho'=>20,
-			'default'=>' ', // este espaço foi colocado para passa a validação para os seters do generico
+			'default'=>' ', // este espaÃ§o foi colocado para passa a validaÃ§Ã£o para os seters do generico
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler4'=>array(               //19.3Q

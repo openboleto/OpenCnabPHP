@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -67,7 +67,7 @@ class Registro3T extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 
-		// - ------------------ até aqui é igual para todo registro tipo 3
+		// - ------------------ atÃ© aqui Ã© igual para todo registro tipo 3
 
 		'agencia'=>array(               // 8.3T
 			'tamanho'=>5,
@@ -147,7 +147,7 @@ class Registro3T extends Generico3
 			'required'=>true),
 		'cod_banco_receb'=>array(            //19.3T  
 			'tamanho'=>3,
-			'default'=>' ',      // este espaço foi colocado para passa a validação para os seters do generico
+			'default'=>' ',      // este espaÃ§o foi colocado para passa a validaÃ§Ã£o para os seters do generico
 			'tipo'=>'alfa',
 			'required'=>true),
 		'agencia_recebedora'=>array(               //19.3T
