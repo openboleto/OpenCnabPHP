@@ -123,7 +123,7 @@ abstract class RegistroRetAbstract
 	* mÃ©todo ___get()
 	* metodo auxiliar para ser chamado para dentro de metodo get personalizado
 	*/
-	/*public function ___get($prop)
+	public function ___get($prop)
 	{
 		// retorna o valor da propriedade
 		if (isset($this->meta[$prop]))
@@ -160,7 +160,7 @@ abstract class RegistroRetAbstract
 					break;
 			}
 		}
-	} */
+	} 
 	public function get_meta(){
 		return $this->meta;
 	}
