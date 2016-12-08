@@ -53,7 +53,7 @@ class Registro0 extends Generico0
             'required'=>true),
         'literal_servico'=>array(
             'tamanho'=>8,
-            'default'=>'COBRANÃA',
+            'default'=>'COBRANÇA',
             'tipo'=>'alfa2',
             'required'=>true),
         'filler0'=>array(

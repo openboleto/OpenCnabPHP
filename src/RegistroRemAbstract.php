@@ -119,11 +119,11 @@ abstract class RegistroRemAbstract
                     break;
                 case 'alfa':
                     $retorno = ($this->data[$prop])?$this->prepareText($this->data[$prop]):''; 
-                    return str_pad(substr($retorno,0,$metaData['tamanho']),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    return str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case 'alfa2':
                     $retorno = ($this->data[$prop])?$this->data[$prop]:''; 
-                    return str_pad(substr($retorno,0,$metaData['tamanho']),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    return str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
                     $retorno = ($this->data[$prop])?date("dmy",strtotime($this->data[$prop])):'';
