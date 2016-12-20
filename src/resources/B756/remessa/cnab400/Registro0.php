@@ -83,8 +83,8 @@ class Registro0 extends Generico0
             'required'=>true),
         'numero_convenio'=>array(
             'tamanho'=>6,
-            'default'=>'0',
-            'tipo'=>'int',
+            'default'=>' ',
+            'tipo'=>'alfa',
             'required'=>true),
         'nome_empresa'=>array(
             'tamanho'=>30,
