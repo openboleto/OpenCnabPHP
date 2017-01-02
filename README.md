@@ -70,7 +70,7 @@ Acesse a url de exemplo:
             Cnab240_SIGCB
         </td>
         <td>
-            aguardando voluntario para teste
+            Homologado
         </td>
     </tr>
     <tr>
