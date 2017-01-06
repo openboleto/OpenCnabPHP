@@ -1,13 +1,13 @@
 {
-	"name": "rctnet/opencnabphp",
+	"name": "nxstep-si/nx-cnab",
 	"type": "library",
 	"description": "Conjunto de classes para geração e leitura de arquivos Cnab de remessa e retorno",
 	"keywords": ["boleto", "remessa", "retorno", "cnab", "cnab240", "cnab400"],
 	"licence": "MIT",
 	"authors": [
 		{
-			"name": "Rogerio Muniz de Castro",
-			"email": "rogerio@ciatec.net"
+			"name" : "NextStep - Equipe Kepler",
+			"email" : "contato@nxstep.com.br"
 		}
 	],
 	"autoload": {
@@ -16,6 +16,11 @@
 				"src"
 			]
 		}
+	},
+	"minimum-stability" : "dev",
+	"support" : {
+		"source" : "https://github.com/nxstep-si/nx-cnab",
+		"issues" : "https://github.com/nxstep-si/nx-cnab/issues"
 	},
 	"require": {
 		"php": ">=5.3.0"
