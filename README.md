@@ -112,7 +112,7 @@ Acesse a url de exemplo:
             SICOOB
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Homologado
@@ -144,7 +144,7 @@ $arquivo = new Remessa(104,'cnab240_SIGCB',array(
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
-    'codigo_ocorrencia' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
+    'codigo_movimento' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 1, // numero sequencial de boleto
     'seu_numero'        => 1,// se nao informado usarei o nosso numero 
 
