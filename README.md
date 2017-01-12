@@ -25,7 +25,7 @@ docker-compose up -d
 ## Instalando via composer:
 
 
-Adcione "rctnet/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
+Adicione "rctnet/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
 
 Acesse a url de exemplo: 
 `http://localhost:8080/src/samples/ExemploRemessa.php`
