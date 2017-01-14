@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - Geraï¿½ï¿½o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -23,7 +23,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B341\remessa\cnab240;
+namespace CnabPHP\resources\B756\remessa\cnab240;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
@@ -34,7 +34,7 @@ class Registro3P extends Generico3
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3P
 			'tamanho'=>3,
-			'default'=>'341',
+			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(           // 2.3P
@@ -68,7 +68,7 @@ class Registro3P extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 			
-		// - ------------------ até aqui é igual para todo registro tipo 3
+		// - ------------------ atï¿½ aqui ï¿½ igual para todo registro tipo 3
 
 		'agencia'=>array(               // 8.3P
 			'tamanho'=>5,
@@ -117,7 +117,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'filler32'=>array(      //15.3P
 			'tamanho'=>8,
-			'default'=>' ',  // combrança com registro
+			'default'=>' ',  // combranï¿½a com registro
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler33'=>array(        //16.3P
@@ -125,9 +125,9 @@ class Registro3P extends Generico3
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-        'seu_numero'=>array(            //19.3P   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
+        'seu_numero'=>array(            //19.3P   Campo de preenchimento obrigatï¿½rio; preencher com Seu Nï¿½mero de controle do tï¿½tulo
             'tamanho'=>10,
-            'default'=>' ',      // este espaço foi colocado para passa a validação para os seters do generico
+            'default'=>' ',      // este espaï¿½o foi colocado para passa a validaï¿½ï¿½o para os seters do generico
             'tipo'=>'alfa',
             'required'=>true),
 		'filler34'=>array(          // 17.3

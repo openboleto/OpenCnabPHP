@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - Geraï¿½ï¿½o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -23,7 +23,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B341\remessa\cnab240;
+namespace CnabPHP\resources\B756\remessa\cnab240;
 use \CnabPHP\resources\generico\remessa\cnab240\Generico0;
 
 class Registro0 extends Generico0
@@ -31,7 +31,7 @@ class Registro0 extends Generico0
 	protected $meta = array(
 		'codigo_banco'=>array(
 			'tamanho'=>3,
-			'default'=>'341',
+			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(
@@ -106,7 +106,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'nome_banco'=>array(
 			'tamanho'=>30,
-			'default'=>'BANCO ITAU SA',
+			'default'=>'BANCO COOPERATIVO DO BRASIL SA',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler3'=>array(
@@ -121,12 +121,12 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'data_geracao'=>array(
 			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',// nao informar a data na instanciaï¿½ï¿½o - gerada dinamicamente
 			'tipo'=>'date',
 			'required'=>true),
 		'hora_geracao'=>array(
 			'tamanho'=>6,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',// nao informar a data na instanciaï¿½ï¿½o - gerada dinamicamente
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_sequencial_arquivo'=>array(

@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - Geraï¿½ï¿½o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -23,7 +23,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B341\remessa\cnab240;
+namespace CnabPHP\resources\B756\remessa\cnab240;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\Exception;
 
@@ -32,7 +32,7 @@ class Registro3R extends Generico3
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3R
 			'tamanho'=>3,
-			'default'=>'341',
+			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(           // 2.3R
@@ -66,7 +66,7 @@ class Registro3R extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 			
-			// - ------------------ até aqui é igual para todo registro tipo 3
+			// - ------------------ atï¿½ aqui ï¿½ igual para todo registro tipo 3
 			
 		'filler12'=>array(               // 8.3R
 			'tamanho'=>1,
