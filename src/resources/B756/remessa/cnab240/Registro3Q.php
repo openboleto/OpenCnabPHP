@@ -65,12 +65,13 @@ class Registro3Q extends Generico3
 			'default'=>'01', // entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
-			
+
 			// - ------------------ at� aqui � igual para todo registro tipo 3
-			
+
+		//Dados do pagador
 		'tipo_inscricao'=>array(               // 8.3Q
 			'tamanho'=>1,
-			'default'=>'',
+			'default'=>'1',
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_inscricao'=>array(            // 9.3Q
@@ -79,15 +80,10 @@ class Registro3Q extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 		'nome_pagador'=>array(       //10.3Q
-			'tamanho'=>30,
+			'tamanho'=>40,
 			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-        'filler12'=>array(               // 6.3Q
-            'tamanho'=>10,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
 		'endereco_pagador'=>array(               // 11.3Q
 			'tamanho'=>40,
 			'default'=>'',
@@ -98,7 +94,7 @@ class Registro3Q extends Generico3
 			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'cep_pagador'=>array(      //13.3Q   
+		'cep_pagador'=>array(      //13.3Q
 			'tamanho'=>5,
 			'default'=>'',
 			'tipo'=>'int',
@@ -129,15 +125,10 @@ class Registro3Q extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 		'nome_avalista'=>array(        //18.3Q
-			'tamanho'=>30,
+			'tamanho'=>40,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-        'filler13'=>array(               // 6.3Q
-            'tamanho'=>10,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
 		'filler14'=>array(        //18.3Q
 			'tamanho'=>3,
 			'default'=>'0',

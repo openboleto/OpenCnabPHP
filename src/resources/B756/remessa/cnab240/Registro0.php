@@ -76,12 +76,12 @@ class Registro0 extends Generico0
 			'default'=>' ',
 			'tipo'=>'alfa',
             'required'=>true),
-		'numero_conta'=>array(
+		'conta'=>array(
 			'tamanho'=>12,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-        'dv_conta'=>array(
+        'conta_dv'=>array(
             'tamanho'=>1,
             'default'=>'0',
             'tipo'=>'alfa',

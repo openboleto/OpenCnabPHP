@@ -56,7 +56,7 @@ class Generico1 extends RegistroRemAbstract
         {
             $this->data['tipo_inscricao'] =  $value;
         }else{
-            throw new Exception("O tipo de incrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+            throw new Exception("O tipo de incriï¿½ï¿½o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
         }
     }
 
@@ -78,7 +78,14 @@ class Generico1 extends RegistroRemAbstract
     {
         $this->data['agencia_dv'] = $value == '' ?   RemessaAbstract::$entryData['agencia_dv'] : $value;
     }
-
+    protected function set_conta($value)
+    {
+    	$this->data['conta'] = $value == '' ?   RemessaAbstract::$entryData['conta'] : $value;
+    }
+    protected function set_conta_dv($value)
+    {
+    	$this->data['conta_dv'] = $value == '' ?   RemessaAbstract::$entryData['conta_dv'] : $value;
+    }
     protected function set_codigo_convenio($value)
     {
         $this->data['codigo_convenio'] =  RemessaAbstract::$entryData['codigo_beneficiario'];

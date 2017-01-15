@@ -99,6 +99,8 @@ abstract class RegistroRemAbstract
     */
     public function ___get($prop)
     {
+        //var_dump($this->meta[$prop]);
+        //var_dump($this->meta[$metaData]);
         // retorna o valor da propriedade
         if (isset($this->meta[$prop]))
         {
