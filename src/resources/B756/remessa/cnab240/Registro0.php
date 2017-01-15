@@ -71,7 +71,7 @@ class Registro0 extends Generico0
 			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'dv_agencia'=>array(
+		'agencia_dv'=>array(
 			'tamanho'=>1,
 			'default'=>' ',
 			'tipo'=>'alfa',

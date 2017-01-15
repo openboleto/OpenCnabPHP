@@ -121,12 +121,12 @@ class Registro3R extends Generico3
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'informacao_pagador'=>array(          // 18.3
+		'set_mensagem_5'=>array(          // 18.3
 			'tamanho'=>40,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'informacao_pagador2'=>array(          // 18.3
+		'set_mensagem_6'=>array(          // 18.3
 			'tamanho'=>40,
 			'default'=>' ',
 			'tipo'=>'alfa',

@@ -57,7 +57,10 @@ $lote->inserirDetalhe(array(
      /* campos necessarios somente para itau,  não precisa comentar se for outro layout    */
 		
 	/* Campos para a implementação sicoob240 */
-	
+	'set_mensagem_3' => "PRIMEIRA LINHA DE MENSAGEM",
+	'set_mensagem_4' => "SEGUNDA LINHA DE MENSAGEM",
+	'set_mensagem_5' => "TERCEIRA LINHA DE MENSAGEM",
+	'set_mensagem_6' => "QUARTA LINHA DE MENSAGEM",
 
     'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
     'valor'             => 100.00, // Valor do boleto como float valido em php
@@ -88,5 +91,13 @@ $lote->inserirDetalhe(array(
     'taxa_multa'         => 30.00, // taxa de multa em percentual
     'taxa_juros'         => 30.00, // taxa de juros em percentual
 ));
-echo $arquivo->getText();
+
+
+$f = fopen("teste.rem","a+",0);
+$texto = $arquivo->getText();
+fwrite($f,$texto,strlen($texto));
+fclose($f);
+
+print $arquivo->getText();
+
 ?>

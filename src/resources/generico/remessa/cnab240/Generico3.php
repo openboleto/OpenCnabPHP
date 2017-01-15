@@ -166,16 +166,16 @@ class Generico3 extends RegistroRemAbstract
         $mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
         $this->data['mensagem_8'] = count($mensagem)>=6?$mensagem[5]:' ';
     }
-	protected function set_informacao_pagador($value)
+	protected function set_set_mensagem_5($value)
 	{
-		$mensagem = (isset($this->entryData['informacao_pagador']))?$this->entryData['informacao_pagador']:'';
-		$this->data['informacao_pagador'] = $mensagem;
+		$mensagem = (isset($this->entryData['set_mensagem_5']))?$this->entryData['set_mensagem_5']:'';
+		$this->data['set_mensagem_5'] = $mensagem;
 	}
 
-	protected function set_informacao_pagador2($value)
+	protected function set_set_mensagem_52($value)
 	{
-		$mensagem = (isset($this->entryData['informacao_pagador2']))?$this->entryData['informacao_pagador2']:'';
-		$this->data['informacao_pagador2'] = $mensagem;
+		$mensagem = (isset($this->entryData['set_mensagem_52']))?$this->entryData['set_mensagem_52']:'';
+		$this->data['set_mensagem_52'] = $mensagem;
 	}
 	protected function set_prazo_protesto($value)
 	{
