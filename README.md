@@ -9,7 +9,7 @@ Um arquivo remessaAbstract cuida das questões sobre arquivos em geral.
 A classe para cada Remessa herda remssaAbstract e seta o nome do banco que é a pasta para os layouts personalizados
 </li>
 <li>
-RegitroAbstract cuida de metodos unicos para qualquer registro de qualquer layout,
+RegistroAbstract cuida de metodos unicos para qualquer registro de qualquer layout,
 </li>
 <li>
 Uma classe genérico herda registroAbstract e implementa setters e getters comuns ao registro de um determinado layout
@@ -201,4 +201,4 @@ foreach($registros as $registro)
 }
 ```
 
-Agaurdando volutarios para edição e testes dos layouts.
+Aguardando voluntarios para edição e testes dos layouts.
