@@ -90,7 +90,9 @@ abstract class RemessaAbstract
 	*/
 	public function getText(){
 		foreach(self::$children as $child){
+			//echo '<pre>';
 			//var_dump($child);
+			//echo '</pre>';
 			$child->getText();
 		}
 		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';

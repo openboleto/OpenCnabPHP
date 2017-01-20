@@ -167,5 +167,6 @@ class Generico1 extends RegistroRemAbstract
             $registro5->getText();
         }
     }
+
 }
 ?>

@@ -101,7 +101,7 @@ class Registro3Q extends Generico3
 			'required'=>true),
 		'cep_sufixo'=>array(  //14.3Q
 			'tamanho'=>3,
-			'default'=>' ',
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'cidade_pagador'=>array(   //15.3Q
@@ -114,6 +114,7 @@ class Registro3Q extends Generico3
 			'default'=>'',  // combran�a com registro
 			'tipo'=>'alfa',
 			'required'=>true),
+		//Opcional, não passado nos testes
 		'tipo_incricao_avalista'=>array(        //17.3Q
 			'tamanho'=>1,
 			'default'=>'0',

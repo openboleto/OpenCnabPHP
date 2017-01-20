@@ -53,7 +53,7 @@ class Registro3P extends Generico3 {
 			),
 			'numero_registro' => array ( // 4.3P
 					'tamanho' => 5,
-					'default' => '0',
+					'default' => '1',
 					'tipo' => 'int',
 					'required' => true 
 			),
@@ -78,19 +78,19 @@ class Registro3P extends Generico3 {
 			
 			// - ------------------ at� aqui � igual para todo registro tipo 3
 			'agencia' => array (
-					'tamanho' => 4,
+					'tamanho' => 5,
 					'default' => '',
 					'tipo' => 'int',
 					'required' => true 
 			),
 			'agencia_dv' => array (
 					'tamanho' => 1,
-					'default' => '0',
+					'default' => '',
 					'tipo' => 'int',
 					'required' => true 
 			),
 			'conta' => array (
-					'tamanho' => 8,
+					'tamanho' => 12,
 					'default' => '',
 					'tipo' => 'int',
 					'required' => true 
@@ -102,7 +102,7 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			// dv conta/empresa
-			'filler12' => array ( // 9.3P
+			'filler2' => array ( // 9.3P
 					'tamanho' => 1,
 					'default' => '0',
 					'tipo' => 'alfa',
@@ -116,7 +116,7 @@ class Registro3P extends Generico3 {
 			),
 			'carteira' => array ( // 13.3P
 					'tamanho' => 1,
-					'default' => '0',
+					'default' => '',
 					'tipo' => 'int',
 					'required' => true 
 			),
@@ -127,7 +127,7 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			// documento
-			'filler32' => array ( // 15.3P
+			'filler3' => array ( // 15.3P
 					'tamanho' => 1,
 					'default' => ' ', // combran�a com registro
 					'tipo' => 'alfa',
@@ -135,20 +135,20 @@ class Registro3P extends Generico3 {
 			),
 			'cod_emissao_boleto' => array ( // 16.3P
 					'tamanho' => 1,
-					'default' => '2',
+					'default' => '2', // {2} - beneficiário emite
 					'tipo' => 'int',
 					'required' => true 
 			),
 			'distrib_boleto' => array ( // 16.3P
 					'tamanho' => 1,
-					'default' => '2',
+					'default' => '2', // {2} - beneficiário distribui
 					'tipo' => 'alfa',
 					'required' => true 
 			),
 			// numero documento
-			'seu_numero' => array ( // 19.3P Campo de preenchimento obrigat�rio; preencher com Seu N�mero de controle do t�tulo
-					'tamanho' => 15,
-					'default' => ' ', // este espa�o foi colocado para passa a valida��o para os seters do generico
+			'seu_numero' => array (   // Campo de preenchimento obrigatório preencher com o 
+					'tamanho' => 15,  // Numero do Contrato que gerou o boleto
+					'default' => '',
 					'tipo' => 'alfa',
 					'required' => true 
 			),
@@ -167,14 +167,14 @@ class Registro3P extends Generico3 {
 			),
 			'agencia_cobradora' => array ( // 22.3P
 					'tamanho' => 5,
-					'default' => '00000',
+					'default' => '0',
 					'tipo' => 'int',
 					'required' => true 
 			),
 			'agencia_cobradora_dv' => array ( // 23.3P
 					'tamanho' => 1,
 					'default' => ' ',
-					'tipo' => 'alfa', // originalmente no manual esta alfa mas foi mudado para int para funcionar
+					'tipo' => 'alfa',
 					'required' => true 
 			),
 			'especie_titulo' => array ( // 24.3P
@@ -215,7 +215,7 @@ class Registro3P extends Generico3 {
 					'precision' => 2,
 					'required' => true 
 			),
-			// codigo data_desconto
+			// codigo desconto
 			'filler36' => array ( // 30.3P
 					'tamanho' => 1,
 					'default' => '2',
@@ -250,8 +250,8 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			'seu_numero2' => array ( // 35.3P
-					'tamanho' => 25,
-					'default' => ' ',
+					'tamanho' => 25, // Identificação do contrato
+					'default' => '',
 					'tipo' => 'alfa',
 					'required' => true 
 			),
@@ -275,8 +275,8 @@ class Registro3P extends Generico3 {
 			),
 			'prazo_baixar' => array ( // 39.3P
 					'tamanho' => 3,
-					'default' => '90',
-					'tipo' => 'int',
+					'default' => ' ',
+					'tipo' => 'alfa',
 					'required' => true 
 			),
 			'codigo_moeda' => array ( // 39.3P
@@ -310,6 +310,8 @@ class Registro3P extends Generico3 {
 			$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
 			$this->children [] = new $class ( $data );
 		}
+		$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3S3';
+		$this->children [] = new $class ( $data );
 	}
 }
 

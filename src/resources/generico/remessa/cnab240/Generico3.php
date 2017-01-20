@@ -78,6 +78,13 @@ class Generico3 extends RegistroRemAbstract
 		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
 		$this->data['com_registro'] = $lote->tipo_servico;
 	}
+	
+	protected function set_carteira($value)
+	{
+		$this->data['carteira'] = $value;
+	}
+	
+	
 	protected function set_emissao_boleto($value)
 	{
 		$this->data['emissao_boleto'] = $value;
@@ -206,6 +213,24 @@ class Generico3 extends RegistroRemAbstract
 	protected function set_cod_emissao_boleto($value)
 	{
 		$this->data['cod_emissao_boleto'] = $value;
+	}
+
+	// Mensagem exclusiva SICOOB
+	protected function set_mensagem_sc_1($value)
+	{
+		$this->data['mensagem_sc_1'] = $value;
+	}
+	protected function set_mensagem_sc_2($value)
+	{
+		$this->data['mensagem_sc_2'] = $value;
+	}
+	protected function set_mensagem_sc_3($value)
+	{
+		$this->data['mensagem_sc_3'] = $value;
+	}
+	protected function set_mensagem_sc_4($value)
+	{
+		$this->data['mensagem_sc_4'] = $value;
 	}
 }
 ?>

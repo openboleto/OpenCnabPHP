@@ -42,7 +42,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'tipo_registro'=>array(
 			'tamanho'=>1,
-			'default'=>'0',
+			'default'=>'1',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler1'=>array(
@@ -53,12 +53,12 @@ class Registro0 extends Generico0
 			//empresa
 		'tipo_inscricao'=>array(
 			'tamanho'=>1,
-			'default'=>' ',
+			'default'=>'2',
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_inscricao'=>array(
 			'tamanho'=>14,
-			'default'=>' ',
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
         'filler2'=>array( // empresa.convenio (brancos)
@@ -68,12 +68,12 @@ class Registro0 extends Generico0
             'required'=>true),
 		'agencia'=>array(
 			'tamanho'=>5,
-			'default'=>' ',
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'agencia_dv'=>array(
 			'tamanho'=>1,
-			'default'=>' ',
+			'default'=>'',
 			'tipo'=>'alfa',
             'required'=>true),
 		'conta'=>array(
