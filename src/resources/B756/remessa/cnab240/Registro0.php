@@ -42,7 +42,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'tipo_registro'=>array(
 			'tamanho'=>1,
-			'default'=>'1',
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler1'=>array(

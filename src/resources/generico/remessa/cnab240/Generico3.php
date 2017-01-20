@@ -78,35 +78,30 @@ class Generico3 extends RegistroRemAbstract
 		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
 		$this->data['com_registro'] = $lote->tipo_servico;
 	}
-	
-	protected function set_carteira($value)
-	{
-		$this->data['carteira'] = $value;
-	}
-	
-	
 	protected function set_emissao_boleto($value)
-	{
-		$this->data['emissao_boleto'] = $value;
-		if($this->data['nosso_numero']==0)
 		{
-			$this->data['carteira'] = '00';
-		}
-		elseif($this->data['com_registro']==1 && $value==1)
-		{
-			$this->data['carteira'] = 11;
-		}
-		elseif($this->data['com_registro']==1 && $value==2)
-		{
-			$this->data['carteira'] = 14;
-		}
-		elseif($this->data['com_registro']==2 && $value==1)
-		{
-			$this->data['carteira'] = 21;
-		}
-		else
-		{
-			throw new Exception("Registros com emissao pelo beneficiario e sem registro nao sao enviados");
+		if (RemessaAbstract::$entryData['codigo_banco'] != '756'){
+			$this->data['emissao_boleto'] = $value;
+			if($this->data['nosso_numero']==0)
+			{
+				$this->data['carteira'] = '00';
+			}
+			elseif($this->data['com_registro']==1 && $value==1)
+			{
+				$this->data['carteira'] = 11;
+			}
+			elseif($this->data['com_registro']==1 && $value==2)
+			{
+				$this->data['carteira'] = 14;
+			}
+			elseif($this->data['com_registro']==2 && $value==1)
+			{
+				$this->data['carteira'] = 21;
+			}
+			else
+			{
+				throw new Exception("Registros com emissao pelo beneficiario e sem registro nao sao enviados");
+			}
 		}
 	}
 	protected function set_seu_numero($value)
@@ -195,42 +190,7 @@ class Generico3 extends RegistroRemAbstract
 			$this->data['prazo_protesto'] = $value;
 		}
 	}
-	protected function set_cadastramento($value)
-	{
-		$this->data['cadastramento'] = $value;
-	}
+	
 
-	protected function set_distrib_boleto($value)
-	{
-		$this->data['distrib_boleto'] = $value;
-	}
-
-	protected function set_codigo_moeda($value)
-	{
-		$this->data['codigo_moeda'] = $value;
-	}
-
-	protected function set_cod_emissao_boleto($value)
-	{
-		$this->data['cod_emissao_boleto'] = $value;
-	}
-
-	// Mensagem exclusiva SICOOB
-	protected function set_mensagem_sc_1($value)
-	{
-		$this->data['mensagem_sc_1'] = $value;
-	}
-	protected function set_mensagem_sc_2($value)
-	{
-		$this->data['mensagem_sc_2'] = $value;
-	}
-	protected function set_mensagem_sc_3($value)
-	{
-		$this->data['mensagem_sc_3'] = $value;
-	}
-	protected function set_mensagem_sc_4($value)
-	{
-		$this->data['mensagem_sc_4'] = $value;
-	}
 }
 ?>

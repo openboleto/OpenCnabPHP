@@ -109,10 +109,40 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			'nosso_numero' => array ( // 13.3P
-					'tamanho' => 20,
+					'tamanho' => 9,
 					'default' => '',
 					'tipo' => 'int',
 					'required' => true 
+			),
+			'nosso_numero_dv' => array ( // 13.3P
+					'tamanho' => 1,
+					'default' => '',
+					'tipo' => 'int',
+					'required' => true
+			),
+			'parcela' => array ( // 13.3P
+					'tamanho' => 2,
+					'default' => '',
+					'tipo' => 'int',
+					'required' => true
+			),
+			'modalidade' => array ( // 13.3P
+					'tamanho' => 2,
+					'default' => '',
+					'tipo' => 'int',
+					'required' => true
+			),
+			'tipo_formulario' => array ( // 13.3P
+					'tamanho' => 1,
+					'default' => '',
+					'tipo' => 'int',
+					'required' => true
+			),
+			'filler3' => array ( // 13.3P
+					'tamanho' => 5,
+					'default' => ' ',
+					'tipo' => 'alfa',
+					'required' => true
 			),
 			'carteira' => array ( // 13.3P
 					'tamanho' => 1,
@@ -127,7 +157,7 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			// documento
-			'filler3' => array ( // 15.3P
+			'filler4' => array ( // 15.3P
 					'tamanho' => 1,
 					'default' => ' ', // combran�a com registro
 					'tipo' => 'alfa',
@@ -135,7 +165,7 @@ class Registro3P extends Generico3 {
 			),
 			'cod_emissao_boleto' => array ( // 16.3P
 					'tamanho' => 1,
-					'default' => '2', // {2} - beneficiário emite
+					'default' => '', // {2} - beneficiário emite
 					'tipo' => 'int',
 					'required' => true 
 			),
@@ -196,7 +226,7 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			// codigo juros
-			'filler35' => array ( // 27.3P
+			'filler5' => array ( // 27.3P
 					'tamanho' => 1,
 					'default' => '0',
 					'tipo' => 'int',
@@ -216,7 +246,7 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			// codigo desconto
-			'filler36' => array ( // 30.3P
+			'filler6' => array ( // 30.3P
 					'tamanho' => 1,
 					'default' => '2',
 					'tipo' => 'int',
@@ -251,7 +281,7 @@ class Registro3P extends Generico3 {
 			),
 			'seu_numero2' => array ( // 35.3P
 					'tamanho' => 25, // Identificação do contrato
-					'default' => '',
+					'default' => ' ',
 					'tipo' => 'alfa',
 					'required' => true 
 			),
@@ -285,19 +315,21 @@ class Registro3P extends Generico3 {
 					'tipo' => 'int',
 					'required' => true 
 			),
-			'filler5' => array ( // 41.3P
+			'filler7' => array ( // 41.3P
 					'tamanho' => 10,
 					'default' => '0',
 					'tipo' => 'int',
 					'required' => true 
 			),
-			'filler6' => array ( // 42.3P
+			'filler8' => array ( // 42.3P
 					'tamanho' => 1,
 					'default' => ' ',
 					'tipo' => 'alfa',
 					'required' => true 
 			) 
 	);
+
+	
 	public function __construct($data = null) {
 		if (empty ( $this->data ))
 			parent::__construct ( $data );
@@ -306,6 +338,7 @@ class Registro3P extends Generico3 {
 	public function inserirDetalhe($data) {
 		$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Q';
 		$this->children [] = new $class ( $data );
+		// Chamar função para inserir nosso número
 		if (isset ( $data ['codigo_desconto2'] ) || isset ( $data ['codigo_desconto3'] ) || isset ( $data ['vlr_multa'] ) || isset ( $data ['informacao_pagador'] )) {
 			$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
 			$this->children [] = new $class ( $data );
@@ -313,6 +346,7 @@ class Registro3P extends Generico3 {
 		$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3S3';
 		$this->children [] = new $class ( $data );
 	}
+	
 }
 
 ?>
