@@ -191,6 +191,53 @@ class Generico3 extends RegistroRemAbstract
 		}
 	}
 	
+	protected function set_nosso_numero_dv($value)
+	{
+		$Dv = self::formata_nossonumero($this->data['nosso_numero'], $this->data['agencia'], RemessaAbstract::$entryData['codigo_beneficiario'].RemessaAbstract::$entryData['codigo_beneficiario_dv']);
+		$this->data['nosso_numero_dv'] = $Dv;
+	}
+	
+	protected function formata_numdoc($num,$tamanho) {
+		while(strlen($num)<$tamanho)
+		{
+			$num="0".$num;
+		}
+		return $num;
+	}
+	
+	protected function formata_nossonumero($index, $ag, $conv) {
+		$sequencia = self::formata_numdoc($ag,4).self::formata_numdoc($conv,10).self::formata_numdoc($index,3);
+		$cont=0;
+		$calculoDv = 0;
+		for($num=0;$num<=strlen($sequencia);$num++){
+			$cont++;
+			if($cont == 1)
+			{
+				// constante fixa Sicoob » 3197
+				$constante = 3;
+			}
+			if($cont == 2)
+			{
+				$constante = 1;
+			}
+			if($cont == 3)
+			{
+				$constante = 9;
+			}
+			if($cont == 4)
+			{
+				$constante = 7;
+				$cont = 0;
+			}
+			$calculoDv += (substr($sequencia,$num,1) * $constante);
+		}
+		$Resto = $calculoDv % 11;
+		$Dv = 11 - $Resto;
+		if ($Dv == 0) $Dv = 0;
+		if ($Dv == 1) $Dv = 0;
+		if ($Dv > 9) $Dv = 0;	
+		return $Dv;
+	}
 
 }
 ?>
