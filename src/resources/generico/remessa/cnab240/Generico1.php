@@ -144,18 +144,18 @@ class Generico1 extends RegistroRemAbstract
             // percorre todos objetos filhos
             foreach ($this->children as $child)
             {
-                if($child->codigo_carteira==1 || $child->carteira==1)
+                if($child->codigo_carteira==1)
                 {
                     $dataReg5['qtd_titulos_simples']++;   
                     $dataReg5['vrl_titulos_simples'] += $child->getUnformated('valor');
                 }
-                if($child->codigo_carteira==3 || $child->carteira== 3)
+                if($child->codigo_carteira==3)
                 {
                     $dataReg5['qtd_titulos_caucionada']++;
                     $dataReg5['vlr_titulos_caucionada'] += $child->getUnformated('valor');
 
                 }
-                if($child->codigo_carteira==4 || $child->carteira==4)
+                if($child->codigo_carteira==4)
                 {
                     $dataReg5['qtd_titulos_descontada'] ++;   
                     $dataReg5['vlr_titulos_descontada'] += $child->getUnformated('valor'); 

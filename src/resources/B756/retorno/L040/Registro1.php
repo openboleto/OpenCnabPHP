@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B341\retorno\L040;
+namespace CnabPHP\resources\B756\retorno\L040;
 use CnabPHP\resources\generico\retorno\L040\Generico1;
 use CnabPHP\RetornoAbstract;
 
@@ -33,7 +33,7 @@ class Registro1 extends Generico1
 	protected $meta = array(
 		'codigo_banco'=>array(
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(
@@ -137,7 +137,7 @@ class Registro1 extends Generico1
 			'required'=>true),
 		'data_gravacao'=>array(
 			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
 			'tipo'=>'date',
 			'required'=>true),
 		'data_credito'=>array(
@@ -157,7 +157,7 @@ class Registro1 extends Generico1
 		$this->inserirDetalhe();
 	}
 	/*
-	* método inserirDetalhe()
+	* mÃ©todo inserirDetalhe()
 	* Recebe os parametros
 	* @$data = um array contendo os dados nessesarios para o arquvio
 	*/

@@ -144,7 +144,7 @@ class Registro3P extends Generico3 {
 					'tipo' => 'alfa',
 					'required' => true
 			),
-			'carteira' => array ( // 13.3P
+			'codigo_carteira' => array ( // 13.3P
 					'tamanho' => 1,
 					'default' => '',
 					'tipo' => 'int',

@@ -23,86 +23,92 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B756\remessa\cnab240;
-use CnabPHP\resources\generico\remessa\cnab240\Generico3;
-use Exception;
+namespace CnabPHP\resources\B756\retorno\L040;
+use CnabPHP\resources\generico\retorno\L040\Generico3;
+//use CnabPHP\RetornoAbstract;
+use CnabPHP\Exception;
 
-class Registro3S3 extends Generico3
+class Registro3Y08 extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(          // 1.3S
+		'codigo_banco'=>array(          // 1.9U
 			'tamanho'=>3,
 			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(           // 2.3S
+		'codigo_lote'=>array(           // 2.9U
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(         // 3.3S
+		'tipo_registro'=>array(         // 3.9U
 			'tamanho'=>1,
 			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_registro'=>array(       // 4.3S
+		'numero_registro'=>array(       // 4.9U
 			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'seguimento'=>array(            // 5.3S
+		'seguimento'=>array(            // 5.9U
 			'tamanho'=>1,
-			'default'=>'S',
+			'default'=>'U',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler1'=>array(               // 6.3S
+		'filler1'=>array(               // 6.9U
 			'tamanho'=>1,
 			'default'=>' ',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
-		'codigo_movimento'=>array(      // 7.3S
+		'codigo_movimento'=>array(      // 7.9U
 			'tamanho'=>2,
-			'default'=>'01', // entrada de titulo
+			'default'=>'', // entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
 			
 			// - ------------------ até aqui é igual para todo registro tipo 3
 			
-		'tipo_impressao'=>array(               // 8.3S
-			'tamanho'=>1,
-			'default'=>'3',
+		'identificacao_registro'=>array(               // 8.9U
+			'tamanho'=>2,
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'mensagem_sc_1'=>array(                // 9.3S
-			'tamanho'=>40,
-			'default'=>' ',
+		'codigo_solicitacao'=>array(            // 9.9U
+			'tamanho'=>2,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'id_identificador'=>array(       //10.9U
+			'tamanho'=>1,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'numero_solicitacao'=>array(               // 11.9U
+			'tamanho'=>18,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'descricao'=>array(               //12.9U
+			'tamanho'=>180,
+			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'mensagem_sc_2'=>array(                //10.3S
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
+		'quantidade'=>array(      //13.9U   
+			'tamanho'=>4,
+			'default'=>'',
+			'tipo'=>'int',
 			'required'=>true),
-		'mensagem_sc_3'=>array(                // 9.3S
-			'tamanho'=>40,
+		'erro'=>array(  //14.9U
+			'tamanho'=>3,
 			'default'=>' ',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
-		'mensagem_sc_4'=>array(                //10.3S
-			'tamanho'=>40,
-			'default'=>' ',
+		'filler2'=>array(   //15.9U
+			'tamanho'=>30,
+			'default'=>'',
 			'tipo'=>'alfa',
-			'required'=>true),
-		'mensagem_sc_5'=>array(               //13.3S
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler3'=>array(               //14.3S
-			'tamanho'=>22,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
+			'required'=>true),	
 	);
 }
 
