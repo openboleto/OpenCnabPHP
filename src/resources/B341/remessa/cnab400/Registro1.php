@@ -7,6 +7,8 @@ use CnabPHP\RemessaAbstract;
 
 class Registro1 extends Generico1
 {
+    public $protestar;
+
     protected $meta = array(
         'tipo_registro'=>array(
             'tamanho'=>1,
@@ -258,19 +260,7 @@ class Registro1 extends Generico1
             $class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro2';
             $this->children[] = new $class($data);
         }
-    } 
-    protected function set_cod_instrucao1($value)
-    {
-        $this->data['cod_instrucao1'] = ($this->protestar==2)?'10':'09';
     }
-
-    protected function set_cod_instrucao2($value)
-    {
-        $this->data['cod_instrucao2'] = ($value!=' ')?$value:'00';
-    }
-
-
-
 }
 
 ?>
