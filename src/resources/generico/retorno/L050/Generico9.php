@@ -23,31 +23,23 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\generico\retorno\L030;
-use CnabPHP\RegistroRetAbstract;
+namespace CnabPHP\resources\generico\retorno\L050;
+use CnabPHP\RegistroRemAbstract;
+use CnabPHP\RemessaAbstract;
+use Exception;
 
-class Generico0 extends RegistroRetAbstract
+class Generico9 extends RegistroRemAbstract
 {
-	protected $counter;
-	/*protected function set_situacao_arquivo($value)
+	protected function set_qtd_lotes($value)
 	{
-		$this->data['situacao_arquivo'] = ($value=='T')?"REMESSA-TESTE":"REMESSA-PRODUCAO";   
+		//ArquivoAbstract::$loteCounter++; 
+		$this->data['qtd_lotes'] = RemessaAbstract::$loteCounter;
 	}
-	protected function set_data_geracao($value)
+	protected function set_qtd_registros($value)
 	{
-		$this->data['data_geracao'] =  date('Y-m-d');
+		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+		$this->data['qtd_registros'] = $lote->get_counter()+1;
 	}
-	protected function set_hora_geracao($value)
-	{
-		$this->data['hora_geracao'] = date('His');
-	}
-	protected function set_numero_inscricao($value)
-	{
-		$this->data['numero_inscricao'] =  str_ireplace(array('.','/','-'),array(''),$value);
-	}
-	public function get_numero_registro(){
-		return null;
-	}
-*/
 }
+
 ?>

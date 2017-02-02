@@ -47,7 +47,7 @@ class Especie
         $this->caixa[9] = array('abr'=>"NCE",'txt'=>'Nota de CrÃ©dito a ExportaÃ§Ã£o');
         $this->caixa[10] = array('abr'=>"NCI",'txt'=>'Nota de CrÃ©dito a ExportaÃ§Ã£o');
         $this->caixa[11] = array('abr'=>"NCR",'txt'=>'Nota de CrÃ©dito Rural');
-        $this->caixa[12] = array('abr'=>"NP",'txt'=>'Nota PromissÃ³ria');
+        $this->caixa[12] = array('abr'=>"NP",'txt'=>'Nota Promissória');
         $this->caixa[13] = array('abr'=>"NPR",'txt'=>'Nota PromissÃ³ria Rural');
         $this->caixa[14] = array('abr'=>"TM",'txt'=>'Triplicata Mercantil');
         $this->caixa[15] = array('abr'=>"TS",'txt'=>'Triplicata de ServiÃ§o');

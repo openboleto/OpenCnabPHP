@@ -282,7 +282,7 @@ class Registro1 extends Generico1
         'prazo_protesto'=>array(
             'tamanho'=>2,
             'default'=>'0',
-            'tipo'=>'alfa',
+            'tipo'=>'int',
             'required'=>true),
         'filler4'=>array(            //31.3P
             'tamanho'=>1,

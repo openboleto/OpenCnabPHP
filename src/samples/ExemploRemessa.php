@@ -35,7 +35,7 @@ $arquivo = new Remessa(756,'cnab400',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
-    'agencia'       => '3300', // agencia sem o digito verificador 
+    'agencia'       => 3300, // agencia sem o digito verificador 
     'agencia_dv'    => 6, // somente o digito verificador da agencia 
     'conta'         => '3264', // número da conta
     'conta_dv'     => 6, // digito da conta
@@ -47,8 +47,8 @@ $arquivo = new Remessa(756,'cnab400',array(
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
-    'codigo_ocorrencia' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
-    'nosso_numero'      => 50, // numero sequencial de boleto
+    'codigo_movimento' => 2, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
+    'nosso_numero'      => 84180, // numero sequencial de boleto
     'seu_numero'        => 43,// se nao informado usarei o nosso numero 
 
     /* campos necessarios somente para itau e siccob,  não precisa comentar se for outro layout    */
@@ -74,7 +74,7 @@ $lote->inserirDetalhe(array(
     'vlr_juros'         => 0.15, // Valor do juros de 1 dia'
     'data_desconto'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
-    'baixar'            => 2, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (N�o Baixar / N�o Devolver)
+    'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (N�o Baixar / N�o Devolver)
     'prazo_baixa'       => 90, // prazo de dias para o cliente pagar ap�s o vencimento
     'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa

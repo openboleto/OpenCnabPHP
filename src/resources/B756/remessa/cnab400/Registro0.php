@@ -53,7 +53,7 @@ class Registro0 extends Generico0
             'required'=>true),
         'literal_servico'=>array(
             'tamanho'=>8,
-            'default'=>'COBRANÇA',
+            'default'=>'COBRANÇA',
             'tipo'=>'alfa2',
             'required'=>true),
         'filler0'=>array(
@@ -83,8 +83,8 @@ class Registro0 extends Generico0
             'required'=>true),
         'numero_convenio'=>array(
             'tamanho'=>6,
-            'default'=>'0',
-            'tipo'=>'int',
+            'default'=>' ',
+            'tipo'=>'alfa',
             'required'=>true),
         'nome_empresa'=>array(
             'tamanho'=>30,
