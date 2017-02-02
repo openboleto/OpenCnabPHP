@@ -47,8 +47,13 @@ $arquivo = new Remessa(756,'cnab400',array(
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
+<<<<<<< HEAD
     'codigo_movimento' => 2, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 84180, // numero sequencial de boleto
+=======
+    'codigo_movimento' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
+    'nosso_numero'      => 50, // numero sequencial de boleto
+>>>>>>> origin/master
     'seu_numero'        => 43,// se nao informado usarei o nosso numero 
 
     /* campos necessarios somente para itau e siccob,  não precisa comentar se for outro layout    */
