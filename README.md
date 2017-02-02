@@ -144,15 +144,13 @@ $arquivo = new Remessa(104,'cnab240_SIGCB',array(
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
-<<<<<<< HEAD
+
     'codigo_ocorrencia' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 50, // numero sequencial de boleto
     'seu_numero'        => 43,// se nao informado usarei o nosso numero 
-=======
     'codigo_movimento' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 1, // numero sequencial de boleto
     'seu_numero'        => 1,// se nao informado usarei o nosso numero 
->>>>>>> origin/master
 
     /* campos necessarios somente para itau e siccob,  não precisa comentar se for outro layout    */
     'carteira_banco'    => 109, // codigo da carteira ex: 109,RG esse vai o nome da carteira no banco
@@ -161,16 +159,13 @@ $lote->inserirDetalhe(array(
      
     'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
     'valor'             => 100.00, // Valor do boleto como float valido em php
-<<<<<<< HEAD
     'emissao_boleto'    => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
     'protestar'         => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver ap�s (Prazo) dias
     'prazo_protesto'    => 5, // Informar o numero de dias apos o vencimento para iniciar o protesto
     'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador � o cliente, preste atenção nos campos abaixo
-=======
     'emissao_boleto'        => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
     'protestar'        => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias. 
     'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador é o cliente, preste atenção nos campos abaixo
->>>>>>> origin/master
     'tipo_inscricao'    => 1, //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
     'numero_inscricao'  => '123.122.123-56',//cpf ou ncpj do pagador
     'endereco_pagador'  => 'Rua dos developers,123 sl 103',
