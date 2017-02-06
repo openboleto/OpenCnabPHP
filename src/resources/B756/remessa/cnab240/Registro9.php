@@ -4,7 +4,7 @@
  *
  * LICENSE: The MIT License (MIT)
  *
- * Copyright (C) 2013 Ciatec.net
+ * Copyright (C) 2017 www.nxstep.com.br
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this
  * software and associated documentation files (the "Software"), to deal in the Software
@@ -30,42 +30,42 @@ use CnabPHP\Exception;
 class Registro9 extends Generico9
 {
 	protected $meta = array(
-		'codigo_banco'=>array(      //01.5
+		'codigo_banco'=>array(		//01.9 -- 1-3 
 			'tamanho'=>3,
 			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(       //02.5
+		'codigo_lote'=>array(       //02.9 -- 4-7
 			'tamanho'=>4,
-			'default'=>9999,
+			'default'=>'9',
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(     //03.5
+		'tipo_registro'=>array(		//03.9 -- 8
 			'tamanho'=>1,
 			'default'=>'9',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler1'=>array(          //04.5
+		'filler1'=>array(			//04.9 -- 9-17
 			'tamanho'=>9,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'qtd_lotes'=>array(      //05.5
+		'qtd_lotes'=>array(			//05.9 -- 18-23
 			'tamanho'=>6,
 			'default'=>'1',
 			'tipo'=>'int',
 			'required'=>true),
-		'qtd_registros'=>array(           //06.5
+		'qtd_registros'=>array(		//06.9 -- 24-29
 			'tamanho'=>6,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler2'=>array(        //12.5
+		'qtd_contas'=>array(		//07.9 -- 30-35
 			'tamanho'=>6,
-			'default'=>' ',
-			'tipo'=>'alfa',
+			'default'=>'0',
+			'tipo'=>'int',
 			'required'=>true),
-		'filler3'=>array(           //13.5
+		'filler3'=>array(			//08.9 -- 36-240
 			'tamanho'=>205,
 			'default'=>' ',
 			'tipo'=>'alfa',
