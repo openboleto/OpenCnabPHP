@@ -60,10 +60,10 @@ class Registro0 extends Generico0
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-        'filler2'=>array(					//07.0 -- 33-52
+        'convenio'=>array(					//07.0 -- 33-52
             'tamanho'=>20,
-            'default'=>' ', //TODO Receber número do convênio
-            'tipo'=>'alfa', //Converter para inteiro
+            'default'=>'', 
+            'tipo'=>'alfa',
             'required'=>true),
 		'agencia'=>array(					//08.0 -- 53-57
 			'tamanho'=>5,
