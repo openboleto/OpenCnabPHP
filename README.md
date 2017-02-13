@@ -137,7 +137,7 @@ $arquivo = new Remessa(104,'cnab240_SIGCB',array(
     'agencia'       => '1234', // agencia sem o digito verificador 
     'agencia_dv'    => 1, // somente o digito verificador da agencia 
     'conta'         => '12345', // número da conta
-    'conta_dac'     => 1, // digito da conta
+    'conta_dv'     => 1, // digito da conta
     'codigo_beneficiario'     => '123456', // codigo fornecido pelo banco
     'numero_sequencial_arquivo'     => 1, // sequencial do arquivo um numero novo para cada arquivo gerado
 ));
