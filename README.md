@@ -145,11 +145,10 @@ $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para
 
 $lote->inserirDetalhe(array(
 
-    'codigo_ocorrencia' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
+    'codigo_movimento' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 50, // numero sequencial de boleto
     'seu_numero'        => 43,// se nao informado usarei o nosso numero 
-    'codigo_movimento' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
-    'nosso_numero'      => 1, // numero sequencial de boleto
+    'nosso_numero'      => 1, // numero sequencial de boleto
     'seu_numero'        => 1,// se nao informado usarei o nosso numero 
 
     /* campos necessarios somente para itau e siccob,  não precisa comentar se for outro layout    */
