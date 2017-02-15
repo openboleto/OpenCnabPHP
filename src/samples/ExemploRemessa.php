@@ -48,7 +48,6 @@ $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para
 
 $lote->inserirDetalhe(array(
     'codigo_movimento' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
-    'nosso_numero'      => 84180, // numero sequencial de boleto
     'nosso_numero'      => 50, // numero sequencial de boleto
     'seu_numero'        => 43,// se nao informado usarei o nosso numero 
 
