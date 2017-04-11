@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - Gera??o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *

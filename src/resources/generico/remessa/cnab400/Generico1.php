@@ -20,7 +20,7 @@ class Generico1 extends RegistroRemAbstract
         {
             $this->data['tipo_inscricao_empresa'] = RemessaAbstract::$entryData['tipo_inscricao'];
         }else{
-            throw new Exception("O tipo de incrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+            throw new Exception("O tipo de incriÃ§Ã£o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
         }
     }
 
@@ -30,7 +30,7 @@ class Generico1 extends RegistroRemAbstract
         {
             $this->data['tipo_inscricao'] =  $value;
         }else{
-            throw new Exception("O tipo de incrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+            throw new Exception("O tipo de incriÃ§Ã£o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
         }
     }
 
@@ -53,7 +53,7 @@ class Generico1 extends RegistroRemAbstract
     }
     protected function set_agencia_dv($value)
     {
-        $this->data['agencia'] = RemessaAbstract::$entryData['agencia_dv'];
+        $this->data['agencia_dv'] = RemessaAbstract::$entryData['agencia_dv'];
     }
 
     protected function set_conta($value)
@@ -85,53 +85,6 @@ class Generico1 extends RegistroRemAbstract
             $this->data['especie_titulo'] = $especie->getCodigo($value);
         }
     }
-    
-    protected function set_nosso_numero_dv($value)
-    {
-        $result = self::modulo11($this->data['nosso_numero']);
-        $this->data['nosso_numero_dv'] = $result['digito']; 
-    }
-    
-    
-    /**
-    * Calcula e retorna o dígito verificador usando o algoritmo Modulo 11
-    *
-    * @param string $num
-    * @param int $base
-    * @see Documentação em http://www.febraban.org.br/Acervo1.asp?id_texto=195&id_pagina=173&palavra=
-    * @return array Retorna um array com as chaves 'digito' e 'resto'
-    */
-    protected static function modulo11($num, $base=9)
-    {
-        $fator = 2;
-
-        $soma  = 0;
-        // Separacao dos numeros.
-        for ($i = strlen($num); $i > 0; $i--) {
-            //  Pega cada numero isoladamente.
-            $numeros[$i] = substr($num,$i-1,1);
-            //  Efetua multiplicacao do numero pelo falor.
-            $parcial[$i] = $numeros[$i] * $fator;
-            //  Soma dos digitos.
-            $soma += $parcial[$i];
-            if ($fator == $base) {
-                //  Restaura fator de multiplicacao para 2.
-                $fator = 1;
-            }
-            $fator++;
-        }
-        $result = array(
-            'digito' => ($soma * 10) % 11,
-            // Remainder.
-            'resto'  => $soma % 11,
-        );
-        if ($result['digito'] == 10){
-            $result['digito'] = 0;
-        }
-        return $result;
-    }
-
-
 }
 
 ?>

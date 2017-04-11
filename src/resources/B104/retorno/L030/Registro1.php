@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -136,7 +136,7 @@ class Registro1 extends Generico1
 			'required'=>true),
 		'data_gravacao'=>array(
 			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
 			'tipo'=>'date',
 			'required'=>true),
 		'filler3'=>array(
@@ -156,7 +156,7 @@ class Registro1 extends Generico1
 		$this->inserirDetalhe(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 	}
 	/*
-	* método inserirDetalhe()
+	* mÃ©todo inserirDetalhe()
 	* Recebe os parametros
 	* @$data = um array contendo os dados nessesarios para o arquvio
 	*/

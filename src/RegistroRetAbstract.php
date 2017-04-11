@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Gera��o de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -32,7 +32,7 @@ abstract class RegistroRetAbstract
 	protected $meta;
 	protected $children;
 
-	/* m�todo __construct()
+	/* mÃ©todo __construct()
 	* instancia registro qualquer
 	* @$data = array de dados para o registro
 	*/
@@ -41,24 +41,25 @@ abstract class RegistroRetAbstract
 		// carrega o objeto correspondente
 		$posicao = 0;
 		foreach($this->meta as $key =>$value){
-			$this->$key = (isset($value['precision']))?
-			substr($linhaTxt,$posicao,$value['tamanho']+$value['precision']):substr($linhaTxt,$posicao,$value['tamanho']);
-			$posicao += (isset($value['precision']))?$value['tamanho']+$value['precision']:$value['tamanho'];
+            $valor = (isset($value['precision']))?substr($linhaTxt,$posicao,$value['tamanho']+$value['precision']):substr($linhaTxt,$posicao,$value['tamanho']);
+            
+			$this->$key =  $valor;
+            $posicao += (isset($value['precision']))?$value['tamanho']+$value['precision']:$value['tamanho'];
 
 		}
 	}
 
 
 	/*
-	* m�todo __set()
-	* executado sempre que uma propriedade for atribu�da.
+	* mÃ©todo __set()
+	* executado sempre que uma propriedade for atribuÃ­da.
 	*/
 	public function __set($prop, $value)
 	{
-		// verifica se existe m�todo set_<propriedade>
+		// verifica se existe mÃ©todo set_<propriedade>
 		if (method_exists($this, 'set_'.$prop))
 		{
-			// executa o m�todo set_<propriedade>
+			// executa o mÃ©todo set_<propriedade>
 			call_user_func(array($this, 'set_'.$prop), $value);
 		}
 		else
@@ -82,13 +83,14 @@ abstract class RegistroRetAbstract
 				case 'date':
 					if($metaData['tamanho']==6)
 					{
-						$date = \DateTime::createFromFormat('dmy',sprintf( '%06d' , $value));
-						$retorno = (isset($date->date))?date("Y-m-d",strtotime($date->date)):null;
+						$data = \DateTime::createFromFormat('dmy',sprintf( '%06d' , $value));
+						$retorno = $data->format('Y-m-d');
 						$this->data[$prop] =  $retorno;
+                        
 					}elseif($metaData['tamanho']==8)
 					{
-						$date = \DateTime::createFromFormat('dmY',sprintf( '%08d' , $value));
-						$retorno = $date->format("Y-m-d");
+						$data = \DateTime::createFromFormat('dmY',sprintf( '%08d' , $value));
+						$retorno = $data->format("Y-m-d");
 						$this->data[$prop] =  $retorno;
 					}
 					break;
@@ -100,15 +102,15 @@ abstract class RegistroRetAbstract
 	}
 
 	/*
-	* m�todo __get()
+	* mÃ©todo __get()
 	* executado sempre que uma propriedade for requerida
 	*/
 	public function __get($prop)
 	{
-		// verifica se existe m�todo get_<propriedade>
+		// verifica se existe mÃ©todo get_<propriedade>
 		if (method_exists($this, 'get_'.$prop))
 		{
-			// executa o m�todo get_<propriedade>
+			// executa o mÃ©todo get_<propriedade>
 			return call_user_func(array($this, 'get_'.$prop));
 		}
 		else
@@ -118,7 +120,7 @@ abstract class RegistroRetAbstract
 	}
 
 	/*
-	* m�todo ___get()
+	* mÃ©todo ___get()
 	* metodo auxiliar para ser chamado para dentro de metodo get personalizado
 	*/
 	public function ___get($prop)
@@ -158,13 +160,13 @@ abstract class RegistroRetAbstract
 					break;
 			}
 		}
-	}
+	} 
 	public function get_meta(){
 		return $this->meta;
 	}
 	/*
-	* m�todo getUnformated()
-	* busca o valor de dentro do campo dentro do objeto de forma simples sem formata��o de valor por exemplo
+	* mÃ©todo getUnformated()
+	* busca o valor de dentro do campo dentro do objeto de forma simples sem formataÃ§Ã£o de valor por exemplo
 	*/
 	public function getUnformated($prop)
 	{
@@ -175,7 +177,7 @@ abstract class RegistroRetAbstract
 		}
 	}
 	/*
-	* m�todo getChilds()
+	* mÃ©todo getChilds()
 	* Metodo que retorna todos os filhos
 	*/
 	public function getChilds()
@@ -183,7 +185,7 @@ abstract class RegistroRetAbstract
 		return $this->children;
 	}
 	/*
-	* m�todo getChild()
+	* mÃ©todo getChild()
 	* Metodo que retorna um filho
 	*/
 	public function getChild($index = 0)

@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Gera��o de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -53,8 +53,8 @@ class Registro0 extends Generico0
             'required'=>true),
         'literal_servico'=>array(
             'tamanho'=>8,
-            'default'=>'COBRANCA',
-            'tipo'=>'alfa',
+            'default'=>'COBRANÇA',
+            'tipo'=>'alfa2',
             'required'=>true),
         'filler0'=>array(
             'tamanho'=>7,
@@ -71,20 +71,20 @@ class Registro0 extends Generico0
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
-        'conta'=>array(
+        'codigo_beneficiario'=>array(
             'tamanho'=>8,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'conta_dv'=>array(
+        'codigo_beneficiario_dv'=>array(
             'tamanho'=>1,
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
         'numero_convenio'=>array(
             'tamanho'=>6,
-            'default'=>'0',
-            'tipo'=>'int',
+            'default'=>' ',
+            'tipo'=>'alfa',
             'required'=>true),
         'nome_empresa'=>array(
             'tamanho'=>30,
@@ -98,12 +98,12 @@ class Registro0 extends Generico0
             'required'=>true),
         'nome_banco'=>array(
             'tamanho'=>15,
-            'default'=>'756BANCOOBCED',
+            'default'=>'BANCOOBCED',
             'tipo'=>'alfa',
             'required'=>true),
         'data_gravacao'=>array(
             'tamanho'=>6,
-            'default'=>'',// nao informar a data na instancia��o - gerada dinamicamente
+            'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
             'tipo'=>'date',
             'required'=>true),
         'numero_sequencial_arquivo'=>array(

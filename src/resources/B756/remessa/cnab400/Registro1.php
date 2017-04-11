@@ -60,7 +60,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'nosso_numero_dv'=>array(
             'tamanho'=>1,
-            'default'=>'',
+            'default'=>'0', // colocado valor inicial 0 para que quando o modulo 11 retorne 0 nao gere bug
             'tipo'=>'int',
             'required'=>true),
         'numero_parcela'=>array(            //34.3P
@@ -172,7 +172,7 @@ class Registro1 extends Generico1
         'aceite'=>array(            //25.3P
             'tamanho'=>1,
             'default'=>'0',
-            'tipo'=>'alfa',
+            'tipo'=>'int',
             'required'=>true),
         'data_emissao'=>array(            //26.3P
             'tamanho'=>6,
@@ -191,13 +191,13 @@ class Registro1 extends Generico1
             'required'=>true),
         'taxa_juros'=>array(            //29.3P
             'tamanho'=>2,
-            'default'=>'0',
+            'default'=>'',
             'tipo'=>'decimal',
             'precision'=>4,
             'required'=>true),
         'taxa_multa'=>array(            //29.3P
             'tamanho'=>2,
-            'default'=>'0',
+            'default'=>'',
             'tipo'=>'decimal',
             'precision'=>4,
             'required'=>true),
@@ -271,7 +271,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'uf_pagador'=>array(      //16.3Q
             'tamanho'=>2,
-            'default'=>'',  // combran�a com registro
+            'default'=>'',  // combranÃ§a com registro
             'tipo'=>'alfa',
             'required'=>true),
         'nome_avalista_mensagem'=>array(        //18.3Q
@@ -282,7 +282,7 @@ class Registro1 extends Generico1
         'prazo_protesto'=>array(
             'tamanho'=>2,
             'default'=>'0',
-            'tipo'=>'alfa',
+            'tipo'=>'int',
             'required'=>true),
         'filler4'=>array(            //31.3P
             'tamanho'=>1,
@@ -296,6 +296,63 @@ class Registro1 extends Generico1
             'required'=>true),
     );
 
-}
 
+    protected function set_nosso_numero_dv($value)
+    {
+        $result = self::mod11($this->data['nosso_numero']);
+        $this->data['nosso_numero_dv'] = $result['digito']; 
+    }
+
+    /**
+    * Calcula e retorna o dÃ­gito verificador usando o algoritmo Modulo 11
+    *
+    * @param string $num
+    * @param int $base
+    * @return array Retorna um array com as chaves 'digito' e 'resto'
+    */
+    protected static function mod11($num)
+    {
+        $codigo_beneficiario = RemessaAbstract::$entryData['codigo_beneficiario'].RemessaAbstract::$entryData['codigo_beneficiario_dv']; // NÃºmero do contrato: Ã o mesmo nÃºmero da conta
+        $agencia = RemessaAbstract::$entryData['agencia']; // NÃºmero do contrato: Ã o mesmo nÃºmero da conta
+
+        $NossoNumero = str_pad($num,7,0,STR_PAD_LEFT); // AtÃ© 7 dÃ­gitos, nÃºmero sequencial iniciado em 1 (Ex.: 1, 2...)
+        $qtde_nosso_numero = strlen($NossoNumero);
+        $sequencia = str_pad($agencia,4,STR_PAD_LEFT).str_pad($codigo_beneficiario,10,0,STR_PAD_LEFT).str_pad($NossoNumero,7,0,STR_PAD_LEFT);
+        $cont=0;
+        $calculoDv = 0;
+        for($num=0;$num<21;$num++) {
+            $cont++;
+            if($cont == 1)
+            {
+                $constante = 3;
+            }
+            if($cont == 2)
+            {
+                $constante = 1;
+            }
+            if($cont == 3)
+            {
+                $constante = 9;
+            }
+            if($cont == 4)
+            {
+                $constante = 7;
+                $cont = 0;
+            }
+            $calculoDv = $calculoDv + (substr($sequencia,$num,1) * $constante);
+        }
+
+        $Resto = $calculoDv % 11;
+        if($Resto == 0 || $Resto == 1){
+            $Dv = 0;
+        }else{
+            $Dv = 11 - $Resto;
+        }
+
+        $result["nosso_numero"] = $NossoNumero;
+        $result["digito"] = $Dv;
+        return $result;
+    }
+
+}
 ?>

@@ -6,15 +6,15 @@ abstract class RetornoAbstract
 {
 	//public  $hearder; // armazena o objeto registro 0 do arquivo
 	private  $children = array(); // armazena os registros filhos da classe remessa
-	public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
+	public static $banco; // sera atribuido o nome do banco que tambem Ã© o nome da pasta que contem os layouts
 	public static $layout;// recebera o nome do layout na instacia?ao  
 	public static $loteCounter = 1; // contador de lotes
-	public static $lines; // mantem os dados passados em $data na instanciação
+	public static $lines; // mantem os dados passados em $data na instanciaÃ§Ã£o
 	public static $linesCounter = 0;
-	//public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
+	//public static $retorno = array(); // durante a geraÃ§Ã£o do txt de retorno se tornara um array com as linhas do arquvio
 
 	/*
-	* método __construct()
+	* mÃ©todo __construct()
 	* Recebe os parametros
 	* @$banco = nome do banco no momento so Caixa
 	* @$layout = nome do layout no momento so Cnab240_SIGCB
@@ -44,10 +44,10 @@ abstract class RetornoAbstract
 		}
 		else
 		{
-			throw new Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
+			throw new Exception("NÃ£o foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
 		}
 		if($codigo_tipo == '1'){
-			throw new Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
+			throw new Exception("Esse Ã© um arqvuio de remessa, nao pode ser processado aqui.");
 		}
 		self::$banco = "B".$codigo_banco;
 		self::$layout = "L".$layout_versao;
@@ -67,7 +67,7 @@ abstract class RetornoAbstract
 		self::$layout = $newLayout;
 	}
 	/*
-	* método getLote()
+	* mÃ©todo getLote()
 	* Metodo statico para pegar o objeto do lote
 	* @$index = o indice do lote , normalmente 1
 	*/
@@ -77,7 +77,7 @@ abstract class RetornoAbstract
 		return $arquivo->getRegistros($lote);
 	}	
 	/*
-	* método getChilds()
+	* mÃ©todo getChilds()
 	* Metodo que retorna todos os filhos
 	*/
 	public function getChilds()
@@ -93,7 +93,8 @@ abstract class RetornoAbstract
 	public function getLayout()
 	{
 		 $arquivo = $this->children[0];   
-		 return $arquivo->versao_layout;
+		 return (self::$layout!='L400')?$arquivo->versao_layout:'L400';
+         
 	}
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Gera��o de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -106,12 +106,12 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'data_geracao'=>array(
 			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instancia��o - gerada dinamicamente
+			'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
 			'tipo'=>'date',
 			'required'=>true),
 		'hora_geracao'=>array(
 			'tamanho'=>6,
-			'default'=>'',// nao informar a data na instancia��o - gerada dinamicamente
+			'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_sequencial_arquivo'=>array(

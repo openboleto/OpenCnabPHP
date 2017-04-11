@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -66,7 +66,7 @@ class Registro3S1e2 extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 			
-			// - ------------------ até aqui é igual para todo registro tipo 3
+			// - ------------------ atÃ© aqui Ã© igual para todo registro tipo 3
 			
 		'tipo_impressao'=>array(               // 8.3S
 			'tamanho'=>1,

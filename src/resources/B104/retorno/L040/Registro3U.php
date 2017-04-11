@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -67,7 +67,7 @@ class Registro3U extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 			
-			// - ------------------ até aqui é igual para todo registro tipo 3
+			// - ------------------ atÃ© aqui Ã© igual para todo registro tipo 3
 			
 		'vlr_juros_multa'=>array(               // 8.9U
 			'tamanho'=>13,
@@ -119,7 +119,7 @@ class Registro3U extends Generico3
 			'required'=>true),
 		'data_ocorrencia'=>array(      //16.9U
 			'tamanho'=>8,
-			'default'=>'',  // combrança com registro
+			'default'=>'',  // combranÃ§a com registro
 			'tipo'=>'date',
 			'required'=>true),
 		'data_credito'=>array(        //17.9U
@@ -139,7 +139,7 @@ class Registro3U extends Generico3
 			'required'=>true),
 		'codigo_banco_pagador'=>array(            //19.9U   
 			'tamanho'=>15,
-			'default'=>' ', // este espaço foi colocado para passa a validação para os seters do generico
+			'default'=>' ', // este espaÃ§o foi colocado para passa a validaÃ§Ã£o para os seters do generico
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler4'=>array(               //19.9U
