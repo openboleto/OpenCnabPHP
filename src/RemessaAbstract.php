@@ -83,7 +83,16 @@ abstract class RemessaAbstract
 	*/
 	public static function getLote($index){
 		return self::$children[$index];
-	}	
+	}
+
+	/*
+	* método getLotes()
+	* Metodo statico para pegar os objetos dos lotes
+	*/
+	public static function getLotes(){
+		return self::$children;
+	}
+
 	/*
 	* método getText()
 	* Metodo que percorre todos os filhos acionando o metodo getText() deles

@@ -32,6 +32,7 @@ class Especie
     private $caixa = array();
     private $bb = array();
     private $siccob = array();
+    private $santander = array();
     private $banco;
     
     public function __construct($banco = null){
@@ -111,12 +112,31 @@ class Especie
         $this->sicoob[20] = array('abr'=>"AP",'txt'=>'ApÃ³lice de Seguros');
         $this->sicoob[21] = array('abr'=>"ME",'txt'=>'Mensalidade escolar');
         $this->sicoob[22] = array('abr'=>"ME",'txt'=>'Parcela de ConsÃ³rcio');
-        $this->sicoob[99] = array('abr'=>"DIV",'txt'=>'Outros');
+        $this->sicoob[99] = array('abr'=>"DIV",'txt'=>'Outros');        
+        
+        $this->santander[1] = array('abr'=>"DM",'txt'=>'Duplicata Mercantil');
+        $this->santander[2] = array('abr'=>"NP",'txt'=>'Nota PromissÃ³ria');
+        $this->santander[3] = array('abr'=>"NS",'txt'=>'Nota de Seguro');
+        $this->santander[5] = array('abr'=>"RC",'txt'=>'Recibo');
+        $this->santander[6] = array('abr'=>"DR",'txt'=>'Duplicata Rural');
+        $this->santander[8] = array('abr'=>"LC",'txt'=>'Letra de CÃ¢mbio');
+        $this->santander[9] = array('abr'=>"WRT",'txt'=>'Warrant');
+        $this->santander[10] = array('abr'=>"CH",'txt'=>'Cheque'); 
+        $this->santander[12] = array('abr'=>"DS",'txt'=>'Duplicata de ServiÃ§o'); 
+        $this->santander[13] = array('abr'=>"ND",'txt'=>'Nota de DÃ©bito');  
+        $this->santander[14] = array('abr'=>"TM",'txt'=>'Triplicata Mercantil');
+        $this->santander[15] = array('abr'=>"TS",'txt'=>'Triplicata de ServiÃ§o');
+        $this->santander[18] = array('abr'=>"FAT",'txt'=>'Fatura');
+        $this->santander[20] = array('abr'=>"AP",'txt'=>'ApÃ³lice de Seguros');
+        $this->santander[21] = array('abr'=>"ME",'txt'=>'Mensalidade escolar');
+        $this->santander[22] = array('abr'=>"ME",'txt'=>'Parcela de ConsÃ³rcio');
+        $this->santander[99] = array('abr'=>"DIV",'txt'=>'Outros');
         
         $this->res['104'] = $this->caixa;
         $this->res['341'] = $this->itau;
         $this->res['001'] = $this->bb;
         $this->res['756'] = $this->sicoob;
+        $this->res['033'] = $this->santander;
         
         $this->banco = $this->res[$banco];        
     } 
