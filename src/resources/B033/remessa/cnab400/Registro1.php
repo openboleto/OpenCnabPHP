@@ -37,14 +37,14 @@ class Registro1 extends Generico1
             'required'=>true),
         'numero_inscricao_empresa'=>array(
             'tamanho'=>14,
-            'default'=>'',
+            'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'seu_numero'=>array(
+        'numero_controle'=>array(
             'tamanho'=>25,
             'default'=>' ',
             'tipo'=>'alfa',
-            'required'=>true),
+            'required'=>false),
         'nosso_numero'=>array(
             'tamanho'=>8,
             'default'=>'',
@@ -54,7 +54,7 @@ class Registro1 extends Generico1
             'tamanho'=>6,
             'default'=>'',
             'tipo'=>'date',
-            'required'=>true),
+            'required'=>false),
         'filler1'=>array(
             'tamanho'=>1,
             'default'=>' ',
@@ -98,14 +98,14 @@ class Registro1 extends Generico1
             'tipo'=>'int',
             'required'=>true),
         'cod_ocorrencia'=>array(
-            'tamanho'=>9,
-            'default'=>'01',
+            'tamanho'=>2,
+            'default'=>1,
             'tipo'=>'int',
             'required'=>true),
-        'seu_numero_2'=>array(
+        'seu_numero'=>array(
             'tamanho'=>10,
-            'default'=>' ',
-            'tipo'=>'alfa',
+            'default'=>'0',
+            'tipo'=>'int',
             'required'=>true),
         'data_vencimento'=>array(            //20.3
             'tamanho'=>6,
@@ -145,13 +145,13 @@ class Registro1 extends Generico1
             'required'=>true),
         'cod_instrucao1'=>array(    //24.3P
             'tamanho'=>2,
-            'default'=>' ',
-            'tipo'=>'alfa',
+            'default'=>'0',
+            'tipo'=>'int',
             'required'=>true),
         'cod_instrucao2'=>array(    //24.3P
             'tamanho'=>2,
-            'default'=>' ',
-            'tipo'=>'alfa',
+            'default'=>'0',
+            'tipo'=>'int',
             'required'=>true),
         'vlr_juros'=>array(            //29.3P
             'tamanho'=>11,
@@ -182,12 +182,12 @@ class Registro1 extends Generico1
             'tipo'=>'decimal',
             'precision'=>2,
             'required'=>true),
-        'tipo_inscricao_pagador'=>array(
+        'tipo_inscricao'=>array(
             'tamanho'=>2,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'numero_inscricao_pagador'=>array(
+        'numero_inscricao'=>array(
             'tamanho'=>14,
             'default'=>'',
             'tipo'=>'int',
@@ -228,7 +228,7 @@ class Registro1 extends Generico1
             'tipo'=>'alfa',
             'required'=>true),
         'filler3'=>array(
-            'tamanho'=>4,
+            'tamanho'=>1,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
@@ -264,10 +264,11 @@ class Registro1 extends Generico1
             'required'=>true),
     );
 
-    public function __construct($data = null)
+    public function getValor()
     {
-        if(empty($this->data))parent::__construct($data);
+        return $this->data['valor'];
     }
+
 }
 
 ?>
