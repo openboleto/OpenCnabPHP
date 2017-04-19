@@ -7,8 +7,6 @@ use CnabPHP\RemessaAbstract;
 
 class Registro1 extends Generico1
 {
-    public $protestar;
-
     protected $meta = array(
         'tipo_registro'=>array(
             'tamanho'=>1,
@@ -20,25 +18,15 @@ class Registro1 extends Generico1
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'agencia'=>array(
-            'tamanho'=>4,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'conta'=>array(
-            'tamanho'=>8,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'conta_cobranca'=>array(
-            'tamanho'=>8,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
         'numero_inscricao_empresa'=>array(
             'tamanho'=>14,
             'default'=>'0',
             'tipo'=>'int',
+            'required'=>true),
+        'codigo_transmissao'=>array(
+            'tamanho'=>20,
+            'default'=>'',
+            'tipo'=>'alfa',
             'required'=>true),
         'numero_controle'=>array(
             'tamanho'=>25,
@@ -234,7 +222,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'identificador_complemento'=>array(
             'tamanho'=>1,
-            'default'=>' ',
+            'default'=>'I',
             'tipo'=>'alfa', //verificar se int tambem deixa espacos em branco
             'required'=>true),
         'complemento'=>array(
@@ -267,6 +255,11 @@ class Registro1 extends Generico1
     public function getValor()
     {
         return $this->data['valor'];
+    }
+
+    public function set_codigo_transmissao()
+    {
+        $this->data['codigo_transmissao'] = RemessaAbstract::$hearder->get_codigo_transmissao();
     }
 
 }
