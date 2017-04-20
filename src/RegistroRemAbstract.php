@@ -106,7 +106,7 @@ abstract class RegistroRemAbstract
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop]==''?$metaData['default']:$this->data[$prop];
             if($metaData['required']==true && ($this->data[$prop]=='' || !isset($this->data[$prop])))
             {
-                throw new Exception('Campo faltante ou com valor nulo:'.$prop);
+                throw new Exception('Campo faltante ou com valor nulo:'.$prop." Boleto Numero:".$this->data['nosso_numero']);
             }
             switch ($metaData['tipo']) {
                 case 'decimal':
