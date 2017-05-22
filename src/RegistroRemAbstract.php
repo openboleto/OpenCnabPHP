@@ -119,11 +119,11 @@ abstract class RegistroRemAbstract
                     break;
                 case 'alfa':
                     $retorno = ($this->data[$prop])?$this->prepareText($this->data[$prop]):''; 
-                    return str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case 'alfa2':
                     $retorno = ($this->data[$prop])?$this->data[$prop]:''; 
-                    return str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
                     $retorno = ($this->data[$prop])?date("dmy",strtotime($this->data[$prop])):'';
@@ -230,6 +230,21 @@ abstract class RegistroRemAbstract
                 $child->getText();
             }
         }
+    }
+    /**
+    * mb_str_pad
+    *
+    * @param string $input
+    * @param int $pad_length
+    * @param string $pad_string
+    * @param int $pad_type
+    * @return string
+    * @author Kari "Haprog" Sderholm
+    */
+    function mb_str_pad( $input, $pad_length, $pad_string = ' ', $pad_type = STR_PAD_RIGHT)
+    {
+        $diff = strlen( $input ) - mb_strlen( $input );
+        return str_pad( $input, $pad_length + $diff, $pad_string, $pad_type );
     }
 }
 ?>
