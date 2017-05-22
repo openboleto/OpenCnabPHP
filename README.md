@@ -214,3 +214,7 @@ foreach($registros as $registro)
 ```
 
 Aguardando voluntarios para edição e testes dos layouts.
+
+## Licença
+
+* MIT License
