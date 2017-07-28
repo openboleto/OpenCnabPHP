@@ -85,5 +85,5 @@ $lote->inserirDetalhe(array(
     'taxa_multa'         => 30.00, // taxa de multa em percentual
     'taxa_juros'         => 30.00, // taxa de juros em percentual
 ));        
-echo $arquivo->getText();
+echo utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres
 ?>
