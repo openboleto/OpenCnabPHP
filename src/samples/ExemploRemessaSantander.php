@@ -128,7 +128,7 @@ $lote->inserirDetalhe(array(
     'vlr_multa'         => 30.00, // valor da multa
 ));
 
-$resultado = $arquivo->getText();
+$resultado = utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres;
 file_put_contents('remessa-test.rem', $resultado);
 
 echo $resultado;
