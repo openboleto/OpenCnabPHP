@@ -148,9 +148,7 @@ $lote->inserirDetalhe(array(
     'codigo_movimento' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 50, // numero sequencial de boleto
     'seu_numero'        => 43,// se nao informado usarei o nosso numero 
-    'nosso_numero'      => 1, // numero sequencial de boleto
-    'seu_numero'        => 1,// se nao informado usarei o nosso numero 
-
+    
     /* campos necessarios somente para itau e siccob,  não precisa comentar se for outro layout    */
     'carteira_banco'    => 109, // codigo da carteira ex: 109,RG esse vai o nome da carteira no banco
     'cod_carteira'      => "01", // I para a maioria ddas carteiras do itau
