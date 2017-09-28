@@ -59,6 +59,11 @@ class Registro0 extends Generico0
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
+		'codigo_transmissao'=>array(
+			'tamanho'=>15,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
         'filler2'=>array(
             'tamanho'=>25,
             'default'=>' ',
@@ -94,15 +99,20 @@ class Registro0 extends Generico0
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
+        'filler4'=>array(
+			'tamanho'=>6,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
 		'versao_layout'=>array(
 			'tamanho'=>3,
 			'default'=>'040',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler4'=>array(
+		'filler5'=>array(
 			'tamanho'=>74,
 			'default'=>' ',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
 	);
 }

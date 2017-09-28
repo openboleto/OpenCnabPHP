@@ -57,7 +57,7 @@ class Registro1 extends Generico1
 		'filler1'=>array(
 			'tamanho'=>2,
 			'default'=>' ',
-			'tipo'=>'alpha',
+			'tipo'=>'alfa',
 			'required'=>true),
 		'versao_layout'=>array(
 			'tamanho'=>3,
@@ -126,5 +126,3 @@ class Registro1 extends Generico1
 			'required'=>true),
 	);
 }
-
-?>
