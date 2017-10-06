@@ -124,6 +124,23 @@ Acesse a url de exemplo:
             Homologado
         </td>
     </tr>
+    <tr>
+        <td>
+            Bradesco / Uniprime
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
 </table>
 
 ```php
