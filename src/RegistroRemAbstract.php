@@ -31,6 +31,7 @@ abstract class RegistroRemAbstract
     protected $data; // array contendo os dados do objeto
     protected $meta;
     protected $children;
+    protected  $entryData; // mantem os dados passados em $data na instanciação
 
     /* m?todo __construct()
     * instancia registro qualquer
@@ -39,7 +40,8 @@ abstract class RegistroRemAbstract
     public function __construct($data = NULL)
     {
         if ($data) // se o ID for informado
-        {
+        { 
+            $this->entryData = $data; 
             // carrega o objeto correspondente
             foreach($this->meta as $key =>$value){
                 $this->$key = (isset($data[$key]))?$data[$key]:$this->meta[$key]['default'];

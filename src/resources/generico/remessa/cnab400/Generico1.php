@@ -81,7 +81,7 @@ class Generico1 extends RegistroRemAbstract
         }
         else
         {
-            $especie = new Especie($this->data['codigo_banco']);
+            $especie = new Especie(RemessaAbstract::$banco);
             $this->data['especie_titulo'] = $especie->getCodigo($value);
         }
     }

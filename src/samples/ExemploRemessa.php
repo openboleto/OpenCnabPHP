@@ -31,12 +31,12 @@ require_once ("../../autoloader.php");
 
 use CnabPHP\Remessa;
 
-$arquivo = new Remessa(756,'cnab400',array(
+$arquivo = new Remessa(237,'cnab400',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
-    'agencia'       => 3300, // agencia sem o digito verificador 
-    'agencia_dv'    => 6, // somente o digito verificador da agencia 
+    'agencia'       => "3300", // agencia sem o digito verificador 
+    'agencia_dv'    => "6", // somente o digito verificador da agencia 
     'conta'         => '3264', // número da conta
     'conta_dv'     => 6, // digito da conta
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco

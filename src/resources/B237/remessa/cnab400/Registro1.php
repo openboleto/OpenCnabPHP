@@ -1,7 +1,10 @@
 <?php
-namespace CnabPHP\resources\b237\remessa\cnab400;
+namespace CnabPHP\resources\B237\remessa\cnab400;
 
+use CnabPHP\RegistroRemAbstract;
+use CnabPHP\RemessaAbstract;
 use CnabPHP\resources\generico\remessa\cnab400\Generico1;
+
 
 class Registro1 extends Generico1
 {
@@ -41,47 +44,49 @@ class Registro1 extends Generico1
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
-        'numero_controle_empresa'=>array(
+        'seu_numero'=>array(
             'tamanho'=>25,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'cod_banco'=>array(
+        'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'0',
+            'default'=>'237',
             'tipo'=>'int',
             'required'=>true),
-        'multa'=>array(
+        'codigo_multa'=>array(
             'tamanho'=>1,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'percentual_multa'=>array(
-            'tamanho'=>4,
+        'taxa_multa'=>array(
+            'tamanho'=>2,
             'default'=>'0',
-            'tipo'=>'int',
+            'tipo'=>'decimal',
+            'precision'=>2,
             'required'=>true),
         'nosso_numero'=>array(
             'tamanho'=>11,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'digito_nosso_numero'=>array(
+        'nosso_numero_dv'=>array(
             'tamanho'=>1,
             'default'=>'0',
             'tipo'=>'alfa',
             'required'=>true),
-        'desconto_bonificacao'=>array(
-            'tamanho'=>10,
+        'vlr_bonificacao_dia'=>array(
+            'tamanho'=>8,
             'default'=>'0',
-            'tipo'=>'int',
+            'tipo'=>'decimal',
+            'precision'=>2,
             'required'=>true),
-        'condicao_emissao'=>array(
+        'emissao_boleto'=>array(
             'tamanho'=>1,
             'default'=>'2',
             'tipo'=>'int',
             'required'=>true),
-        'boleto_debito'=>array(
+        'debito_automatico'=>array(
             'tamanho'=>1,
             'default'=>'N',
             'tipo'=>'alfa',
@@ -91,7 +96,7 @@ class Registro1 extends Generico1
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'identificador_rateio'=>array(
+        'indicador_rateio'=>array(
             'tamanho'=>1,
             'default'=>' ',
             'tipo'=>'alfa',
@@ -106,10 +111,10 @@ class Registro1 extends Generico1
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'identificacao_ocorrencia'=>array(
+        'codigo_movimento'=>array(
             'tamanho'=>2,
-            'default'=>' ',
-            'tipo'=>'alfa',
+            'default'=>1,
+            'tipo'=>'int',
             'required'=>true),
         'numero_documento'=>array(
             'tamanho'=>10,
@@ -127,7 +132,7 @@ class Registro1 extends Generico1
             'tipo'=>'decimal',
             'precision'=>2,
             'required'=>true),
-        'codigo_banco'=>array(
+        'banco_cobrador'=>array(
             'tamanho'=>3,
             'default'=>'0',
             'tipo'=>'int',
@@ -139,7 +144,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'especie_titulo'=>array(
             'tamanho'=>2,
-            'default'=>'99',
+            'default'=>'1',
             'tipo'=>'int',
             'required'=>true),
         'aceite'=>array(
@@ -228,10 +233,60 @@ class Registro1 extends Generico1
             'required'=>true),
         'numero_registro'=>array(
             'tamanho'=>6,
-            'default'=>'0yy',
+            'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
     );
-}
 
+
+    protected function set_identificacao_empresa($value)
+    {
+        $this->data['identificacao_empresa'] = "0".$this->entryData['carteira_banco'].
+        RemessaAbstract::$entryData['agencia'].
+        RemessaAbstract::$entryData['conta'].
+        RemessaAbstract::$entryData['conta_dv'];
+    }
+
+    protected function set_taxa_multa($value)
+    {
+        $this->data['taxa_multa'] = $value;
+        $this->data['codigo_multa'] = ($value>0)?2:0;
+    }
+
+    protected function set_nosso_numero_dv($value)
+    {
+        $modulo11 = self::modulo11( str_pad( $this->entryData['carteira_banco'], 2, 0, STR_PAD_LEFT ).str_pad( $this->data['nosso_numero'], 11, 0, STR_PAD_LEFT ), 7 );
+        $this->data['nosso_numero_dv'] = $modulo11['resto'] != 1 ? $modulo11['digito'] : 'P';
+    }
+
+    protected static function modulo11($num, $base=9)
+    {
+        $fator = 2;
+
+        $soma  = 0;
+        // Separacao dos numeros.
+        for ($i = strlen($num); $i > 0; $i--) {
+            //  Pega cada numero isoladamente.
+            $numeros[$i] = substr($num,$i-1,1);
+            //  Efetua multiplicacao do numero pelo falor.
+            $parcial[$i] = $numeros[$i] * $fator;
+            //  Soma dos digitos.
+            $soma += $parcial[$i];
+            if ($fator == $base) {
+                //  Restaura fator de multiplicacao para 2.
+                $fator = 1;
+            }
+            $fator++;
+        }
+        $result = array(
+            'digito' => ($soma * 10) % 11,
+            // Remainder.
+            'resto'  => $soma % 11,
+        );
+        if ($result['digito'] == 10){
+            $result['digito'] = 0;
+        }
+        return $result;
+    }
+}
 ?>
