@@ -56,7 +56,7 @@ class Generico1 extends RegistroRemAbstract
         {
             $this->data['tipo_inscricao'] =  $value;
         }else{
-            throw new Exception("O tipo de incri��o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+            throw new Exception("O tipo de inscrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
         }
     }
 
