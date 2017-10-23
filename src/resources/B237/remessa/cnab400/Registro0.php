@@ -88,7 +88,7 @@ class Registro0 extends Generico0
             'required'=>true),
         'identificacao_sistema'=>array(
             'tamanho'=>2,
-            'default'=>'01',
+            'default'=>'MX',
             'tipo'=>'alfa',
             'required'=>true),
         'numero_sequencial_arquivo'=>array(
@@ -108,5 +108,4 @@ class Registro0 extends Generico0
             'required'=>true),
         );
 }
-
 ?>
