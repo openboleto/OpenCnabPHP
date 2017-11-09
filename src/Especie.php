@@ -152,12 +152,32 @@ class Especie
         $this->bradesco[22] = array('abr'=>"ME",'txt'=>'Parcela de Consórcio');
         $this->bradesco[99] = array('abr'=>"DIV",'txt'=>'Outros');
         
+        $this->uniprime[1] = array('abr'=>"DM",'txt'=>'Duplicata');
+        $this->uniprime[2] = array('abr'=>"NP",'txt'=>'Nota Promissória');
+        $this->uniprime[3] = array('abr'=>"NS",'txt'=>'Nota de Seguro');
+        $this->uniprime[4] = array('abr'=>"NS",'txt'=>'Nota de Seguro');
+        $this->uniprime[5] = array('abr'=>"RC",'txt'=>'Recibo');
+        $this->uniprime[6] = array('abr'=>"DR",'txt'=>'Duplicata Rural');
+        $this->uniprime[8] = array('abr'=>"LC",'txt'=>'Letra de Câmbio');
+        $this->uniprime[9] = array('abr'=>"WRT",'txt'=>'Warrant');
+        $this->uniprime[10] = array('abr'=>"CH",'txt'=>'Cheque'); 
+        $this->uniprime[12] = array('abr'=>"DS",'txt'=>'Duplicata de Servião'); 
+        $this->uniprime[13] = array('abr'=>"ND",'txt'=>'Nota de Débito');  
+        $this->uniprime[14] = array('abr'=>"TM",'txt'=>'Triplicata Mercantil');
+        $this->uniprime[15] = array('abr'=>"TS",'txt'=>'Triplicata de Servião');
+        $this->uniprime[18] = array('abr'=>"FAT",'txt'=>'Fatura');
+        $this->uniprime[20] = array('abr'=>"AP",'txt'=>'Apólice de Seguros');
+        $this->uniprime[21] = array('abr'=>"ME",'txt'=>'Mensalidade escolar');
+        $this->uniprime[22] = array('abr'=>"ME",'txt'=>'Parcela de Consórcio');
+        $this->uniprime[99] = array('abr'=>"DIV",'txt'=>'Outros');
+        
         $this->res['104'] = $this->caixa;
         $this->res['341'] = $this->itau;
         $this->res['001'] = $this->bb;
         $this->res['756'] = $this->sicoob;
         $this->res['033'] = $this->santander;
         $this->res['237'] = $this->bradesco;
+        $this->res['084'] = $this->uniprime;
         
         $this->banco = $this->res[$banco];        
     } 

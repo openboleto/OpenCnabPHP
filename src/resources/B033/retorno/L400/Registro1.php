@@ -268,22 +268,22 @@ class Registro1 extends Generico1
         //$this->inserirDetalhe();
     }
     /*
-    * mÃ©todo inserirDetalhe()
-    * Recebe os parametros
-    * @$data = um array contendo os dados nessesarios para o arquvio
+    metodo get_R3U
+    metodo que espõe esse registro como se fosse o R3U da caixa
     */
-    /*	public function inserirDetalhe(){
-    while($this->data['codigo_lote']==abs(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter],3,4)))
+    public function get_R3U()
     {
-    RetornoAbstract::$linesCounter++;
-    $class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3T';
-    $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-
+        return $this;
     }
-    RetornoAbstract::$linesCounter--;
-    $teste = array_pop($this->children);
+    /*
+    metodo get_vlr_liquido
+    metodo que espõe esse vlr_liquido como se fosse o da caixa
+    */
+    public function get_vlr_liquido()
+    {
+        return $this->vlr_pago;
     }
-    */    
+ 
 }
 
 ?>
