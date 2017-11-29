@@ -39,8 +39,33 @@ class Registro1 extends Generico1
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'identificacao_empresa'=>array(
-            'tamanho'=>17,
+        'filler0'=>array(
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'carteira_banco'=>array(
+            'tamanho'=>3,
+            'default'=>'',
+            'tipo'=>'int',
+            'required'=>true),
+        'filler01'=>array(
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'agencia'=>array(
+            'tamanho'=>4,
+            'default'=>'',
+            'tipo'=>'int',
+            'required'=>true),
+        'conta'=>array(
+            'tamanho'=>7,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'conta_dv'=>array(
+            'tamanho'=>1,
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
@@ -261,7 +286,17 @@ class Registro1 extends Generico1
     protected function set_nosso_numero_dv($value)
     {
         $modulo11 = self::modulo11( str_pad( $this->entryData['carteira_banco'], 2, 0, STR_PAD_LEFT ).str_pad( $this->data['nosso_numero'], 11, 0, STR_PAD_LEFT ), 7 );
-        $this->data['nosso_numero_dv'] = $modulo11['resto'] != 1 ? $modulo11['digito'] : 'P';
+        switch ($modulo11['resto']){
+            case 1 :
+                $this->data['nosso_numero_dv'] = 'P';    
+                break;
+            case 0 :
+                $this->data['nosso_numero_dv'] = " 0";
+                break;
+            default:
+                $this->data['nosso_numero_dv'] = $modulo11['digito'];
+        }
+        //$this->data['nosso_numero_dv'] = $modulo11['resto'] <= 1 ? 'P': $modulo11['digito'];
     }
 
     protected static function modulo11($num, $base=9)

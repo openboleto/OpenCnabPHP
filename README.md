@@ -149,7 +149,7 @@ Acesse a url de exemplo:
             Cnab400
         </td>
         <td>
-            Homologação em andamento
+            Homologado
         </td>
         <td>
             Cnab400
