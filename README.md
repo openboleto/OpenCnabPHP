@@ -143,7 +143,7 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
-            Uniprime
+            UniPrime
         </td>
         <td>
             Cnab400
