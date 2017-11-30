@@ -263,15 +263,6 @@ class Registro1 extends Generico1
             'required'=>true),
     );
 
-
-    protected function set_identificacao_empresa($value)
-    {
-        $this->data['identificacao_empresa'] = "0".$this->entryData['carteira_banco'].
-        RemessaAbstract::$entryData['agencia'].
-        RemessaAbstract::$entryData['conta'].
-        RemessaAbstract::$entryData['conta_dv'];
-    }
-
     protected function set_taxa_multa($value)
     {
         $this->data['taxa_multa'] = $value;
@@ -296,7 +287,7 @@ class Registro1 extends Generico1
             default:
                 $this->data['nosso_numero_dv'] = $modulo11['digito'];
         }
-        //$this->data['nosso_numero_dv'] = $modulo11['resto'] <= 1 ? 'P': $modulo11['digito'];
+
     }
 
     protected static function modulo11($num, $base=9)
