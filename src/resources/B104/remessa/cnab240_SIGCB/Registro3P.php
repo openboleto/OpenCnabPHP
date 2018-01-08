@@ -122,7 +122,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'emissao_boleto'=>array(          // 17.3
 			'tamanho'=>1,
-			'default'=>2,
+			'default'=>'2',
 			'tipo'=>'int',
 			'required'=>true),
 		'entrega_boleto'=>array(        //18.3P
