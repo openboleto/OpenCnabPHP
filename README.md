@@ -16,7 +16,6 @@ Uma classe genérico herda registroAbstract e implementa setters e getters comun
 </li>
 e por fim uma classe registro herda de genérico e define o layout que sera usado e se por ventura for necessario sobrepõe ou implementa novos getters e setters do arquivo generico.
 </li><br>
-ATENÇÃO, versões do PHP suportadas até 7.0.2, sem previsão de suporte para versões mais novas.
 
 ## Utilizando docker:
 Esteja na raiz do projeto e execute:

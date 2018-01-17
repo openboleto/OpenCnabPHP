@@ -31,7 +31,7 @@ abstract class RegistroRemAbstract
     protected $data; // array contendo os dados do objeto
     protected $meta;
     protected $children;
-    protected  $entryData; // mantem os dados passados em $data na instanciação
+    public  $entryData; // mantem os dados passados em $data na instanciação
 
     /* m?todo __construct()
     * instancia registro qualquer
