@@ -191,13 +191,13 @@ class Registro1 extends Generico1
             'required'=>true),
         'taxa_juros'=>array(            //29.3P
             'tamanho'=>2,
-            'default'=>'',
+            'default'=>'0',
             'tipo'=>'decimal',
             'precision'=>4,
             'required'=>true),
         'taxa_multa'=>array(            //29.3P
             'tamanho'=>2,
-            'default'=>'',
+            'default'=>'0',
             'tipo'=>'decimal',
             'precision'=>4,
             'required'=>true),
@@ -355,4 +355,3 @@ class Registro1 extends Generico1
     }
 
 }
-?>
