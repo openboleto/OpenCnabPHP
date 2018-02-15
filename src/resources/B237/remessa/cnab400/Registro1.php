@@ -241,7 +241,8 @@ class Registro1 extends Generico1
 
     protected function set_identificacao_empresa($value)
     {
-        $this->data['identificacao_empresa'] = sprintf("%04d", $this->entryData['carteira_banco']).
+        $this->data['identificacao_empresa'] = "0".
+            sprintf("%03d", $this->entryData['carteira_banco']).
             sprintf("%05d", RemessaAbstract::$entryData['agencia']).
             sprintf("%07d", RemessaAbstract::$entryData['conta']).
             RemessaAbstract::$entryData['conta_dv'];
