@@ -128,4 +128,3 @@ class Registro0 extends Generico0
         //RetornoAbstract::$linesCounter--;
     }
 }
-?>

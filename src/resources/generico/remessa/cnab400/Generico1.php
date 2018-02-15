@@ -86,5 +86,3 @@ class Generico1 extends RegistroRemAbstract
         }
     }
 }
-
-?>

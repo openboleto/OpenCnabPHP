@@ -249,4 +249,3 @@ abstract class RegistroRemAbstract
         return str_pad( $input, $pad_length + $diff, $pad_string, $pad_type );
     }
 }
-?>
