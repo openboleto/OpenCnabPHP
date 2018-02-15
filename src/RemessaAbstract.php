@@ -107,4 +107,3 @@ abstract class RemessaAbstract
 		return implode("\r\n",self::$retorno)."\r\n";
 	}
 }
-?>

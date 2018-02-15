@@ -38,4 +38,3 @@ class Generico9 extends RegistroRemAbstract
     }
 
 }
-?>

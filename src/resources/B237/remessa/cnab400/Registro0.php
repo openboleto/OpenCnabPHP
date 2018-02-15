@@ -108,4 +108,3 @@ class Registro0 extends Generico0
             'required'=>true),
         );
 }
-?>

@@ -300,5 +300,3 @@ class Registro1 extends Generico1
     }
     
 }
-
-?>

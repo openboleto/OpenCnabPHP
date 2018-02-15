@@ -23,5 +23,3 @@ class Registro9 extends Generico1
             'required'=>true),
     );
 }
-
-?>

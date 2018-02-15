@@ -6,5 +6,3 @@ use Exception;
 class Generico8 extends RegistroRemAbstract
 {
 }
-
-?>

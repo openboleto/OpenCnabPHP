@@ -194,4 +194,3 @@ abstract class RegistroRetAbstract
 	}
 
 }
-?>

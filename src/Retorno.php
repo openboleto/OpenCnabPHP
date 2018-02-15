@@ -32,4 +32,3 @@ class Retorno extends RetornoAbstract{
 		parent::__construct($conteudo);
 	}
 }
-?>
