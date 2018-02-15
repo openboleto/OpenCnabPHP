@@ -73,7 +73,7 @@ class Registro1 extends Generico1
         'nosso_numero_dv'=>array(
             'tamanho'=>1,
             'default'=>'0',
-            'tipo'=>'alfa',
+            'tipo'=>'alfa2',
             'required'=>true),
         'vlr_bonificacao_dia'=>array(
             'tamanho'=>8,

@@ -65,7 +65,7 @@ abstract class RegistroRemAbstract
         else
         {
             $metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
-            if(($value=="" || $value === NULL) && $metaData[$prop]['default']!="")
+            if(($value === "" || $value === NULL) && $metaData[$prop]['default'] !== "")
             {
                 $this->data[$prop] = $metaData[$prop]['default'];  
             }
@@ -106,7 +106,7 @@ abstract class RegistroRemAbstract
         {
             $metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop]==''?$metaData['default']:$this->data[$prop];
-            if($metaData['required']==true && ($this->data[$prop]=='' || !isset($this->data[$prop])))
+            if($metaData['required']==true && (!isset($this->data[$prop]) || $this->data[$prop] === ''))
             {
                 throw new Exception('Campo faltante ou com valor nulo:'.$prop." Boleto Numero:".$this->data['nosso_numero']);
             }
@@ -120,11 +120,11 @@ abstract class RegistroRemAbstract
                     return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
                     break;
                 case 'alfa':
-                    $retorno = ($this->data[$prop])?$this->prepareText($this->data[$prop]):''; 
+                    $retorno = (isset($this->data[$prop]))?$this->prepareText($this->data[$prop]):'';
                     return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case 'alfa2':
-                    $retorno = ($this->data[$prop])?$this->data[$prop]:''; 
+                    $retorno = (isset($this->data[$prop]))?$this->data[$prop]:'';
                     return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
