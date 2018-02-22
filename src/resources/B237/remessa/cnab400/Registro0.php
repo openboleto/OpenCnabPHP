@@ -83,7 +83,7 @@ class Registro0 extends Generico0
             'required'=>true),
         'filler1'=>array(
             'tamanho'=>8,
-            'default'=>'0',
+            'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
         'identificacao_sistema'=>array(
