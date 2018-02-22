@@ -67,6 +67,14 @@ abstract class RetornoAbstract
 		self::$layout = $newLayout;
 	}
 	/*
+	* método getRegistrosRaiz()
+	* Metodo para pegar os objetos da raiz do lote
+	*/
+	public function getRegistrosRaiz()
+	{
+		return $this->children;
+	}
+	/*
 	* método getLote()
 	* Metodo statico para pegar o objeto do lote
 	* @$index = o indice do lote , normalmente 1
