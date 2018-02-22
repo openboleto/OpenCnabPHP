@@ -57,9 +57,9 @@ class Registro0 extends Generico0
             'tipo'=>'alfa',
             'required'=>true),
         'codigo_empresa'=>array(
-            'tamanho'=>4,
+            'tamanho'=>20,
             'default'=>'',
-            'tipo'=>'int',
+            'tipo'=>'alfa',
             'required'=>true),
         'nome_empresa'=>array(
             'tamanho'=>30,
@@ -84,7 +84,7 @@ class Registro0 extends Generico0
         'densidade_gravacao'=>array(
             'tamanho'=>8,
             'default'=>'0',
-            'tipo'=>'int',
+            'tipo'=>'alfa',
             'required'=>true),
         'n_aviso_bancario'=>array(
             'tamanho'=>5,
