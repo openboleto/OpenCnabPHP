@@ -238,6 +238,20 @@ class Registro1 extends Generico1
             'required'=>true),
     );
 
+    public function __construct($data = null)
+    {
+        if(empty($this->data))parent::__construct($data);
+        $this->inserirMensagem($data);
+    }
+
+    public function inserirMensagem($data)
+    {
+        if(!empty($data['mensagem']))
+        {
+            $class = 'CnabPHP\resources\\B'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro2';
+            $this->children[] = new $class($data);
+        }
+    }
 
     protected function set_identificacao_empresa($value)
     {

@@ -65,7 +65,7 @@ abstract class RegistroRemAbstract
         else
         {
             $metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
-            if(($value === "" || $value === NULL) && $metaData[$prop]['default'] !== "")
+            if(($value === "" || $value === NULL) && isset($metaData[$prop]['default']) && $metaData[$prop]['default'] !== "")
             {
                 $this->data[$prop] = $metaData[$prop]['default'];  
             }
