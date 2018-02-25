@@ -11,7 +11,7 @@ class Registro9 extends Generico1
             'default'=>'9',
             'tipo'=>'int',
             'required'=>true),
-      'filler1'=>array(            //32.3P
+        'filler1'=>array(            //32.3P
             'tamanho'=>393,
             'default'=>' ',
             'tipo'=>'alfa',

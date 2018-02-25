@@ -31,15 +31,30 @@ class Registro2 extends Generico2 {
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => false),
-        'reserva' => array(
+        'filler' => array(
             'tamanho' => 45,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => false),
-        'identificacao_empresa'=>array(
-            'tamanho'=>16,
-            'default'=>'',
-            'tipo'=>'alfa',
+        'carteira_banco'=>array(
+            'tamanho'=>3,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'agencia'=>array(
+            'tamanho'=>5,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'conta'=>array(
+            'tamanho'=>7,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'conta_dv'=>array(
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'int',
             'required'=>true),
         'nosso_numero' => array(
             'tamanho' => 11,
@@ -57,6 +72,11 @@ class Registro2 extends Generico2 {
             'tipo' => 'int',
             'required' => true),
     );
+
+    public function __construct($data = null)
+    {
+        if(empty($this->data))parent::__construct($data);
+    }
 
     protected function set_mensagem_1($value)
     {
@@ -77,14 +97,6 @@ class Registro2 extends Generico2 {
     {
         $mensagem = (!empty($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
         $this->data['mensagem_4'] = count($mensagem)>=4?$mensagem[3]:' ';
-    }
-
-    protected function set_identificacao_empresa($value)
-    {
-        $this->data['identificacao_empresa'] = sprintf("%03d", $this->entryData['carteira_banco']).
-            sprintf("%05d", RemessaAbstract::$entryData['agencia']).
-            sprintf("%07d", RemessaAbstract::$entryData['conta']).
-            RemessaAbstract::$entryData['conta_dv'];
     }
 
     protected function set_nosso_numero_dv($value) {

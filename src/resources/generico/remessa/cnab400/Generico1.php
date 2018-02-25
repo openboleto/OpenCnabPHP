@@ -51,6 +51,7 @@ class Generico1 extends RegistroRemAbstract
     {
         $this->data['agencia'] = RemessaAbstract::getLote(0)->entryData['agencia'];
     }
+
     protected function set_agencia_dv($value)
     {
         $this->data['agencia_dv'] = RemessaAbstract::getLote(0)->entryData['agencia_dv'];
