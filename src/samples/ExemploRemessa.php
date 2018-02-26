@@ -82,8 +82,8 @@ $lote->inserirDetalhe(array(
     'vlr_multa'         => 30.00, // valor da multa
     
     // campos necessários somente para o sicoob
-    'taxa_multa'         => 30.00, // taxa de multa em percentual
-    'taxa_juros'         => 30.00, // taxa de juros em percentual
+    //'taxa_multa'         => 0.00, // taxa de multa em percentual
+    //'taxa_juros'         => 0.00, // taxa de juros em percentual
 ));        
 echo utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres
 ?>
