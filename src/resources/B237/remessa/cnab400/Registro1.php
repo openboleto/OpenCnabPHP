@@ -39,10 +39,30 @@ class Registro1 extends Generico1
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'identificacao_empresa'=>array(
-            'tamanho'=>17,
-            'default'=>'',
-            'tipo'=>'alfa',
+        'filler0'=>array(
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>false),
+        'carteira_banco'=>array(
+            'tamanho'=>3,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'agencia'=>array(
+            'tamanho'=>5,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'conta'=>array(
+            'tamanho'=>7,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'conta_dv'=>array(
+            'tamanho'=>1,
+            'default'=>'0',
+            'tipo'=>'int',
             'required'=>true),
         'seu_numero'=>array(
             'tamanho'=>25,
@@ -238,14 +258,19 @@ class Registro1 extends Generico1
             'required'=>true),
     );
 
-
-    protected function set_identificacao_empresa($value)
+    public function __construct($data = null)
     {
-        $this->data['identificacao_empresa'] = "0".
-            sprintf("%03d", $this->entryData['carteira_banco']).
-            sprintf("%05d", RemessaAbstract::$entryData['agencia']).
-            sprintf("%07d", RemessaAbstract::$entryData['conta']).
-            RemessaAbstract::$entryData['conta_dv'];
+        if(empty($this->data))parent::__construct($data);
+        $this->inserirMensagem($data);
+    }
+
+    public function inserirMensagem($data)
+    {
+        if(!empty($data['mensagem']))
+        {
+            $class = 'CnabPHP\resources\\B'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro2';
+            $this->children[] = new $class($data);
+        }
     }
 
     protected function set_taxa_multa($value)
