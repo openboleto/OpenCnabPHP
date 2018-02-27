@@ -39,5 +39,4 @@ class Registro2 extends Generico2
             'required'=>true),
    	);
 }
-
 ?>

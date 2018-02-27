@@ -38,7 +38,7 @@ $arquivo = new Remessa(756,'cnab240',array(
     'agencia'       => '3300', // agencia sem o digito verificador
     'agencia_dv'    => 6, // somente o digito verificador da agencia
     'conta'         => '3264', // número da conta
-    'conta_dv'     => 6, // digito da conta
+    'conta_dv'     => (string)0, // digito da conta
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
     'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
     'numero_sequencial_arquivo'     => 1,
@@ -80,7 +80,7 @@ $lote->inserirDetalhe(array(
     'vlr_juros'         => 0.15, // Valor do juros de 1 dia'
     'data_desconto'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
-    'baixar'            => 2, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (N�o Baixar / N�o Devolver)
+    'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (N�o Baixar / N�o Devolver)
     'prazo_baixa'       => 90, // prazo de dias para o cliente pagar ap�s o vencimento
     'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa

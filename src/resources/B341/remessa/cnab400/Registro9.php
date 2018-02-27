@@ -24,5 +24,4 @@ class Registro9 extends Generico9
    	);
 	
 }
-
 ?>

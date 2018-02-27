@@ -21,9 +21,9 @@ abstract class RemessaAbstract
 	
 	public function __construct($banco,$layout,$data){
 		
-		self::$banco = "B".$banco;
+		self::$banco = $banco;
 		self::$layout = $layout;
-		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
+		$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
 		self::$entryData = $data; 
 		self::$hearder = new $class($data);
 		self::$children[] = self::$hearder;
@@ -35,7 +35,7 @@ abstract class RemessaAbstract
 	*/
 	public function inserirDetalhe($data){
 		
-		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
+		$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
 		self::addChild(new $class($data));
 		//self::$counter++;
 	}
@@ -66,7 +66,7 @@ abstract class RemessaAbstract
 	{
 		if(strpos(self::$layout,'240'))
 		{
-			$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
+			$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
 			$loteData = $data ? $data:RemessaAbstract::$entryData; 
 			$lote = new $class($loteData);
 			self::addChild($lote);
@@ -83,7 +83,16 @@ abstract class RemessaAbstract
 	*/
 	public static function getLote($index){
 		return self::$children[$index];
-	}	
+	}
+
+	/*
+	* método getLotes()
+	* Metodo statico para pegar os objetos dos lotes
+	*/
+	public static function getLotes(){
+		return self::$children;
+	}
+
 	/*
 	* método getText()
 	* Metodo que percorre todos os filhos acionando o metodo getText() deles
@@ -95,7 +104,7 @@ abstract class RemessaAbstract
 			//echo '</pre>';
 			$child->getText();
 		}
-		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
+		$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
 		$headerArquivo = new $class(array('1'=>1));
 		$headerArquivo->getText();
 		return implode("\r\n",self::$retorno)."\r\n";
@@ -108,4 +117,3 @@ abstract class RemessaAbstract
 		return 'REM_'.$agencia.'_'.$convenio.'_'.$sequencial.'_'.self::$layout.'.rem';
 	}
 }
-?>

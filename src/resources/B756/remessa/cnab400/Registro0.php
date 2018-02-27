@@ -53,7 +53,7 @@ class Registro0 extends Generico0
             'required'=>true),
         'literal_servico'=>array(
             'tamanho'=>8,
-            'default'=>'COBRANÇA',
+            'default'=>'COBRANÇA',
             'tipo'=>'alfa2',
             'required'=>true),
         'filler0'=>array(
@@ -69,7 +69,7 @@ class Registro0 extends Generico0
         'agencia_dv'=>array(
             'tamanho'=>1,
             'default'=>'',
-            'tipo'=>'alfa',
+            'tipo'=>'int',
             'required'=>true),
         'codigo_beneficiario'=>array(
             'tamanho'=>8,
@@ -123,4 +123,3 @@ class Registro0 extends Generico0
             'required'=>true),
         );
 }
-?>

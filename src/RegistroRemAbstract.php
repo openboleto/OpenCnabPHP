@@ -31,6 +31,7 @@ abstract class RegistroRemAbstract
     protected $data; // array contendo os dados do objeto
     protected $meta;
     protected $children;
+    public  $entryData; // mantem os dados passados em $data na instanciação
 
     /* m?todo __construct()
     * instancia registro qualquer
@@ -39,7 +40,8 @@ abstract class RegistroRemAbstract
     public function __construct($data = NULL)
     {
         if ($data) // se o ID for informado
-        {
+        { 
+            $this->entryData = $data; 
             // carrega o objeto correspondente
             foreach($this->meta as $key =>$value){
                 $this->$key = (isset($data[$key]))?$data[$key]:$this->meta[$key]['default'];
@@ -63,7 +65,7 @@ abstract class RegistroRemAbstract
         else
         {
             $metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
-            if(($value=="" || $value === NULL) && $metaData[$prop]['default']!="")
+            if(($value === "" || $value === NULL) && isset($metaData[$prop]['default']) && $metaData[$prop]['default'] !== "")
             {
                 $this->data[$prop] = $metaData[$prop]['default'];  
             }
@@ -106,9 +108,9 @@ abstract class RegistroRemAbstract
         {
             $metaData = (isset($this->meta[$prop]))?$this->meta[$prop]:null;
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop]==''?$metaData['default']:$this->data[$prop];
-            if($metaData['required']==true && ($this->data[$prop]=='' || !isset($this->data[$prop])))
+            if($metaData['required']==true && (!isset($this->data[$prop]) || $this->data[$prop] === ''))
             {
-                throw new Exception('Campo faltante ou com valor nulo:'.$prop);
+                throw new Exception('Campo faltante ou com valor nulo:'.$prop." Boleto Numero:".$this->data['nosso_numero']);
             }
             switch ($metaData['tipo']) {
                 case 'decimal':
@@ -120,12 +122,12 @@ abstract class RegistroRemAbstract
                     return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
                     break;
                 case 'alfa':
-                    $retorno = ($this->data[$prop])?$this->prepareText($this->data[$prop]):''; 
-                    return str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    $retorno = (isset($this->data[$prop]))?$this->prepareText($this->data[$prop]):'';
+                    return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case 'alfa2':
-                    $retorno = ($this->data[$prop])?$this->data[$prop]:''; 
-                    return str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    $retorno = (isset($this->data[$prop]))?$this->data[$prop]:'';
+                    return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
                     $retorno = ($this->data[$prop])?date("dmy",strtotime($this->data[$prop])):'';
@@ -233,5 +235,19 @@ abstract class RegistroRemAbstract
             }
         }
     }
+    /**
+    * mb_str_pad
+    *
+    * @param string $input
+    * @param int $pad_length
+    * @param string $pad_string
+    * @param int $pad_type
+    * @return string
+    * @author Kari "Haprog" Sderholm
+    */
+    function mb_str_pad( $input, $pad_length, $pad_string = ' ', $pad_type = STR_PAD_RIGHT)
+    {
+        $diff = strlen( $input ) - mb_strlen( $input );
+        return str_pad( $input, $pad_length + $diff, $pad_string, $pad_type );
+    }
 }
-?>

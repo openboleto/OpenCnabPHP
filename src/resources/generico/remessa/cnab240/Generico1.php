@@ -56,7 +56,7 @@ class Generico1 extends RegistroRemAbstract
         {
             $this->data['tipo_inscricao'] =  $value;
         }else{
-            throw new Exception("O tipo de incri��o deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
+            throw new Exception("O tipo de inscrição deve ser 1  para CPF e 2 para CNPJ, o valor informado foi:".$value);       
         }
     }
 
@@ -121,7 +121,7 @@ class Generico1 extends RegistroRemAbstract
     }
     public function inserirDetalhe($data)
     {
-        $class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3P';
+        $class = 'CnabPHP\resources\\B'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3P';
         $this->children[] = new $class($data);
     }
 
@@ -162,7 +162,7 @@ class Generico1 extends RegistroRemAbstract
                 }
                 $child->getText();
             }
-            $class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro5';
+            $class = 'CnabPHP\resources\\B'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro5';
             $registro5 = new $class($dataReg5);
             $registro5->getText();
         }
