@@ -112,7 +112,7 @@ Acesse a url de exemplo:
             SICOOB
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Homologado
@@ -124,12 +124,30 @@ Acesse a url de exemplo:
             Homologado
         </td>
     </tr>
+    </tr>
+        <tr>
+        <td>
+            SICOOB
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
     <tr>
         <td>
             Bradesco
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Beta
@@ -146,7 +164,7 @@ Acesse a url de exemplo:
             UniPrime
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Homologado
