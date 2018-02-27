@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Gera��o de arquivos de remessa e retorno em PHP
+* CnabPHP - Geração de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -167,7 +167,12 @@ class Generico3 extends RegistroRemAbstract
     {
         $mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
         $this->data['mensagem_8'] = count($mensagem)>=6?$mensagem[5]:' ';
-    }
+	}
+	protected function set_informacao_pagador($value)
+	{
+		$mensagem = (isset($this->entryData['informacao_pagador']))?$this->entryData['informacao_pagador']:'';
+		$this->data['informacao_pagador'] = $mensagem;
+	}
 	protected function set_set_mensagem_5($value)
 	{
 		$mensagem = (isset($this->entryData['set_mensagem_5']))?$this->entryData['set_mensagem_5']:'';

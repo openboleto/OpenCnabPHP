@@ -4,7 +4,7 @@
 *
 * LICENSE: The MIT License (MIT)
 *
-* Copyright (C) 2018 NextStep <http://github.com/nxstep-si>
+* Copyright (C) 2013 Ciatec.net
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this
 * software and associated documentation files (the "Software"), to deal in the Software
@@ -29,33 +29,39 @@ namespace CnabPHP\samples;
 
 require_once ("../../autoloader.php");
 
-use CnabPHP\Remessa;
+use \CnabPHP\Remessa;
 
-$arquivo = new Remessa(756,'cnab400',array(
+$arquivo = new Remessa(756,'cnab240',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
-    'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
+    'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
-    'agencia'       => "3300", // agencia sem o digito verificador 
-    'agencia_dv'    => '0', // somente o digito verificador da agencia 
+    'agencia'       => '3300', // agencia sem o digito verificador
+    'agencia_dv'    => 6, // somente o digito verificador da agencia
     'conta'         => '3264', // número da conta
     'conta_dv'     => (string)0, // digito da conta
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
     'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
     'numero_sequencial_arquivo'     => 1,
-    'situacao_arquivo' =>'P' // use T para teste e P para produ��o
+    'situacao_arquivo' =>'T' // use T para teste e P para produ��o
 ));
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
     'codigo_movimento' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 50, // numero sequencial de boleto
-    'seu_numero'        => 43,// se nao informado usarei o nosso numero 
+    'seu_numero'        => 43,// se nao informado usarei o nosso numero
 
     /* campos necessarios somente para itau e siccob,  não precisa comentar se for outro layout    */
     'carteira_banco'    => 109, // codigo da carteira ex: 109,RG esse vai o nome da carteira no banco
     'cod_carteira'      => "01", // I para a maioria ddas carteiras do itau
      /* campos necessarios somente para itau,  não precisa comentar se for outro layout    */
-     
+		
+	/* Campos para a implementação sicoob240 */
+	'set_mensagem_3' => "PRIMEIRA LINHA DE MENSAGEM",
+	'set_mensagem_4' => "SEGUNDA LINHA DE MENSAGEM",
+	'set_mensagem_5' => "TERCEIRA LINHA DE MENSAGEM",
+	'set_mensagem_6' => "QUARTA LINHA DE MENSAGEM",
+
     'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
     'valor'             => 100.00, // Valor do boleto como float valido em php
     'emissao_boleto'    => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
@@ -80,10 +86,18 @@ $lote->inserirDetalhe(array(
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa
     'vlr_multa'         => 30.00, // valor da multa
-    
+
     // campos necessários somente para o sicoob
-    //'taxa_multa'         => 0.00, // taxa de multa em percentual
-    //'taxa_juros'         => 0.00, // taxa de juros em percentual
-));        
-echo utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres
+    'taxa_multa'         => 30.00, // taxa de multa em percentual
+    'taxa_juros'         => 30.00, // taxa de juros em percentual
+));
+
+
+$f = fopen("teste.rem","a+",0);
+$texto = $arquivo->getText();
+fwrite($f,$texto,strlen($texto));
+fclose($f);
+
+print $arquivo->getText();
+
 ?>

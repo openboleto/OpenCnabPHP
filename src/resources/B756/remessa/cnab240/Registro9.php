@@ -4,7 +4,7 @@
  *
  * LICENSE: The MIT License (MIT)
  *
- * Copyright (C) 2017 www.nxstep.com.br
+ * Copyright (C) 2018 NextStep <http://github.com/nxstep-si>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this
  * software and associated documentation files (the "Software"), to deal in the Software
