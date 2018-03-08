@@ -81,7 +81,7 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_codigo_convenio($value)
     {
-        $this->data['codigo_convenio'] =  RemessaAbstract::$entryData['codigo_beneficiario'];
+        $this->data['codigo_convenio'] = $value == '' ?  RemessaAbstract::$entryData['codigo_beneficiario'] : $value;
     }
 
     protected function set_nome_empresa($value)
