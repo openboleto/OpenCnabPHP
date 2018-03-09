@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - Geração de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -24,80 +24,110 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+
+
 namespace CnabPHP\samples;
-
-
-require_once ("../../autoloader.php");
+require_once ("../../vendor/autoload.php");
 
 use \CnabPHP\Remessa;
 
 $arquivo = new Remessa(756,'cnab240',array(
-    'nome_empresa' =>"Empresa ABC", // seu nome de empresa
-    'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj
-    'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
-    'agencia'       => '3300', // agencia sem o digito verificador
-    'agencia_dv'    => 6, // somente o digito verificador da agencia
-    'conta'         => '3264', // número da conta
-    'conta_dv'     => (string)0, // digito da conta
-    'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
-    'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
-    'numero_sequencial_arquivo'     => 1,
-    'situacao_arquivo' =>'T' // use T para teste e P para produ��o
+
+		//Informações da emrpesa recebedora
+		'tipo_inscricao'  	=>	2, // 1 para cpf, 2 cnpj
+		'numero_inscricao'	=>	'72.035.942/0001-16', // seu cpf ou cnpj completo
+		'agencia'       	=>	'3046', // agencia sem o digito verificador
+		'agencia_dv'    	=>	5, // somente o digito verificador da agencia
+		'conta'         	=> 	'25151', // número da conta
+		'conta_dv'     		=> 	3, // digito da conta
+		'nome_empresa' 		=>	"Avelar e Cordeiro Ltda-ME", // seu nome de empresa
+		'seu_numero2'		=>	"Preparatório Diamantinense",
+		'numero_sequencial_arquivo'	=>	'0000001',
+
+		/* O Código do cliente era usado para calcular o DV do nosso número
+		porem na adaptação o DV é calculado em nx-boletos
+		Aqui eu uso para compor o nome do arquivo que será obtido com
+		Remessa->getName()
+		*/
+		'codigo_beneficiario'	=> '30638', // codigo fornecido pelo banco
+		'codigo_beneficiario_dv'=> '0', // codigo fornecido pelo banco
+		//Estou passando o nosso número com dv calculado
+
+
+		'situacao_arquivo' =>'T' // use T para teste e P para produção
 ));
-$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
+$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
-    'codigo_movimento' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
-    'nosso_numero'      => 50, // numero sequencial de boleto
-    'seu_numero'        => 43,// se nao informado usarei o nosso numero
+		//Registro 3P Dados do Boleto
+		'nosso_numero'      =>	'1800001', // numero sequencial de boleto
+		'nosso_numero_dv'   =>	'1', // codigo fornecido por nx-boletos
+		'parcela' 			=>	01,
+		'modalidade'		=>	1,
+		'tipo_formulario'	=>	5,
+		'numero_carteira'   =>	1, // codigo da carteira
+		'carteira'   		=>	1, // codigo da carteira
+		'seu_numero'        =>	"DEV180001",// se nao informado usarei o nosso numero
+		'data_vencimento'   =>	'2018-30-03', // informar a data neste formato
+		'valor'             =>	3.00, // Valor do boleto como float valido em php
+		'cod_emissao_boleto'=>	2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
+		'especie_titulo'    => 	"DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
+		'data_emissao'      => 	'2018-07-03', // informar a data neste formato
+		'data_juros'   	  	=> 	'2018-07-04', // data dos juros
+		'vlr_juros'         => 	'0', // Valor do juros de 1 dia'
+		'data_desconto'     => 	'2018-20-03', // informar a data neste formato
+		'vlr_desconto'      => 	'0', // Valor do desconto
+		'vlr_IOF'			=> 	'0',
+		'vlr_abatimento'	=> 	'0',
+		'protestar'         => 	3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
+		'prazo_protesto'    => 	90, // Informar o numero de dias apos o vencimento para iniciar o protesto
 
-    /* campos necessarios somente para itau e siccob,  não precisa comentar se for outro layout    */
-    'carteira_banco'    => 109, // codigo da carteira ex: 109,RG esse vai o nome da carteira no banco
-    'cod_carteira'      => "01", // I para a maioria ddas carteiras do itau
-     /* campos necessarios somente para itau,  não precisa comentar se for outro layout    */
-		
-	/* Campos para a implementação sicoob240 */
-	'set_mensagem_3' => "PRIMEIRA LINHA DE MENSAGEM",
-	'set_mensagem_4' => "SEGUNDA LINHA DE MENSAGEM",
-	'set_mensagem_5' => "TERCEIRA LINHA DE MENSAGEM",
-	'set_mensagem_6' => "QUARTA LINHA DE MENSAGEM",
 
-    'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
-    'valor'             => 100.00, // Valor do boleto como float valido em php
-    'emissao_boleto'    => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
-    'protestar'         => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver ap�s (Prazo) dias
-    'prazo_protesto'    => 5, // Informar o numero de dias apos o vencimento para iniciar o protesto
-    'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador � o cliente, preste atenção nos campos abaixo
-    'tipo_inscricao'    => 1, //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
-    'numero_inscricao'  => '123.122.123-56',//cpf ou ncpj do pagador
-    'endereco_pagador'  => 'Rua dos developers,123 sl 103',
-    'bairro_pagador'    => 'Bairro da insonia',
-    'cep_pagador'       => '12345-123', // com h�fem
-    'cidade_pagador'    => 'Londrina',
-    'uf_pagador'        => 'PR',
-    'data_vencimento'   => '2016-04-09', // informar a data neste formato
-    'data_emissao'      => '2016-04-09', // informar a data neste formato
-    'vlr_juros'         => 0.15, // Valor do juros de 1 dia'
-    'data_desconto'     => '2016-04-09', // informar a data neste formato
-    'vlr_desconto'      => '0', // Valor do desconto
-    'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (N�o Baixar / N�o Devolver)
-    'prazo_baixa'       => 90, // prazo de dias para o cliente pagar ap�s o vencimento
-    'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
-    'email_pagador'     => 'rogerio@ciatec.net', // data da multa
-    'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa
-    'vlr_multa'         => 30.00, // valor da multa
+		// Registro 3Q [PAGADOR]
+		'tipo_inscricao'    => 1, //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
+		'numero_inscricao'  => '042.720.316-35',//cpf ou ncpj do pagador
+		'nome_pagador'      => "Elias da Cunha Alves", // O Pagador é o cliente, preste atenção nos campos abaixo
+		'endereco_pagador'  => 'Rua Belvedere, 287',
+		'bairro_pagador'    => 'Bairro Queluz',
+		'cep_pagador'       => 'CEP 36.400-000', // com hífem
+		'cidade_pagador'    => 'Conselheiro Lafaiete',
+		'uf_pagador'        => 'MG',
 
-    // campos necessários somente para o sicoob
-    'taxa_multa'         => 30.00, // taxa de multa em percentual
-    'taxa_juros'         => 30.00, // taxa de juros em percentual
+		// Registro 3R Multas, descontos, etc
+		'data_multa'        => '2018-08-04', // informar a data neste formato, // data da multa
+		'vlr_multa'         => '2,0', // valor da multa
+
+
+		// Registro 3S3 Mensagens a serem impressas
+		'mensagem_sc_1' 		=> "Após venc. Mora 0,03%ad/multa2,00%",
+		'mensagem_sc_2' 		=> "Não Conceder Desconto",
+		'mensagem_sc_3' 		=> "Sujeito a protesto após o venc.",
+		'mensagem_sc_4' 		=> "VelvetTux Soluções em Sistemas <('')",
+
 ));
 
+$remessa = utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres;
 
-$f = fopen("teste.rem","a+",0);
-$texto = $arquivo->getText();
-fwrite($f,$texto,strlen($texto));
-fclose($f);
+/* Função que pega o nome das pastas de acordo com o número do ano
+ * Caso as pastas não existam, serão criadas.
+ * Os arquivos de remessa serão organizados em ano/mês
+*/
+function verificaPastas() {
+	date_default_timezone_set('America/Sao_Paulo');
+	$base_dir = dir('./data/remessas/');
 
-print $arquivo->getText();
+	if (!is_dir($base_dir->path.date('Y').'/'.date('m').'/')){
+		mkdir ($base_dir->path.date('Y'), 0755);
+		mkdir($base_dir->path.date('Y').'/'.date('m'), 0755);
+	};
+	$base_dir = dir($base_dir->path.date('Y').'/'.date('m').'/');
+	//Retorna o caminho para guardar o arquivo
+	return $base_dir;
+}
+
+// Grava o arquivo
+file_put_contents(verificaPastas()->path.$arquivo->getName(), $remessa);
+verificaPastas()->close();
+echo $remessa;
 
 ?>

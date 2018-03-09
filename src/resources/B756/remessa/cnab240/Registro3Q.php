@@ -66,7 +66,7 @@ class Registro3Q extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 
-			// - ------------------ at� aqui � igual para todo registro tipo 3
+			// - ------------------ até aqui é igual para todo registro tipo 3
 
 		//Dados do pagador
 		'tipo_inscricao'=>array(		// 8.3Q -- 18
@@ -111,7 +111,7 @@ class Registro3Q extends Generico3
 			'required'=>true),
 		'uf_pagador'=>array(			//16.3Q -- 152-153
 			'tamanho'=>2,
-			'default'=>'',  // combran�a com registro
+			'default'=>'',  // combrança com registro
 			'tipo'=>'alfa',
 			'required'=>true),
 		//Opcional, não passado nos testes
@@ -136,9 +136,9 @@ class Registro3Q extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 		'n_num_bco_corresp'=>array(		//21.3Q -- 213-232
-			//Campo de preenchimento obrigat�rio; preencher com Seu N�mero de controle do t�tulo
+			//Campo de preenchimento obrigatério; preencher com Seu Número de controle do título
 			'tamanho'=>20,
-			'default'=>' ', // este espa�o foi colocado para passa a valida��o para os seters do generico
+			'default'=>' ', // este espaço foi colocado para passa a validação para os seters do generico
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler3'=>array(				//22.3Q -- 233-240

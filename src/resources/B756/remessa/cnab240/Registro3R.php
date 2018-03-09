@@ -66,7 +66,7 @@ class Registro3R extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 
-			// - ------------------ at� aqui � igual para todo registro tipo 3
+			// - ------------------ até aqui é igual para todo registro tipo 3
 
 		'filler2'=>array(               // 8.3R -- 18
 			'tamanho'=>1,

@@ -75,7 +75,7 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			
-			// - ------------------ at� aqui � igual para todo registro tipo 3
+			// - ------------------ até aqui é igual para todo registro tipo 3
 			'agencia' => array (				//08.3P -- 18-22
 					'tamanho' => 5,
 					'default' => '',
@@ -160,7 +160,7 @@ class Registro3P extends Generico3 {
 			// documento
 			'filler4' => array (				//16.3P -- 60
 					'tamanho' => 1,
-					'default' => ' ', // combran�a com registro
+					'default' => ' ', // combrança com registro
 					'tipo' => 'alfa',
 					'required' => true 
 			),

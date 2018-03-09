@@ -207,7 +207,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'uf_pagador'=>array(      //16.3Q
             'tamanho'=>2,
-            'default'=>'',  // combranÃ§a com registro
+            'default'=>'',  // combrança com registro
             'tipo'=>'alfa',
             'required'=>true),
         'nome_avalista'=>array(        //18.3Q
