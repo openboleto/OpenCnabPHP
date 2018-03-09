@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -23,127 +23,116 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+namespace CnabPHP\Resources\Santander\Remessa\Cnab240;
 
-namespace CnabPHP\resources\b033\remessa\cnab400;
-
-use CnabPHP\resources\generico\remessa\cnab400\Generico0;
-use CnabPHP\RemessaAbstract;
+use \CnabPHP\Resources\Generico\Remessa\Cnab240\Generico0;
+use Exception;
 
 class Registro0 extends Generico0
 {
-    protected $meta = array(
-        'tipo_registro'=>array(
-            'tamanho'=>1,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'operacao'=>array(
-            'tamanho'=>1,
-            'default'=>'1',
-            'tipo'=>'int',
-            'required'=>true),
-        'literal_remessa'=>array(
-            'tamanho'=>7,
-            'default'=>'remessa',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'tipo_servico'=>array(
-            'tamanho'=>2,
-            'default'=>'01',
-            'tipo'=>'int',
-            'required'=>true),
-        'literal_servico'=>array(
-            'tamanho'=>15,
-            'default'=>'COBRANCA',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'codigo_transmissao'=>array(
-            'tamanho'=>20,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'nome_empresa'=>array(
-            'tamanho'=>30,
+	protected $meta = [
+		'codigo_banco' => [
+			'tamanho' => 3,
+			'default' => '33',
+			'tipo' => 'int',
+			'required' => true
+        ],
+		'codigo_lote' => [
+			'tamanho' => 4,
+			'default' => '0000',
+			'tipo' => 'int',
+			'required' => true
+        ],
+		'tipo_registro' => [
+			'tamanho' => 1,
+			'default' => '0',
+			'tipo' => 'int',
+			'required' => true
+        ],
+		'filler1' => [
+			'tamanho' => 8,
+			'default' => ' ',
+			'tipo' => 'alfa',
+			'required' => true
+        ],
+		'tipo_inscricao_empresa' => [
+			'tamanho' => 1,
+			'default' => '',
+			'tipo' => 'int',
+			'required' => true
+        ],
+		'numero_inscricao_empresa' => [
+			'tamanho' => 15,
+			'default' => '',
+			'tipo' => 'int',
+			'required' => true
+        ],
+		'codigo_transmissao' => [
+			'tamanho' => 15,
+			'default' => '',
+			'tipo' => 'int',
+			'required' => true
+        ],
+        'filler2' => [
+			'tamanho' => 25,
+			'default' => ' ',
+			'tipo' => 'alfa',
+			'required' => true
+        ],
+		'nome_empresa' => [
+			'tamanho' => 30,
+			'default' => '',
+			'tipo' => 'alfa',
+			'required' => true
+        ],
+        'nome_banco' => [
+            'tamanho' => 30,
+            'default' => 'Banco Santander',
+            'tipo' => 'alfa',
+            'required' => true
+        ],
+        'filler3' => [
+            'tamanho' => 10,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ],
+		'codigo_remessa' => [
+			'tamanho'=>1,
+			'default'=>'1',
+			'tipo'=>'int',
+			'required'=>true
+        ],
+		'data_geracao'=> [
+			'tamanho'=>8,
+			'default'=>'',// Gerada automaticamente
+			'tipo'=>'date',
+			'required'=>true
+        ],
+		'filler4'=> [
+			'tamanho'=>6,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true
+        ],
+		'numero_sequencial_arquivo'=> [
+			'tamanho'=>6,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true
+        ],
+		'versao_layout'=> [
+			'tamanho'=>3,
+			'default'=>'040',
+			'tipo'=>'int',
+			'required'=>true
+        ],
+        'filler5'=> [
+            'tamanho'=>74,
             'default'=>' ',
             'tipo'=>'alfa',
-            'required'=>true),
-        'codigo_banco'=>array(
-            'tamanho'=>3,
-            'default'=>'033',
-            'tipo'=>'int',
-            'required'=>true),
-        'nome_banco'=>array(
-            'tamanho'=>15,
-            'default'=>'SANTANDER',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'data_gravacao'=>array(
-            'tamanho'=>6,
-            'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
-            'tipo'=>'date',
-            'required'=>true),
-        'filler1'=>array(
-            'tamanho'=>16,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'mensagem_1'=>array(
-            'tamanho'=>47,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>false),
-        'mensagem_2'=>array(
-            'tamanho'=>47,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>false),
-        'mensagem_3'=>array(
-            'tamanho'=>47,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>false),
-        'mensagem_4'=>array(
-            'tamanho'=>47,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>false),
-        'mensagem_5'=>array(
-            'tamanho'=>47,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>false),
-        'mensagem_6'=>array(
-            'tamanho'=>40,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>false),
-        'versao'=>array(
-            'tamanho'=>3,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'numero_sequencial'=>array(
-            'tamanho'=>6,
-            'default'=>'1',
-            'tipo'=>'int',
-            'required'=>true),
-        );
-
-    public function set_codigo_transmissao()
-    {
-        $codigo = RemessaAbstract::$entryData['agencia']
-            . "0"
-            . RemessaAbstract::$entryData['codigo_beneficiario']
-            . "0"
-            . substr(RemessaAbstract::$entryData['conta'], 0, 7);
-
-        $this->data['codigo_transmissao'] = $codigo;
-    }
-
-    public function get_codigo_transmissao()
-    {
-        return $this->data['codigo_transmissao'];
-    }
+            'required'=>true
+        ],
+    ];
 }
-
 ?>

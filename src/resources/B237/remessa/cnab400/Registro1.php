@@ -71,7 +71,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'237',
+            'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
         'codigo_multa'=>array(
