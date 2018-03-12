@@ -65,7 +65,7 @@ $lote->inserirDetalhe(array(
 		'parcela' 			=>	01,
 		'modalidade'		=>	1,
 		'tipo_formulario'	=>	5,
-		'numero_carteira'   =>	1, // codigo da carteira
+		'codigo_carteira'   =>	1, // codigo da carteira
 		'carteira'   		=>	1, // codigo da carteira
 		'seu_numero'        =>	"DEV180001",// se nao informado usarei o nosso numero
 		'data_vencimento'   =>	'2018-30-03', // informar a data neste formato

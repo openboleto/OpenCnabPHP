@@ -338,14 +338,14 @@ class Registro3P extends Generico3 {
 		$this->inserirDetalhe ( $data );
 	}
 	public function inserirDetalhe($data) {
-		$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Q';
+		$class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Q';
 		$this->children [] = new $class ( $data );
 		// Chamar função para inserir nosso número
 		if (isset ( $data ['codigo_desconto2'] ) || isset ( $data ['codigo_desconto3'] ) || isset ( $data ['vlr_multa'] ) || isset ( $data ['informacao_pagador'] )) {
-			$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
+			$class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
 			$this->children [] = new $class ( $data );
 		}
-		$class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3S3';
+		$class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3S3';
 		$this->children [] = new $class ( $data );
 	}
 	
