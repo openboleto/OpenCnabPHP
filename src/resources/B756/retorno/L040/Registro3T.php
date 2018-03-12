@@ -160,7 +160,7 @@ class Registro3T extends Generico3
 			'default'=>'',
 			'tipo'=>'date',
 			'required'=>true),
-		'seu_numero2'=>array(                 //21.3T
+		'identificacao_contrato'=>array(                 //21.3T
 			'tamanho'=>25,
 			'default'=>'',
 			'tipo'=>'alfa',

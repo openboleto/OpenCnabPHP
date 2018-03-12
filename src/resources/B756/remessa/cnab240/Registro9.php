@@ -37,7 +37,7 @@ class Registro9 extends Generico9
 			'required'=>true),
 		'codigo_lote'=>array(       //02.9 -- 4-7
 			'tamanho'=>4,
-			'default'=>'9',
+			'default'=>'9999',
 			'tipo'=>'int',
 			'required'=>true),
 		'tipo_registro'=>array(		//03.9 -- 8

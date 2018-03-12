@@ -60,9 +60,9 @@ class Registro0 extends Generico0
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-        'convenio'=>array(					//07.0 -- 33-52
+        'filler2'=>array(					//07.0 -- 33-52
             'tamanho'=>20,
-            'default'=>'', 
+            'default'=>' ', 
             'tipo'=>'alfa',
             'required'=>true),
 		'agencia'=>array(					//08.0 -- 53-57
@@ -87,7 +87,7 @@ class Registro0 extends Generico0
             'required'=>true),
 		'filler3'=>array(					//12.0 -- 72
 			'tamanho'=>1,
-			'default'=>' ',
+			'default'=>'0',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'nome_empresa'=>array(				//13.0 -- 73-102
@@ -97,7 +97,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'nome_banco'=>array(				//14.0 -- 103-132
 			'tamanho'=>30,
-			'default'=>'BANCO COOPERATIVO DO BRASIL SA',
+			'default'=>'SICOOB',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler4'=>array(					//15.0 -- 133-142
@@ -127,7 +127,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'versao_layout'=>array(				//20.0 -- 164-166
 			'tamanho'=>3,
-			'default'=>'087', //TODO Conferir layout
+			'default'=>'081', //TODO Conferir layout
 			'tipo'=>'int',
 			'required'=>true),
 		'filler5'=>array(					//21.0 -- 167-171

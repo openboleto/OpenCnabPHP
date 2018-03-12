@@ -70,7 +70,7 @@ class Registro3R extends Generico3
 
 		'filler2'=>array(               // 8.3R -- 18
 			'tamanho'=>1,
-			'default'=>'2',
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
 		'data_desconto2'=>array(        // 9.3R -- 19-26
@@ -100,7 +100,7 @@ class Registro3R extends Generico3
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'filler4'=>array(  				//14.3R -- 66
+		'codigo_multa'=>array(  		//14.3R -- 66
 			'tamanho'=>1,
 			'default'=>'0',
 			'tipo'=>'int',

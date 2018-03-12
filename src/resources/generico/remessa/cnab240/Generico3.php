@@ -119,6 +119,12 @@ class Generico3 extends RegistroRemAbstract
 	{
 		$this->data['seu_numero2'] = $value != ' ' ? $value : $this->data['nosso_numero'];
 	}
+
+	protected function set_identificacao_contrato($value)
+	{
+		$this->data['identificacao_contrato'] = $value != ' ' ? $value : $this->data['nosso_numero'];
+	}
+	
 	protected function set_especie_titulo($value)
 	{
 		if(is_int($value))

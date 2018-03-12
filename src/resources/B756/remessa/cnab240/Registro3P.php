@@ -102,7 +102,7 @@ class Registro3P extends Generico3 {
 			),
 			'filler2' => array (				//12.3P -- 37
 					'tamanho' => 1,
-					'default' => '0',
+					'default' => ' ',
 					'tipo' => 'alfa',
 					'required' => true 
 			),
@@ -145,6 +145,7 @@ class Registro3P extends Generico3 {
 					'required' => true
 			),
 			/*Fim do nosso número composto*/
+
 			'codigo_carteira' => array (		//14.3P -- 58
 					'tamanho' => 1,
 					'default' => '',
@@ -228,14 +229,14 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			// codigo juros
-			'filler5' => array ( 				//27.3P -- 118
+			'codigo_juros' => array ( 				//27.3P -- 118
 					'tamanho' => 1,
 					'default' => '0',
 					'tipo' => 'int',
 					'required' => true 
 			),
 			'data_juros' => array ( 			//28.3P -- 119-126
-					'tamanho' => 8,
+					'tamanho' => 8,             // Data de vencimento do título
 					'default' => '0',
 					'tipo' => 'date',
 					'required' => true 
@@ -248,9 +249,9 @@ class Registro3P extends Generico3 {
 					'required' => true 
 			),
 			// codigo desconto
-			'filler6' => array ( 				//30.3P -- 124
+			'codigo_desconto' => array ( 				//30.3P -- 124
 					'tamanho' => 1,
-					'default' => '2',
+					'default' => '0',
 					'tipo' => 'int',
 					'required' => true 
 			),
@@ -281,7 +282,7 @@ class Registro3P extends Generico3 {
 					'precision' => 2,
 					'required' => true 
 			),
-			'seu_numero2' => array (			//35.3P -- 162-220
+			'identificacao_contrato' => array (			//35.3P -- 162-220
 					'tamanho' => 25, // Identificação do contrato
 					'default' => ' ',
 					'tipo' => 'alfa',
