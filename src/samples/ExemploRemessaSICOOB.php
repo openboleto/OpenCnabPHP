@@ -34,42 +34,35 @@ use \CnabPHP\Remessa;
 $arquivo = new Remessa(756,'cnab240',array(
 
 		//Informações da emrpesa recebedora
-		'tipo_inscricao'  	=>	2, // 1 para cpf, 2 cnpj
+		'tipo_inscricao'  	=>	'2', // 1 para cpf, 2 cnpj
 		'numero_inscricao'	=>	'27.449.872/0001-98', // seu cpf ou cnpj completo
 		'agencia'       	=>	'3046', // agencia sem o digito verificador
-		'agencia_dv'    	=>	5, // somente o digito verificador da agencia
+		'agencia_dv'    	=>	'5', // somente o digito verificador da agencia
 		'conta'         	=> 	'25151', // número da conta
-		'conta_dv'     		=> 	3, // digito da conta
+		'conta_dv'     		=> 	'3', // digito da conta
 		'nome_empresa' 		=>	"Avelar e Cordeiro Ltda-ME", // seu nome de empresa
 		'numero_sequencial_arquivo'	=>	'0000001',
 
-		/* O Código do cliente era usado para calcular o DV do nosso número
-		porem na adaptação o DV é calculado em nx-boletos
-		Aqui eu uso para compor o nome do arquivo que será obtido com
-		Remessa->getName()
-		*/
 		'codigo_beneficiario'	=> '30638', // codigo fornecido pelo banco
 		'codigo_beneficiario_dv'=> '0', // codigo fornecido pelo banco
-		//Estou passando o nosso número com dv calculado
-
 
 		'situacao_arquivo' =>'T' // use T para teste e P para produção
 ));
-$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
+$lote  = $arquivo->addLote(array('tipo_servico'=> '1')); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
 		//Registro 3P Dados do Boleto
-		'nosso_numero'      =>	'1800001', // numero sequencial de boleto
-		'nosso_numero_dv'   =>	'1', // codigo fornecido por nx-boletos
-		'parcela' 			=>	01,
-		'modalidade'		=>	1,
-		'tipo_formulario'	=>	4,
-		'codigo_carteira'   =>	1, // codigo da carteira
-		'carteira'   		=>	1, // codigo da carteira
+		'nosso_numero'      => '1800001', // numero sequencial de boleto
+		//'nosso_numero_dv'   =>	1, // pode ser informado ou calculado pelo sistema
+		'parcela' 			=>	'01',
+		'modalidade'		=>	'1',
+		'tipo_formulario'	=>	'4',
+		'codigo_carteira'   =>	'1', // codigo da carteira
+		'carteira'   		=>	'1', // codigo da carteira
 		'seu_numero'        =>	"DEV180001",// se nao informado usarei o nosso numero
 		'data_vencimento'   =>	'2018-03-30', // informar a data neste formato
-		'valor'             =>	3.00, // Valor do boleto como float valido em php
-		'cod_emissao_boleto'=>	2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
+		'valor'             =>	'3.00', // Valor do boleto como float valido em php
+		'cod_emissao_boleto'=>	'2', // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
 		'especie_titulo'    => 	"DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
 		'data_emissao'      => 	'2018-03-07', // informar a data neste formato
 		'codigo_juros'		=>	'2', // Taxa por mês
@@ -81,12 +74,12 @@ $lote->inserirDetalhe(array(
 		'vlr_IOF'			=> 	'0',
 		'vlr_abatimento'	=> 	'0',
 		'identificacao_contrato'	=>	"Prep. OAB 984958549",
-		'protestar'         => 	1, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
-		'prazo_protesto'    => 	90, // Informar o numero de dias apos o vencimento para iniciar o protesto
+		'protestar'         => 	'1', // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
+		'prazo_protesto'    => 	'90', // Informar o numero de dias apos o vencimento para iniciar o protesto
 
 
 		// Registro 3Q [PAGADOR]
-		'tipo_inscricao'    => 1, //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
+		'tipo_inscricao'    => '1', //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
 		'numero_inscricao'  => '042.720.316-35',//cpf ou ncpj do pagador
 		'nome_pagador'      => "Elias da Cunha Alves", // O Pagador é o cliente, preste atenção nos campos abaixo
 		'endereco_pagador'  => 'Rua Belvedere, 287',
@@ -102,10 +95,10 @@ $lote->inserirDetalhe(array(
 
 
 		// Registro 3S3 Mensagens a serem impressas
-		'mensagem_sc_1' 		=> "Após venc. Mora 0,03%ad/multa2,00%",
-		'mensagem_sc_2' 		=> "Não Conceder Desconto",
-		'mensagem_sc_3' 		=> "Sujeito a protesto após o venc.",
-		'mensagem_sc_4' 		=> "VelvetTux Soluções em Sistemas <('')",
+		'mensagem_sc_1' 	=> "Após venc. Mora 0,03%ad/multa2,00%",
+		'mensagem_sc_2' 	=> "Não Conceder Desconto",
+		'mensagem_sc_3' 	=> "Sujeito a protesto após o venc.",
+		'mensagem_sc_4' 	=> "VelvetTux Soluções em Sistemas",
 
 ));
 

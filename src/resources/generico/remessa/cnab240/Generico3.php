@@ -240,7 +240,7 @@ class Generico3 extends RegistroRemAbstract
 				$constante = 7;
 				$cont = 0;
 			}
-			$calculoDv += (substr($sequencia,$num,1) * $constante);
+			$calculoDv += ((int)substr($sequencia,$num,1) * $constante);
 		}
 		$Resto = $calculoDv % 11;
 		if ($Resto == 0 || $Resto == 1) {
