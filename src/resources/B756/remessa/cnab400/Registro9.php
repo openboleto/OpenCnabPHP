@@ -2,6 +2,7 @@
 namespace CnabPHP\resources\b756\remessa\cnab400;
 
 use CnabPHP\resources\generico\remessa\cnab400\Generico9;
+use CnabPHP\RemessaAbstract;
 
 class Registro9 extends Generico9
 {
@@ -47,7 +48,31 @@ class Registro9 extends Generico9
             'tipo'=>'int',
             'required'=>true),
     );
-
+    
+    protected function set_mensagem_1($value)
+    {
+        $this->data['mensagem_1'] = isset(RemessaAbstract::$entryData['mensagem_1'])?RemessaAbstract::$entryData['mensagem_1']:''; 
+    }
+    
+    protected function set_mensagem_2($value)
+    {
+        $this->data['mensagem_2'] = isset(RemessaAbstract::$entryData['mensagem_2'])?RemessaAbstract::$entryData['mensagem_2']:''; 
+    }
+    
+    protected function set_mensagem_3($value)
+    {
+        $this->data['mensagem_3'] = isset(RemessaAbstract::$entryData['mensagem_3'])?RemessaAbstract::$entryData['mensagem_3']:''; 
+    }
+    
+    protected function set_mensagem_4($value)
+    {
+        $this->data['mensagem_4'] = isset(RemessaAbstract::$entryData['mensagem_4'])?RemessaAbstract::$entryData['mensagem_4']:''; 
+    }
+    
+    protected function set_mensagem_5($value)
+    {
+        $this->data['mensagem_5'] = isset(RemessaAbstract::$entryData['mensagem_5'])?RemessaAbstract::$entryData['mensagem_5']:''; 
+    }
 }
 
 ?>

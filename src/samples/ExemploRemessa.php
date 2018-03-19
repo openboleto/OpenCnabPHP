@@ -42,7 +42,8 @@ $arquivo = new Remessa(756,'cnab400',array(
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
     'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
     'numero_sequencial_arquivo'     => 1,
-    'situacao_arquivo' =>'P' // use T para teste e P para produ��o
+    'situacao_arquivo' =>'P', // use T para teste e P para produ��o
+    'mensagem_1'=>'Sua mensagem personalizada para todos os boletos do arquivo aqui' // suportado somente para SICOOB cnab400, mudar o numero 1 para 2,3,4,5 para incluir mais mensagens
 ));
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
 
@@ -82,6 +83,8 @@ $lote->inserirDetalhe(array(
     'vlr_multa'         => 30.00, // valor da multa
     
     // campos necessários somente para o sicoob
+    //'cod_instrucao1'     => 1, //instrução para cobrar juros novas regras da base de boletos unificada 
+    //'cod_instrucao2'     => 1, //instrução para cobrar juros novas regras da base de boletos unificada 
     //'taxa_multa'         => 0.00, // taxa de multa em percentual
     //'taxa_juros'         => 0.00, // taxa de juros em percentual
 ));        
