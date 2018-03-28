@@ -277,8 +277,13 @@ class Registro3P extends Generico3
 			'default'=>'1',
 			'tipo'=>'int',
 			'required'=>true),
+        'filler6'=>array(
+			'tamanho'=>1,
+			'default'=>'0',
+			'tipo'=>'int',
+			'required'=>true),
 		'prazo_baixar'=>array(
-			'tamanho'=>3,
+			'tamanho'=>2,
 			'default'=>'90',
 			'tipo'=>'int',
 			'required'=>true),
@@ -287,7 +292,7 @@ class Registro3P extends Generico3
 			'default'=>'00',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler6'=>array(
+		'filler7'=>array(
 			'tamanho'=>11,
 			'default'=>' ',
 			'tipo'=>'alfa',
