@@ -36,7 +36,7 @@ $arquivo = new Remessa(756,'cnab400',array(
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
     'agencia'       => "3300", // agencia sem o digito verificador 
-    'agencia_dv'    => '0', // somente o digito verificador da agencia 
+    'agencia_dv'    => '1', // somente o digito verificador da agencia 
     'conta'         => '3264', // número da conta
     'conta_dv'     => (string)0, // digito da conta
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
@@ -81,7 +81,7 @@ $lote->inserirDetalhe(array(
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa
     'vlr_multa'         => 30.00, // valor da multa
-    
+
     // campos necessários somente para o sicoob
     //'cod_instrucao1'     => 1, //instrução para cobrar juros novas regras da base de boletos unificada 
     //'cod_instrucao2'     => 1, //instrução para cobrar juros novas regras da base de boletos unificada 
