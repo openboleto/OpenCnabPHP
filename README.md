@@ -104,7 +104,7 @@ Acesse a url de exemplo:
             Cnab400
         </td>
         <td>
-            Beta
+            Homologado
         </td>
     </tr>
     <tr>
@@ -122,6 +122,40 @@ Acesse a url de exemplo:
         </td>
         <td>
             Homologado
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Bradesco
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
+    <tr>
+        <td>
+            UniPrime
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
         </td>
     </tr>
 </table>

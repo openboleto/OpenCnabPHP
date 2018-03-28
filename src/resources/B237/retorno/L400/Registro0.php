@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\b756\retorno\L400; 
+namespace CnabPHP\resources\B237\retorno\L400;
 use CnabPHP\resources\generico\retorno\L400\Generico0;
 use CnabPHP\RetornoAbstract;
 
@@ -52,38 +52,13 @@ class Registro0 extends Generico0
             'tipo'=>'int',
             'required'=>true),
         'literal_servico'=>array(
-            'tamanho'=>8,
+            'tamanho'=>15,
             'default'=>'COBRANCA',
             'tipo'=>'alfa',
             'required'=>true),
-        'filler1'=>array(
-            'tamanho'=>7,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'agencia'=>array(
-            'tamanho'=>4,
+        'codigo_empresa'=>array(
+            'tamanho'=>20,
             'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'agencia_dv'=>array(
-            'tamanho'=>1,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'conta'=>array(
-            'tamanho'=>8,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'conta_dv'=>array(
-            'tamanho'=>1,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'numero_convenio'=>array(
-            'tamanho'=>6,
-            'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
         'nome_empresa'=>array(
@@ -93,32 +68,47 @@ class Registro0 extends Generico0
             'required'=>true),
         'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'341',
+            'default'=>'237',
             'tipo'=>'int',
             'required'=>true),
         'nome_banco'=>array(
             'tamanho'=>15,
-            'default'=>' - BANCOOB S/A',
+            'default'=>'BRADESCO',
             'tipo'=>'alfa',
             'required'=>true),
         'data_gravacao'=>array(
             'tamanho'=>6,
-            'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+            'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
             'tipo'=>'date',
             'required'=>true),
-        'numero_sequencial_arquivo'=>array(
-            'tamanho'=>6,
+        'densidade_gravacao'=>array(
+            'tamanho'=>8,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'n_aviso_bancario'=>array(
+            'tamanho'=>5,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'filler3'=>array(
-            'tamanho'=>287,
+        'filler1'=>array(
+            'tamanho'=>266,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'numero_registro'=>array(       // 4.3R
+        'data_credito'=>array(
             'tamanho'=>6,
-            'default'=>'0',
+            'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
+            'tipo'=>'date',
+            'required'=>true),
+        'filler2'=>array(
+            'tamanho'=>9,
+            'default'=>' ',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'numero_sequencial_registro'=>array(
+            'tamanho'=>6,
+            'default'=>'',
             'tipo'=>'int',
             'required'=>true),
     );
@@ -138,4 +128,3 @@ class Registro0 extends Generico0
         //RetornoAbstract::$linesCounter--;
     }
 }
-?>

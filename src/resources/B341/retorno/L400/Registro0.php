@@ -122,7 +122,7 @@ class Registro0 extends Generico0
     {
         while(RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines)-2))
         {
-            $class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
+            $class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
             $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
         }
         //RetornoAbstract::$linesCounter--;

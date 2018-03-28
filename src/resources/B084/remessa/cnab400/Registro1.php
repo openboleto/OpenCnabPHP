@@ -1,5 +1,5 @@
 <?php
-namespace CnabPHP\resources\B237\remessa\cnab400;
+namespace CnabPHP\resources\B084\remessa\cnab400;
 
 use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
@@ -43,26 +43,31 @@ class Registro1 extends Generico1
             'tamanho'=>1,
             'default'=>'0',
             'tipo'=>'int',
-            'required'=>false),
+            'required'=>true),
         'carteira_banco'=>array(
             'tamanho'=>3,
+            'default'=>'',
+            'tipo'=>'int',
+            'required'=>true),
+        'filler01'=>array(
+            'tamanho'=>1,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
         'agencia'=>array(
-            'tamanho'=>5,
-            'default'=>'0',
+            'tamanho'=>4,
+            'default'=>'',
             'tipo'=>'int',
             'required'=>true),
         'conta'=>array(
             'tamanho'=>7,
-            'default'=>'0',
-            'tipo'=>'int',
+            'default'=>'',
+            'tipo'=>'alfa',
             'required'=>true),
         'conta_dv'=>array(
             'tamanho'=>1,
-            'default'=>'0',
-            'tipo'=>'int',
+            'default'=>'',
+            'tipo'=>'alfa',
             'required'=>true),
         'seu_numero'=>array(
             'tamanho'=>25,
@@ -71,7 +76,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'0',
+            'default'=>'237',
             'tipo'=>'int',
             'required'=>true),
         'codigo_multa'=>array(
@@ -93,7 +98,7 @@ class Registro1 extends Generico1
         'nosso_numero_dv'=>array(
             'tamanho'=>1,
             'default'=>'0',
-            'tipo'=>'alfa2',
+            'tipo'=>'alfa',
             'required'=>true),
         'vlr_bonificacao_dia'=>array(
             'tamanho'=>8,
@@ -258,31 +263,31 @@ class Registro1 extends Generico1
             'required'=>true),
     );
 
-    public function __construct($data = null)
-    {
-        if(empty($this->data))parent::__construct($data);
-        $this->inserirMensagem($data);
-    }
-
-    public function inserirMensagem($data)
-    {
-        if(!empty($data['mensagem']))
-        {
-            $class = 'CnabPHP\resources\\B'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro2';
-            $this->children[] = new $class($data);
-        }
-    }
-
     protected function set_taxa_multa($value)
     {
         $this->data['taxa_multa'] = $value;
         $this->data['codigo_multa'] = ($value>0)?2:0;
     }
 
+    protected function set_especie_titulo($value)
+    {
+        $this->data['especie_titulo'] = $value;
+    }
+
     protected function set_nosso_numero_dv($value)
     {
         $modulo11 = self::modulo11( str_pad( $this->entryData['carteira_banco'], 2, 0, STR_PAD_LEFT ).str_pad( $this->data['nosso_numero'], 11, 0, STR_PAD_LEFT ), 7 );
-        $this->data['nosso_numero_dv'] = $modulo11['resto'] != 1 ? $modulo11['digito'] : 'P';
+        switch ($modulo11['resto']){
+            case 1 :
+                $this->data['nosso_numero_dv'] = 'P';    
+                break;
+            case 0 :
+                $this->data['nosso_numero_dv'] = " 0";
+                break;
+            default:
+                $this->data['nosso_numero_dv'] = $modulo11['digito'];
+        }
+
     }
 
     protected static function modulo11($num, $base=9)
@@ -315,3 +320,4 @@ class Registro1 extends Generico1
         return $result;
     }
 }
+?>

@@ -24,7 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CnabPHP\resources\b237\remessa\cnab400;
+namespace CnabPHP\resources\B237\remessa\cnab400;
 
 use CnabPHP\resources\generico\remessa\cnab400\Generico0;
 
@@ -83,12 +83,12 @@ class Registro0 extends Generico0
             'required'=>true),
         'filler1'=>array(
             'tamanho'=>8,
-            'default'=>'0',
+            'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
         'identificacao_sistema'=>array(
             'tamanho'=>2,
-            'default'=>'01',
+            'default'=>'MX',
             'tipo'=>'alfa',
             'required'=>true),
         'numero_sequencial_arquivo'=>array(
@@ -108,5 +108,3 @@ class Registro0 extends Generico0
             'required'=>true),
         );
 }
-
-?>

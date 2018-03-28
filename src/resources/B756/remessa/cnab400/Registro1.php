@@ -156,12 +156,12 @@ class Registro1 extends Generico1
             'required'=>true),
         'agencia_cobradora'=>array(    //22.3P
             'tamanho'=>4,
-            'default'=>'0',
+            'default'=>'',
             'tipo'=>'int',
             'required'=>true),
         'agencia_cobradora_dv'=>array(    //22.3P
             'tamanho'=>1,
-            'default'=>'0',
+            'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
         'especie_titulo'=>array(    //24.3P
@@ -191,13 +191,13 @@ class Registro1 extends Generico1
             'required'=>true),
         'taxa_juros'=>array(            //29.3P
             'tamanho'=>2,
-            'default'=>'',
+            'default'=>'0',
             'tipo'=>'decimal',
             'precision'=>4,
             'required'=>true),
         'taxa_multa'=>array(            //29.3P
             'tamanho'=>2,
-            'default'=>'',
+            'default'=>'0',
             'tipo'=>'decimal',
             'precision'=>4,
             'required'=>true),
@@ -302,6 +302,16 @@ class Registro1 extends Generico1
         $result = self::mod11($this->data['nosso_numero']);
         $this->data['nosso_numero_dv'] = $result['digito']; 
     }
+    
+    protected function set_agencia_cobradora($value)
+    {
+        $this->data['agencia_cobradora'] =   $value!= '' ? $value : RemessaAbstract::$entryData['agencia']; 
+    }
+    
+    protected function set_agencia_cobradora_dv($value)
+    {
+        $this->data['agencia_cobradora_dv'] =   $value!= '' ? $value : RemessaAbstract::$entryData['agencia_dv']; 
+    }
 
     /**
     * Calcula e retorna o dÃ­gito verificador usando o algoritmo Modulo 11
@@ -355,4 +365,3 @@ class Registro1 extends Generico1
     }
 
 }
-?>

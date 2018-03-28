@@ -35,14 +35,15 @@ $arquivo = new Remessa(756,'cnab400',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
-    'agencia'       => 3300, // agencia sem o digito verificador 
-    'agencia_dv'    => 6, // somente o digito verificador da agencia 
+    'agencia'       => "3300", // agencia sem o digito verificador 
+    'agencia_dv'    => '1', // somente o digito verificador da agencia 
     'conta'         => '3264', // número da conta
-    'conta_dv'     => 6, // digito da conta
+    'conta_dv'     => (string)0, // digito da conta
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
     'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
     'numero_sequencial_arquivo'     => 1,
-    'situacao_arquivo' =>'P' // use T para teste e P para produ��o
+    'situacao_arquivo' =>'P', // use T para teste e P para produ��o
+    'mensagem_1'=>'Sua mensagem personalizada para todos os boletos do arquivo aqui' // suportado somente para SICOOB cnab400, mudar o numero 1 para 2,3,4,5 para incluir mais mensagens
 ));
 $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
 
@@ -80,10 +81,12 @@ $lote->inserirDetalhe(array(
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa
     'vlr_multa'         => 30.00, // valor da multa
-    
+
     // campos necessários somente para o sicoob
-    'taxa_multa'         => 30.00, // taxa de multa em percentual
-    'taxa_juros'         => 30.00, // taxa de juros em percentual
+    //'cod_instrucao1'     => 1, //instrução para cobrar juros novas regras da base de boletos unificada 
+    //'cod_instrucao2'     => 1, //instrução para cobrar juros novas regras da base de boletos unificada 
+    //'taxa_multa'         => 0.00, // taxa de multa em percentual
+    //'taxa_juros'         => 0.00, // taxa de juros em percentual
 ));        
 echo utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres
 ?>

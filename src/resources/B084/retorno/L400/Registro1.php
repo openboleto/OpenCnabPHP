@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B756\retorno\L400;
+namespace CnabPHP\resources\B084\retorno\L400;
 use CnabPHP\resources\generico\retorno\L400\Generico1;
 use CnabPHP\RetornoAbstract;
 
@@ -35,7 +35,7 @@ class Registro1 extends Generico1
             'tamanho'=>1,
             'default'=>'1',
             'tipo'=>'int',
-            'required'=>true),  
+            'required'=>true),
         'tipo_inscricao_empresa'=>array(
             'tamanho'=>2,
             'default'=>'',
@@ -46,18 +46,23 @@ class Registro1 extends Generico1
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'agencia'=>array(
+        'filler1'=>array(
             'tamanho'=>4,
-            'default'=>'',
+            'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'agencia_dv'=>array(
-            'tamanho'=>1,
+        'carteira'=>array(      //13.3P
+            'tamanho'=>4,
+            'default'=>'0',
+            'tipo'=>'int',
+            'required'=>true),
+        'agencia'=>array(
+            'tamanho'=>5,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
         'conta'=>array(
-            'tamanho'=>8,
+            'tamanho'=>7,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
@@ -66,13 +71,13 @@ class Registro1 extends Generico1
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
-        'numero_convenio'=>array(
-            'tamanho'=>6,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
         'seu_numero'=>array(
             'tamanho'=>25,
+            'default'=>' ',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'filler2'=>array(
+            'tamanho'=>8,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
@@ -83,79 +88,42 @@ class Registro1 extends Generico1
             'required'=>true),
         'nosso_numero_dv'=>array(
             'tamanho'=>1,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'numero_parcela'=>array(
-            'tamanho'=>2,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'grupo_valor'=>array(
-            'tamanho'=>4,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'codigo_baixa'=>array(
-            'tamanho'=>2,
-            'default'=>'',
-            'tipo'=>'int',
-            'required'=>true),
-        'especie_titulo_lit'=>array(      //13.3P
-            'tamanho'=>3,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'carteira'=>array(
-            'tamanho'=>3,
-            'default'=>'',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'conta_caucao'=>array(
-            'tamanho'=>1,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'cod_responsabilidade'=>array(      //13.3P
-            'tamanho'=>5,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'cod_responsabilidade_dv'=>array(      //13.3P
-            'tamanho'=>1,
+        'filler3'=>array(
+            'tamanho'=>10,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'taxa_desconto'=>array(            // 9.3Q
-            'tamanho'=>3,
-            'default'=>'',
-            'tipo'=>'decimal',
-            'precision'=>2,
+        'filler4'=>array(
+            'tamanho'=>12,
+            'default'=>' ',
+            'tipo'=>'alfa',
             'required'=>true),
-        'taxa_IOF'=>array(            // 9.3Q
-            'tamanho'=>3,
-            'default'=>'',
-            'tipo'=>'decimal',
-            'precision'=>2,
-            'required'=>true),
-        'filler41'=>array(            //20.3
-            'tamanho'=>1,
+        'reateio_credito'=>array(            //20.3
+            'tamanho'=>8,
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
-        'cod_carteira'=>array(            //20.3
+        'filler41'=>array(
             'tamanho'=>2,
-            'default'=>'',
-            'tipo'=>'int',
+            'default'=>' ',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'cod_carteira'=>array(      //13.3P
+            'tamanho'=>1,
+            'default'=>' ',
+            'tipo'=>'alfa',
             'required'=>true),
         'codigo_movimento'=>array(      // codigo da ocorrencia no manual itau
             'tamanho'=>2,
-            'default'=>'', // entrada de titulo
+            'default'=>'01', // entrada de titulo
             'tipo'=>'int',
             'required'=>true),
         'data_ocorrencia'=>array(      // codigo da ocorrencia no manual itau
             'tamanho'=>6,
-            'default'=>'', // entrada de titulo
+            'default'=>'0', // entrada de titulo
             'tipo'=>'date',
             'required'=>true),
         'seu_numero2'=>array(            //20.3
@@ -163,7 +131,7 @@ class Registro1 extends Generico1
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
-        'filler42'=>array(            //20.3
+        'nosso_numero2'=>array(            //20.3
             'tamanho'=>20,
             'default'=>'',
             'tipo'=>'alfa',
@@ -181,16 +149,11 @@ class Registro1 extends Generico1
             'required'=>true),
         'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'341',
+            'default'=>'237',
             'tipo'=>'int',
             'required'=>true),
         'agencia_cobradora'=>array(    //22.3P
-            'tamanho'=>4,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'agencia_cobradora_dv'=>array(    //22.3P
-            'tamanho'=>1,
+            'tamanho'=>5,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
@@ -199,28 +162,16 @@ class Registro1 extends Generico1
             'default'=>'2',
             'tipo'=>'int',
             'required'=>true),
-        'data_credito'=>array(            //26.3P
-            'tamanho'=>6,
-            'default'=>'',
-            'tipo'=>'date',
-            'required'=>true),
         'vlr_tarifas'=>array(            //25.3P
-            'tamanho'=>5,
-            'default'=>'',
-            'tipo'=>'decimal',
-            'precision'=>2,
-            'required'=>true),
-        'vlr_outras_despesas'=>array(               // 8.3Q
             'tamanho'=>11,
             'default'=>'',
             'tipo'=>'decimal',
             'precision'=>2,
             'required'=>true),
-        'vlr_juros_desconto'=>array(               // 8.3Q
-            'tamanho'=>11,
+        'filler43'=>array(            //20.3
+            'tamanho'=>26,
             'default'=>'',
-            'tipo'=>'decimal',
-            'precision'=>2,
+            'tipo'=>'alfa',
             'required'=>true),
         'vlr_iof'=>array(               // 11.3Q
             'tamanho'=>11,
@@ -258,50 +209,67 @@ class Registro1 extends Generico1
             'tipo'=>'decimal',
             'precision'=>2,
             'required'=>true),
-        'vlr_abatimento_na'=>array(               // 8.3Q
-            'tamanho'=>11,
-            'default'=>'',
-            'tipo'=>'decimal',
-            'precision'=>2,
-            'required'=>true),
-        'vlr_lancamento'=>array(               // 8.3Q
-            'tamanho'=>11,
-            'default'=>'',
-            'tipo'=>'decimal',
-            'precision'=>2,
-            'required'=>true),
-        'indicativo_debito_credito'=>array(    //24.3P
-            'tamanho'=>1,
+        'filler44'=>array(    //24.3P
+            'tamanho'=>2,
             'default'=>' ',
-            'tipo'=>'int',
+            'tipo'=>'alfa',
             'required'=>true),
-        'indicativo_valor'=>array(    //24.3P
+        'motivo25'=>array(    //24.3P
             'tamanho'=>1,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'vlr_ajuste'=>array(               // 8.3Q
-            'tamanho'=>11,
+        'data_credito'=>array(            //26.3P
+            'tamanho'=>6,
             'default'=>'',
-            'tipo'=>'decimal',
-            'precision'=>2,
+            'tipo'=>'date',
+            'required'=>true),
+        'origem_pagto'=>array(    //24.3P
+            'tamanho'=>3,
+            'default'=>' ',
+            'tipo'=>'alfa',
             'required'=>true),
         'filler45'=>array(    //24.3P
             'tamanho'=>10,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'numero_inscricao_pagador'=>array(            //29.3P
-            'tamanho'=>14,
-            'default'=>'',
+        'codigo_banco_cheque'=>array(            //29.3P
+            'tamanho'=>4,
+            'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
+        'motivo_rejeicao'=>array(       //10.3Q
+            'tamanho'=>30,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
         'filler47'=>array(
-            'tamanho'=>38,
+            'tamanho'=>40,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-       'numero_registro'=>array(       // 4.3R
+        'codigo_cartorio'=>array(               // 11.3Q
+            'tamanho'=>8,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'codigo_cartorio'=>array(               // 11.3Q
+            'tamanho'=>2,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'numero_protocolo'=>array(               //12.3Q
+            'tamanho'=>10,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'filler5'=>array(      //13.3Q   
+            'tamanho'=>14,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'numero_registro'=>array(       // 4.3R
             'tamanho'=>6,
             'default'=>'0',
             'tipo'=>'int',
@@ -312,7 +280,6 @@ class Registro1 extends Generico1
         parent::__construct($linhaTxt);
 
         RetornoAbstract::$linesCounter++;
-        //$this->inserirDetalhe();
     }
     /*
     metodo get_R3U
@@ -328,9 +295,9 @@ class Registro1 extends Generico1
     */
     public function get_vlr_liquido()
     {
-        return $this->vlr_lancamento;
+        return $this->vlr_pago;
     }
-     
+    
 }
 
 ?>
