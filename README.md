@@ -32,7 +32,7 @@ Acesse a url de exemplo:
 
 <table>
     <tr>
-        <td colspan="3">
+        <td colspan="3" >
             REMESSA
         </td>
         <td colspan="2">
@@ -40,7 +40,7 @@ Acesse a url de exemplo:
         </td>
     </tr>
     <tr>
-        <td>
+        <td align="left">
             Banco
         </td>
         <td>
@@ -54,6 +54,23 @@ Acesse a url de exemplo:
         </td>
         <td>
            Situação 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Bradesco
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
         </td>
     </tr>
     <tr>
@@ -109,10 +126,28 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
+            Santander
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+           Cnab240 
+        </td>
+        <td>
+            s/layout
+        </td>
+    </tr>
+
+    <tr>
+        <td>
             SICOOB
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Homologado
@@ -126,19 +161,19 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
-            Bradesco
+            SICOOB
         </td>
         <td>
-            Cnab400
-        </td>
-        <td>
-            Homologado
-        </td>
-        <td>
-            Cnab400
+            Cnab240
         </td>
         <td>
             Beta
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            s/layout
         </td>
     </tr>
     <tr>
@@ -146,7 +181,7 @@ Acesse a url de exemplo:
             UniPrime
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Homologado
