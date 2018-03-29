@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -165,7 +165,7 @@ class Generico3 extends RegistroRemAbstract
 	}    
 	protected function set_prazo_protesto($value)
 	{
-		if($this->data['protestar']==1 && $value = '')
+		if($this->data['protestar']==1 && $value == '')
 		{
 			throw new Exception('O campo "protestar" deve ser 3 para nao protesto e caso querira protetar deve ser informado um prazo maior que 1');
 		}
