@@ -40,7 +40,7 @@ Acesse a url de exemplo:
         </td>
     </tr>
     <tr>
-        <td align="left">
+        <td >
             Banco
         </td>
         <td>
@@ -141,7 +141,6 @@ Acesse a url de exemplo:
             s/layout
         </td>
     </tr>
-
     <tr>
         <td>
             SICOOB
