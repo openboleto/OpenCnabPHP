@@ -53,6 +53,10 @@ class Generico3 extends RegistroRemAbstract
 	{
 		$this->data['codigo_beneficiario'] = RemessaAbstract::$entryData['codigo_beneficiario'];
 	}
+	protected function set_codigo_beneficiario_dv($value)
+	{
+		$this->data['codigo_beneficiario_dv'] = RemessaAbstract::$entryData['codigo_beneficiario_dv'];
+	}
 	protected function set_agencia($value)
 	{
 		$this->data['agencia'] = RemessaAbstract::$entryData['agencia'];
@@ -60,6 +64,14 @@ class Generico3 extends RegistroRemAbstract
 	protected function set_agencia_dv($value)
 	{
 		$this->data['agencia_dv'] = RemessaAbstract::$entryData['agencia_dv'];
+	}
+	protected function set_conta($value)
+	{
+		$this->data['conta'] = RemessaAbstract::$entryData['conta'];
+	}
+	protected function set_conta_dv($value)
+	{
+		$this->data['conta_dv'] = RemessaAbstract::$entryData['conta_dv'];
 	}
 	protected function set_codigo_convenio($value)
 	{
