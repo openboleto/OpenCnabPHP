@@ -25,7 +25,7 @@
 */
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
-include("../../autoloader.php");
+include("../autoloader.php");
 $fileContent = file_get_contents("R2100095.RET");
 
 $arquivo = new Retorno($fileContent);
