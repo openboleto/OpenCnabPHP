@@ -1,6 +1,4 @@
 <?php
-declare(strict_types = 1);
-
 namespace CnabPHP\Tests;
 
 use CnabPHP\Especie;
