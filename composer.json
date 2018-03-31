@@ -17,8 +17,19 @@
 			]
 		}
 	},
+	"autoload-dev": {
+		"psr-4": {
+			"CnabPHP\\Tests\\": [
+				"tests"
+			]
+		}
+	},
 	"require": {
 		"php": ">=5.3.0"
 	},
-	"config": {}
+	"config": {},
+	"require-dev": {
+		"phpunit/phpunit": "^7.0",
+		"codeclimate/php-test-reporter": "dev-master"
+	}
 }
