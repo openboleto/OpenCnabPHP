@@ -16,7 +16,7 @@ matrix:
 
 before_script:
   - composer selfupdate
-  - composer install --dev --prefer-dist
+  - composer install
 
 script:
   - ./vendor/bin/phpunit --coverage-clover tmp/clover.xml
