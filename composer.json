@@ -29,7 +29,7 @@
 	},
 	"config": {},
 	"require-dev": {
-		"phpunit/phpunit": "^7.0",
+		"phpunit/phpunit": "^6.5",
 		"codeclimate/php-test-reporter": "dev-master"
 	}
 }
