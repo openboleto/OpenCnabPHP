@@ -25,7 +25,7 @@
 */
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
-include("../../autoloader.php");
+include("../autoloader.php");
 $fileContent = file_get_contents("COBST_QIAC_02_010617P_MOV.TXT");
 
 $arquivo = new Retorno($fileContent);
