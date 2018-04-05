@@ -37,7 +37,6 @@ class Especie
     private $banco;
     
     public function __construct($banco = null){
-        
         $this->caixa[1] = array('abr'=>"CH",'txt'=>'Cheque');
         $this->caixa[2] = array('abr'=>"DM",'txt'=>'Duplicata Mercantil');
         $this->caixa[3] = array('abr'=>"DMI",'txt'=>'Mercantil p/ Indicação');
@@ -78,7 +77,6 @@ class Especie
         $this->bb[18] = array('abr'=>"FAT",'txt'=>'Fatura');
         $this->bb[19] = array('abr'=>"ND",'txt'=>'Nota de Débito');
         
-        
         $this->itau[1] = array('abr'=>"DM",'txt'=>'Duplicata Mercantil');
         $this->itau[2] = array('abr'=>"NP",'txt'=>'Nota Promissória');
         $this->itau[3] = array('abr'=>"NS",'txt'=>'Nota de Seguro');
@@ -94,8 +92,6 @@ class Especie
         $this->itau[17] = array('abr'=>"CPS",'txt'=>'Conta de prestação de servião');
         $this->itau[18] = array('abr'=>"DBP",'txt'=>'Boleto de Proposta');
         $this->itau[99] = array('abr'=>"DIV",'txt'=>'Diversos');
-        
-        
         
         $this->sicoob[1] = array('abr'=>"DM",'txt'=>'Duplicata Mercantil');
         $this->sicoob[2] = array('abr'=>"NP",'txt'=>'Nota Promissória');
@@ -181,12 +177,15 @@ class Especie
         
         $this->banco = $this->res[$banco];        
     } 
+    
     public function getAbr($especie){
          return $this->banco[$especie]['abr'];
     }
+    
     public function getBanco(){
           return $this->banco;
     }
+    
     public function getCodigo($abr){
         foreach($this->banco as $key => $especie){
             if($especie['abr']==$abr){

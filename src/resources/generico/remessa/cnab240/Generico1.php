@@ -78,14 +78,17 @@ class Generico1 extends RegistroRemAbstract
     {
         $this->data['agencia_dv'] = $value == '' ?   RemessaAbstract::$entryData['agencia_dv'] : $value;
     }
+
     protected function set_conta($value)
     {
-    	$this->data['conta'] = RemessaAbstract::$entryData['conta'];
+        $this->data['conta'] = $value == '' ?   RemessaAbstract::$entryData['conta'] : $value;
     }
+
     protected function set_conta_dv($value)
     {
-    	$this->data['conta_dv'] = RemessaAbstract::$entryData['conta_dv'];
+        $this->data['conta_dv'] = $value == '' ?   RemessaAbstract::$entryData['conta_dv'] : $value;
     }
+
     protected function set_codigo_convenio($value)
     {
         $this->data['codigo_convenio'] = $value == '' ?  RemessaAbstract::$entryData['codigo_beneficiario'] : $value;
