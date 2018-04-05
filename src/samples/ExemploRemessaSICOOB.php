@@ -38,7 +38,7 @@ $arquivo = new Remessa(756,'cnab240',array(
 		'numero_inscricao'	=>	'27.449.872/0001-98', // seu cpf ou cnpj completo
 		'agencia'       	=>	'3046', // agencia sem o digito verificador
 		'agencia_dv'    	=>	'5', // somente o digito verificador da agencia
-		'conta'         	=> 	'25151', // número da conta
+		'conta'         	=> 	'26151', // número da conta
 		'conta_dv'     		=> 	'3', // digito da conta
 		'nome_empresa' 		=>	"AVELAR & CORDEIRO LTDA", // seu nome de empresa
 		'numero_sequencial_arquivo'	=>	'0000001',
@@ -61,21 +61,21 @@ $lote->inserirDetalhe(array(
 		'carteira'   		=>	'1', // codigo da carteira
 		'seu_numero'        =>	"DEV180001",// se nao informado usarei o nosso numero
 		'data_vencimento'   =>	'2018-03-30', // informar a data neste formato
-		'valor'             =>	'3.00', // Valor do boleto como float valido em php
+		'valor'             =>	'5.00', // Valor do boleto como float valido em php
 		'cod_emissao_boleto'=>	'2', // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
 		'especie_titulo'    => 	"DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
 		'data_emissao'      => 	'2018-03-07', // informar a data neste formato
-		'codigo_juros'		=>	'2', // Taxa por mês
+		'codigo_juros'		=>	'2', // Taxa por mês,
 		'data_juros'   	  	=> 	'2018-03-30', // data dos juros, mesma do vencimento
-		'vlr_juros'         => 	'0000000000002.00', // Valor do juros de 2% ao mês
-		'codigo_desconto'	=>	'0',
-		'data_desconto'     => 	'2018-03-30', // informar a data neste formato
-		'vlr_desconto'      => 	'0', // Valor do desconto
-		'vlr_IOF'			=> 	'0',
-		'vlr_abatimento'	=> 	'0',
-		'identificacao_contrato'	=>	"Prep. OAB 984958549",
+		'vlr_juros'         => 	'0000000000001.00', // Valor do juros/mora informa 1% e o sistema recalcula a 0,03% por 
+		// Você pode inserir desconto se houver, ou deixar em branco
+		//'codigo_desconto'	=>	'1',
+		//'data_desconto'		=> 	'2018-03-30', // inserir data para calcular desconto
+		//'vlr_desconto'		=> 	'0', // Valor do desconto
+		//'vlr_IOF'			=> 	'0',
 		'protestar'         => 	'1', // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
 		'prazo_protesto'    => 	'90', // Informar o numero de dias apos o vencimento para iniciar o protesto
+		'identificacao_contrato'	=>	"Prep. OAB 984958549",
 
 
 		// Registro 3Q [PAGADOR]
@@ -89,15 +89,16 @@ $lote->inserirDetalhe(array(
 		'uf_pagador'        => 'MG',
 
 		// Registro 3R Multas, descontos, etc
-		'codigo_multa'		=> '2', //2 - valor percentual
-		'data_multa'        => '2018-03-30', // mesma data do vencimento
-		'vlr_multa'         => '0000000000000.03', // valor da multa 0,03%/d
-
+		// Você pode inserir desconto se houver, ou deixar em branco, mas quando informar
+		// deve preencher os 3 campos: codigo, data e valor
+		'codigo_multa'		=>	'2', // Taxa por mês
+		'data_multa'   	  	=> 	'2018-03-30', // data dos juros, mesma do vencimento
+		'vlr_multa'         => 	'0000000000002.00', // Valor do juros de 2% ao mês
 
 		// Registro 3S3 Mensagens a serem impressas
-		'mensagem_sc_1' 	=> "Após venc. Mora 0,03%ad/multa2,00%",
-		'mensagem_sc_2' 	=> "Não Conceder Desconto",
-		'mensagem_sc_3' 	=> "Sujeito a protesto após o venc.",
+		'mensagem_sc_1' 	=> "Após venc. Mora 0,03%/dia e Multa 2,00%",
+		'mensagem_sc_2' 	=> "Não conceder desconto",
+		'mensagem_sc_3' 	=> "Sujeito a protesto após o vencimento",
 		'mensagem_sc_4' 	=> "VelvetTux Soluções em Sistemas <('')",
 
 ));

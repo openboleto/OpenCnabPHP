@@ -167,13 +167,13 @@ class Registro3P extends Generico3 {
 			),
 			'cod_emissao_boleto' => array (		//17.3P -- 61
 					'tamanho' => 1,
-					'default' => '', // {2} - beneficiário emite
+					'default' => '2', // {2} - beneficiário/cedente emite
 					'tipo' => 'int',
 					'required' => true 
 			),
 			'distrib_boleto' => array (			//18.3P -- 62
 					'tamanho' => 1,
-					'default' => '2', // {2} - beneficiário distribui
+					'default' => '2', // {2} - beneficiário/cedente distribui
 					'tipo' => 'alfa',
 					'required' => true 
 			),
@@ -228,7 +228,7 @@ class Registro3P extends Generico3 {
 					'tipo' => 'date',
 					'required' => true 
 			),
-			// codigo juros
+			// codigo juros/mora
 			'codigo_juros' => array ( 				//27.3P -- 118
 					'tamanho' => 1,
 					'default' => '0',
