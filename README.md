@@ -159,8 +159,7 @@ Acesse a url de exemplo:
             Homologado
         </td>
     </tr>
-    </tr>
-        <tr>
+    <tr>
         <td>
             SICOOB
         </td>
