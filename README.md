@@ -29,7 +29,7 @@ docker-compose up -d
 Adicione "rctnet/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
 
 Acesse a url de exemplo: 
-`http://localhost:8080/src/samples/ExemploRemessa.php`
+`http://localhost:8080/samples/ExemploRemessa.php`
 
 <table>
     <tr>
@@ -168,30 +168,13 @@ Acesse a url de exemplo:
             Cnab240
         </td>
         <td>
-            Beta
+            Homologado
         </td>
         <td>
             Cnab240
         </td>
         <td>
             Beta
-        </td>
-    </tr>
-    <tr>
-        <td>
-            SICOOB
-        </td>
-        <td>
-            Cnab240
-        </td>
-        <td>
-            Beta
-        </td>
-        <td>
-            Cnab240
-        </td>
-        <td>
-            s/layout
         </td>
     </tr>
     <tr>
