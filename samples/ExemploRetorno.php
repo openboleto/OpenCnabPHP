@@ -44,9 +44,9 @@ foreach($registros as $registro)
         echo $vlr_desconto;
         echo $dataPagamento;
         echo $vlr_juros_multa;
-        var_dump($registro);
+        echo $registro;
 		// você ja pode dar baixa
 	}
-    
+    //echo $registro;
 }
 ?>

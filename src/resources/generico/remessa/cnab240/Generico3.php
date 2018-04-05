@@ -33,7 +33,7 @@ class Generico3 extends RegistroRemAbstract
 {
 	protected function set_codigo_lote($value)
 	{
-		//ArquivoAbstract::$loteCounter++; 
+		//ArquivoAbstract::$loteCounter++;
 		$this->data['codigo_lote'] = RemessaAbstract::$loteCounter;
 	}
 	protected function set_numero_registro($value)
@@ -83,28 +83,30 @@ class Generico3 extends RegistroRemAbstract
 		$this->data['com_registro'] = $lote->tipo_servico;
 	}
 	protected function set_emissao_boleto($value)
-	{
-		$this->data['emissao_boleto'] = $value;
-		if($this->data['nosso_numero']==0)
 		{
-			$this->data['carteira'] = '00'; 
+		if (RemessaAbstract::$entryData['codigo_banco'] != '756'){
+			$this->data['emissao_boleto'] = $value;
+			if($this->data['nosso_numero']==0)
+			{
+				$this->data['carteira'] = '00';
+			}
+			elseif($this->data['com_registro']==1 && $value==1)
+			{
+				$this->data['carteira'] = 11;
+			}
+			elseif($this->data['com_registro']==1 && $value==2)
+			{
+				$this->data['carteira'] = 14;
+			}
+			elseif($this->data['com_registro']==2 && $value==1)
+			{
+				$this->data['carteira'] = 21;
+			}
+			else
+			{
+				throw new Exception("Registros com emissao pelo beneficiario e sem registro nao sao enviados");
+			}
 		}
-		elseif($this->data['com_registro']==1 && $value==1)
-		{
-			$this->data['carteira'] = 11;
-		}
-		elseif($this->data['com_registro']==1 && $value==2)
-		{
-			$this->data['carteira'] = 14;
-		}
-		elseif($this->data['com_registro']==2 && $value==1)
-		{
-			$this->data['carteira'] = 21;
-		}
-		else
-		{
-			throw new Exception("Registros com emissao pelo beneficiario e sem registro nao sao enviados"); 
-		}   
 	}
 	protected function set_seu_numero($value)
 	{
@@ -114,18 +116,24 @@ class Generico3 extends RegistroRemAbstract
 		}
 		else
 		{
-			$this->data['seu_numero'] = $value != ' ' ? $value : $this->data['nosso_numero'];    
+			$this->data['seu_numero'] = $value != ' ' ? $value : $this->data['nosso_numero'];
 		}
 	}
 	protected function set_seu_numero2($value)
 	{
-		$this->data['seu_numero2'] = $value != ' ' ? $value : $this->data['nosso_numero'];    
+		$this->data['seu_numero2'] = $value != ' ' ? $value : $this->data['nosso_numero'];
 	}
+
+	protected function set_identificacao_contrato($value)
+	{
+		$this->data['identificacao_contrato'] = $value != ' ' ? $value : $this->data['nosso_numero'];
+	}
+	
 	protected function set_especie_titulo($value)
 	{
 		if(is_int($value))
 		{
-			$this->data['especie_titulo'] = $value; 
+			$this->data['especie_titulo'] = $value;
 		}
 		else
 		{
@@ -169,12 +177,23 @@ class Generico3 extends RegistroRemAbstract
     {
         $mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
         $this->data['mensagem_8'] = count($mensagem)>=6?$mensagem[5]:' ';
-    }    
+	}
 	protected function set_informacao_pagador($value)
 	{
 		$mensagem = (isset($this->entryData['informacao_pagador']))?$this->entryData['informacao_pagador']:'';
 		$this->data['informacao_pagador'] = $mensagem;
-	}    
+	}
+	protected function set_set_mensagem_5($value)
+	{
+		$mensagem = (isset($this->entryData['set_mensagem_5']))?$this->entryData['set_mensagem_5']:'';
+		$this->data['set_mensagem_5'] = $mensagem;
+	}
+
+	protected function set_set_mensagem_52($value)
+	{
+		$mensagem = (isset($this->entryData['set_mensagem_52']))?$this->entryData['set_mensagem_52']:'';
+		$this->data['set_mensagem_52'] = $mensagem;
+	}
 	protected function set_prazo_protesto($value)
 	{
 		if($this->data['protestar']==1 && $value == '')
@@ -185,6 +204,56 @@ class Generico3 extends RegistroRemAbstract
 		{
 			$this->data['prazo_protesto'] = $value;
 		}
-	}    
+	}
+	
+	protected function set_nosso_numero_dv($value)
+	{
+		$Dv = self::formata_nossonumero($this->data['nosso_numero'], $this->data['agencia'], RemessaAbstract::$entryData['codigo_beneficiario'].RemessaAbstract::$entryData['codigo_beneficiario_dv']);
+		$this->data['nosso_numero_dv'] = $Dv;
+	}
+	
+	protected function formata_numdoc($num,$tamanho) {
+		while(strlen($num)<$tamanho)
+		{
+			$num="0".$num;
+		}
+		return $num;
+	}
+	
+	protected function formata_nossonumero($index, $ag, $conv) {
+		$sequencia = self::formata_numdoc($ag,4).self::formata_numdoc($conv,10).self::formata_numdoc($index,3);
+		$cont=0;
+		$calculoDv = 0;
+		for($num=0;$num<=strlen($sequencia);$num++){
+			$cont++;
+			if($cont == 1)
+			{
+				// constante fixa Sicoob » 3197
+				$constante = 3;
+			}
+			if($cont == 2)
+			{
+				$constante = 1;
+			}
+			if($cont == 3)
+			{
+				$constante = 9;
+			}
+			if($cont == 4)
+			{
+				$constante = 7;
+				$cont = 0;
+			}
+			$calculoDv += ((int)substr($sequencia,$num,1) * $constante);
+		}
+		$Resto = $calculoDv % 11;
+		if ($Resto == 0 || $Resto == 1) {
+			$Dv = 0;
+		} else {
+			$Dv = 11 - $Resto;
+		};
+		return $Dv;
+	}
+
 }
 ?>
