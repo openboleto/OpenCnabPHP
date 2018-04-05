@@ -53,6 +53,10 @@ class Generico3 extends RegistroRemAbstract
 	{
 		$this->data['codigo_beneficiario'] = RemessaAbstract::$entryData['codigo_beneficiario'];
 	}
+	protected function set_codigo_beneficiario_dv($value)
+	{
+		$this->data['codigo_beneficiario_dv'] = RemessaAbstract::$entryData['codigo_beneficiario_dv'];
+	}
 	protected function set_agencia($value)
 	{
 		$this->data['agencia'] = RemessaAbstract::$entryData['agencia'];
@@ -192,7 +196,7 @@ class Generico3 extends RegistroRemAbstract
 	}
 	protected function set_prazo_protesto($value)
 	{
-		if($this->data['protestar']==1 && $value = '')
+		if($this->data['protestar']==1 && $value == '')
 		{
 			throw new Exception('O campo "protestar" deve ser 3 para nao protesto e caso querira protetar deve ser informado um prazo maior que 1');
 		}

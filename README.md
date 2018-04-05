@@ -1,4 +1,5 @@
-# OpenCnabPHP
+# OpenCnabPHP 
+<img src="https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master">
 Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400<br>
 Novo projeto orientado a objeto com três níveis de hierarquia
 <ul>
@@ -28,11 +29,11 @@ docker-compose up -d
 Adicione "rctnet/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
 
 Acesse a url de exemplo: 
-`http://localhost:8080/src/samples/ExemploRemessa.php`
+`http://localhost:8080/samples/ExemploRemessa.php`
 
 <table>
     <tr>
-        <td colspan="3">
+        <td colspan="3" >
             REMESSA
         </td>
         <td colspan="2">
@@ -40,7 +41,7 @@ Acesse a url de exemplo:
         </td>
     </tr>
     <tr>
-        <td>
+        <td >
             Banco
         </td>
         <td>
@@ -54,6 +55,23 @@ Acesse a url de exemplo:
         </td>
         <td>
            Situação 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Bradesco
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
         </td>
     </tr>
     <tr>
@@ -109,6 +127,23 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
+            Santander
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+           Cnab240 
+        </td>
+        <td>
+            s/layout
+        </td>
+    </tr>
+    <tr>
+        <td>
             SICOOB
         </td>
         <td>
@@ -133,27 +168,10 @@ Acesse a url de exemplo:
             Cnab240
         </td>
         <td>
-            Beta
-        </td>
-        <td>
-            Cnab240
-        </td>
-        <td>
-            Beta
-        </td>
-    </tr>
-    <tr>
-        <td>
-            Bradesco
-        </td>
-        <td>
-            Cnab400
-        </td>
-        <td>
             Homologado
         </td>
         <td>
-            Cnab400
+            Cnab240
         </td>
         <td>
             Beta

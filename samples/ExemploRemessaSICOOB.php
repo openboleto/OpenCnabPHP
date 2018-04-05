@@ -4,7 +4,7 @@
 *
 * LICENSE: The MIT License (MIT)
 *
-* Copyright (C) 2013 Ciatec.net
+* Copyright (C) 2018 NextStep <http://github.com/nxstep-si>
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy of this
 * software and associated documentation files (the "Software"), to deal in the Software
@@ -27,7 +27,7 @@
 
 
 namespace CnabPHP\samples;
-require_once ("../../vendor/autoload.php");
+require_once ("../vendor/autoload.php");
 
 use \CnabPHP\Remessa;
 
@@ -35,16 +35,16 @@ $arquivo = new Remessa(756,'cnab240',array(
 
 		//Informações da emrpesa recebedora
 		'tipo_inscricao'  	=>	'2', // 1 para cpf, 2 cnpj
-		'numero_inscricao'	=>	'27.449.872/0001-98', // seu cpf ou cnpj completo
+		'numero_inscricao'	=>	'37.218.004/0001-50', // seu cpf ou cnpj completo
 		'agencia'       	=>	'3046', // agencia sem o digito verificador
 		'agencia_dv'    	=>	'5', // somente o digito verificador da agencia
-		'conta'         	=> 	'26151', // número da conta
-		'conta_dv'     		=> 	'3', // digito da conta
-		'nome_empresa' 		=>	"AVELAR & CORDEIRO LTDA", // seu nome de empresa
+		'conta'         	=> 	'25697', // número da conta
+		'conta_dv'     		=> 	'5', // digito da conta
+		'nome_empresa' 		=>	"Empresa ABC", // seu nome de empresa
 		'numero_sequencial_arquivo'	=>	'0000001',
 
-		'codigo_beneficiario'	=> '30638', // codigo fornecido pelo banco
-		'codigo_beneficiario_dv'=> '0', // codigo fornecido pelo banco
+		'codigo_beneficiario'	=> '58710', // codigo fornecido pelo banco
+		'codigo_beneficiario_dv'=> '8', // codigo fornecido pelo banco
 
 		'situacao_arquivo' =>'T' // use T para teste e P para produção
 ));
@@ -60,29 +60,29 @@ $lote->inserirDetalhe(array(
 		'codigo_carteira'   =>	'1', // codigo da carteira
 		'carteira'   		=>	'1', // codigo da carteira
 		'seu_numero'        =>	"DEV180001",// se nao informado usarei o nosso numero
-		'data_vencimento'   =>	'2018-03-30', // informar a data neste formato
+		'data_vencimento'   =>	'2018-04-30', // informar a data neste formato AAAA-MM-DD
 		'valor'             =>	'5.00', // Valor do boleto como float valido em php
 		'cod_emissao_boleto'=>	'2', // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
 		'especie_titulo'    => 	"DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
-		'data_emissao'      => 	'2018-03-07', // informar a data neste formato
+		'data_emissao'      => 	'2018-04-05', // informar a data neste formato AAAA-MM-DD
 		'codigo_juros'		=>	'2', // Taxa por mês,
-		'data_juros'   	  	=> 	'2018-03-30', // data dos juros, mesma do vencimento
+		'data_juros'   	  	=> 	'2018-04-30', // data dos juros, mesma do vencimento
 		'vlr_juros'         => 	'0000000000001.00', // Valor do juros/mora informa 1% e o sistema recalcula a 0,03% por 
 		// Você pode inserir desconto se houver, ou deixar em branco
 		//'codigo_desconto'	=>	'1',
-		//'data_desconto'		=> 	'2018-03-30', // inserir data para calcular desconto
+		//'data_desconto'		=> 	'2018-04-15', // inserir data para calcular desconto
 		//'vlr_desconto'		=> 	'0', // Valor do desconto
 		//'vlr_IOF'			=> 	'0',
 		'protestar'         => 	'1', // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
 		'prazo_protesto'    => 	'90', // Informar o numero de dias apos o vencimento para iniciar o protesto
-		'identificacao_contrato'	=>	"Prep. OAB 984958549",
+		'identificacao_contrato'	=>	"Contrato 32156",
 
 
 		// Registro 3Q [PAGADOR]
 		'tipo_inscricao'    => '1', //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
-		'numero_inscricao'  => '042.720.316-35',//cpf ou ncpj do pagador
-		'nome_pagador'      => "Elias da Cunha Alves", // O Pagador é o cliente, preste atenção nos campos abaixo
-		'endereco_pagador'  => 'Rua Belvedere, 287',
+		'numero_inscricao'  => '638.035.884-64',//cpf ou ncpj do pagador
+		'nome_pagador'      => "Elias Alves", // O Pagador é o cliente, preste atenção nos campos abaixo
+		'endereco_pagador'  => 'Rua Esquerda, 42',
 		'bairro_pagador'    => 'Bairro Queluz',
 		'cep_pagador'       => '36400-000', // com hífem
 		'cidade_pagador'    => 'Conselheiro Lafaiete',
@@ -92,7 +92,7 @@ $lote->inserirDetalhe(array(
 		// Você pode inserir desconto se houver, ou deixar em branco, mas quando informar
 		// deve preencher os 3 campos: codigo, data e valor
 		'codigo_multa'		=>	'2', // Taxa por mês
-		'data_multa'   	  	=> 	'2018-03-30', // data dos juros, mesma do vencimento
+		'data_multa'   	  	=> 	'2018-04-30', // data dos juros, mesma do vencimento
 		'vlr_multa'         => 	'0000000000002.00', // Valor do juros de 2% ao mês
 
 		// Registro 3S3 Mensagens a serem impressas

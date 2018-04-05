@@ -27,7 +27,7 @@
 namespace CnabPHP\samples;
 
 
-require_once ("../../autoloader.php");
+require_once ("../autoloader.php");
 
 use CnabPHP\Remessa;
 

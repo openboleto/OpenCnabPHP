@@ -1,5 +1,5 @@
 vendor/
 composer.lock
 .idea
-src/samples/data/remessas/
+samples/data/remessas/
 /nbproject/private/
