@@ -272,7 +272,7 @@ class Registro3P extends Generico3
 		$this->children[] = new $class($data);
 		if( isset($data['codigo_desconto2']) || 
 		isset($data['codigo_desconto3']) ||
-		isset($data['codigo_multa']) ||
+		$data['codigo_multa'] !='' ||
 		isset($data['mensagem']) ||
 		isset($data['email_pagador']))
 		{
