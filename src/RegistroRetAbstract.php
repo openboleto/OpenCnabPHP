@@ -32,7 +32,7 @@ abstract class RegistroRetAbstract
 	protected $meta;
 	protected $children;
 
-	/* mÃ©todo __construct()
+	/* método __construct()
 	* instancia registro qualquer
 	* @$data = array de dados para o registro
 	*/
@@ -51,15 +51,15 @@ abstract class RegistroRetAbstract
 
 
 	/*
-	* mÃ©todo __set()
+	* método __set()
 	* executado sempre que uma propriedade for atribuÃ­da.
 	*/
 	public function __set($prop, $value)
 	{
-		// verifica se existe mÃ©todo set_<propriedade>
+		// verifica se existe método set_<propriedade>
 		if (method_exists($this, 'set_'.$prop))
 		{
-			// executa o mÃ©todo set_<propriedade>
+			// executa o método set_<propriedade>
 			call_user_func(array($this, 'set_'.$prop), $value);
 		}
 		else
@@ -102,15 +102,15 @@ abstract class RegistroRetAbstract
 	}
 
 	/*
-	* mÃ©todo __get()
+	* método __get()
 	* executado sempre que uma propriedade for requerida
 	*/
 	public function __get($prop)
 	{
-		// verifica se existe mÃ©todo get_<propriedade>
+		// verifica se existe método get_<propriedade>
 		if (method_exists($this, 'get_'.$prop))
 		{
-			// executa o mÃ©todo get_<propriedade>
+			// executa o método get_<propriedade>
 			return call_user_func(array($this, 'get_'.$prop));
 		}
 		else
@@ -120,7 +120,7 @@ abstract class RegistroRetAbstract
 	}
 
 	/*
-	* mÃ©todo ___get()
+	* método ___get()
 	* metodo auxiliar para ser chamado para dentro de metodo get personalizado
 	*/
 	public function ___get($prop)
@@ -165,7 +165,7 @@ abstract class RegistroRetAbstract
 		return $this->meta;
 	}
 	/*
-	* mÃ©todo getUnformated()
+	* método getUnformated()
 	* busca o valor de dentro do campo dentro do objeto de forma simples sem formataÃ§Ã£o de valor por exemplo
 	*/
 	public function getUnformated($prop)
@@ -177,7 +177,7 @@ abstract class RegistroRetAbstract
 		}
 	}
 	/*
-	* mÃ©todo getChilds()
+	* método getChilds()
 	* Metodo que retorna todos os filhos
 	*/
 	public function getChilds()
@@ -185,7 +185,7 @@ abstract class RegistroRetAbstract
 		return $this->children;
 	}
 	/*
-	* mÃ©todo getChild()
+	* método getChild()
 	* Metodo que retorna um filho
 	*/
 	public function getChild($index = 0)

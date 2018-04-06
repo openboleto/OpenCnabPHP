@@ -24,7 +24,8 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\remessa\cnab240;
-use \CnabPHP\RegistroRemAbstract;
+use CnabPHP\RegistroRemAbstract;
+use CnabPHP\RemessaAbstract;
 use Exception;
 
 class Generico0 extends RegistroRemAbstract
@@ -54,6 +55,10 @@ class Generico0 extends RegistroRemAbstract
 	protected function set_numero_inscricao($value)
 	{
 		$this->data['numero_inscricao'] =  str_ireplace(array('.','/','-'),array(''),$value);
+	}
+	protected function set_convenio($value)
+	{
+		$this->data['convenio'] = RemessaAbstract::$entryData['codigo_beneficiario'].RemessaAbstract::$entryData['codigo_beneficiario_dv'];
 	}
 	public function get_numero_registro(){
 		return null;

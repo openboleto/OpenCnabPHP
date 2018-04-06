@@ -102,6 +102,16 @@ class Generico1 extends RegistroRemAbstract
     {
         $this->data['numero_remessa'] =  $value == '' ? RemessaAbstract::$entryData['numero_sequencial_arquivo'] : $value;
     }
+    protected function set_mensagem_3($value)
+    {
+    	$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+    	$this->data['mensagem_3'] = count($mensagem)>=1?$mensagem[0]:' ';
+    }
+    protected function set_mensagem_4($value)
+    {
+    	$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+    	$this->data['mensagem_4'] = count($mensagem)>=2?$mensagem[1]:' ';
+    }
 
     protected function set_data_gravacao($value)
     {
@@ -160,4 +170,5 @@ class Generico1 extends RegistroRemAbstract
             $registro5->getText();
         }
     }
+
 }

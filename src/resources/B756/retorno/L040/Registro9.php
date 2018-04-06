@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -23,7 +23,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B341\retorno\L040;
+namespace CnabPHP\resources\B756\retorno\L040;
 use CnabPHP\resources\generico\retorno\L040\Generico9;
 use CnabPHP\Exception;
 
@@ -32,7 +32,7 @@ class Registro9 extends Generico9
 	protected $meta = array(
 		'codigo_banco'=>array(      //01.5
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(       //02.5
