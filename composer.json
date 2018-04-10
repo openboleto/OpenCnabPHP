@@ -1,5 +1,5 @@
 {
-	"name": "QuilhaSoft/opencnabphp",
+	"name": "quilhasoft/opencnabphp",
 	"type": "library",
 	"description": "Biblioteca multibanco para geração e leitura de arquivos Cnab de remessa e retorno",
 	"keywords": ["boleto", "remessa", "retorno", "cnabphp", "cnab240", "cnab400","itau","bradesco","caixa","santander","sicoob","uniprime"],
