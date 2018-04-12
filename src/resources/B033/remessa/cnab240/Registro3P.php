@@ -1,5 +1,4 @@
 <?php
-
 /*
  * CnabPHP - Geração de arquivos de remessa e retorno em PHP
  *
@@ -24,7 +23,6 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 namespace CnabPHP\resources\B033\remessa\cnab240;
 
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
@@ -32,156 +30,186 @@ use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 use CnabPHP\Exception;
 
-class Registro3P extends Generico3 {
+class Registro3P extends Generico3
+{
 
     protected $meta = array(
-        'codigo_banco' => array(// 1.3P
+        'codigo_banco' => array(
             'tamanho' => 3,
             'default' => '033',
             'tipo' => 'int',
-            'required' => true),
-        'codigo_lote' => array(// 2.3P
+            'required' => true
+        ),
+        'codigo_lote' => array(
             'tamanho' => 4,
             'default' => 1,
             'tipo' => 'int',
-            'required' => true),
-        'tipo_registro' => array(// 3.3P
+            'required' => true
+        ),
+        'tipo_registro' => array(
             'tamanho' => 1,
             'default' => '3',
             'tipo' => 'int',
-            'required' => true),
-        'numero_registro' => array(// 4.3P
+            'required' => true
+        ),
+        'numero_registro' => array(
             'tamanho' => 5,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
-        'seguimento' => array(// 5.3P
+            'required' => true
+        ),
+        'seguimento' => array(
             'tamanho' => 1,
             'default' => 'P',
             'tipo' => 'alfa',
-            'required' => true),
-        'filler1' => array(// 6.3P
+            'required' => true
+        ),
+        'filler1' => array(
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
-        'codigo_movimento' => array(// 7.3P
+            'required' => true
+        ),
+        'codigo_movimento' => array(
             'tamanho' => 2,
             'default' => '01', // entrada de titulo
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         // - ------------------ até aqui é igual para todo registro tipo 3
         'agencia' => array(
             'tamanho' => 4,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'agencia_dv' => array(
             'tamanho' => 1,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'conta' => array(
             'tamanho' => 9,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'conta_dv' => array(
             'tamanho' => 1,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
-        'codigo_beneficiario' => array(
+            'required' => true
+        ),
+        'convenio' => array(
             'tamanho' => 9,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
-        'codigo_beneficiario_dv' => array(
+            'required' => true
+        ),
+        'convenio_dv' => array(
             'tamanho' => 1,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler2' => array(
             'tamanho' => 2,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'nosso_numero' => array(
             'tamanho' => 13,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'tipo_cobranca' => array(
             'tamanho' => 1,
             'default' => '5',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'forma_cadastramento' => array(
             'tamanho' => 1,
             'default' => '1', // '1' = Cobrança Registrada (Rápida e Eletrônica com Registro)
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'tipo_documento' => array(
             'tamanho' => 1,
             'default' => '1', // 1- Tradicional , 2- Escritural
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler3' => array(
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'filler4' => array(
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'seu_numero' => array(
             'tamanho' => 15,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'data_vencimento' => array(
             'tamanho' => 8,
             'default' => '',
             'tipo' => 'date',
-            'required' => true),
+            'required' => true
+        ),
         'valor' => array(
             'tamanho' => 13,
             'default' => '',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'agencia_cobradora' => array(
             'tamanho' => 4,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'agencia_cobradora_dv' => array(
             'tamanho' => 1,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler5' => array(
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'especie_titulo' => array(
             'tamanho' => 2,
             'default' => '2',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'aceite' => array(
             'tamanho' => 1,
             'default' => 'N',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'data_emissao' => array(
             'tamanho' => 8,
             'default' => '',
             'tipo' => 'date',
-            'required' => true),
+            'required' => true
+        ),
         /**
          * Códigos dos juros de mora
          * 1 = Valor por dia - Informar no campo o valor/dia a mora a ser cobrada.
@@ -196,18 +224,21 @@ class Registro3P extends Generico3 {
             'tamanho' => 1,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'data_juros' => array(
             'tamanho' => 8,
             'default' => '0',
             'tipo' => 'date',
-            'required' => true),
+            'required' => true
+        ),
         'vlr_juros' => array(
             'tamanho' => 13,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         /**
          * 0 = ISENTO
          * 1 = Valor fixo ate a data informada – Informar o valor no campo “valor de desconto a ser concedido”.
@@ -222,35 +253,41 @@ class Registro3P extends Generico3 {
             'tamanho' => 1,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'data_desconto' => array(
             'tamanho' => 8,
             'default' => '0',
             'tipo' => 'date',
-            'required' => true),
+            'required' => true
+        ),
         'vlr_desconto' => array(
             'tamanho' => 13,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'vlr_IOF' => array(
             'tamanho' => 13,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'vlr_abatimento' => array(
             'tamanho' => 13,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'seu_numero2' => array(
             'tamanho' => 25,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         /**
          * 0 NAO PROTESTAR
          * 1 PROTESTAR DIAS CORRIDOS
@@ -260,14 +297,16 @@ class Registro3P extends Generico3 {
          */
         'protestar' => array(
             'tamanho' => 1,
-            'default' => '3',
+            'default' => 3,
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'prazo_protesto' => array(
             'tamanho' => 2,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         /**
          * 1 BAIXAR / DEVOLVER
          * 2 NAO BAIXAR / NAO DEVOLVER
@@ -277,47 +316,51 @@ class Registro3P extends Generico3 {
             'tamanho' => 1,
             'default' => '1',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler6' => array(
             'tamanho' => 1,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'prazo_baixar' => array(
             'tamanho' => 2,
             'default' => '90',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'codigo_moeda' => array(
             'tamanho' => 2,
             'default' => '00',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler7' => array(
             'tamanho' => 11,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
     );
 
-    public function __construct($data = null) {
+    public function __construct($data = null)
+    {
         if (empty($this->data))
             parent::__construct($data);
         $this->inserirDetalhe($data);
     }
 
-    public function inserirDetalhe($data) {
-        $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Q';
+    public function inserirDetalhe($data)
+    {
+        $class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Q';
         $this->children[] = new $class($data);
         if (isset($data['codigo_desconto2']) ||
-                isset($data['codigo_desconto3']) ||
-                isset($data['vlr_multa']) ||
-                isset($data['informacao_pagador'])) {
-            $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
+            isset($data['codigo_desconto3']) ||
+            isset($data['vlr_multa']) ||
+            isset($data['informacao_pagador'])) {
+            $class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
             $this->children[] = new $class($data);
         }
     }
-
 }
-
-?>

@@ -24,149 +24,123 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B033\remessa\cnab240;
+
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\Exception;
 
 class Registro3R extends Generico3
 {
-	protected $meta = array(
-		'codigo_banco'=>array(          // 1.3R
-			'tamanho'=>3,
-			'default'=>'033',
-			'tipo'=>'int',
-			'required'=>true),
-		'codigo_lote'=>array(           // 2.3R
-			'tamanho'=>4,
-			'default'=>1,
-			'tipo'=>'int',
-			'required'=>true),
-		'tipo_registro'=>array(         // 3.3R
-			'tamanho'=>1,
-			'default'=>'3',
-			'tipo'=>'int',
-			'required'=>true),
-		'numero_registro'=>array(       // 4.3R
-			'tamanho'=>5,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'seguimento'=>array(            // 5.3R
-			'tamanho'=>1,
-			'default'=>'R',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler1'=>array(               // 6.3R
-			'tamanho'=>1,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'codigo_movimento'=>array(      // 7.3R
-			'tamanho'=>2,
-			'default'=>'01', // entrada de titulo
-			'tipo'=>'int',
-			'required'=>true),
-
-			// - ------------------ at� aqui � igual para todo registro tipo 3
-
-		'filler12'=>array(               // 8.3R
-			'tamanho'=>1,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'data_desconto2'=>array(            // 9.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto2'=>array(       //10.3R
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-        'filler14'=>array(               // 8.3R
-            'tamanho'=>1,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-		'data_desconto3'=>array(               //12.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto3'=>array(      //13.3R
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'codigo_multa'=>array(  //14.3R
-			'tamanho'=>1,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'data_multa'=>array(   //15.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_multa'=>array(      //16.3R
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'filler15'=>array(        //17.3R
-			'tamanho'=>10,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'informacao_pagador'=>array(          // 18.3
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler16'=>array(        //19.3R
-			'tamanho'=>60,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'cod_ocor_pagador'=>array(    //20.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-        'filler4'=>array(         //21.3R
-            'tamanho'=>8,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'filler5'=>array(         //21.3R
-            'tamanho'=>1,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'filler6'=>array(         //21.3R
-            'tamanho'=>12,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-        'filler7'=>array(         //21.3R
-            'tamanho'=>2,
-            'default'=>' ',
-            'tipo'=>'alfa',
-            'required'=>true),
-        'filler8'=>array(         //21.3R
-            'tamanho'=>1,
-            'default'=>'0',
-            'tipo'=>'int',
-            'required'=>true),
-		'filler9'=>array(         //21.3R
-			'tamanho'=>9,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-	);
+    protected $meta = array(
+        'codigo_banco' => array(
+            'tamanho' => 3,
+            'default' => '033',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'codigo_lote' => array(
+            'tamanho' => 4,
+            'default' => 1,
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'tipo_registro' => array(
+            'tamanho' => 1,
+            'default' => '3',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'numero_registro' => array(
+            'tamanho' => 5,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'seguimento' => array(
+            'tamanho' => 1,
+            'default' => 'R',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'filler1' => array(
+            'tamanho' => 1,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'codigo_movimento' => array(
+            'tamanho' => 2,
+            'default' => '01', // entrada de titulo
+            'tipo' => 'int',
+            'required' => true
+        ),
+        // - ------------------ ate aqui é igual para todo registro tipo 3
+        'codigo_desconto' => array(
+            'tamanho' => 1,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'data_desconto2' => array(
+            'tamanho' => 8,
+            'default' => '0',
+            'tipo' => 'date',
+            'required' => true
+        ),
+        'vlr_desconto2' => array(
+            'tamanho' => 13,
+            'default' => '0',
+            'tipo' => 'decimal',
+            'precision' => 2,
+            'required' => true
+        ),
+        'filler14' => array(
+            'tamanho' => 24,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'codigo_multa' => array(
+            'tamanho' => 1,
+            'default' => '1',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'data_multa' => array(
+            'tamanho' => 8,
+            'default' => '0',
+            'tipo' => 'date',
+            'required' => true
+        ),
+        'vlr_multa' => array(
+            'tamanho' => 13,
+            'default' => '0',
+            'tipo' => 'decimal',
+            'precision' => 2,
+            'required' => true
+        ),
+        'filler15' => array(
+            'tamanho' => 10,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'mensagem3' => array(
+            'tamanho' => 40,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'mensagem4' => array(
+            'tamanho' => 40,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'filler16' => array(
+            'tamanho' => 61,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+    );
 }
-
-?>
