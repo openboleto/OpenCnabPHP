@@ -258,14 +258,14 @@ class Registro3P extends Generico3
          * 9 CANCELAMENTO DE PROTESTO AUTOMATICO
          */
 		'protestar'=>array(
-			'tamanho'=>1,
-			'default'=>'3',
-			'tipo'=>'alfa',
-			'required'=>true),
+			'tamanho' => 1,
+			'default' => 3,
+			'tipo' => 'alfa',
+			'required' => true),
 		'prazo_protesto'=>array(
-			'tamanho'=>2,
-			'default'=>'0',
-			'tipo'=>'int',
+			'tamanho' => 2,
+			'default' => '0',
+			'tipo' => 'int',
 			'required'=>true),
         /**
          * 1 BAIXAR / DEVOLVER

@@ -94,7 +94,7 @@ class Registro0 extends Generico0
 			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
 			'tipo'=>'date',
 			'required'=>true),
-                'filler4'=>array(
+        'filler4'=>array(
 			'tamanho'=>6,
 			'default'=>' ',
 			'tipo'=>'alfa',
