@@ -4,14 +4,14 @@ use Exception;
 
 abstract class RetornoAbstract
 {
-	//public  $hearder; // armazena o objeto registro 0 do arquivo
+	public  $hearder; // armazena o objeto registro 0 do arquivo
 	private  $children = array(); // armazena os registros filhos da classe remessa
 	public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
 	public static $layout;// recebera o nome do layout na instacia?ao  
 	public static $loteCounter = 1; // contador de lotes
 	public static $lines; // mantem os dados passados em $data na instanciação
 	public static $linesCounter = 0;
-	//public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
+	public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
 
 	/*
 	* método __construct()

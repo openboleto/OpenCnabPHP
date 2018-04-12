@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B341\retorno\L040;
+namespace CnabPHP\resources\B756\retorno\L040;
 use CnabPHP\resources\generico\retorno\L040\Generico1;
 use CnabPHP\RetornoAbstract;
 
@@ -33,7 +33,7 @@ class Registro1 extends Generico1
 	protected $meta = array(
 		'codigo_banco'=>array(
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(

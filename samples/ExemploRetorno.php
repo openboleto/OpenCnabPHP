@@ -25,7 +25,7 @@
 */
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
-include("../../autoloader.php");
+include("../autoloader.php");
 $fileContent = file_get_contents("R2100095.RET");
 
 $arquivo = new Retorno($fileContent);
@@ -44,9 +44,9 @@ foreach($registros as $registro)
         echo $vlr_desconto;
         echo $dataPagamento;
         echo $vlr_juros_multa;
-        var_dump($registro);
+        echo $registro;
 		// você ja pode dar baixa
 	}
-    
+    //echo $registro;
 }
 ?>
