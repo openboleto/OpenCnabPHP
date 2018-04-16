@@ -15,7 +15,7 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_tipo_inscricao_empresa($value)
     {
-        $value = RemessaAbstract::getLote(0)->entryData['tipo_inscricao'];
+        $value =  $value!= '' ? $value :  RemessaAbstract::getLote(0)->entryData['tipo_inscricao'];
         if($value==1 || $value==2)
         {
             $this->data['tipo_inscricao_empresa'] = RemessaAbstract::getLote(0)->entryData['tipo_inscricao'];
@@ -37,7 +37,7 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_numero_inscricao_empresa($value)
     {
-        $this->data['numero_inscricao_empresa'] = str_ireplace(array('.','/','-'),array(''), RemessaAbstract::getLote(0)->entryData['numero_inscricao']);
+        $this->data['numero_inscricao_empresa'] = $value!= '' ? str_ireplace(array('.','/','-'),array(''), $value):str_ireplace(array('.','/','-'),array(''), RemessaAbstract::getLote(0)->entryData['numero_inscricao']);
 
     }
 
@@ -49,22 +49,22 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_agencia($value)
     {
-        $this->data['agencia'] = RemessaAbstract::getLote(0)->entryData['agencia'];
+        $this->data['agencia'] =  $value!= '' ? $value : RemessaAbstract::getLote(0)->entryData['agencia'];
     }
 
     protected function set_agencia_dv($value)
     {
-        $this->data['agencia_dv'] = RemessaAbstract::getLote(0)->entryData['agencia_dv'];
+        $this->data['agencia_dv'] = $value!= '' ? $value : RemessaAbstract::getLote(0)->entryData['agencia_dv'];
     }
 
     protected function set_conta($value)
     {
-        $this->data['conta'] = RemessaAbstract::getLote(0)->entryData['conta'];
+        $this->data['conta'] =  $value!= '' ? $value :  RemessaAbstract::getLote(0)->entryData['conta'];
     }
 
     protected function set_conta_dv($value)
     {
-        $this->data['conta_dv'] = RemessaAbstract::getLote(0)->entryData['conta_dv'];
+        $this->data['conta_dv'] = $value!= '' ? $value :  RemessaAbstract::getLote(0)->entryData['conta_dv'];
     }
 
     protected function set_cep_pagador($value)

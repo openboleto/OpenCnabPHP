@@ -99,11 +99,21 @@ abstract class RemessaAbstract
 	*/
 	public function getText(){
 		foreach(self::$children as $child){
+			//echo '<pre>';
+			//var_dump($child);
+			//echo '</pre>';
 			$child->getText();
 		}
 		$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
 		$headerArquivo = new $class(array('1'=>1));
 		$headerArquivo->getText();
 		return implode("\r\n",self::$retorno)."\r\n";
+	}
+	
+	public function getName(){
+		$agencia = self::$entryData['agencia'];
+		$convenio = self::$entryData['codigo_beneficiario'].self::$entryData['codigo_beneficiario_dv'];
+		$sequencial = self::$entryData['numero_sequencial_arquivo'];		
+		return 'REM_'.$agencia.'_'.$convenio.'_'.$sequencial.'_'.self::$layout.'.rem';
 	}
 }

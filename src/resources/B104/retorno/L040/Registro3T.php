@@ -215,7 +215,7 @@ class Registro3T extends Generico3
 	public function inserirDetalhe($data)
 	{
 		RetornoAbstract::$linesCounter++;
-		$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3U';
+		$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3U';
 		$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 		if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],14,1)=="Y"){
 			if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="50")
@@ -226,7 +226,7 @@ class Registro3T extends Generico3
 			}elseif(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="08")
 			{
 				RetornoAbstract::$linesCounter++;
-				$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y08';
+				$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y08';
 				$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 			}
 		}
