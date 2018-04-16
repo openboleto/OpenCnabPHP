@@ -47,7 +47,7 @@ abstract class RetornoAbstract
 			throw new Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
 		}
 		if($codigo_tipo == '1'){
-			throw new Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
+			throw new Exception("Esse é um arquivo de remessa, nao pode ser processado aqui.");
 		}
 		self::$banco = $codigo_banco;
 		self::$layout = "L".$layout_versao;
@@ -58,7 +58,7 @@ abstract class RetornoAbstract
 		$this->children[] = new $class($lines[count($lines)-2]);
 	}
 	/*
-	* m?todo changeLayout()
+	* método changeLayout()
 	* Recebe os parametros
 	* @$newLayout = altera o layout do lote , servira para enviar lotes de layouts diferentes no mesmo arquvio //(ALERTA) nao testado
 	*/
