@@ -31,7 +31,7 @@ require_once ("../autoloader.php");
 
 use CnabPHP\Remessa;
 
-$arquivo = new Remessa("033",'cnab400',array(
+$arquivo = new Remessa("033",'cnab240',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
@@ -40,14 +40,14 @@ $arquivo = new Remessa("033",'cnab400',array(
     'conta'         => '12345678', // número da conta
     'conta_dv'     => 9, // digito da conta
     'codigo_transmissao' => '12345678901234567890',
-    // 'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
-    // 'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
-    // 'numero_sequencial_arquivo'     => 1,
+     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
+     'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
+     'numero_sequencial_arquivo'     => 1,
     // 'situacao_arquivo' =>'P' // use T para teste e P para produção
 ));
 
 
-$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
+$lote  = $arquivo->addLote(array('tipo_servico'=> 1,'codigo_transmissao' => '12345678901234567890')); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
     'conta_cobranca' => '12345678', // número da conta cobranca obs(verificar se eh o mesmo da conta movimento)

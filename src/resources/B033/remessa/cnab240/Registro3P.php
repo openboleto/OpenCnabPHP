@@ -101,13 +101,13 @@ class Registro3P extends Generico3
             'tipo' => 'int',
             'required' => true
         ),
-        'convenio' => array(
+        'codigo_beneficiario' => array(
             'tamanho' => 9,
             'default' => '',
             'tipo' => 'int',
             'required' => true
         ),
-        'convenio_dv' => array(
+        'codigo_beneficiario_dv' => array(
             'tamanho' => 1,
             'default' => '',
             'tipo' => 'int',
