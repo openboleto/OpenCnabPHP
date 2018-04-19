@@ -116,23 +116,30 @@ abstract class RegistroRemAbstract
                 case 'decimal':
                     $retorno = ($this->data[$prop])?number_format($this->data[$prop],$metaData['precision'],'',''):'';
                     return str_pad($retorno,$metaData['tamanho']+$metaData['precision'],'0',STR_PAD_LEFT);
+                    break;
                 case 'int':
                     $retorno = (isset($this->data[$prop]))?number_format($this->data[$prop],0,'',''):'';
                     return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
+                    break;
                 case 'alfa':
                     $retorno = (isset($this->data[$prop]))?$this->prepareText($this->data[$prop]):'';
                     return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    break;
                 case 'alfa2':
                     $retorno = (isset($this->data[$prop]))?$this->data[$prop]:'';
                     return $this->mb_str_pad(mb_substr($retorno,0,$metaData['tamanho'],"UTF-8"),$metaData['tamanho'],' ',STR_PAD_RIGHT);
+                    break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho']==6:
                     $retorno = ($this->data[$prop])?date("dmy",strtotime($this->data[$prop])):'';
                     return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
+                    break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho']==8:
                     $retorno = ($this->data[$prop])?date("dmY",strtotime($this->data[$prop])):'';
                     return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
+                    break;
                 default:
                     return null;
+                    break;
             }
         }
     }
