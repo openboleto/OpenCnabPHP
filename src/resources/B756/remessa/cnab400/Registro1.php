@@ -156,12 +156,12 @@ class Registro1 extends Generico1
             'required'=>true),
         'agencia_cobradora'=>array(    //22.3P
             'tamanho'=>4,
-            'default'=>'0',
+            'default'=>'',
             'tipo'=>'int',
             'required'=>true),
         'agencia_cobradora_dv'=>array(    //22.3P
             'tamanho'=>1,
-            'default'=>'0',
+            'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
         'especie_titulo'=>array(    //24.3P
@@ -271,7 +271,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'uf_pagador'=>array(      //16.3Q
             'tamanho'=>2,
-            'default'=>'',  // combranÃ§a com registro
+            'default'=>'',  // combrança com registro
             'tipo'=>'alfa',
             'required'=>true),
         'nome_avalista_mensagem'=>array(        //18.3Q
@@ -302,9 +302,19 @@ class Registro1 extends Generico1
         $result = self::mod11($this->data['nosso_numero']);
         $this->data['nosso_numero_dv'] = $result['digito']; 
     }
+    
+    protected function set_agencia_cobradora($value)
+    {
+        $this->data['agencia_cobradora'] =   $value!= '' ? $value : RemessaAbstract::$entryData['agencia']; 
+    }
+    
+    protected function set_agencia_cobradora_dv($value)
+    {
+        $this->data['agencia_cobradora_dv'] =   $value!= '' ? $value : RemessaAbstract::$entryData['agencia_dv']; 
+    }
 
     /**
-    * Calcula e retorna o dÃ­gito verificador usando o algoritmo Modulo 11
+    * Calcula e retorna o dígito verificador usando o algoritmo Modulo 11
     *
     * @param string $num
     * @param int $base
@@ -315,7 +325,7 @@ class Registro1 extends Generico1
         $codigo_beneficiario = RemessaAbstract::$entryData['codigo_beneficiario'].RemessaAbstract::$entryData['codigo_beneficiario_dv']; // NÃºmero do contrato: Ã o mesmo nÃºmero da conta
         $agencia = RemessaAbstract::$entryData['agencia']; // NÃºmero do contrato: Ã o mesmo nÃºmero da conta
 
-        $NossoNumero = str_pad($num,7,0,STR_PAD_LEFT); // AtÃ© 7 dÃ­gitos, nÃºmero sequencial iniciado em 1 (Ex.: 1, 2...)
+        $NossoNumero = str_pad($num,7,0,STR_PAD_LEFT); // Até 7 dígitos, nÃºmero sequencial iniciado em 1 (Ex.: 1, 2...)
         $qtde_nosso_numero = strlen($NossoNumero);
         $sequencia = str_pad($agencia,4,STR_PAD_LEFT).str_pad($codigo_beneficiario,10,0,STR_PAD_LEFT).str_pad($NossoNumero,7,0,STR_PAD_LEFT);
         $cont=0;

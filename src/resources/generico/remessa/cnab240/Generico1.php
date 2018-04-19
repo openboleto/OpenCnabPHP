@@ -79,9 +79,19 @@ class Generico1 extends RegistroRemAbstract
         $this->data['agencia_dv'] = $value == '' ?   RemessaAbstract::$entryData['agencia_dv'] : $value;
     }
 
+    protected function set_conta($value)
+    {
+        $this->data['conta'] = $value == '' ?   RemessaAbstract::$entryData['conta'] : $value;
+    }
+
+    protected function set_conta_dv($value)
+    {
+        $this->data['conta_dv'] = $value == '' ?   RemessaAbstract::$entryData['conta_dv'] : $value;
+    }
+
     protected function set_codigo_convenio($value)
     {
-        $this->data['codigo_convenio'] =  RemessaAbstract::$entryData['codigo_beneficiario'];
+        $this->data['codigo_convenio'] = RemessaAbstract::$entryData['codigo_beneficiario'];
     }
 
     protected function set_nome_empresa($value)
@@ -91,6 +101,16 @@ class Generico1 extends RegistroRemAbstract
     protected function set_numero_remessa($value)
     {
         $this->data['numero_remessa'] =  $value == '' ? RemessaAbstract::$entryData['numero_sequencial_arquivo'] : $value;
+    }
+    protected function set_mensagem_3($value)
+    {
+    	$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+    	$this->data['mensagem_3'] = count($mensagem)>=1?$mensagem[0]:' ';
+    }
+    protected function set_mensagem_4($value)
+    {
+    	$mensagem = (isset($this->entryData['mensagem']))?explode(PHP_EOL,$this->entryData['mensagem']):array();
+    	$this->data['mensagem_4'] = count($mensagem)>=2?$mensagem[1]:' ';
     }
 
     protected function set_data_gravacao($value)
@@ -150,5 +170,5 @@ class Generico1 extends RegistroRemAbstract
             $registro5->getText();
         }
     }
+
 }
-?>

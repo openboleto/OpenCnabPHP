@@ -1,4 +1,5 @@
-# OpenCnabPHP
+# OpenCnabPHP 
+<img src="https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master">
 Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400<br>
 Novo projeto orientado a objeto com três níveis de hierarquia
 <ul>
@@ -25,14 +26,14 @@ docker-compose up -d
 ## Instalando via composer:
 
 
-Adicione "rctnet/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
+Adicione "quilhasoft/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
 
 Acesse a url de exemplo: 
-`http://localhost:8080/src/samples/ExemploRemessa.php`
+`http://localhost:8080/samples/ExemploRemessa.php`
 
 <table>
     <tr>
-        <td colspan="3">
+        <td colspan="3" >
             REMESSA
         </td>
         <td colspan="2">
@@ -40,7 +41,7 @@ Acesse a url de exemplo:
         </td>
     </tr>
     <tr>
-        <td>
+        <td >
             Banco
         </td>
         <td>
@@ -54,6 +55,23 @@ Acesse a url de exemplo:
         </td>
         <td>
            Situação 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Bradesco
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
         </td>
     </tr>
     <tr>
@@ -109,10 +127,27 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
+            Santander
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+           Cnab240 
+        </td>
+        <td>
+            s/layout
+        </td>
+    </tr>
+    <tr>
+        <td>
             SICOOB
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Homologado
@@ -126,16 +161,16 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
-            Bradesco
+            SICOOB
         </td>
         <td>
-            Cnab400
+            Cnab240
         </td>
         <td>
-            Beta
+            Homologado
         </td>
         <td>
-            Cnab400
+            Cnab240
         </td>
         <td>
             Beta
@@ -146,7 +181,7 @@ Acesse a url de exemplo:
             UniPrime
         </td>
         <td>
-            Cnab400
+            Cnab400
         </td>
         <td>
             Homologado
@@ -191,9 +226,9 @@ $lote->inserirDetalhe(array(
     'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
     'valor'             => 100.00, // Valor do boleto como float valido em php
     'emissao_boleto'    => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
-    'protestar'         => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver ap�s (Prazo) dias
+    'protestar'         => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
     'prazo_protesto'    => 5, // Informar o numero de dias apos o vencimento para iniciar o protesto
-    'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador � o cliente, preste atenção nos campos abaixo
+    'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador é o cliente, preste atenção nos campos abaixo
     'emissao_boleto'        => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
     'protestar'        => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias. 
     'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador é o cliente, preste atenção nos campos abaixo
@@ -201,7 +236,7 @@ $lote->inserirDetalhe(array(
     'numero_inscricao'  => '123.122.123-56',//cpf ou ncpj do pagador
     'endereco_pagador'  => 'Rua dos developers,123 sl 103',
     'bairro_pagador'    => 'Bairro da insonia',
-    'cep_pagador'       => '12345-123', // com h�fem
+    'cep_pagador'       => '12345-123', // com hífem
     'cidade_pagador'    => 'Londrina',
     'uf_pagador'        => 'PR',
     'data_vencimento'   => '2016-04-09', // informar a data neste formato
@@ -209,8 +244,8 @@ $lote->inserirDetalhe(array(
     'vlr_juros'         => 0.15, // Valor do juros de 1 dia'
     'data_desconto'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
-    'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (N�o Baixar / N�o Devolver)
-    'prazo_baixa'       => 90, // prazo de dias para o cliente pagar ap�s o vencimento
+    'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (Não Baixar / Não Devolver)
+    'prazo_baixa'       => 90, // prazo de dias para o cliente pagar após o vencimento
     'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa

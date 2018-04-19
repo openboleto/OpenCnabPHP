@@ -1,0 +1,25 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+  - nightly
+  - hhvm
+  - hhvm-nightly
+
+matrix:
+  allow_failures:
+    - php: nightly
+    - php: hhvm
+    - php: hhvm-nightly
+
+
+before_script:
+  - composer selfupdate
+  - composer install
+
+script:
+  - ./vendor/bin/phpunit --coverage-clover tmp/clover.xml
+
+after_success:
+  - ./vendor/bin/test-reporter --coverage-report tmp/clover.xml
