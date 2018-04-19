@@ -69,7 +69,7 @@ class Registro1 extends Generico1
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'codigo_banco'=>array(
+        'codigo_banco_debito'=>array(
             'tamanho'=>3,
             'default'=>'237',
             'tipo'=>'int',
