@@ -186,7 +186,7 @@ class Registro1 extends Generico1
             RetornoAbstract::$linesCounter++;
             if (isset(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]) &&
                 substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter], 13, 1) == "T") {
-                $class = 'CnabPHP\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3T';
+                $class = 'CnabPHP\resources\\B' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3T';
                 $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
             }
         }

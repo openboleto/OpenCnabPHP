@@ -54,14 +54,14 @@ abstract class RetornoAbstract
         if ($codigo_tipo == '1') {
             throw new Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
         }
-        self::$banco = "B" . $codigo_banco;
+        self::$banco = $codigo_banco;
         self::$layout = "L" . $layout_versao;
-        $class = 'CnabPHP\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
+        $class = 'CnabPHP\resources\\B' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
 
         self::$lines = $lines;
         $this->children[] = new $class($lines[0]);
 
-        $class = 'CnabPHP\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
+        $class = 'CnabPHP\resources\\B' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
         $this->children[] = new $class($lines[count($lines) - 2]);
     }
 
@@ -115,5 +115,14 @@ abstract class RetornoAbstract
     {
         $arquivo = $this->children[0];
         return (self::$layout != 'L400') ? $arquivo->versao_layout : 'L400';
+    }
+    /**
+     * Retorna o a versão do layout
+     * @return string
+     */
+    public function getRegistrosRaiz()
+    {
+        $arquivo = $this->children;
+        return $arquivo;
     }
 }

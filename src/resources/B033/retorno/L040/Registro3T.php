@@ -363,12 +363,12 @@ class Registro3T extends Generico3
     {
         RetornoAbstract::$linesCounter++;
         if (isset(RetornoAbstract::$lines[RetornoAbstract::$linesCounter])) {
-            $class = 'CnabPHP\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3U';
+            $class = 'CnabPHP\resources\\B' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3U';
             $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
             if (isset(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1]) &&
                 substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1], 13, 1) == "Y") {
                 RetornoAbstract::$linesCounter++;
-                $class = 'CnabPHP\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3Y';
+                $class = 'CnabPHP\resources\\B' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3Y';
                 $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
             }
         }
