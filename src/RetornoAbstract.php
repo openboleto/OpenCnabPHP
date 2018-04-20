@@ -122,7 +122,7 @@ abstract class RetornoAbstract
      */
     public function getRegistrosRaiz()
     {
-        $arquivo = $this->children[0];
+        $arquivo = $this->children;
         return $arquivo;
     }
 }
