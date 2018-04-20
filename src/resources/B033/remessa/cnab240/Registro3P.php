@@ -344,6 +344,24 @@ class Registro3P extends Generico3
         ),
     );
 
+    /**
+     * Sobrescreve a informação do Beneficiário com os dados da Conta, orientações Santander
+     * @param int $value
+     */
+    protected function set_codigo_beneficiario($value)
+    {
+        $this->data['codigo_beneficiario'] = RemessaAbstract::$entryData['conta'];
+    }
+
+    /**
+     * Sobrescreve a informação do BeneficiárioDv com os dados da ContaDv, orientações Santander
+     * @param int $value
+     */
+    protected function set_codigo_beneficiario_dv($value)
+    {
+        $this->data['codigo_beneficiario_dv'] = RemessaAbstract::$entryData['conta_dv'];
+    }
+
     public function __construct($data = null)
     {
         if (empty($this->data))

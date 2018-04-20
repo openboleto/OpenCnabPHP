@@ -109,8 +109,14 @@ class Registro1 extends Generico1
             'tipo' => 'int',
             'required' => true
         ),
-        'convenio' => array(
-            'tamanho' => 7,
+        'codigo_beneficiario' => array(
+            'tamanho' => 6,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'codigo_beneficiario_dv' => array(
+            'tamanho' => 1,
             'default' => '0',
             'tipo' => 'int',
             'required' => true
