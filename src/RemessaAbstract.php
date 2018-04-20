@@ -21,9 +21,9 @@ abstract class RemessaAbstract
 	
 	public function __construct($banco,$layout,$data){
 		
-		self::$banco = $banco;
+		self::$banco = "B".$banco;
 		self::$layout = $layout;
-		$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
+		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro0';
 		self::$entryData = $data; 
 		self::$hearder = new $class($data);
 		self::$children[] = self::$hearder;
@@ -35,7 +35,7 @@ abstract class RemessaAbstract
 	*/
 	public function inserirDetalhe($data){
 		
-		$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
+		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
 		self::addChild(new $class($data));
 		//self::$counter++;
 	}
@@ -66,7 +66,7 @@ abstract class RemessaAbstract
 	{
 		if(strpos(self::$layout,'240'))
 		{
-			$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
+			$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro1';
 			$loteData = $data ? $data:RemessaAbstract::$entryData; 
 			$lote = new $class($loteData);
 			self::addChild($lote);
@@ -99,21 +99,12 @@ abstract class RemessaAbstract
 	*/
 	public function getText(){
 		foreach(self::$children as $child){
-			//echo '<pre>';
-			//var_dump($child);
-			//echo '</pre>';
 			$child->getText();
 		}
-		$class = '\CnabPHP\resources\\B'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
+		$class = '\CnabPHP\resources\\'.self::$banco.'\remessa\\'.self::$layout.'\Registro9';
 		$headerArquivo = new $class(array('1'=>1));
 		$headerArquivo->getText();
 		return implode("\r\n",self::$retorno)."\r\n";
 	}
-	
-	public function getName(){
-		$agencia = self::$entryData['agencia'];
-		$convenio = self::$entryData['codigo_beneficiario'].self::$entryData['codigo_beneficiario_dv'];
-		$sequencial = self::$entryData['numero_sequencial_arquivo'];		
-		return 'REM_'.$agencia.'_'.$convenio.'_'.$sequencial.'_'.self::$layout.'.rem';
-	}
 }
+?>
