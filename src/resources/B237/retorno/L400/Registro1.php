@@ -123,7 +123,7 @@ class Registro1 extends Generico1
             'required'=>true),
         'data_ocorrencia'=>array(      // data da ocorrencia
             'tamanho'=>6,
-            'default'=>'0', // entrada de titulo
+            'default'=>'', // entrada de titulo
             'tipo'=>'date',
             'required'=>true),
         'seu_numero2'=>array(            //20.3
