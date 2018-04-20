@@ -67,9 +67,21 @@ class Registro0 extends Generico0
             'tipo' => 'int',
             'required' => true
         ),
-        'codigo_transmissao' => array(
-            'tamanho' => 15,
+        'agencia' => array(
+            'tamanho' => 4,
             'default' => '',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'filler12' => array(
+            'tamanho' => 4,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'convenio' => array(
+            'tamanho' => 7,
+            'default' => '0',
             'tipo' => 'int',
             'required' => true
         ),
