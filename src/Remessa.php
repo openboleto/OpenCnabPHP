@@ -31,3 +31,4 @@ class Remessa extends RemessaAbstract{
 		parent::__construct($banco,$layout,$data);
 	}
 }
+?>
