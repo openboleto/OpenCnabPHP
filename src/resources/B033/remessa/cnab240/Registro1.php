@@ -97,9 +97,27 @@ class Registro1 extends Generico1
             'tipo' => 'alfa',
             'required' => true
         ),
-        'codigo_transmissao' => array(
-            'tamanho' => 15,
+        'agencia' => array(
+            'tamanho' => 4,
             'default' => '',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'filler12' => array(
+            'tamanho' => 4,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'codigo_beneficiario' => array(
+            'tamanho' => 6,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'codigo_beneficiario_dv' => array(
+            'tamanho' => 1,
+            'default' => '0',
             'tipo' => 'int',
             'required' => true
         ),
