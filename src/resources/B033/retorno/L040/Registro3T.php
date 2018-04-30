@@ -27,6 +27,7 @@ namespace CnabPHP\resources\B033\retorno\L040;
 
 use CnabPHP\resources\generico\retorno\L040\Generico3;
 use CnabPHP\RetornoAbstract;
+use CnabPHP\DetalhaMovimentoRetorno;
 
 class Registro3T extends Generico3
 {
@@ -393,54 +394,16 @@ class Registro3T extends Generico3
     }
 
     /**
-     * Retorna a descrição do comando para o código informado.
-     * Caso o banco e descrição possuam detalhes, adiciona também os detalhes
-     *
-     * @return string
+     * Retorna um array com a lista das descrições de comando e detalhes do
+     * comando para o movimento
+     * 
+     * @return array
      */
-    public function getDescricaoMovimento()
-    {
-        $codigoBanco = str_pad($this->___get('codigo_banco'), 3, 0, STR_PAD_LEFT);
-        $codigoMovimento = str_pad($this->___get('codigo_movimento'), 2, 0, STR_PAD_LEFT);
+    public function get_arrayOcorrencias(){
+        $detalhes = new DetalhaMovimentoRetorno('033','240');
 
-        $descricao = array(
-            $this->descricaoMovimento[$codigoBanco][$codigoMovimento]
-        );
+        $codigoMovimento = str_pad($this->data['codigo_movimento'], 2, 0, STR_PAD_LEFT);
 
-        $detalhe = $this->getDetalheDescricaoMovimento($codigoBanco, $codigoMovimento);
-        if (!empty($detalhe)) {
-            $descricao[] = $detalhe;
-        }
-
-        return $descricao;
-    }
-
-    /**
-     * Retorna a descrição do comando para o código informado.
-     * @return string
-     *
-     * @TODO Os detalhes repetem 5 vezes - pensar em uma implementação para as demais
-     */
-    protected function getDetalheDescricaoMovimento($codigoBanco, $codigoMovimento)
-    {
-        $descricao = '';
-
-        $codigoOcorrencia = substr($this->___get('codigo_ocorrencia'), 0, 2);
-
-        if (in_array($codigoMovimento, array('03', '26', '30'))) {
-            if ($codigoOcorrencia != '00') {
-                $descricao = (isset($this->detalheDescricaoMovimento1[$codigoBanco][$codigoOcorrencia])) ?
-                    $this->detalheDescricaoMovimento1[$codigoBanco][$codigoOcorrencia] :
-                    "Código {$codigoOcorrencia} no Detalhe do Movimento (2) não registrado.";
-            }
-        } elseif (in_array($codigoMovimento, array('06', '09', '17'))) {
-            if ($codigoOcorrencia != '00') {
-                $descricao = (isset($this->detalheDescricaoMovimento1[$codigoBanco][$codigoOcorrencia])) ?
-                    $this->detalheDescricaoMovimento1[$codigoBanco][$codigoOcorrencia] :
-                    "Código {$codigoOcorrencia} no Detalhe do Movimento (2) não registrado.";
-            }
-        }
-
-        return $descricao;
+        return $detalhes->getArrayTxtOcorrencias($codigoMovimento, $this->data['codigo_ocorrencia']);
     }
 }
