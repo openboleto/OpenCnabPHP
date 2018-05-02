@@ -139,7 +139,7 @@ Acesse a url de exemplo:
            Cnab240 
         </td>
         <td>
-            s/layout
+            Beta
         </td>
     </tr>
     <tr>
