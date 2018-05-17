@@ -178,6 +178,23 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
+            SICREDI
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
+    <tr>
+        <td>
             UniPrime
         </td>
         <td>

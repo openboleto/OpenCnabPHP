@@ -32,6 +32,7 @@ class Especie
     private $caixa = array();
     private $bb = array();
     private $siccob = array();
+    private $sicredi = array();
     private $santander = array();
     private $banco;
 
@@ -110,6 +111,18 @@ class Especie
         $this->sicoob[21] = array('abr'=>"ME",'txt'=>'Mensalidade escolar');
         $this->sicoob[22] = array('abr'=>"ME",'txt'=>'Parcela de ConsÃ³rcio');
         $this->sicoob[99] = array('abr'=>"DIV",'txt'=>'Outros');
+        
+        
+        $this->sicredi['A'] = array('abr'=>"DMI",'txt'=>'Duplicata Mercantil por Indicação');
+        $this->sicredi['B'] = array('abr'=>"DR",'txt'=>'Duplicata Rural');
+        $this->sicredi['C'] = array('abr'=>"NP",'txt'=>'Nota Promissória');
+        $this->sicredi['D'] = array('abr'=>"NR",'txt'=>'Nota Promissória Rural');
+        $this->sicredi['E'] = array('abr'=>"NS",'txt'=>'Nota de Seguro');
+        $this->sicredi['G'] = array('abr'=>"RC",'txt'=>'Recibo');
+        $this->sicredi['H'] = array('abr'=>"LC",'txt'=>'Letra de Câmbio');
+        $this->sicredi['I'] = array('abr'=>"ND",'txt'=>'Nota de Débito');
+        $this->sicredi['J'] = array('abr'=>"TS",'txt'=>'Triplicata de Serviço');
+        $this->sicredi['K'] = array('abr'=>"DIV",'txt'=>'Outros');
 
         $this->santander[1] = array('abr'=>"DM",'txt'=>'Duplicata Mercantil');
         $this->santander[2] = array('abr'=>"NP",'txt'=>'Nota Promissória');
@@ -133,6 +146,7 @@ class Especie
         $this->res['341'] = $this->itau;
         $this->res['001'] = $this->bb;
         $this->res['756'] = $this->sicoob;
+        $this->res['748'] = $this->sicredi;
         $this->res['033'] = $this->santander;
 
         $this->banco = $this->res[$banco];

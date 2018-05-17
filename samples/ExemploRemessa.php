@@ -31,7 +31,7 @@ require_once ("../autoloader.php");
 
 use CnabPHP\Remessa;
 
-$arquivo = new Remessa('033','cnab240',array(
+$arquivo = new Remessa('748','cnab400',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
@@ -39,6 +39,7 @@ $arquivo = new Remessa('033','cnab240',array(
     'agencia_dv'    => '1', // somente o digito verificador da agencia 
     'conta'         => '3264', // número da conta
     'conta_dv'     => (string)0, // digito da conta
+    'posto' => '87', // codigo forncecido pelo sicredi obs: como o dv da agencia não é informado eu armazeno no banco de dados essa valor no dv da agencia
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
     'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
     'numero_sequencial_arquivo'     => 1,
@@ -57,7 +58,7 @@ $lote->inserirDetalhe(array(
     'cod_carteira'      => "01", // I para a maioria ddas carteiras do itau
      /* campos necessarios somente para itau,  não precisa comentar se for outro layout    */
      
-    'especie_titulo'    => "DM", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
+    'especie_titulo'    => "NP", // informar dm e sera convertido para codigo em qualquer laytou conferir em especie.php
     'valor'             => 100.00, // Valor do boleto como float valido em php
     'emissao_boleto'    => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
     'protestar'         => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
@@ -70,8 +71,8 @@ $lote->inserirDetalhe(array(
     'cep_pagador'       => '12345-123', // com hífem
     'cidade_pagador'    => 'Londrina',
     'uf_pagador'        => 'PR',
-    'data_vencimento'   => '2016-04-09', // informar a data neste formato
-    'data_emissao'      => '2016-04-09', // informar a data neste formato
+    'data_vencimento'   => '2018-04-09', // informar a data neste formato
+    'data_emissao'      => '2018-04-09', // informar a data neste formato
     'vlr_juros'         => 0.15, // Valor do juros de 1 dia'
     'data_desconto'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto

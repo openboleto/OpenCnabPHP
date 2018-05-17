@@ -22,6 +22,11 @@ class Generico0 extends RegistroRemAbstract
     {
         $this->data['data_gravacao'] = date('Y-m-d');
     }
+    protected function set_numero_inscricao($value)
+    {
+        $this->data['numero_inscricao'] = str_ireplace(array('.','/','-'),array(''), $value);
+
+    }
 
 
 }

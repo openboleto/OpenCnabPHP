@@ -31,6 +31,7 @@ use Exception;
 abstract class RegistroRemAbstract extends RegistroAbstract
 {
 
+    protected $entryData;
     /**
      * Método __construct()
      * instancia registro qualquer
@@ -40,6 +41,7 @@ abstract class RegistroRemAbstract extends RegistroAbstract
     {
         if ($data) { // se o ID for informado
             // carrega o objeto correspondente
+            $this->entryData = $data;
             foreach ($this->meta as $key => $value) {
                 $this->$key = (isset($data[$key])) ? $data[$key] : $this->meta[$key]['default'];
             }
@@ -113,6 +115,9 @@ abstract class RegistroRemAbstract extends RegistroAbstract
                     return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 8:
                     $retorno = ($this->data[$prop]) ? date("dmY", strtotime($this->data[$prop])) : '';
+                    return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
+                case $metaData['tipo'] == 'dateReverse':
+                    $retorno = ($this->data[$prop]) ? date("Ymd", strtotime($this->data[$prop])) : '';
                     return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
                 default:
                     return null;
