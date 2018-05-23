@@ -1,4 +1,5 @@
 <?php
+
 /*
  * CnabPHP - Geração de arquivos de remessa e retorno em PHP
  *
@@ -23,22 +24,22 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace CnabPHP;
 
 use CnabPHP\RegistroAbstract;
 use Exception;
 
-abstract class RegistroRemAbstract extends RegistroAbstract
-{
+abstract class RegistroRemAbstract extends RegistroAbstract {
 
     protected $entryData;
+
     /**
      * Método __construct()
      * instancia registro qualquer
      * @$data = array de dados para o registro
      */
-    public function __construct($data = NULL)
-    {
+    public function __construct($data = NULL) {
         if ($data) { // se o ID for informado
             // carrega o objeto correspondente
             $this->entryData = $data;
@@ -52,8 +53,7 @@ abstract class RegistroRemAbstract extends RegistroAbstract
      * Método __set()
      * executado sempre que uma propriedade for atribu?da.
      */
-    public function __set($prop, $value)
-    {
+    public function __set($prop, $value) {
         // verifica se existe Método set_<propriedade>
         if (method_exists($this, 'set_' . $prop)) {
             // executa o Método set_<propriedade>
@@ -73,8 +73,7 @@ abstract class RegistroRemAbstract extends RegistroAbstract
      * Método __get()
      * executado sempre que uma propriedade for requerida
      */
-    public function __get($prop)
-    {
+    public function __get($prop) {
         // verifica se existe Método get_<propriedade>
         if (method_exists($this, 'get_' . $prop)) {
             // executa o Método get_<propriedade>
@@ -88,8 +87,7 @@ abstract class RegistroRemAbstract extends RegistroAbstract
      * Método ___get()
      * metodo auxiliar para ser chamado para dentro de metodo get personalizado
      */
-    public function ___get($prop)
-    {
+    public function ___get($prop) {
         // retorna o valor da propriedade
         if (isset($this->meta[$prop])) {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
@@ -124,4 +122,9 @@ abstract class RegistroRemAbstract extends RegistroAbstract
             }
         }
     }
+
+    public function getFileName() {
+        return 'REM_' . $agencia . '_' . $convenio . '_' . $sequencial . '.rem';
+    }
+
 }

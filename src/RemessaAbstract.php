@@ -124,12 +124,8 @@ abstract class RemessaAbstract
         $headerArquivo->getText();
         return implode("\r\n", self::$retorno) . "\r\n";
     }
-
-    public function getName()
-    {
-        $agencia = self::$entryData['agencia'];
-        $convenio = self::$entryData['codigo_beneficiario'] . self::$entryData['codigo_beneficiario_dv'];
-        $sequencial = self::$entryData['numero_sequencial_arquivo'];
-        return 'REM_' . $agencia . '_' . $convenio . '_' . $sequencial . '_' . self::$layout . '.rem';
+    public function getFileName() {
+        return self::$children[0]->getFileName();
     }
+
 }
