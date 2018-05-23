@@ -85,6 +85,7 @@ $lote->inserirDetalhe(array(
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa
     'vlr_multa'         => 30.00, // valor da multa
+    'codigo_juros'      => 3,
 
     // campos necessários somente para o sicoob
     'taxa_multa'         => 30.00, // taxa de multa em percentual
