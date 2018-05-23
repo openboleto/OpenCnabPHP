@@ -279,6 +279,10 @@ class Registro1 extends Generico1 {
             $this->children[] = new $class($data);
         }
     }
+   
+    public function set_emissao_boleto($value) {
+        $this->data['emissao_boleto'] = $value == 2 ? "B" : 'A';  // 1 igual A =  emissão pelo banco 2 igual B = emissão pelo cedente
+    }
 
     public function set_protestar($value) {
         if ($value == 1) {
@@ -292,7 +296,7 @@ class Registro1 extends Generico1 {
         $this->data['data_instrucao'] = date('Y-m-d');
     }
 
-    protected function set_nosso_numero($value) { 
+    protected function set_nosso_numero($value) {
         $modulo11 = self::modulo11(str_pad(RemessaAbstract::$entryData['agencia'], 4, 0, STR_PAD_LEFT)
                         . str_pad(RemessaAbstract::$entryData['posto'], 2, 0, STR_PAD_LEFT)
                         . str_pad(RemessaAbstract::$entryData['codigo_beneficiario'], 5, 0, STR_PAD_LEFT)
