@@ -91,6 +91,7 @@ $lote->inserirDetalhe(array(
     //'taxa_multa'         => 0.00, // taxa de multa em percentual
     //'taxa_juros'         => 0.00, // taxa de juros em percentual
 ));        
-echo utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres
 header("Content-Disposition: attachment;filename=" . $arquivo->getFileName() .";");
+echo utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres
+
 ?>
