@@ -124,7 +124,7 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
     }
 
     public function getFileName() {
-        return 'REM_' . $agencia . '_' . $convenio . '_' . $sequencial . '.rem';
+        return 'REM_' . RemessaAbstract::$banco . '_' . $this->entryData['agencia'] . '_' . $this->entryData['numero_sequencial_arquivo'] . '.rem';
     }
 
 }
