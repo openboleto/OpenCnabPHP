@@ -246,9 +246,6 @@ $lote->inserirDetalhe(array(
     'protestar'         => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias
     'prazo_protesto'    => 5, // Informar o numero de dias apos o vencimento para iniciar o protesto
     'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador é o cliente, preste atenção nos campos abaixo
-    'emissao_boleto'        => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
-    'protestar'        => 3, // 1 = Protestar com (Prazo) dias, 3 = Devolver após (Prazo) dias. 
-    'nome_pagador'      => "JOSÉ da SILVA ALVES", // O Pagador é o cliente, preste atenção nos campos abaixo
     'tipo_inscricao'    => 1, //campo fixo, escreva '1' se for pessoa fisica, 2 se for pessoa juridica
     'numero_inscricao'  => '123.122.123-56',//cpf ou ncpj do pagador
     'endereco_pagador'  => 'Rua dos developers,123 sl 103',
