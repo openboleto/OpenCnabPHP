@@ -28,6 +28,7 @@
 namespace CnabPHP\resources\B748\remessa\cnab400;
 
 use CnabPHP\resources\generico\remessa\cnab400\Generico0;
+use CnabPHP\RemessaAbstract;
 
 class Registro0 extends Generico0 {
 
@@ -113,6 +114,11 @@ class Registro0 extends Generico0 {
             'tipo' => 'int',
             'required' => true),
     );
+    
+    public function __construct($data = NULL) {
+        parent::__construct($data);
+        RemessaAbstract::$endLine = hex2bin('0D0A');
+    }
 
     public function getFileName() {
         $codigo_meses = array(1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9,10=>'O',11=>'N',12=>'D');

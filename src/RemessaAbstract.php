@@ -13,6 +13,8 @@ abstract class RemessaAbstract
     public static $entryData; // mantem os dados passados em $data na instanciação
 
     public static $loteCounter = 1; // contador de lotes
+    
+    public static $endLine = "\r\n"; // contador de lotes
 
     private static $children = array(); // armazena os registros filhos da classe remessa
 
@@ -122,7 +124,7 @@ abstract class RemessaAbstract
         $class = '\CnabPHP\resources\\B' . self::$banco . '\remessa\\' . self::$layout . '\Registro9';
         $headerArquivo = new $class(array('1' => 1));
         $headerArquivo->getText();
-        return implode("\r\n", self::$retorno) . "\r\n";
+        return implode(self::$endLine, self::$retorno) . self::$endLine;
     }
     public function getFileName() {
         return self::$children[0]->getFileName();
