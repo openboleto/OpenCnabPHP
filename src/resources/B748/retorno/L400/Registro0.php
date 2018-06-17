@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B237\retorno\L400;
+namespace CnabPHP\resources\B748\retorno\L400;
 use CnabPHP\resources\generico\retorno\L400\Generico0;
 use CnabPHP\RetornoAbstract;
 
@@ -56,55 +56,55 @@ class Registro0 extends Generico0
             'default'=>'COBRANCA',
             'tipo'=>'alfa',
             'required'=>true),
-        'codigo_empresa'=>array(
-            'tamanho'=>20,
+        'codigo_beneficiario'=>array(
+            'tamanho'=>5,
             'default'=>'',
             'tipo'=>'alfa',
             'required'=>true),
-        'nome_empresa'=>array(
-            'tamanho'=>30,
+        'numero_inscricao'=>array(
+            'tamanho'=>14,
+            'default'=>'',
+            'tipo'=>'alfa',
+            'required'=>true),
+        'filler0'=>array(
+            'tamanho'=>31,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
         'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'237',
+            'default'=>'748',
             'tipo'=>'int',
             'required'=>true),
         'nome_banco'=>array(
             'tamanho'=>15,
-            'default'=>'BRADESCO',
+            'default'=>'BANSICREDI',
             'tipo'=>'alfa',
             'required'=>true),
         'data_gravacao'=>array(
-            'tamanho'=>6,
+            'tamanho'=>8,
             'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
             'tipo'=>'date',
             'required'=>true),
-        'densidade_gravacao'=>array(
+        'filler01'=>array(
             'tamanho'=>8,
             'default'=>'0',
             'tipo'=>'int',
             'required'=>true),
-        'n_aviso_bancario'=>array(
+        'numero_retorno'=>array(
             'tamanho'=>5,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
         'filler1'=>array(
-            'tamanho'=>266,
+            'tamanho'=>272,
             'default'=>' ',
             'tipo'=>'alfa',
             'required'=>true),
-        'data_credito'=>array(
-            'tamanho'=>6,
-            'default'=>'',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
+        'versao_sistema'=>array(
+            'tamanho'=>5,
+            'default'=>'99.99',
             'tipo'=>'date',
-            'required'=>true),
-        'filler2'=>array(
-            'tamanho'=>9,
-            'default'=>' ',
-            'tipo'=>'alfa',
             'required'=>true),
         'numero_sequencial_registro'=>array(
             'tamanho'=>6,
