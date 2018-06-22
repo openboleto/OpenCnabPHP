@@ -133,7 +133,6 @@ class Especie {
         $this->sicoob[22] = array('abr' => "ME", 'txt' => 'Parcela de ConsÃ³rcio');
         $this->sicoob[99] = array('abr' => "DIV", 'txt' => 'Outros');
 
-
         $this->sicredi['A'] = array('abr' => "DMI", 'txt' => 'Duplicata Mercantil por Indicação');
         $this->sicredi['B'] = array('abr' => "DR", 'txt' => 'Duplicata Rural');
         $this->sicredi['C'] = array('abr' => "NP", 'txt' => 'Nota Promissória');
