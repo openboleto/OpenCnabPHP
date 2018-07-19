@@ -106,14 +106,8 @@ class Registro3Q extends Generico3
             'required' => true
         ),
         'cep_pagador' => array(
-            'tamanho' => 5,
+            'tamanho' => 8,
             'default' => '',
-            'tipo' => 'int',
-            'required' => true
-        ),
-        'cep_sufixo' => array(
-            'tamanho' => 3,
-            'default' => ' ',
             'tipo' => 'int',
             'required' => true
         ),
