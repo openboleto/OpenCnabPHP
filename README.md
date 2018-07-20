@@ -1,8 +1,7 @@
 # OpenCnabPHP 
 <img src="https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master">
 
-
-.. image:: https://img.shields.io/packagist/dm/doctrine/orm.svg   :alt: Packagist   :target: https://packagist.org/packages/quilhasoft/opencnabphp
+[![Packagist](https://img.shields.io/packagist/dm/doctrine/orm.svg)](https://packagist.org/packages/quilhasoft/opencnabphp)
 
 Projeto para gerar remessa e processar retorno nos layouts cnab240 e 400<br>
 Novo projeto orientado a objeto com três níveis de hierarquia
