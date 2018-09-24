@@ -32,6 +32,7 @@ Adicione "quilhasoft/opencnabphp": "dev-master" ao seu composer.json e rode upda
 Acesse a url de exemplo: 
 `http://localhost:8080/samples/ExemploRemessa.php`
 
+## Status de desenvolvimento
 <table>
     <tr>
         <td colspan="3" >
