@@ -1,5 +1,5 @@
 <?php
-namespace CnabPHP\resources\b341\remessa\cnab400;
+namespace CnabPHP\resources\B341\remessa\cnab400;
 
 use CnabPHP\resources\generico\remessa\cnab400\Generico1;
 use CnabPHP\RegistroRemAbstract;

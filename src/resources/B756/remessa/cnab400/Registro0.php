@@ -24,7 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CnabPHP\resources\b756\remessa\cnab400;
+namespace CnabPHP\resources\B756\remessa\cnab400;
 
 use CnabPHP\resources\generico\remessa\cnab400\Generico0;
 
