@@ -158,7 +158,7 @@ class Registro3T extends Generico3
 		'dv_agencia_receb'=>array(            //20.3
 			'tamanho'=>1,
 			'default'=>'',
-			'tipo'=>'date',
+			'tipo'=>'int',
 			'required'=>true),
 		'seu_numero2'=>array(                 //21.3T
 			'tamanho'=>25,
@@ -199,7 +199,7 @@ class Registro3T extends Generico3
 		'codigo_ocorrencia'=>array(            //28.3T
 			'tamanho'=>10,
 			'default'=>'0',
-			'tipo'=>'date',
+			'tipo'=>'int',
 			'required'=>true),
 		'filler7'=>array(            //29.3T
 			'tamanho'=>17,
