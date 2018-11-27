@@ -62,6 +62,23 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
+            Banco do Brasil
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>
+    <tr>
+        <td>
             Bradesco
         </td>
         <td>
