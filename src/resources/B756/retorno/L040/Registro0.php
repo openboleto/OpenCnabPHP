@@ -163,9 +163,9 @@ class Registro0 extends Generico0
 		while(RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines)-4))
 		{
 			
-			$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
+			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
 			$lote = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-			$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro5';
+			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro5';
 			$lote->trailler = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 			$this->children[] = $lote;
 		}
