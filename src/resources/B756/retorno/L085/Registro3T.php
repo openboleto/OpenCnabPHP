@@ -178,7 +178,7 @@ class Registro3T extends Generico3
         'numero_inscricao'=>array(    //24.3T
             'tamanho'=>15,
             'default'=>'0',
-            'tipo'=>'int',
+            'tipo'=>'alfa',
             'required'=>true),
         'nome_pagador'=>array(            //25.3T
             'tamanho'=>40,
