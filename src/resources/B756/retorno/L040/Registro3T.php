@@ -112,7 +112,7 @@ class Registro3T extends Generico3
 		'vencimento'=>array(  //16.3T
 			'tamanho'=>15,
 			'default'=>'',
-			'tipo'=>'int',
+			'tipo'=>'date',
 			'required'=>true),
 		'valor_nominal'=>array(  //17.3T
 			'tamanho'=>13,
