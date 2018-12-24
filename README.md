@@ -1,4 +1,4 @@
-# OpenCnabPHP 
+﻿# OpenCnabPHP 
 <img src="https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master">
 
 
@@ -68,13 +68,13 @@ Acesse a url de exemplo:
             Cnab240
         </td>
         <td>
-            Beta
+            Homologado
         </td>
         <td>
             Cnab240
         </td>
         <td>
-            Beta
+            Homologado
         </td>
     </tr>
     <tr>

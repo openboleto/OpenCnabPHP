@@ -1,262 +1,184 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
- *
- * LICENSE: The MIT License (MIT)
- *
- * Copyright (C) 2013 Ciatec.net
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this
- * software and associated documentation files (the "Software"), to deal in the Software
- * without restriction, including without limitation the rights to use, copy, modify,
- * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies
- * or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
- * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
-use CnabPHP\resources\generico\retorno\cnab240\Generico3;
+* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+*
+* LICENSE: The MIT License (MIT)
+*
+* Copyright (C) 2013 Ciatec.net
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this
+* software and associated documentation files (the "Software"), to deal in the Software
+* without restriction, including without limitation the rights to use, copy, modify,
+* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to the following
+* conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies
+* or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+namespace CnabPHP\resources\B001\retorno\L030;
+use CnabPHP\resources\generico\retorno\L030\Generico3;
 use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
 class Registro3T extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(          // 1.3P
+		'codigo_banco'=>array(          // 1.3T
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'001',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(           // 2.3P
+		'codigo_lote'=>array(           // 2.3T
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(         // 3.3P
+		'tipo_registro'=>array(         // 3.3T
 			'tamanho'=>1,
 			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_registro'=>array(       // 4.3P
+		'numero_registro'=>array(       // 4.3T
 			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'seguimento'=>array(            // 5.3P
+		'seguimento'=>array(            // 5.3T
 			'tamanho'=>1,
-			'default'=>'P',
+			'default'=>'T',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler1'=>array(               // 6.3P
+		'filler1'=>array(               // 6.3T
 			'tamanho'=>1,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'codigo_movimento'=>array(      // 7.3P
+		'codigo_movimento'=>array(      // 7.3T
 			'tamanho'=>2,
 			'default'=>'01', // entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
-			
+
 		// - ------------------ até aqui é igual para todo registro tipo 3
 
-		'agencia'=>array(               // 8.3P
+		'agencia'=>array(               // 8.3T
 			'tamanho'=>5,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'agencia_dv'=>array(            // 9.3P
+		'agencia_dv'=>array(            // 9.3T
 			'tamanho'=>1,
 			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'codigo_convenio'=>array(       //10.3P
-			'tamanho'=>6,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler2'=>array(               // 11.3P
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler3'=>array(               //12.3P
-			'tamanho'=>3,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'carteira'=>array(      //13.3P
-			'tamanho'=>2,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'nosso_numero'=>array(  //13.3P
-			'tamanho'=>15,
+		'conta_corrente'=>array(       //10.3T
+			'tamanho'=>12,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_carteira'=>array(   //14.3P
+		'dv_conta'=>array(               // 11.3T
 			'tamanho'=>1,
-			'default'=>'1',
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'com_registro'=>array(      //15.3P
+		'filler2'=>array(               //12.3T
 			'tamanho'=>1,
-			'default'=>'1',  // combrança com registro
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_documento'=>array(        //16.3P
-			'tamanho'=>1,
-			'default'=>'2',
-			'tipo'=>'int',
-			'required'=>true),
-		'emissao_boleto'=>array(          // 17.3
-			'tamanho'=>1,
-			'default'=>2,
-			'tipo'=>'int',
-			'required'=>true),
-		'entrega_boleto'=>array(        //18.3P
-			'tamanho'=>1,
-			'default'=>'0',
-			'tipo'=>'int', // originalmente no manual esta alfa mas foi mudado para int para funcionar 
-			'required'=>true),
-		'seu_numero'=>array(            //19.3P   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
-			'tamanho'=>11,
-			'default'=>' ',      // este espaço foi colocado para passa a validação para os seters do generico
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler4'=>array(               //19.3P
-			'tamanho'=>4,
+		'filler3'=>array(               //13.3T
+			'tamanho'=>20,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'data_vencimento'=>array(            //20.3
+		'codigo_carteira'=>array(   //14.3T
+			'tamanho'=>1,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'seu_numero'=>array(      //15.3T
+			'tamanho'=>15,
+			'default'=>'',  
+			'tipo'=>'int',
+			'required'=>true),
+		'data_vencimento'=>array(          // 16.3
 			'tamanho'=>8,
 			'default'=>'',
 			'tipo'=>'date',
 			'required'=>true),
-		'valor'=>array(                 //21.3P
+		'vlr_nominal'=>array(        //18.3T
 			'tamanho'=>13,
-			'default'=>'',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'agencia_cobradora'=>array(    //22.3P
-			'tamanho'=>5,
 			'default'=>'0',
+			'tipo'=>'decimal',
+			'precision'=>2, 
+			'required'=>true),
+		'cod_banco_receb'=>array(            //19.3T  
+			'tamanho'=>3,
+			'default'=>' ',      // este espaço foi colocado para passa a validação para os seters do generico
+			'tipo'=>'alfa',
+			'required'=>true),
+		'agencia_recebedora'=>array(               //19.3T
+			'tamanho'=>5,
+			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'agencia_cobradora_dv'=>array(    //23.3P
+		'dv_agencia_receb'=>array(            //20.3
+			'tamanho'=>1,
+			'default'=>'',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'seu_numero2'=>array(                 //21.3T
+			'tamanho'=>25,
+			'default'=>'',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'codigo_moeda'=>array(    //22.3T
+			'tamanho'=>2,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'tipo_inscricao'=>array(    //23.3T
 			'tamanho'=>1,
 			'default'=>'0',
 			'tipo'=>'int', // originalmente no manual esta alfa mas foi mudado para int para funcionar
 			'required'=>true),
-		'especie_titulo'=>array(    //24.3P
-			'tamanho'=>2,
-			'default'=>'2',
+		'numero_inscricao'=>array(    //24.3T
+			'tamanho'=>15,
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'aceite'=>array(            //25.3P
-			'tamanho'=>1,
-			'default'=>'N',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'data_emissao'=>array(            //26.3P
-			'tamanho'=>8,
+		'nome_pagador'=>array(            //25.3T
+			'tamanho'=>40,
 			'default'=>'',
-			'tipo'=>'date',
-			'required'=>true),
-		'codigo_juros'=>array(            //27.3P
-			'tamanho'=>1,
-			'default'=>'3',
-			'tipo'=>'int',
-			'required'=>true),
-		'data_juros'=>array(            //28.3P
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_juros'=>array(            //29.3P
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'codigo_desconto'=>array(            //30.3P
-			'tamanho'=>1,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'data_desconto'=>array(            //31.3P
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto'=>array(            //32.3P
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'vlr_IOF'=>array(            //33.3P
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'vlr_abatimento'=>array(            //34.3P
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'seu_numero2'=>array(            //35.3P
-			'tamanho'=>25,
-			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'protestar'=>array(            //36.3P
-			'tamanho'=>1,
-			'default'=>'3',
+		'filler6'=>array(            //26.3T
+			'tamanho'=>10,
+			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'prazo'=>array(            //37.3P
-			'tamanho'=>2,
-			'default'=>'0',
-			'tipo'=>'int',
+		'vlr_tarifa'=>array(            //27.3T
+			'tamanho'=>13,
+			'default'=>'',
+			'tipo'=>'decimal',
+			'precision'=>2,
 			'required'=>true),
-		'baixar'=>array(            //38.3P
-			'tamanho'=>1,
-			'default'=>'1',
-			'tipo'=>'int',
-			'required'=>true),
-		'prazo_baixar'=>array(            //39.3P
-			'tamanho'=>3,
-			'default'=>'90',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'codigo_moeda'=>array(            //40.3P
-			'tamanho'=>2,
-			'default'=>'9',
-			'tipo'=>'int',
-            'required'=>true),
-		'filler5'=>array(            //41.3P
+		'codigo_ocorrencia'=>array(            //28.3T
 			'tamanho'=>10,
 			'default'=>'0',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
-		'filler6'=>array(            //42.3P
-			'tamanho'=>1,
-			'default'=>' ',
+		'filler7'=>array(            //29.3T
+			'tamanho'=>17,
+			'default'=>'0',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
@@ -267,10 +189,34 @@ class Registro3T extends Generico3
 	}
 	public function inserirDetalhe($data)
 	{
-		$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\remessa\\'.RetornoAbstract::$layout.'\Registro3U';
-		$this->children[] = new $class($data);
 		RetornoAbstract::$linesCounter++;
-	}    
+		$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3U';
+		$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+		if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],14,1)=="Y"){
+			if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="50")
+			{
+				//RetornoAbstract::$linesCounter++;
+				//$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
+				//$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			}elseif(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="08")
+			{
+				RetornoAbstract::$linesCounter++;
+				$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y08';
+				$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			}
+		}
+	}
+	public function get_data_ocorrencia(){
+		$r3u = $this->R3U;
+		return $r3u->___get('data_ocorrencia');
+	}
+	public function get_vlr_pago(){
+		$r3u = $this->R3U;
+		return $r3u->___get('vlr_pago');
+	}
+	public function get_codigo_movimento(){
+		$r3u = $this->R3U;
+		return $r3u->codigo_movimento;
+	}
 }
-
 ?>

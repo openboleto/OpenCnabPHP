@@ -1,38 +1,39 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
- *
- * LICENSE: The MIT License (MIT)
- *
- * Copyright (C) 2013 Ciatec.net
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this
- * software and associated documentation files (the "Software"), to deal in the Software
- * without restriction, including without limitation the rights to use, copy, modify,
- * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies
- * or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
- * INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
- * PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-namespace CnabPHP\resources\B104\retorno\L030; // SIGCB
+* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+*
+* LICENSE: The MIT License (MIT)
+*
+* Copyright (C) 2013 Ciatec.net
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy of this
+* software and associated documentation files (the "Software"), to deal in the Software
+* without restriction, including without limitation the rights to use, copy, modify,
+* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+* permit persons to whom the Software is furnished to do so, subject to the following
+* conditions:
+*
+* The above copyright notice and this permission notice shall be included in all copies
+* or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+namespace CnabPHP\resources\B001\retorno\L030; // SIGCB
 use CnabPHP\resources\generico\retorno\L030\Generico0;
 use CnabPHP\RetornoAbstract;
 
 class Registro0 extends Generico0
 {
+	public $trailler;
 	protected $meta = array(
 		'codigo_banco'=>array(
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'001',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(
@@ -62,7 +63,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'uso_caixa1'=>array(
 			'tamanho'=>20,
-			'default'=>'0',
+			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
 		'agencia'=>array(
@@ -73,16 +74,22 @@ class Registro0 extends Generico0
 		'agencia_dv'=>array(
 			'tamanho'=>1,
 			'default'=>'',
-			'tipo'=>'int','required'=>true),
-		'codigo_beneficiario'=>array(
-			'tamanho'=>6,
+			'tipo'=>'alfa',
+			'required'=>true),
+		'conta'=>array(
+			'tamanho'=>12,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'uso_caixa2'=>array(
-			'tamanho'=>8,
+		'conta_dv'=>array(
+			'tamanho'=>1,
 			'default'=>'0',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler2'=>array(
+			'tamanho'=>1,
+			'default'=>' ',
+			'tipo'=>'alfa',
 			'required'=>true),
 		'nome_empresa'=>array(
 			'tamanho'=>30,
@@ -91,7 +98,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'nome_banco'=>array(
 			'tamanho'=>30,
-			'default'=>'CAIXA ECONOMICA FEDERAL',
+			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler3'=>array(
@@ -101,17 +108,17 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'codigo_remessa'=>array(
 			'tamanho'=>1,
-			'default'=>'1',
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'data_geracao'=>array(
 			'tamanho'=>8,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',
 			'tipo'=>'date',
 			'required'=>true),
 		'hora_geracao'=>array(
 			'tamanho'=>6,
-			'default'=>'',// nao informar a data na instanciação - gerada dinamicamente
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_sequencial_arquivo'=>array(
@@ -121,7 +128,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'versao_layout'=>array(
 			'tamanho'=>3,
-			'default'=>'050',
+			'default'=>'030',
 			'tipo'=>'int',
 			'required'=>true),
 		'densidade_gravacao'=>array(
@@ -129,44 +136,39 @@ class Registro0 extends Generico0
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler4'=>array(
+		'filler3'=>array(
 			'tamanho'=>20,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'situacao_arquivo'=>array(
+		'uso_empresa'=>array(
 			'tamanho'=>20,
 			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'versao_aplicativo'=>array(
-			'tamanho'=>4,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
 		'filler5'=>array(
-			'tamanho'=>25,
+			'tamanho'=>29,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
-	
 	public function __construct($linhaTxt)
 	{
 		parent::__construct($linhaTxt);
-		$this->inserirDetalhe(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-	}
-	/*
-	* método inserirDetalhe()
-	* Recebe os parametros
-	* @$data = um array contendo os dados nessesarios para o arquvio
-	*/
-	public function inserirDetalhe($linhaTxt){
-
-		$class = 'CnabPHP\resources\\B'.self::$banco.'\retorno\\'.self::$layout.'\Registro1';
-		self::addChild(new $class($linhaTxt));
 		RetornoAbstract::$linesCounter++;
-		//self::$counter++;
+		$this->inserirDetalhe();
+	}
+	public function inserirDetalhe()
+	{
+		while(RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines)-4))
+		{
+			
+			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
+			$lote = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro5';
+			$lote->trailler = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			$this->children[] = $lote;
+		}
 	}
 }
 ?>
