@@ -41,7 +41,7 @@ class Registro0 extends Generico0
             'default'=>'2',
             'tipo'=>'int',
             'required'=>true),
-        'literal_remessa'=>array(
+        'literal_retorno'=>array(
             'tamanho'=>7,
             'default'=>'RETORNO',
             'tipo'=>'alfa',
