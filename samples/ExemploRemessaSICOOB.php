@@ -123,7 +123,7 @@ function verificaPastas() {
 }
 
 // Grava o arquivo
-file_put_contents(verificaPastas()->path.$arquivo->getName(), $remessa);
+file_put_contents(verificaPastas()->path.$arquivo->getFileName(), $remessa);
 verificaPastas()->close();
 echo $remessa;
 
