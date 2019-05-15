@@ -34,6 +34,12 @@ class Generico0 extends RegistroRemAbstract
 
     protected $counter;
 
+    public function inserirDetalhe($data)
+    {
+        $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro1';
+        $this->children[] = new $class($data);
+    }
+
     protected function set_situacao_arquivo($value)
     {
         $this->data['situacao_arquivo'] = ($value == 'T') ? "REMESSA-TESTE" : "REMESSA-PRODUCAO";

@@ -5,7 +5,7 @@ use CnabPHP\resources\generico\remessa\cnab400\Generico1;
 use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 
-class Registro1 extends Generico1
+class Registro1_2D extends Generico1
 {
 
     public $protestar;
@@ -216,28 +216,35 @@ class Registro1 extends Generico1
             'default' => '', // combrança com registro
             'tipo' => 'alfa',
             'required' => true),
-        'nome_avalista' => array(//18.3Q
-            'tamanho' => 30,
+        'filler49' => array(
+            'tamanho' => 2,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true),
-        'filler5' => array(
-            'tamanho' => 4,
-            'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true),
-        'data_mora' => array(//31.3P
+        'data_segundo_desconto' => array(//31.3P
             'tamanho' => 6,
             'default' => '0',
             'tipo' => 'date',
             'required' => true),
-        'prazo_baixa' => array(//31.3P
-            'tamanho' => 2,
+        'vlr_segundo_desconto' => array(//34.3P
+            'tamanho' => 11,
             'default' => '0',
-            'tipo' => 'int',
+            'tipo' => 'decimal',
+            'precision' => 2,
+            'required' => true),
+        'data_terceiro_desconto' => array(//31.3P
+            'tamanho' => 6,
+            'default' => '0',
+            'tipo' => 'date',
+            'required' => true),
+        'vlr_terceiro_desconto' => array(//34.3P
+            'tamanho' => 11,
+            'default' => '0',
+            'tipo' => 'decimal',
+            'precision' => 2,
             'required' => true),
         'filler6' => array(
-            'tamanho' => 1,
+            'tamanho' => 2,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true),
@@ -254,7 +261,6 @@ class Registro1 extends Generico1
             parent::__construct($data);
         //$this->inserirMulta($data); nÃ£o consegui validar o arquivo enviando o registro 2, entao temporariamente ficara desativado
     }
-
 
     public function inserirMulta($data)
     {

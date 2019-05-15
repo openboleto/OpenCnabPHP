@@ -46,8 +46,9 @@ abstract class RemessaAbstract
     public function inserirDetalhe($data)
     {
 
-        $class = '\CnabPHP\resources\\B' . self::$banco . '\remessa\\' . self::$layout . '\Registro1';
-        self::addChild(new $class($data));
+        self::$hearder->inserirDetalhe($data);
+        //$class = '\CnabPHP\resources\\B' . self::$banco . '\remessa\\' . self::$layout . '\Registro1';
+        //self::addChild(new $class($data));
         //self::$counter++;
     }
 

@@ -31,7 +31,7 @@ require_once ("../autoloader.php");
 
 use CnabPHP\Remessa;
 
-$arquivo = new Remessa('104','cnab240_SIGCB',array(
+$arquivo = new Remessa('341','cnab400',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
@@ -77,7 +77,11 @@ $lote->inserirDetalhe(array(
     'data_emissao'      => '2018-04-09', // informar a data neste formato
     'vlr_juros'         => 0.15, // Valor do juros de 1 dia'
     'data_desconto'     => '2016-04-09', // informar a data neste formato
+    'data_segundo_desconto'     => '2016-04-09', // informar a data neste formato
+    'data_terceiro_desconto'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
+    'vlr_segundo_desconto'      => '0', // Valor do desconto
+    'vlr_terceiro_desconto'      => '0', // Valor do desconto
     'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (Não Baixar / Não Devolver)
     'prazo_baixa'       => 90, // prazo de dias para o cliente pagar após o vencimento
     'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
@@ -91,7 +95,7 @@ $lote->inserirDetalhe(array(
     //'taxa_multa'         => 0.00, // taxa de multa em percentual
     //'taxa_juros'         => 0.00, // taxa de juros em percentual
 ));        
-header("Content-Disposition: attachment;filename=" . $arquivo->getFileName() .";");
+//header("Content-Disposition: attachment;filename=" . $arquivo->getFileName() .";");
 echo utf8_decode($arquivo->getText()); // observar a header do seu php para não gerar comflitos de codificação de caracteres
 
 ?>
