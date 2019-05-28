@@ -244,7 +244,7 @@ class Registro1_2D extends Generico1
             'precision' => 2,
             'required' => true),
         'filler6' => array(
-            'tamanho' => 2,
+            'tamanho' => 3,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true),
