@@ -71,7 +71,7 @@ class EspecieTest extends TestCase
      */
     public function getCodigoReturnNotEmptyWithValidAbr()
     {
-        $abr = 'NCE';
+        $abr = 'DM';
         $codigo = $this->especie->getCodigo($abr);
         
         $this->assertNotEmpty($codigo);
