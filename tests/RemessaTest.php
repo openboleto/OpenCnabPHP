@@ -3,7 +3,7 @@ namespace CnabPHP\Tests;
 
 use CnabPHP\Remessa;
 use CnabPHP\RegistroRemAbstract;
-use CnabPHP\resources\B756\remessa\cnab240\Registro1;
+use CnabPHP\resources\B341\remessa\cnab400\Registro1;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 use ReflectionClass;
