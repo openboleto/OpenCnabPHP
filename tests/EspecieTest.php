@@ -47,7 +47,7 @@ class EspecieTest extends TestCase
     {
         $this->markTestIncomplete();
 
-        $abr = $this->especie->getAbr('NCE');
+        $abr = $this->especie->getAbr('DM');
         
         $this->assertNotEmpty($abr);
     }
