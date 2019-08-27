@@ -25,7 +25,7 @@ class EspecieTest extends TestCase
     {
         parent::setUp();
         
-        $this->especie = new Especie(341);
+        $this->especie = new Especie(104);
     }
 
     /**

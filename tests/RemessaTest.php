@@ -30,8 +30,8 @@ class RemessaTest extends TestCase
         parent::setUp();
         
         $this->remessa = new Remessa(
-            '341', 
-            'cnab400', 
+            '104', 
+            'cnab240_SIGCB', 
             [
                 'nome_empresa' =>"Empresa ABC", // seu nome de empresa
                 'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
