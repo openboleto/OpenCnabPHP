@@ -1,4 +1,5 @@
 <?php
+
 /*
  * CnabPHP - Geração de arquivos de remessa e retorno em PHP
  *
@@ -23,40 +24,35 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace CnabPHP\resources\generico\remessa\cnab240;
 
 use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 use Exception;
 
-class Generico0 extends RegistroRemAbstract
-{
+class Generico0 extends RegistroRemAbstract {
 
     protected $counter;
 
-    public function inserirDetalhe($data)
-    {
+    public function inserirDetalhe($data) {
         $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro1';
         $this->children[] = new $class($data);
     }
 
-    protected function set_situacao_arquivo($value)
-    {
+    protected function set_situacao_arquivo($value) {
         $this->data['situacao_arquivo'] = ($value == 'T') ? "REMESSA-TESTE" : "REMESSA-PRODUCAO";
     }
 
-    protected function set_data_geracao($value)
-    {
+    protected function set_data_geracao($value) {
         $this->data['data_geracao'] = date('Y-m-d');
     }
 
-    protected function set_hora_geracao($value)
-    {
+    protected function set_hora_geracao($value) {
         $this->data['hora_geracao'] = date('His');
     }
 
-    protected function set_tipo_inscricao($value)
-    {
+    protected function set_tipo_inscricao($value) {
         if ($value == 1 || $value == 2) {
             $this->data['tipo_inscricao'] = $value;
         } else {
@@ -64,18 +60,21 @@ class Generico0 extends RegistroRemAbstract
         }
     }
 
-    protected function set_numero_inscricao($value)
-    {
+    protected function set_numero_inscricao($value) {
         $this->data['numero_inscricao'] = str_ireplace(array('.', '/', '-'), array(''), $value);
     }
 
-    protected function set_convenio($value)
-    {
+    protected function set_convenio($value) {
         $this->data['convenio'] = RemessaAbstract::$entryData['codigo_beneficiario'] . RemessaAbstract::$entryData['codigo_beneficiario_dv'];
     }
 
-    public function get_numero_registro()
-    {
+    public function get_numero_registro() {
         return null;
     }
+
+    public function get_counter() {
+        $this->counter++;
+        return $this->counter;
+    }
+
 }
