@@ -97,7 +97,7 @@ abstract class RemessaAbstract {
      * Metodo statico para pegar os objetos dos lotes
      */
     public static function getLotes() {
-        return self::$children[0]::$children;
+        return self::$children[0]->children;
     }
 
     /**
