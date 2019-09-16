@@ -41,7 +41,7 @@ class Generico3 extends RegistroRemAbstract
 
     protected function set_numero_registro($value)
     {
-        $lote = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+        $lote = RemessaAbstract::getLote(RemessaAbstract::$loteCounter); //RemessaAbstract::$children[0]->children[RemessaAbstract::$loteCounter -1];// 
         $this->data['numero_registro'] = $lote->get_counter();
     }
 

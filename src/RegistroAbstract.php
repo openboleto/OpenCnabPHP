@@ -38,7 +38,7 @@ abstract class RegistroAbstract
 
     protected $meta;
 
-    protected $children;
+    public $children;
 
     /**
      * Método getUnformated()
@@ -145,4 +145,15 @@ abstract class RegistroAbstract
         $diff = strlen($input) - mb_strlen($input);
         return str_pad($input, $pad_length + $diff, $pad_string, $pad_type);
     }
+        /**
+     * Método addChild()
+     * Recebe os parametros abaixo e insere num array para uso fururo
+     * @RegistroRemAbstract $child = recebe um filho de RegistroRemAbstract
+     */
+    public function addChild(RegistroRemAbstract $child)
+    {
+        $this->children[] = $child;
+    }
+    
+
 }

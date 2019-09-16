@@ -289,7 +289,7 @@ class Registro3P extends Generico3 {
         $this->children[] = new $class($data);
         if (isset($data['codigo_desconto2']) ||
                 isset($data['codigo_desconto3']) ||
-                $data['codigo_multa'] != '' ||
+                isset($data['codigo_multa']) ||
                 isset($data['mensagem']) ||
                 isset($data['email_pagador'])) {
             $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
