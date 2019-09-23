@@ -1,6 +1,7 @@
 ﻿# OpenCnabPHP 
 <img src="https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master">
-
+Considere doar fundos para nos apoiar
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EE7CD4UZEL3A4&source=url)
 
 Project to generate reports created with the JasperSoft Studio application<br>
 Library pure php, without a java server or Jasper Server
