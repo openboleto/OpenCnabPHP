@@ -302,7 +302,7 @@ class Registro1 extends Generico1 {
                         . str_pad(RemessaAbstract::$entryData['codigo_beneficiario'], 5, 0, STR_PAD_LEFT)
                         . str_pad(strftime("%y", strtotime($this->entryData['data_emissao'])), 2, 0, STR_PAD_LEFT)
                         . 2
-                        . str_pad($value, 5, 0, STR_PAD_LEFT), 7);
+                        . str_pad($value, 5, 0, STR_PAD_LEFT));
         $this->data['nosso_numero'] = strftime("%y", strtotime($this->entryData['data_emissao'])) . 2 . str_pad($value, 5, 0, STR_PAD_LEFT) . $modulo11['digito'];
     }
 
