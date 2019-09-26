@@ -62,7 +62,8 @@ abstract class RetornoAbstract
         $this->children[] = new $class($lines[0]);
 
         $class = 'CnabPHP\resources\\B' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
-        $this->children[] = new $class($lines[count($lines) - 2]);
+        $linhasFiltradas = array_filter($lines); // Limpar a última linha em branco
+        $this->children[] = new $class($linhasFiltradas[count($linhasFiltradas) - 1]);
     }
 
     /**
