@@ -232,6 +232,23 @@ Acesse a url de exemplo:
             Beta
         </td>
     </tr>
+    <tr>
+        <td>
+            UniCred
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            -
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+    </tr>
 </table>
 
 ```php
