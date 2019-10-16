@@ -32,7 +32,7 @@ class Registro9 extends Generico9
 	protected $meta = array(
 		'codigo_banco'=>array(      //01.5
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'001',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(       //02.5
