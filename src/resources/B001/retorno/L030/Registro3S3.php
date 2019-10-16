@@ -32,7 +32,7 @@ class Registro3S3 extends Generico3
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3S
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'001',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(           // 2.3S
