@@ -60,8 +60,8 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
             call_user_func(array($this, 'set_' . $prop), $value);
         } else {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
-            if (($value == "" || $value === NULL) && $metaData[$prop]['default'] != "") {
-                $this->data[$prop] = $metaData[$prop]['default'];
+            if (($value == "" || $value === NULL) && $metaData['default'] != "") {
+                $this->data[$prop] = $metaData['default'];
             } else {
                 // atribui o valor da propriedade
                 $this->data[$prop] = $value;
