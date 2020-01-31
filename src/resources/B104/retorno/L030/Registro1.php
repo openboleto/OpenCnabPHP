@@ -23,8 +23,8 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
-use CnabPHP\resources\generico\remessa\cnab240\Generico1;
+namespace CnabPHP\resources\B104\retorno\L030;
+use CnabPHP\resources\generico\retorno\L030\Generico1;
 use CnabPHP\RetornoAbstract;
 
 class Registro1 extends Generico1

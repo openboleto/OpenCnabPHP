@@ -140,7 +140,7 @@ class Registro0 extends Generico0
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'situacao_arquivo'=>array(//23.0
+		'situacao_arquivo2'=>array(//23.0
 			'tamanho'=>20,
 			'default'=>' ',
 			'tipo'=>'alfa',
