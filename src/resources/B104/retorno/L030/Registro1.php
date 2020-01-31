@@ -24,7 +24,9 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\B104\retorno\L030;
+
 use CnabPHP\resources\generico\retorno\L030\Generico1;
+
 use CnabPHP\RetornoAbstract;
 
 class Registro1 extends Generico1

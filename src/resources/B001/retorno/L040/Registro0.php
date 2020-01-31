@@ -33,7 +33,7 @@ class Registro0 extends Generico0
 	protected $meta = array(
 		'codigo_banco'=>array(
 			'tamanho'=>3,
-			'default'=>'104',
+			'default'=>'001',
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_lote'=>array(
