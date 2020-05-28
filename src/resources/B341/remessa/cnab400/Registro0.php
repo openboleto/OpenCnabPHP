@@ -117,7 +117,7 @@ class Registro0 extends Generico0
 
     public function inserirDetalhe($data)
     {
-        if (array_key_exists('data_segundo_desconto', $data)) {
+        if (array_key_exists('data_desconto2', $data)) {
 
             $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro1_2D';
             $this->children[] = new $class($data);
