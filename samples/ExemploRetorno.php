@@ -26,9 +26,10 @@
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
 include("../autoloader.php");
-$fileContent = file_get_contents("CN07116A.RET");
+$fileContent = file_get_contents("CN07116A.ret");
 
 $arquivo = new Retorno($fileContent);
+var_dump($arquivo->getRegistrosRaiz());
 
 $registros = $arquivo->getRegistros();
 foreach($registros as $registro)
