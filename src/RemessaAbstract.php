@@ -23,7 +23,7 @@ abstract class RemessaAbstract {
     public function __construct($banco, $layout, $data) {
 
         self::$banco = $banco;
-        self::$layout = $layout;
+        self::$layout = strtolower($layout);
         $class = '\CnabPHP\resources\\B' . self::$banco . '\remessa\\' . self::$layout . '\Registro0';
         self::$entryData = $data;
         self::$hearder = new $class($data);
