@@ -31,7 +31,7 @@ require_once ("../autoloader.php");
 
 use CnabPHP\Remessa;
 
-$arquivo = new Remessa('341','cnab400',array(
+$arquivo = new Remessa('033','cnab240',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
@@ -41,6 +41,8 @@ $arquivo = new Remessa('341','cnab400',array(
     'conta_dv'     => (string)0, // digito da conta
     'posto' => '87', // codigo forncecido pelo sicredi obs: como o dv da agencia não é informado eu armazeno no banco de dados essa valor no dv da agencia
     'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
+    'convenio'     => '106608', // codigo fornecido pelo banco
+    'carteira'     => '123', // codigo fornecido pelo banco
     'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
     'numero_sequencial_arquivo'     => 1,
     'situacao_arquivo' =>'P', // use T para teste e P para produ��o
@@ -76,14 +78,15 @@ $lote->inserirDetalhe(array(
     'data_vencimento'   => '2018-04-09', // informar a data neste formato
     'data_emissao'      => '2018-04-09', // informar a data neste formato
     'vlr_juros'         => 0.15, // Valor do juros de 1 dia'
+    'codigo_desconto2'  => '1', // comentar se não for usar segundo desconto
     'data_desconto'     => '2016-04-09', // informar a data neste formato
-    'data_segundo_desconto'     => '2016-04-09', // informar a data neste formato
-    'data_terceiro_desconto'     => '2016-04-09', // informar a data neste formato
+    'data_desconto2'     => '2016-04-09', // informar a data neste formato
+    'data_desconto3'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
-    'vlr_segundo_desconto'      => '0', // Valor do desconto
-    'vlr_terceiro_desconto'      => '0', // Valor do desconto
+    'vlr_desconto2'      => '0', // Valor do desconto
+    'vlr_desconto3'      => '0', // Valor do desconto
     'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (Não Baixar / Não Devolver)
-    'prazo_baixa'       => 90, // prazo de dias para o cliente pagar após o vencimento
+    'prazo_baixar'       => 90, // prazo de dias para o cliente pagar após o vencimento
     'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa

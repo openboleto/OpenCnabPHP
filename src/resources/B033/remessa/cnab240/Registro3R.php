@@ -74,7 +74,7 @@ class Registro3R extends Generico3
             'required' => true
         ),
         // - ------------------ ate aqui é igual para todo registro tipo 3
-        'codigo_desconto' => array(
+        'codigo_desconto2' => array(
             'tamanho' => 1,
             'default' => '0',
             'tipo' => 'int',

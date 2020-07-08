@@ -122,7 +122,7 @@ $lote->inserirDetalhe(array(
     'data_desconto'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
     'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (Não Baixar / Não Devolver)
-    'prazo_baixa'       => 90, // prazo de dias para o cliente pagar após o vencimento
+    'prazo_baixar'       => 90, // prazo de dias para o cliente pagar após o vencimento
     'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa

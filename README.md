@@ -1,11 +1,10 @@
 ﻿# OpenCnabPHP 
 <img src="https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master">
 
+ACEITAMOS TRABALHO REMOTO!!!! - POR FAVOR AJUDEM NOS NESSA FASE DE CORONAVIRUS!!!
 Considere doar fundos para nos apoiar
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EE7CD4UZEL3A4&source=url)
 
-Project to generate reports created with the JasperSoft Studio application<br>
-Library pure php, without a java server or Jasper Server
 <ul>
 <li>
 Um arquivo remessaAbstract cuida das questões sobre arquivos em geral.
@@ -298,7 +297,7 @@ $lote->inserirDetalhe(array(
     'data_desconto'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
     'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (Não Baixar / Não Devolver)
-    'prazo_baixa'       => 90, // prazo de dias para o cliente pagar após o vencimento
+    'prazo_baixar'       => 90, // prazo de dias para o cliente pagar após o vencimento
     'mensagem'          => 'JUROS de R$0,15 ao dia'.PHP_EOL."Não receber apos 30 dias",
     'email_pagador'     => 'rogerio@ciatec.net', // data da multa
     'data_multa'        => '2016-04-09', // informar a data neste formato, // data da multa

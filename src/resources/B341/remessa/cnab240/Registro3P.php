@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -68,7 +68,7 @@ class Registro3P extends Generico3
 			'tipo'=>'int',
 			'required'=>true),
 			
-		// - ------------------ até aqui é igual para todo registro tipo 3
+		// - ------------------ atÃ© aqui Ã© igual para todo registro tipo 3
 
 		'agencia'=>array(               // 8.3P
 			'tamanho'=>5,
@@ -117,7 +117,7 @@ class Registro3P extends Generico3
 			'required'=>true),
 		'filler32'=>array(      //15.3P
 			'tamanho'=>8,
-			'default'=>' ',  // combrança com registro
+			'default'=>' ',  // combranÃ§a com registro
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler33'=>array(        //16.3P
@@ -125,9 +125,9 @@ class Registro3P extends Generico3
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-        'seu_numero'=>array(            //19.3P   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
+        'seu_numero'=>array(            //19.3P   Campo de preenchimento obrigatÃ³rio; preencher com Seu NÃºmero de controle do tÃ­tulo
             'tamanho'=>10,
-            'default'=>' ',      // este espaço foi colocado para passa a validação para os seters do generico
+            'default'=>' ',      // este espaÃ§o foi colocado para passa a validaÃ§Ã£o para os seters do generico
             'tipo'=>'alfa',
             'required'=>true),
 		'filler34'=>array(          // 17.3
@@ -258,14 +258,14 @@ class Registro3P extends Generico3
 	}
 	public function inserirDetalhe($data)
 	{
-		$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3Q';
+		$class = 'CnabPHP\resources\\B'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3Q';
 		$this->children[] = new $class($data);
 		if( isset($data['codigo_desconto2']) || 
 		isset($data['codigo_desconto3']) ||
 		isset($data['vlr_multa']) ||
 		isset($data['informacao_pagador']))
 		{
-			$class = 'CnabPHP\resources\\'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3R';
+			$class = 'CnabPHP\resources\\B'.RemessaAbstract::$banco.'\remessa\\'.RemessaAbstract::$layout.'\Registro3R';
 			$this->children[] = new $class($data);
 		}
 	}    

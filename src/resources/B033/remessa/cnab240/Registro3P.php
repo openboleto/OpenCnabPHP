@@ -1,4 +1,5 @@
 <?php
+
 /*
  * CnabPHP - Geração de arquivos de remessa e retorno em PHP
  *
@@ -23,6 +24,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace CnabPHP\resources\B033\remessa\cnab240;
 
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
@@ -30,8 +32,7 @@ use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 use CnabPHP\Exception;
 
-class Registro3P extends Generico3
-{
+class Registro3P extends Generico3 {
 
     protected $meta = array(
         'codigo_banco' => array(
@@ -348,8 +349,7 @@ class Registro3P extends Generico3
      * Sobrescreve a informação do Nosso Número incluindo o DV ao final
      * @param int $value
      */
-    protected function set_nosso_numero($value)
-    {
+    protected function set_nosso_numero($value) {
         $this->data['nosso_numero'] = $value . self::modulo11($value);
     }
 
@@ -357,8 +357,7 @@ class Registro3P extends Generico3
      * Sobrescreve a informação do Beneficiário com os dados da Conta, orientações Santander
      * @param int $value
      */
-    protected function set_codigo_beneficiario($value)
-    {
+    protected function set_codigo_beneficiario($value) {
         $this->data['codigo_beneficiario'] = RemessaAbstract::$entryData['conta'];
     }
 
@@ -366,28 +365,27 @@ class Registro3P extends Generico3
      * Sobrescreve a informação do BeneficiárioDv com os dados da ContaDv, orientações Santander
      * @param int $value
      */
-    protected function set_codigo_beneficiario_dv($value)
-    {
+    protected function set_codigo_beneficiario_dv($value) {
         $this->data['codigo_beneficiario_dv'] = RemessaAbstract::$entryData['conta_dv'];
     }
 
-    public function __construct($data = null)
-    {
+    public function __construct($data = null) {
         if (empty($this->data))
             parent::__construct($data);
         $this->inserirDetalhe($data);
     }
 
-    public function inserirDetalhe($data)
-    {
-        $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Q';
-        $this->children[] = new $class($data);
-        if (isset($data['codigo_desconto2']) ||
-            isset($data['codigo_desconto3']) ||
-            isset($data['vlr_multa']) ||
-            isset($data['informacao_pagador'])) {
-            $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
+    public function inserirDetalhe($data) {
+        if ((int) $data['codigo_movimento'] != 2) {
+            $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . strtolower(RemessaAbstract::$layout) . '\Registro3Q';
             $this->children[] = new $class($data);
+            if (isset($data['codigo_desconto2']) ||
+                    isset($data['codigo_desconto3']) ||
+                    isset($data['vlr_multa']) ||
+                    isset($data['informacao_pagador'])) {
+                $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . strtolower(RemessaAbstract::$layout) . '\Registro3R';
+                $this->children[] = new $class($data);
+            }
         }
     }
 
@@ -396,8 +394,7 @@ class Registro3P extends Generico3
      * @param int $index
      * @return int
      */
-    protected static function modulo11($num, $base=9, $r=0)
-    {
+    protected static function modulo11($num, $base = 9, $r = 0) {
 
         $soma = 0;
         $fator = 2;
@@ -405,7 +402,7 @@ class Registro3P extends Generico3
         // Separacao dos numeros
         for ($i = strlen($num); $i > 0; $i--) {
             // pega cada numero isoladamente
-            $numeros[$i] = substr($num,$i-1,1);
+            $numeros[$i] = substr($num, $i - 1, 1);
             // Efetua multiplicacao do numero pelo falor
             $parcial[$i] = $numeros[$i] * $fator;
             // Soma dos digitos
@@ -425,9 +422,10 @@ class Registro3P extends Generico3
                 $digito = 0;
             }
             return $digito;
-        } elseif ($r == 1){
+        } elseif ($r == 1) {
             $resto = $soma % 11;
             return $resto;
         }
     }
+
 }
