@@ -41,7 +41,7 @@ $arquivo = new Remessa("001",'cnab240',array(
 		'nome_empresa' 		=>	"Empresa ABC", // seu nome de empresa
 		'numero_sequencial_arquivo'	=>	'00000', //Deve ter no máximo 5 dígitos, pode ficar com zeros.
 		'convenio'	=> '106608', // codigo fornecido pelo banco
-	  'carteira'	=> '17', // codigo fornecido pelo banco
+		'carteira'	=> '17', // codigo fornecido pelo banco
 		'situacao_arquivo' =>'' // Deve ficar em branco para ser aceito. (TS para testes)
 ));
 $lote  = $arquivo->addLote(array(
