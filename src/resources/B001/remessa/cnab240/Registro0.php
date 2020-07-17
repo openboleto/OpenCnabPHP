@@ -146,9 +146,19 @@ class Registro0 extends Generico0
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler5'=>array(
-			'tamanho'=>29,
+			'tamanho'=>14,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
+		'filler6'=>array(		//Caso a versão do leiaute seja 30,
+			'tamanho'=>3,			//Deve ser preenchido com 'zeros' nas posições 226 a 228.
+			'default'=>'000',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler7'=>array(
+			'tamanho'=>12,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true)
 	);
 }
