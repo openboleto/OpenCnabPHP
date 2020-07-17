@@ -52,7 +52,7 @@ class Registro5 extends Generico5
 			'required'=>true),
 		'qtd_registros'=>array(      //05.5
 			'tamanho'=>6,
-			'default'=>' ',
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler3'=>array(           //13.5
