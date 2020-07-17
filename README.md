@@ -1,5 +1,5 @@
 ﻿# OpenCnabPHP 
-<img src="https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master">
+[![Build Status](https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master)](https://travis-ci.org/QuilhaSoft/OpenCnabPHP)
 
 ACEITAMOS TRABALHO REMOTO!!!! - POR FAVOR AJUDEM NOS NESSA FASE DE CORONAVIRUS!!!
 Considere doar fundos para nos apoiar
