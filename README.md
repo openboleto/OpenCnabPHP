@@ -248,8 +248,7 @@ Acesse a url de exemplo:
             Homologado
         </td>
     </tr>
-</table>
-
+</table> 
 ```php
 <?php
 use \CnabPHP\Remessa;
