@@ -127,7 +127,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'versao_layout'=>array(//20.0
 			'tamanho'=>3,
-			'default'=>'030',
+			'default'=>'000',
 			'tipo'=>'int',
 			'required'=>true),
 		'densidade_gravacao'=>array(//21.0
