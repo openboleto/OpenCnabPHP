@@ -43,6 +43,8 @@ $arquivo = new Remessa("001",'cnab240',array(
 		'convenio'	=> '106608', // codigo fornecido pelo banco
 		'carteira'	=> '17', // codigo fornecido pelo banco
 		'situacao_arquivo' =>'' // Deve ficar em branco para ser aceito. (TS para testes)
+		'uso_bb1' => '009999999001411222' //Deve ter 18 dígitos
+		//Deve ser preenchido no seguinte formato: convênio + 0014 + carteira + variação da carteira, com zeros a esquerda
 ));
 $lote  = $arquivo->addLote(array(
 		'tipo_servico'=> '1', //1 para cobrança registrada, 2 para sem registro
