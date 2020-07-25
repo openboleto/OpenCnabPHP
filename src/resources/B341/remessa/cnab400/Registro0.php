@@ -122,7 +122,10 @@ class Registro0 extends Generico0
             $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro1_2D';
             $this->children[] = new $class($data);
         } else {
-            $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro1';
+
+            $codigo_movimento = $data['codigo_movimento'];
+
+            $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro' . $codigo_movimento;
             $this->children[] = new $class($data);
         }
     }
