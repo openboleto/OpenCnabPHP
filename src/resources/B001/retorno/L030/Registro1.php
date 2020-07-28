@@ -170,7 +170,7 @@ class Registro1 extends Generico1
 	public function __construct($linhaTxt)
 	{
 		parent::__construct($linhaTxt);
-		$this->inserirDetalhe();
+		$this->inserirDetalhe($linhaTxt);
 	}
 	/*
 	* método inserirDetalhe()
@@ -183,7 +183,7 @@ class Registro1 extends Generico1
 			RetornoAbstract::$linesCounter++;
 			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3T';
 			$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-			
+
 		}
 		RetornoAbstract::$linesCounter--;
 		$teste = array_pop($this->children);
