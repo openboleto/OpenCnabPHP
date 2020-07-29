@@ -205,7 +205,7 @@ Acesse a url de exemplo:
             Cnab400
         </td>
         <td>
-            Beta
+            Homologado
         </td>
         <td>
             Cnab400
