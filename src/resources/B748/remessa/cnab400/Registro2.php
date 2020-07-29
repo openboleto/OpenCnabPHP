@@ -45,9 +45,10 @@ class Registro2 extends Generico2 {
             'required' => false),
         'seu_numero' => array(
             'tamanho' => 10,
-            'default' => ' ',
+            'default' => '0000000000',
             'tipo' => 'alfa',
-            'required' => false),
+            'required' => false
+        ),
         'filler' => array(
             'tamanho' => 43,
             'default' => ' ',
@@ -92,7 +93,7 @@ class Registro2 extends Generico2 {
                         . str_pad(strftime("%y", strtotime($this->data_emissao)), 2, 0, STR_PAD_LEFT)
                         . 2
                         . str_pad($this->data['nosso_numero'], 5, 0, STR_PAD_LEFT), 7);
-        return strftime("%y", strtotime($this->data_emissao)) . 2 . str_pad($this->data['nosso_numero'], 5, 0, STR_PAD_LEFT) . $modulo11['digito'];
+        return strftime("%y", strtotime($this->entryData['data_emissao'])) . $this->entryData['seu_byte'] . str_pad($this->data['nosso_numero'], 5, 0, STR_PAD_LEFT) . $modulo11['digito'];
     }
 
     protected static function modulo11($num, $base = 9) {
