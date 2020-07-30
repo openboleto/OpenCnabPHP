@@ -345,7 +345,7 @@ class Registro3P extends Generico3 {
     }
 
     protected static function modulo11($index, $ag, $conv) {
-        $sequencia = str_pad($ag, 4, 0, STR_PAD_LEFT) . str_pad($conv, 10, 0, STR_PAD_LEFT) . str_pad($index, 3, 0, STR_PAD_LEFT);
+        $sequencia = str_pad($ag, 4, 0, STR_PAD_LEFT) . str_pad($conv, 10, 0, STR_PAD_LEFT) . str_pad($index, 7, 0, STR_PAD_LEFT);
         $cont = 0;
         $calculoDv = 0;
         for ($num = 0; $num <= strlen($sequencia); $num++) {
