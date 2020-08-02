@@ -22,7 +22,7 @@ class Registro2 extends Generico2
             'tipo'=>'date',
             'required'=>true),
         'vlr_multa'=>array(            //29.3P
-            'tamanho'=>11,
+            'tamanho'=>13,
             'default'=>'0',
             'tipo'=>'decimal',
             'precision'=>2,
