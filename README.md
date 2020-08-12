@@ -1,7 +1,6 @@
 ﻿# OpenCnabPHP 
 [![Build Status](https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master)](https://travis-ci.org/QuilhaSoft/OpenCnabPHP)
 
-ACEITAMOS TRABALHO REMOTO!!!! - POR FAVOR AJUDEM NOS NESSA FASE DE CORONAVIRUS!!!
 Considere doar fundos para nos apoiar
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EE7CD4UZEL3A4&source=url)
 
