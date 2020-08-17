@@ -113,6 +113,23 @@ Acesse a url de exemplo:
     </tr>
     <tr>
         <td>
+            Caixa
+        </td>
+        <td>
+            Cnab240_Transf
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab240_Transf
+        </td>
+        <td>
+            --
+        </td>
+    </tr>
+    <tr>
+        <td>
             Itau
         </td>
         <td>
