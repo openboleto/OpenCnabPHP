@@ -93,7 +93,11 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop] == '' ? $metaData['default'] : $this->data[$prop];
             if ($metaData['required'] == true && ($this->data[$prop] == '' || !isset($this->data[$prop]))) {
-                throw new Exception('Campo faltante ou com valor nulo:' . $prop . " Boleto Numero:" . $this->data['nosso_numero']);
+                if(isset($this->data['nosso_numero'])) { 
+                    throw new Exception('Campo faltante ou com valor nulo:' . $prop . " Boleto Numero:" . $this->data['nosso_numero']);
+                } else {
+                    throw new Exception('Campo faltante ou com valor nulo:' . $prop);
+                }
             }
             switch ($metaData['tipo']) {
                 case 'decimal':

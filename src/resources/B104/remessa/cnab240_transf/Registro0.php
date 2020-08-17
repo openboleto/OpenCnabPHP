@@ -171,7 +171,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'reservado_empresa'=>array(//23.0
 			'tamanho'=>20,
-			'default'=>'',
+			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler6'=>array(//24.0

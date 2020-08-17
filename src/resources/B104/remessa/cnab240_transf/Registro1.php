@@ -47,17 +47,17 @@ class Registro1 extends Generico1
 			'required'=>true),
 		'operacao'=>array(//04.1
 			'tamanho'=>1,
-			'default'=>'R',
+			'default'=>'C', // C Compromisso de pagamento - D Compromisso de recebimento
 			'tipo'=>'alfa',
 			'required'=>true),
-		'tipo_servico'=>array(//05.1
+		'tipo_servico_transf'=>array(//05.1
 			'tamanho'=>2,
 			'default'=>'01',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler1'=>array(//06.1
+		'forma_lancamento'=>array(//06.1
 			'tamanho'=>2,
-			'default'=>'0',
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'versa_layout'=>array(//07.1
@@ -87,7 +87,7 @@ class Registro1 extends Generico1
 			'required'=>true),
 		'tipo_compromisso'=>array(//11.1
 			'tamanho'=>2,
-			'default'=>'0',
+			'default'=>'', //01 Pagamento a Fornecedor - 02 Pagamento de Salarios - 03 Autopagamento - 06 Salario Ampliacao de Base - 11 Debito em Conta			
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_compromisso'=>array(//11.1
@@ -112,8 +112,8 @@ class Registro1 extends Generico1
 			'required'=>true),
 		'agencia_dv'=>array(//13.1
 			'tamanho'=>1,
-			'default'=>' ',
-			'tipo'=>'alfa',
+			'default'=>'',
+			'tipo'=>'int',
 			'required'=>true),
 		'conta' => array(//14.1
 			'tamanho' => 12,
@@ -145,14 +145,14 @@ class Registro1 extends Generico1
 			'default' => '',
 			'tipo' => 'alfa',
 			'required' => true),
-		'numero' => array(//20.1
+		'numero_endereco' => array(//20.1
 			'tamanho' => 5,
 			'default' => '',
 			'tipo' => 'int',
 			'required' => true),
 		'complemento' => array(//21.1
 			'tamanho' => 15,
-			'default' => '',
+			'default' => ' ',
 			'tipo' => 'alfa',
 			'required' => true),
 		'cidade' => array(//22.1
@@ -182,7 +182,7 @@ class Registro1 extends Generico1
 			'required' => true),
 		'ocorrencias' => array(//27.1
 			'tamanho' => 10,
-			'default' => '',
+			'default' => ' ',
 			'tipo' => 'alfa',
 			'required' => true),
 	);

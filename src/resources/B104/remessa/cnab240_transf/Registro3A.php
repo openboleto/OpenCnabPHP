@@ -72,7 +72,7 @@ class Registro3A extends Generico3 {
             'required' => true),
         'codigo_camera' => array(// 8.3A
             'tamanho' => 3,
-            'default' => '700', // 018 para TED - 700 para DOC
+            'default' => '', // 018 TED - 700 DOC/OP - 000 Credito em Conta - 888 Boleted/ISPB 
             'tipo' => 'int',
             'required' => true),
         'cod_banco_fav' => array(// 9.3A
@@ -112,7 +112,7 @@ class Registro3A extends Generico3 {
             'required' => true),
         'num_atribuido_empresa' => array(//16.3A
             'tamanho' => 6,
-            'default' => '0',
+            'default' => '',
             'tipo' => 'int',
             'required' => true),
         'filler2' => array(//16.3A
@@ -122,7 +122,7 @@ class Registro3A extends Generico3 {
             'required' => true),
         'tipo_conta_ted' => array(//16.3A
             'tamanho' => 1,
-            'default' => '1', // 1 – Conta corrente; 2 – Poupança;
+            'default' => ' ', // 1 – Conta corrente; 2 – Poupança;
             'tipo' => 'int',
             'required' => true),
         'data_pagamento' => array(// 17.3
@@ -174,7 +174,7 @@ class Registro3A extends Generico3 {
             'required' => true),
         'dia_vencimento' => array(//21.3A
             'tamanho' => 2,
-            'default' => '27',
+            'default' => '0',
             'tipo' => 'int',
             'required' => true),
         'numero_parcela' => array(//21.3A
@@ -200,7 +200,7 @@ class Registro3A extends Generico3 {
             'required' => true),
         'cod_finalidade_doc' => array(//25.3A
             'tamanho' => 2,
-            'default' => '01',
+            'default' => '00',
             'tipo' => 'alfa',
             'required' => true),
         'filler5' => array(//28.3A

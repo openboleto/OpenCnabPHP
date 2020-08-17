@@ -82,7 +82,7 @@ class Registro3B extends Generico3 {
 			'required'=>true),
 		'complemento'=>array(           //11.3B
 			'tamanho'=>15,
-			'default'=>'',
+			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'bairro'=>array(      			//12.3B   
@@ -97,7 +97,7 @@ class Registro3B extends Generico3 {
 			'required'=>true),
 		'cep'=>array(   				//14.3B
 			'tamanho'=>5,
-			'default'=>'0',
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'complemento_cep'=>array(      	//15.3B
@@ -110,11 +110,11 @@ class Registro3B extends Generico3 {
 			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'data_vencimento_nominal' => array(// 17.3B
+		'data_pagamento' => array(// 17.3B
 			'tamanho' => 8,
-			'default' => '',
-			'tipo' => 'date',
-			'required' => true),
+            'default' => '0',
+            'tipo' => 'date',
+            'required' => true),
 		'valor_documento_nominal' => array(//18.3B
 			'tamanho' => 13,
 			'default' => '0',
@@ -147,7 +147,7 @@ class Registro3B extends Generico3 {
 			'required' => true),
 		'codigo_favorecido'=>array(		//23.3B
 			'tamanho'=>15,
-			'default'=>'',
+			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'aviso_fav'=>array(  			//24.3B
