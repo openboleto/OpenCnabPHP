@@ -31,7 +31,7 @@ require_once ("../autoloader.php");
 
 use CnabPHP\Remessa;
 
-$arquivo = new Remessa('033','cnab240',array(
+$arquivo = new Remessa('104','cnab240_sigcb',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao' => '123.122.123-56', // seu cpf ou cnpj completo
@@ -83,7 +83,7 @@ $lote->inserirDetalhe(array(
     'data_desconto2'     => '2016-04-09', // informar a data neste formato
     'data_desconto3'     => '2016-04-09', // informar a data neste formato
     'vlr_desconto'      => '0', // Valor do desconto
-    'vlr_desconto2'      => '0', // Valor do desconto
+    'vlr_desconto2'      => 95.52, // Valor do desconto
     'vlr_desconto3'      => '0', // Valor do desconto
     'baixar'            => 1, // codigo para indicar o tipo de baixa '1' (Baixar/ Devolver) ou '2' (Não Baixar / Não Devolver)
     'prazo_baixar'       => 90, // prazo de dias para o cliente pagar após o vencimento
