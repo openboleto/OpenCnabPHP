@@ -141,8 +141,8 @@ class Especie {
         $this->sicredi['G'] = array('abr' => "RC", 'txt' => 'Recibo');
         $this->sicredi['H'] = array('abr' => "LC", 'txt' => 'Letra de Câmbio');
         $this->sicredi['I'] = array('abr' => "ND", 'txt' => 'Nota de Débito');
-        $this->sicredi['J'] = array('abr' => "TS", 'txt' => 'Triplicata de Serviço');
-        $this->sicredi['K'] = array('abr' => "DIV", 'txt' => 'Outros');
+        $this->sicredi['J'] = array('abr' => "DSI", 'txt' => 'Duplicata de Serviço por Indicação');
+        $this->sicredi['K'] = array('abr' => "OS", 'txt' => 'Outros');
 
         $this->santander[1] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
         $this->santander[2] = array('abr' => "NP", 'txt' => 'Nota Promissória');
