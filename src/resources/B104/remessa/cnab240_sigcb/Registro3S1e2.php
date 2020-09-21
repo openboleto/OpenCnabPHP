@@ -23,43 +23,77 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B001\remessa\cnab240;
-use CnabPHP\resources\generico\remessa\cnab240\Generico5;
+namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
+use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use Exception;
 
-class Registro5 extends Generico5
+class Registro3S1e2 extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(      //01.5
+		'codigo_banco'=>array(          // 1.3S
 			'tamanho'=>3,
-			'default'=>'001',
+			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(       //02.5
+		'codigo_lote'=>array(           // 2.3S
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(     //03.5
+		'tipo_registro'=>array(         // 3.3S
 			'tamanho'=>1,
-			'default'=>'5',
+			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler1'=>array(          //04.5
-			'tamanho'=>9,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'qtd_registros'=>array(      //05.5
-			'tamanho'=>6,
+		'numero_registro'=>array(       // 4.3S
+			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler3'=>array(           //13.5
-			'tamanho'=>217,
+		'seguimento'=>array(            // 5.3S
+			'tamanho'=>1,
+			'default'=>'S',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler1'=>array(               // 6.3S
+			'tamanho'=>1,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'codigo_movimento'=>array(      // 7.3S
+			'tamanho'=>2,
+			'default'=>'01', // entrada de titulo
+			'tipo'=>'int',
+			'required'=>true),
+			
+			// - ------------------ até aqui é igual para todo registro tipo 3
+			
+		'tipo_impressao'=>array(               // 8.3S
+			'tamanho'=>1,
+			'default'=>'0',
+			'tipo'=>'int',
+			'required'=>true),
+		'filler'=>array(            // 9.3S
+			'tamanho'=>2,
+			'default'=>'0',
+			'tipo'=>'date',
+			'required'=>true),
+		'mensagem_140'=>array(       //10.3S
+			'tamanho'=>140,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler2'=>array(               // 11.3S
+			'tamanho'=>2,
+			'default'=>'0',
+			'tipo'=>'int',
+			'required'=>true),
+		'filler3'=>array(               //12.3S
+			'tamanho'=>78,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
 }
+
 ?>

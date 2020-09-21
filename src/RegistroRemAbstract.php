@@ -93,15 +93,23 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop] == '' ? $metaData['default'] : $this->data[$prop];
             if ($metaData['required'] == true && ($this->data[$prop] == '' || !isset($this->data[$prop]))) {
-                throw new Exception('Campo faltante ou com valor nulo:' . $prop . " Boleto Numero:" . $this->data['nosso_numero']);
+                if (isset($this->data['nosso_numero'])) {
+                    throw new Exception('Campo faltante ou com valor nulo:' . $prop . " Boleto Numero:" . $this->data['nosso_numero']);
+                } else {
+                    throw new Exception('Campo faltante ou com valor nulo:' . $prop);
+                }
             }
+            set_error_handler(function ($severity, $message, $file, $line,$errcontext) {
+                throw new \ErrorException(json_encode($errcontext)."->".$message, $severity, $severity, $file, $line);
+            });
+
             switch ($metaData['tipo']) {
                 case 'decimal':
                     $retorno = (($this->data[$prop] && trim($this->data[$prop]) !== "" ? number_format($this->data[$prop], $metaData['precision'], '', '') : (isset($metaData['default']) ? $metaData['default'] : '')));
                     return str_pad($retorno, $metaData['tamanho'] + $metaData['precision'], '0', STR_PAD_LEFT);
                 case 'int':
-					$retorno = (isset($this->data[$prop]) && trim($this->data[$prop]) !== "" ? number_format($this->data[$prop], 0, '', '') : (isset($metaData['default']) ? $metaData['default'] : ''));
-					return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
+                    $retorno = (isset($this->data[$prop]) && trim($this->data[$prop]) !== "" ? number_format($this->data[$prop], 0, '', '') : (isset($metaData['default']) ? $metaData['default'] : ''));
+                    return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
                 case 'alfa':
                     $retorno = (isset($this->data[$prop])) ? $this->prepareText($this->data[$prop]) : '';
                     return $this->mb_str_pad(mb_substr($retorno, 0, $metaData['tamanho'], "UTF-8"), $metaData['tamanho'], ' ', STR_PAD_RIGHT);
@@ -120,11 +128,12 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
                 default:
                     return null;
             }
+            restore_error_handler();
         }
     }
 
     public function getFileName() {
-        return 'R' . RemessaAbstract::$banco  . str_pad($this->entryData['numero_sequencial_arquivo'],4,'0',STR_PAD_LEFT) . '.rem';
+        return 'R' . RemessaAbstract::$banco . str_pad($this->entryData['numero_sequencial_arquivo'], 4, '0', STR_PAD_LEFT) . '.rem';
     }
 
 }

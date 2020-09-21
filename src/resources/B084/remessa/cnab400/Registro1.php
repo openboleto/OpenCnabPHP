@@ -269,10 +269,6 @@ class Registro1 extends Generico1
         $this->data['codigo_multa'] = ($value>0)?2:0;
     }
 
-    protected function set_especie_titulo($value)
-    {
-        $this->data['especie_titulo'] = $value;
-    }
 
     protected function set_nosso_numero_dv($value)
     {

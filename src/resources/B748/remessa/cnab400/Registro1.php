@@ -13,258 +13,308 @@ class Registro1 extends Generico1 {
             'tamanho' => 1,
             'default' => '1',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'tipo_servico' => array(
             'tamanho' => 1,
             'default' => 'A',
             'tipo' => 'alfa',
-            'required' => true),
-        'tipo_carteira' => array(// nomeado assim por ser uma constante para arquivos com registro, e o declinio de sem registro e impressão pelo banco
+            'required' => true
+        ),
+        'tipo_carteira' => array( // nomeado assim por ser uma constante para arquivos com registro, e o declinio de sem registro e impressão pelo banco
             'tamanho' => 1,
             'default' => 'A',
             'tipo' => 'alfa',
-            'required' => true),
-        'tipo_impressao' => array(// fixo 'A' para impressão normal, aparentemente só usado se for impressão pelo banco
+            'required' => true
+        ),
+        'tipo_impressao' => array( // fixo 'A' para impressão normal, aparentemente só usado se for impressão pelo banco
             'tamanho' => 1,
             'default' => 'A',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'filler0' => array(
             'tamanho' => 12,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'tipo_moeda' => array(
             'tamanho' => 1,
             'default' => 'A',
             'tipo' => 'alfa',
-            'required' => true),
-        'tipo_desconto' => array(// fixo 'B' por percentual, se quizer mudar inclua no array inserirDetalhe com a instrução 'A'
+            'required' => true
+        ),
+        'tipo_desconto' => array( // fixo 'B' por percentual, se quizer mudar inclua no array inserirDetalhe com a instrução 'A'
             'tamanho' => 1,
             'default' => 'B',
             'tipo' => 'alfa',
-            'required' => false),
-        'tipo_juros' => array(// fixo 'B' por percentual, se quizer mudar inclua no array inserirDetalhe com a instrução 'A'
+            'required' => false
+        ),
+        'tipo_juros' => array( // fixo 'B' por percentual, se quizer mudar inclua no array inserirDetalhe com a instrução 'A'
             'tamanho' => 1,
             'default' => 'B',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'filler01' => array(
             'tamanho' => 28,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'nosso_numero' => array(
             'tamanho' => 9,
             'default' => '0',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'filler02' => array(
             'tamanho' => 6,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'data_instrucao' => array(
             'tamanho' => 8,
             'default' => '',
             'tipo' => 'dateReverse',
-            'required' => true),
+            'required' => true
+        ),
         'campo_alterado' => array(
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'postagem_titulo' => array(
             'tamanho' => 1,
             'default' => 'N',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'filler03' => array(
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
-        'emissao_boleto' => array(// impressão do boleto pelo cliente
+            'required' => true
+        ),
+        'emissao_boleto' => array( // impressão do boleto pelo cliente
             'tamanho' => 1,
             'default' => 'B',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'parcela' => array(
             'tamanho' => 2,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'total_parcela' => array(
             'tamanho' => 2,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler04' => array(
             'tamanho' => 4,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'valor_desconto_dia' => array(
             'tamanho' => 8,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'taxa_multa' => array(
             'tamanho' => 2,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'filler05' => array(
             'tamanho' => 12,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
-        'codigo_movimento' => array(// 2 = ignora
+            'required' => true
+        ),
+        'codigo_movimento' => array( // 2 = ignora
             'tamanho' => 2,
             'default' => '1',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'seu_numero' => array(
             'tamanho' => 10,
             'default' => ' ',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'data_vencimento' => array(
             'tamanho' => 6,
             'default' => '',
             'tipo' => 'date',
-            'required' => true),
+            'required' => true
+        ),
         'valor' => array(
             'tamanho' => 11,
             'default' => '',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'filler06' => array(
             'tamanho' => 9,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'especie_titulo' => array(
             'tamanho' => 1,
             'default' => 'C',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'aceite' => array(
             'tamanho' => 1,
             'default' => 'N',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'data_emissao' => array(
             'tamanho' => 6,
             'default' => '0',
             'tipo' => 'date',
-            'required' => true),
+            'required' => true
+        ),
         'protestar' => array(
             'tamanho' => 2,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'prazo_protesto' => array(
             'tamanho' => 2,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'taxa_juros' => array(
             'tamanho' => 11,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'data_desconto' => array(
             'tamanho' => 6,
             'default' => '0',
             'tipo' => 'date',
-            'required' => true),
+            'required' => true
+        ),
         'taxa_desconto' => array(
             'tamanho' => 11,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'filler07' => array(
             'tamanho' => 13,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'vlr_abatimento' => array(
             'tamanho' => 11,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
-            'required' => true),
+            'required' => true
+        ),
         'tipo_inscricao' => array(
             'tamanho' => 1,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler08' => array(
             'tamanho' => 1,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'numero_inscricao' => array(
             'tamanho' => 14,
             'default' => '',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'nome_pagador' => array(
             'tamanho' => 40,
             'default' => '',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'endereco_pagador' => array(
             'tamanho' => 40,
             'default' => '',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'codigo_pagador_banco' => array(
             'tamanho' => 5,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler09' => array(
             'tamanho' => 6,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'filler10' => array(
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'cep_pagador' => array(
             'tamanho' => 8,
             'default' => '',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'codigo_pagador' => array(
             'tamanho' => 5,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
         'numero_inscricao_avalista' => array(
             'tamanho' => 14,
-            'default' => '0',
-            'tipo' => 'int',
-            'required' => true),
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
         'nome_avalista' => array(
             'tamanho' => 41,
             'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true),
+            'required' => true
+        ),
         'numero_registro' => array(
             'tamanho' => 6,
             'default' => '0',
             'tipo' => 'int',
-            'required' => true),
+            'required' => true
+        ),
     );
 
     public function __construct($data = null) {

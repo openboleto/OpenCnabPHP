@@ -23,51 +23,31 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B001\retorno\L030;
-use CnabPHP\resources\generico\retorno\L030\Generico1;
+namespace CnabPHP\resources\B756\retorno\L087; // SIGCB
+use CnabPHP\resources\generico\retorno\L040\Generico0;
 use CnabPHP\RetornoAbstract;
 
-class Registro1 extends Generico1
+class Registro0 extends Generico0
 {
 	public $trailler;
 	protected $meta = array(
-		'codigo_banco'=>array(// 01.1
+		'codigo_banco'=>array(
 			'tamanho'=>3,
-			'default'=>'001',
+			'default'=>'756',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(// 02.1
+		'codigo_lote'=>array(
 			'tamanho'=>4,
-			'default'=>1,
+			'default'=>'0000',
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(// 03.1
+		'tipo_registro'=>array(
 			'tamanho'=>1,
-			'default'=>1,
+			'default'=>'1',
 			'tipo'=>'int',
 			'required'=>true),
-		'operacao'=>array(// 04.1
-			'tamanho'=>1,
-			'default'=>'T',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'tipo_servico'=>array(// 05.1
-			'tamanho'=>2,
-			'default'=>'01',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler1'=>array(// 06.1
-			'tamanho'=>2,
-			'default'=>' ',
-			'tipo'=>'int',
-			'required'=>true),
-		'versao_layout'=>array(
-			'tamanho'=>3,
-			'default'=>'000',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler2'=>array(
-			'tamanho'=>1,
+		'filler1'=>array(
+			'tamanho'=>9,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
@@ -77,33 +57,13 @@ class Registro1 extends Generico1
 			'tipo'=>'int',
 			'required'=>true),
 		'numero_inscricao'=>array(
-			'tamanho'=>15,
+			'tamanho'=>14,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'convenio'=>array(
-			'tamanho'=>9,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'cobranca_cedente'=>array(
-			'tamanho'=>4,
-			'default'=>'0014',
-			'tipo'=>'int',
-			'required'=>true),
-		'carteira_cobranca'=>array(
-			'tamanho'=>2,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'carteira_cobranca_dv'=>array(
-			'tamanho'=>3,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler3'=>array(
-			'tamanho'=>2,
-			'default'=>' ',
+		'uso_caixa1'=>array(
+			'tamanho'=>20,
+			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
 		'agencia'=>array(
@@ -114,20 +74,15 @@ class Registro1 extends Generico1
 		'agencia_dv'=>array(
 			'tamanho'=>1,
 			'default'=>'',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
-		'conta'=>array(
-			'tamanho'=>12,
+		'codigo_beneficiario'=>array(
+			'tamanho'=>6,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'conta_dv'=>array(
-			'tamanho'=>1,
-			'default'=>'',
-			'tipo'=>'alfa',
-			'required'=>true),
 		'uso_caixa2'=>array(
-			'tamanho'=>1,
+			'tamanho'=>8,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
@@ -136,59 +91,84 @@ class Registro1 extends Generico1
 			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'mensagem_fixa1'=>array(// mensagem 1: somente use para mensagens que serao impressas de forma identica em todos os boletos do lote
-			'tamanho'=>40,
+		'nome_banco'=>array(
+			'tamanho'=>30,
+			'default'=>'',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler3'=>array(
+			'tamanho'=>10,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'mensagem_fixa2'=>array(// mensagem 1: somente use para mensagens que serao impressas de forma identica em todos os boletos do lote
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'numero_remessa'=>array(
-			'tamanho'=>8,
+		'codigo_remessa'=>array(
+			'tamanho'=>1,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_gravacao'=>array(
+		'data_geracao'=>array(
 			'tamanho'=>8,
 			'default'=>'',
 			'tipo'=>'date',
 			'required'=>true),
-		'data_credito'=>array(
-			'tamanho'=>8,
-			'default'=>' ',
-			'tipo'=>'date',
+		'hora_geracao'=>array(
+			'tamanho'=>6,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'numero_sequencial_arquivo'=>array(
+			'tamanho'=>6,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'versao_layout'=>array(
+			'tamanho'=>3,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'densidade_gravacao'=>array(
+			'tamanho'=>5,
+			'default'=>'0',
+			'tipo'=>'int',
 			'required'=>true),
 		'filler4'=>array(
-			'tamanho'=>33,
+			'tamanho'=>20,
 			'default'=>' ',
 			'tipo'=>'alfa',
-			'required'=>true)
+			'required'=>true),
+		'situacao_arquivo'=>array(
+			'tamanho'=>20,
+			'default'=>'',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'versao_aplicativo'=>array(
+			'tamanho'=>4,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler5'=>array(
+			'tamanho'=>25,
+			'default'=>' ',
+			'tipo'=>'alfa',
+			'required'=>true),
 	);
 	public function __construct($linhaTxt)
 	{
 		parent::__construct($linhaTxt);
-		$this->inserirDetalhe($linhaTxt);
+		RetornoAbstract::$linesCounter++;
+		$this->inserirDetalhe();
 	}
-	/*
-	* método inserirDetalhe()
-	* Recebe os parametros
-	* @$data = um array contendo os dados nessesarios para o arquvio
-	*/
-	public function inserirDetalhe($data){
-		while($this->data['codigo_lote']==abs(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter],3,4)))
+	public function inserirDetalhe()
+	{
+		while(RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines)-4))
 		{
-			RetornoAbstract::$linesCounter++;
-			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3T';
-			$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
 
+			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
+			$lote = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro5';
+			$lote->trailler = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+			$this->children[] = $lote;
 		}
-		RetornoAbstract::$linesCounter--;
-		$teste = array_pop($this->children);
 	}
-
 }
-
 ?>
