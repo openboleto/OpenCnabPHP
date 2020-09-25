@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B104\retorno\L080;
+namespace CnabPHP\resources\B104\retorno\transf;
 use CnabPHP\resources\generico\retorno\L040\Generico3;
 use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
@@ -215,33 +215,5 @@ class Registro3A extends Generico3
             'tipo' => 'alfa',
             'required' => true),
     );
-	public function __construct($data = null)
-	{
-		if(empty($this->data))parent::__construct($data);
-		$this->inserirDetalhe($data);
-	}
-	public function inserirDetalhe($data)
-	{
-		RetornoAbstract::$linesCounter++;
-		$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3B';
-		$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-		if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],14,1)=="Y"){
-			if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="50")
-			{
-				//RetornoAbstract::$linesCounter++;
-				//$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
-				//$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-			}
-		}
-	}
-	public function get_data_ocorrencia(){
-		$r3u = $this->R3U;
-		return $r3u->___get('data_ocorrencia');
-	}
-
-	public function get_codigo_movimento(){
-		$r3u = $this->R3U;
-		return $r3u->codigo_movimento;
-	}
 }
 ?>

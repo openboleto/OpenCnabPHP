@@ -28,7 +28,7 @@ use \CnabPHP\Retorno;
 include("../autoloader.php");
 $fileContent = file_get_contents("ARQUIVORETORNO.txt");
 
-$arquivo = new Retorno($fileContent);
+$arquivo = new Retorno($fileContent, true);
 
 $registros = $arquivo->getRegistros();
 foreach($registros as $registro) {

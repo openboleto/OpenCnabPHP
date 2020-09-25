@@ -23,53 +23,46 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B104\retorno\L080;
-use CnabPHP\resources\generico\retorno\L040\Generico9;
+namespace CnabPHP\resources\B104\retorno\transf;
+use CnabPHP\resources\generico\retorno\L040\Generico3;
+//use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
-class Registro9 extends Generico9
+class Registro3B extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(      //01.5
+		'codigo_banco'=>array(          // 1.3B
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(       //02.5
+		'codigo_lote'=>array(           // 2.3B
 			'tamanho'=>4,
-			'default'=>9999,
+			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(     //03.5
+		'tipo_registro'=>array(         // 3.3B
 			'tamanho'=>1,
-			'default'=>'9',
+			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler1'=>array(          //04.5
-			'tamanho'=>9,
+		'numero_registro'=>array(       // 4.3B
+			'tamanho'=>5,
+			'default'=>'2',
+			'tipo'=>'int',
+			'required'=>true),
+		'seguimento'=>array(            // 5.3B
+			'tamanho'=>1,
+			'default'=>'Z',
+			'tipo'=>'alfa',
+			'required'=>true),
+		'filler1'=>array(            	// 5.3B
+			'tamanho'=>226,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'qtd_lotes'=>array(      //05.5
-			'tamanho'=>6,
-			'default'=>'1',
-			'tipo'=>'int',
-			'required'=>true),
-		'qtd_registros'=>array(           //06.5
-			'tamanho'=>6,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler2'=>array(        //07.5
-			'tamanho'=>6,
-			'default'=>'0',
-			'tipo'=>'int',
-			'required'=>true),
-		'filler3'=>array(           //08.5
-			'tamanho'=>205,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
+		
 	);
 }
+
 ?>

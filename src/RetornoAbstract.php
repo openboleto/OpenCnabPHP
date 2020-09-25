@@ -24,11 +24,10 @@ abstract class RetornoAbstract
     /**
      * método __construct()
      * Recebe os parametros
-     * @$banco = nome do banco no momento so Caixa
-     * @$layout = nome do layout no momento so Cnab240_SIGCB
-     * @$data = um array contendo os dados nessesarios para o arquvio
+     * @$conteudo = conteudo do arquivo de retorno
+     * @$is_transf = se e transferencia bancaria ou nao (true or false). Default: false
      */
-    public function __construct($conteudo)
+    public function __construct($conteudo, $is_transf)
     {
         $conteudo = str_replace("\r\n", "\n", $conteudo);
         $lines = explode("\n", $conteudo);
@@ -55,7 +54,13 @@ abstract class RetornoAbstract
             throw new Exception("Esse é um arquivo de remessa, nao pode ser processado como um retorno bancário.");
         }
         self::$banco = $codigo_banco;
-        self::$layout = "L" . $layout_versao;
+
+        if(!$is_transf) {
+            self::$layout = "L" . $layout_versao;
+        } else {
+            self::$layout = "transf";
+        }
+
         $class = 'CnabPHP\resources\\B' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
 
         self::$lines = $lines;
