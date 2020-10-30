@@ -26,33 +26,7 @@
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
 include("../autoloader.php");
-$fileContent = file_get_contents("CN07116A.ret");
-
-$arquivo = new Retorno($fileContent);
-var_dump($arquivo->getRegistrosRaiz());
-
-$registros = $arquivo->getRegistros();
-foreach($registros as $registro)
-{
-	if($registro->R3U->codigo_movimento==6){
-		$nossoNumero   = $registro->nosso_numero;
-		$valorRecebido = $registro->vlr_pago;
-		$dataPagamento = $registro->R3U->data_ocorrencia;
-		$carteira      = $registro->carteira;
-        $vlr_juros_multa = $registro->valor;
-        $vlr_desconto = $registro->R3U->vlr_desconto;
-        echo $nossoNumero;
-        echo $vlr_desconto;
-        echo $dataPagamento;
-        echo $vlr_juros_multa;
-        echo $registro;
-		// você ja pode dar baixa
-	}
-    //echo $registro;
-}
-
-echo "oi<br/>";
-$fileContent = file_get_contents("CN07116A.RET");
+$fileContent = file_get_contents("IEDCBR811510202013128.ret");
 
 $arquivo = new Retorno($fileContent);
 
@@ -60,19 +34,17 @@ $registros = $arquivo->getRegistros();
 foreach($registros as $registro)
 {
 	if($registro->R3U->codigo_movimento==6){
-		$nossoNumero   = $registro->nosso_numero;
-		$valorRecebido = $registro->vlr_pago;
-		$dataPagamento = $registro->R3U->data_ocorrencia;
+        $nossoNumero   = $registro->filler3; #Identificacao do boleto
+        $valorRecebido = $registro->vlr_pago;
+        $dataPagamento = $registro->R3U->data_credito;
 		$carteira      = $registro->carteira;
         $vlr_juros_multa = $registro->valor;
         $vlr_desconto = $registro->R3U->vlr_desconto;
-        echo $nossoNumero;
-        echo $vlr_desconto;
-        echo $dataPagamento;
-        echo $vlr_juros_multa;
-        echo $registro;
+        echo $nossoNumero.'<br />';
+        echo $vlr_desconto.'<br />';
+        echo $dataPagamento.'<br />';
+        echo $vlr_juros_multa.'<br />';
 		// você ja pode dar baixa
-	}
-    //echo $registro;
+    }
 }
 ?>

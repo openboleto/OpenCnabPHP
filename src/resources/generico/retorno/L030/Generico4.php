@@ -1,9 +1,9 @@
 <?php
 namespace rctnet\resources\generico\retorno\L030;
-use rctnet\RegistroRemAbstract;
+use rctnet\RegistroRetAbstract;
 use Exception;
 
-class Generico4 extends RegistroRemAbstract
+class Generico4 extends RegistroRetAbstract
 {
 }
 
