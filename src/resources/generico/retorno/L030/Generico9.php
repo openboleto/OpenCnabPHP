@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Geração de arquivos de remessa e retorno em PHP
+* CnabPHP - Geraï¿½ï¿½o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -24,22 +24,23 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\retorno\L030;
-use CnabPHP\RegistroRemAbstract;
-use CnabPHP\RemessaAbstract;
+use CnabPHP\RegistroRetAbstract;
+use CnabPHP\RetornoAbstract;
 use Exception;
 
-class Generico9 extends RegistroRemAbstract
+class Generico9 extends RegistroRetAbstract
 {
-	protected function set_qtd_lotes($value)
-	{
-		//ArquivoAbstract::$loteCounter++; 
-		$this->data['qtd_lotes'] = RemessaAbstract::$loteCounter;
-	}
-	protected function set_qtd_registros($value)
-	{
-		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
-		$this->data['qtd_registros'] = $lote->get_counter()+1;
-	}
+	// protected function set_qtd_lotes($value)
+	// {
+	// 	//ArquivoAbstract::$loteCounter++; 
+	// 	$this->data['qtd_lotes'] = RetornoAbstract::$loteCounter;
+	// }
+	// protected function set_qtd_registros($value)
+	// {
+	// 	$lote  = RetornoAbstract::getLote(RetornoAbstract::$loteCounter);
+	// 	var_dump($lote); die;
+	// 	$this->data['qtd_registros'] = $lote->get_counter()+1;
+	// }
 }
 
 ?>

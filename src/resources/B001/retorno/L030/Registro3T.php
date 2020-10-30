@@ -63,7 +63,7 @@ class Registro3T extends Generico3
 			'required'=>true),
 		'codigo_movimento'=>array(      // 7.3T
 			'tamanho'=>2,
-			'default'=>'01', // entrada de titulo
+			'default'=>'', // entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
 
@@ -114,13 +114,13 @@ class Registro3T extends Generico3
 			'default'=>'',
 			'tipo'=>'date',
 			'required'=>true),
-		'vlr_nominal'=>array(        //18.3T
+		'vlr_nominal'=>array(        //17.3T
 			'tamanho'=>13,
 			'default'=>'0',
 			'tipo'=>'decimal',
 			'precision'=>2, 
 			'required'=>true),
-		'cod_banco_receb'=>array(            //19.3T  
+		'cod_banco_receb'=>array(            //18.3T  
 			'tamanho'=>3,
 			'default'=>' ',      // este espaço foi colocado para passa a validação para os seters do generico
 			'tipo'=>'alfa',

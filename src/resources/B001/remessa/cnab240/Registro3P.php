@@ -30,7 +30,9 @@ namespace CnabPHP\resources\B001\remessa\cnab240;
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
+use JFactory;
 use Exception;
+
 
 class Registro3P extends Generico3 {
 
@@ -347,7 +349,17 @@ class Registro3P extends Generico3 {
 //$numero=str_pad($numero, 20, ' ');// inserindo zeros a direifta para completar 20 de espaço
 		//echo"numero: $numero <br>";
   $this->data['nosso_numero'] = $numero;
-    }
+
+  $db = JFactory::getDbo();
+	   
+            $query = $db->getQuery(true);
+            $query->update($db->quoteName('#__smartboletos_boletos'))
+            ->set('numero_documento = ' . $numero)
+            ->where('id = ' . $sequencial);
+            $db->setQuery($query)->execute();
+
+
+}
     /**
      * Cálculo do módulo 11
      * @param int $index
