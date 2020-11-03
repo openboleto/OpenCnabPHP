@@ -133,16 +133,16 @@ class Especie {
         $this->sicoob[22] = array('abr' => "ME", 'txt' => 'Parcela de ConsÃ³rcio');
         $this->sicoob[99] = array('abr' => "DIV", 'txt' => 'Outros');
 
-        $this->sicredi['1'] = array('abr' => "DMI", 'txt' => 'Duplicata Mercantil por Indicação');
-        $this->sicredi['2'] = array('abr' => "DR", 'txt' => 'Duplicata Rural');
-        $this->sicredi['3'] = array('abr' => "NP", 'txt' => 'Nota Promissória');
-        $this->sicredi['4'] = array('abr' => "NR", 'txt' => 'Nota Promissória Rural');
-        $this->sicredi['5'] = array('abr' => "NS", 'txt' => 'Nota de Seguro');
-        $this->sicredi['6'] = array('abr' => "RC", 'txt' => 'Recibo');
-        $this->sicredi['7'] = array('abr' => "LC", 'txt' => 'Letra de Câmbio');
-        $this->sicredi['8'] = array('abr' => "ND", 'txt' => 'Nota de Débito');
-        $this->sicredi['9'] = array('abr' => "DSI", 'txt' => 'Duplicata de Serviço por Indicação');
-        $this->sicredi['10'] = array('abr' => "OS", 'txt' => 'Outros');
+        $this->sicredi['A'] = array('abr' => "DMI", 'txt' => 'Duplicata Mercantil por Indicação');
+        $this->sicredi['B'] = array('abr' => "DR", 'txt' => 'Duplicata Rural');
+        $this->sicredi['C'] = array('abr' => "NP", 'txt' => 'Nota Promissória');
+        $this->sicredi['D'] = array('abr' => "NR", 'txt' => 'Nota Promissória Rural');
+        $this->sicredi['E'] = array('abr' => "NS", 'txt' => 'Nota de Seguro');
+        $this->sicredi['G'] = array('abr' => "RC", 'txt' => 'Recibo');
+        $this->sicredi['H'] = array('abr' => "LC", 'txt' => 'Letra de Câmbio');
+        $this->sicredi['I'] = array('abr' => "ND", 'txt' => 'Nota de Débito');
+        $this->sicredi['J'] = array('abr' => "TS", 'txt' => 'Triplicata de Serviço');
+        $this->sicredi['K'] = array('abr' => "DIV", 'txt' => 'Outros');
 
         $this->santander[1] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
         $this->santander[2] = array('abr' => "NP", 'txt' => 'Nota Promissória');
