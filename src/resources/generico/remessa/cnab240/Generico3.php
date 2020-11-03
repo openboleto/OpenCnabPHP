@@ -99,7 +99,7 @@ class Generico3 extends RegistroRemAbstract
     protected function set_seu_numero($value)
     {
         if ($this->data['nosso_numero'] == 0 && $value == '') {
-            throw new Exception('O campo "seu_numero" e obrigatorio, na sua falta usareio o nosso numero, porem esse tambem no foi inserido!!!');
+            throw new Exception('O campo "seu_numero" é obrigatório, na sua falta usarei o nosso numero, porém esse também não foi inserido!!!');
         } else {
             $this->data['seu_numero'] = $value != ' ' ? $value : $this->data['nosso_numero'];
         }

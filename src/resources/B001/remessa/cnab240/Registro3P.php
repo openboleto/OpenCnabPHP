@@ -32,6 +32,7 @@ use CnabPHP\RegistroRemAbstract;
 use CnabPHP\RemessaAbstract;
 use Exception;
 
+
 class Registro3P extends Generico3 {
 
     protected $meta = array(
@@ -347,7 +348,8 @@ class Registro3P extends Generico3 {
 //$numero=str_pad($numero, 20, ' ');// inserindo zeros a direifta para completar 20 de espaço
 		//echo"numero: $numero <br>";
   $this->data['nosso_numero'] = $numero;
-    }
+
+}
     /**
      * Cálculo do módulo 11
      * @param int $index

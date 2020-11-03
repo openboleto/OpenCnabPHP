@@ -59,11 +59,11 @@ class Registro1 extends Generico1
 		'filler1'=>array(// 06.1
 			'tamanho'=>2,
 			'default'=>' ',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
-		'versao_layout'=>array(
+		'versa_layout'=>array(
 			'tamanho'=>3,
-			'default'=>'000',
+			'default'=>'042',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler2'=>array(
@@ -177,7 +177,7 @@ class Registro1 extends Generico1
 	* Recebe os parametros
 	* @$data = um array contendo os dados nessesarios para o arquvio
 	*/
-	public function inserirDetalhe($data){
+	public function inserirDetalhe($linhaTxt){
 		while($this->data['codigo_lote']==abs(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter],3,4)))
 		{
 			RetornoAbstract::$linesCounter++;
