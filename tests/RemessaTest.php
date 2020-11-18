@@ -189,16 +189,4 @@ class RemessaTest extends TestCase
         
         $this->assertTrue(is_array($result));
     }
-
-    /**
-     * @test
-     * @covers \CnabPHP\Remessa::__construct
-     * @covers \CnabPHP\Remessa::getText
-     */
-    public function getText()
-    {
-        $result = $this->remessa->getText(1);
-        
-        $this->assertTrue(is_string($result));
-    }
 }
