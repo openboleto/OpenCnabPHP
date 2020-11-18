@@ -31,7 +31,7 @@ class RemessaTest extends TestCase
         
         $this->remessa = new Remessa(
             '104', 
-            'cnab240_SIGCB', 
+            'cnab240_sicgb', 
             [
                 'nome_empresa' =>"Empresa ABC", // seu nome de empresa
                 'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
