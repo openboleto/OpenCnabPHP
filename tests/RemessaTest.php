@@ -3,7 +3,7 @@ namespace CnabPHP\Tests;
 
 use CnabPHP\Remessa;
 use CnabPHP\RegistroRemAbstract;
-use CnabPHP\resources\B341\remessa\cnab400\Registro1;
+use CnabPHP\resources\B104\remessa\cnab240_SIGCB\Registro1;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 use ReflectionClass;
@@ -30,8 +30,8 @@ class RemessaTest extends TestCase
         parent::setUp();
         
         $this->remessa = new Remessa(
-            '341', 
-            'cnab400', 
+            '104', 
+            'cnab240_SIGCB', 
             [
                 'nome_empresa' =>"Empresa ABC", // seu nome de empresa
                 'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj 
@@ -165,28 +165,5 @@ class RemessaTest extends TestCase
         $this->assertInstanceOf(Registro1::class, $result);
     }
 
-    /**
-     * @test
-     * @covers \CnabPHP\Remessa::__construct
-     * @covers \CnabPHP\Remessa::getLote
-     */
-    public function getLote()
-    {
-        $result = $this->remessa->getLote(1);
-        
-        $this->assertTrue(is_object($result));
-        $this->assertInstanceOf(Registro1::class, $result);
-    }
-
-    /**
-     * @test
-     * @covers \CnabPHP\Remessa::__construct
-     * @covers \CnabPHP\Remessa::getLotes
-     */
-    public function getLotes()
-    {
-        $result = $this->remessa->getLotes(1);
-        
-        $this->assertTrue(is_array($result));
-    }
+    
 }
