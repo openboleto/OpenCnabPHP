@@ -25,6 +25,7 @@
  */
 namespace CnabPHP\resources\B104\remessa\cnab240_transf;
 use CnabPHP\resources\generico\remessa\cnab240\Generico1;
+use CnabPHP\RemessaAbstract;
 use Exception;
 
 class Registro1 extends Generico1
@@ -186,4 +187,26 @@ class Registro1 extends Generico1
 			'tipo' => 'alfa',
 			'required' => true),
 	);
+
+	protected function set_conta($data)
+    {
+        $operacao_conta = isset(RemessaAbstract::$entryData['operacao_conta']) ? RemessaAbstract::$entryData['operacao_conta'] : null; 
+		$conta = RemessaAbstract::$entryData['conta'];
+
+		//Operacao_conta nao e obrigatorio. Apenas algumas contas da caixa possuem operacao_conta.
+		if(!$operacao_conta) {
+			$this->data['conta'] = $conta;
+		} else {
+
+			$conta_com_operacao_conta = null;
+			$conta_sem_operacao_conta = str_pad($conta,8,'0',STR_PAD_LEFT);
+
+			if(strlen($operacao_conta) > 4) 
+				throw new Exception('A operacao_conta precisa ter 1, 2, 3 ou 4 dígitos!');
+			else 
+				$conta_com_operacao_conta = str_pad($operacao_conta . $conta_sem_operacao_conta, 12, '0', STR_PAD_LEFT);
+			
+			$this->data['conta'] = $conta_com_operacao_conta;
+		}
+    }
 }

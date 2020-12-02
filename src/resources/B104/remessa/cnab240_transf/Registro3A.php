@@ -187,7 +187,7 @@ class Registro3A extends Generico3 {
             'default' => '0',
             'tipo' => 'date',
             'required' => true),
-        'valore_real' => array(//23.3A
+        'valor_real' => array(//23.3A
             'tamanho' => 13,
             'default' => '0',
             'tipo' => 'decimal',
@@ -213,7 +213,7 @@ class Registro3A extends Generico3 {
             'default' => '0',
             'tipo' => 'int',
             'required' => true),
-        'ocorrencia' => array(//29.3A
+        'ocorrencias' => array(//29.3A
             'tamanho' => 10,
             'default' => ' ',
             'tipo' => 'alfa',
