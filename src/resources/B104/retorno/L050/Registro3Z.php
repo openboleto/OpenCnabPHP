@@ -24,65 +24,45 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B104\retorno\L050;
-use CnabPHP\resources\generico\retorno\L050\Generico5;
+use CnabPHP\resources\generico\retorno\L050\Generico3;
+//use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
-class Registro5 extends Generico5
+class Registro3B extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(      //01.5
+		'codigo_banco'=>array(          // 1.3B
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(       //02.5
+		'codigo_lote'=>array(           // 2.3B
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(     //03.5
+		'tipo_registro'=>array(         // 3.3B
 			'tamanho'=>1,
-			'default'=>'5',
+			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler1'=>array(          //04.5
-			'tamanho'=>9,
-			'default'=>' ',
+		'numero_registro'=>array(       // 4.3B
+			'tamanho'=>5,
+			'default'=>'2',
+			'tipo'=>'int',
+			'required'=>true),
+		'seguimento'=>array(            // 5.3B
+			'tamanho'=>1,
+			'default'=>'Z',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'qtd_registros'=>array(      //05.5
-			'tamanho'=>6,
+		'filler1'=>array(            	// 5.3B
+			'tamanho'=>226,
 			'default'=>' ',
-			'tipo'=>'int',
-			'required'=>true),
-		'somatorio_valores' => array(//06.5
-			'tamanho' => 16,
-			'default' => '0',
-			'tipo' => 'decimal',
-			'precision' => 2,
-			'required' => true),
-		'somatorio_qtd_moedas'=>array(  //07.5
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>'5',
-			'required'=>true),
-		'aviso_debito'=>array(           //08.5
-			'tamanho'=>6,
-			'default'=>'0',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
 		
-		'filler2'=>array(        //19.5
-			'tamanho'=>165,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler3'=>array(           //10.5
-			'tamanho'=>10,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
 	);
 }
+
 ?>

@@ -25,6 +25,7 @@
  */
 namespace CnabPHP\resources\B104\remessa\cnab240_transf;
 use CnabPHP\resources\generico\remessa\cnab240\Generico5;
+use CnabPHP\RemessaAbstract;
 use Exception;
 
 class Registro5 extends Generico5
@@ -84,5 +85,11 @@ class Registro5 extends Generico5
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
+
+	protected function set_somatorio_valores($value)
+    {
+		if(isset(RemessaAbstract::$entryData['somatorio_valores']))
+        	$this->data['somatorio_valores'] = RemessaAbstract::$entryData['somatorio_valores'];
+    }
 }
 ?>

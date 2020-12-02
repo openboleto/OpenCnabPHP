@@ -24,22 +24,12 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace CnabPHP\resources\generico\retorno\L050;
-use CnabPHP\RegistroRemAbstract;
-use CnabPHP\RemessaAbstract;
+use CnabPHP\RegistroRetAbstract;
+use CnabPHP\RetornoAbstract;
 use Exception;
 
-class Generico9 extends RegistroRemAbstract
+class Generico9 extends RegistroRetAbstract
 {
-	protected function set_qtd_lotes($value)
-	{
-		//ArquivoAbstract::$loteCounter++; 
-		$this->data['qtd_lotes'] = RemessaAbstract::$loteCounter;
-	}
-	protected function set_qtd_registros($value)
-	{
-		$lote  = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
-		$this->data['qtd_registros'] = $lote->get_counter()+1;
-	}
 }
 
 ?>
