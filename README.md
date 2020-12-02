@@ -119,13 +119,13 @@ Acesse a url de exemplo:
             Cnab240_Transf
         </td>
         <td>
-            Beta
+            Homologado
         </td>
         <td>
             Cnab240_Transf
         </td>
         <td>
-            --
+            Homologado
         </td>
     </tr>
     <tr>
