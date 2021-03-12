@@ -25,7 +25,6 @@
  */
 namespace CnabPHP\resources\B001\retorno\L030;
 use CnabPHP\resources\generico\retorno\L030\Generico3;
-//use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
 class Registro3U extends Generico3
@@ -63,25 +62,25 @@ class Registro3U extends Generico3
 			'required'=>true),
 		'codigo_movimento'=>array(      // 7.3U
 			'tamanho'=>2,
-			'default'=>'', // entrada de titulo
+			'default'=>'', 		//Entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
 			
 			// - ------------------ até aqui é igual para todo registro tipo 3
 			
-		'vlr_juros_multa'=>array(               // 8.3U
+		'vlr_juros_multa'=>array(       // 8.3U
 			'tamanho'=>13,
 			'default'=>'',
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'vlr_desconto'=>array(            // 9.3U
+		'vlr_desconto'=>array(         	// 9.3U
 			'tamanho'=>13,
 			'default'=>'',
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'vlr_abatimento'=>array(       //10.3U
+		'vlr_abatimento'=>array(       	//10.3U
 			'tamanho'=>13,
 			'default'=>'',
 			'tipo'=>'decimal',
@@ -93,19 +92,19 @@ class Registro3U extends Generico3
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'vlr_pago'=>array(               //12.3U
+		'vlr_pago'=>array(              //12.3U
 			'tamanho'=>13,
 			'default'=>'',
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'vlr_liquido'=>array(      //13.3U   
+		'vlr_liquido'=>array(      	//13.3U   
 			'tamanho'=>13,
 			'default'=>'',
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'vlr_outras_despesas'=>array(  //14.3U
+		'vlr_outras_despesas'=>array(  	//14.3U
 			'tamanho'=>13,
 			'default'=>' ',
 			'tipo'=>'decimal',
@@ -117,48 +116,48 @@ class Registro3U extends Generico3
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'data_ocorrencia'=>array(      //16.3U
+		'data_ocorrencia'=>array(      	//16.3U
 			'tamanho'=>8,
-			'default'=>'',  // combrança com registro
+			'default'=>'',  	//Cobrança com registro
 			'tipo'=>'date',
 			'required'=>true),
-		'data_credito'=>array(        //17.3U
+		'data_credito'=>array(        	//17.3U
 			'tamanho'=>8,
-			'default'=>'0',
+			'default'=>'',
 			'tipo'=>'date',
-			'required'=>true),
-		'filler2'=>array(          // 18.3
+			'required'=>false),
+		'filler2'=>array(          	// 18.3
 			'tamanho'=>4,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_ocorrencia2'=>array(      //19.3U
+		'data_ocorrencia2'=>array(    	//19.3U
 			'tamanho'=>8,
-			'default'=>'',  // combrança com registro
+			'default'=>'',  	//Cobrança com registro
 			'tipo'=>'date',
-			'required'=>true),
-		'vlr_ocorrencia'=>array(   //20.3U
+			'required'=>false),
+		'vlr_ocorrencia'=>array(   	//20.3U
 			'tamanho'=>13,
 			'default'=>'',
 			'tipo'=>'decimal',
 			'precision'=>2,
 			'required'=>true),
-		'complem_ocorrencia'=>array(               //21.3U
+		'complem_ocorrencia'=>array(	//21.3U
 			'tamanho'=>30,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),	
-		'codigo_banco_correspondente'=>array(            //22.3U   
+		'codigo_banco_correspondente'=>array(	//22.3U   
 			'tamanho'=>3,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'nosso_numero'=>array(            //23.3U   
+		'nosso_numero'=>array(		//23.3U   
 			'tamanho'=>20,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'filler4'=>array(               //24.3U
+		'filler4'=>array(		//24.3U
 			'tamanho'=>7,
 			'default'=>' ',
 			'tipo'=>'alfa',
