@@ -70,13 +70,13 @@ abstract class RegistroRetAbstract extends RegistroAbstract
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             switch ($metaData['tipo']) {
                 case 'decimal':
-                    $inteiro = abs(substr($value, 0, $metaData['tamanho']));
-                    $decimal = abs(substr($value, $metaData['tamanho'], $metaData['precision'])) / 100;
+                    $inteiro = (int)(substr($value, 0, $metaData['tamanho']));
+                    $decimal = (int)(substr($value, $metaData['tamanho'], $metaData['precision'])) / 100;
                     $retorno = ($inteiro + $decimal);
                     $this->data[$prop] = $retorno;
                     break;
                 case 'int':
-                    $retorno = abs($value);
+                    $retorno = (int)$value;
                     $this->data[$prop] = $retorno;
                     break;
                 case 'alfa':
@@ -133,7 +133,7 @@ abstract class RegistroRetAbstract extends RegistroAbstract
                 case 'decimal':
                     return ($this->data[$prop]) ? number_format($this->data[$prop], $metaData['precision'], ',', '.') : '';
                 case 'int':
-                    return (isset($this->data[$prop])) ? abs($this->data[$prop]) : '';
+                    return (isset($this->data[$prop])) ? (int)$this->data[$prop] : '';
                 case 'alfa':
                     return ($this->data[$prop]) ? $this->prepareText($this->data[$prop]) : '';
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 6:
