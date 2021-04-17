@@ -1,7 +1,7 @@
 <?php
 
 /*
- * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
+ * CnabPHP - Geração de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -37,6 +37,7 @@ class Especie {
     private $sicredi = array();
     private $bradesco = array();
     private $santander = array();
+    private $c6bank = array();
     private $banco;
 
     public function __construct($banco = null) {
@@ -166,6 +167,7 @@ class Especie {
         $this->res['341'] = $this->itau;
         $this->res['001'] = $this->bb;
         $this->res['237'] = $this->bradesco;
+        $this->res['336'] = $this->c6bank;
         $this->res['756'] = $this->sicoob;
         $this->res['748'] = $this->sicredi;
         $this->res['033'] = $this->santander;
@@ -189,5 +191,4 @@ class Especie {
             }
         }
     }
-
 }
