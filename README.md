@@ -248,6 +248,23 @@ Acesse a url de exemplo:
             Homologado
         </td>
     </tr>
+    <tr>
+        <td>
+            C6 Bank
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+    </tr>    
 </table>
 
 ```php
