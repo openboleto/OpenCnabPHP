@@ -283,7 +283,7 @@ Acesse a url de exemplo:
     </tr>    
 </table>
 
-** o layout da caixa foi desativado pela caixa , modificações serão necessárias para que voltte a funcionar
+** o layout da caixa foi desativado pela caixa , modificações serão necessárias para que volte a funcionar
 veja essa issue para entender melhor
 https://github.com/QuilhaSoft/OpenCnabPHP/issues/184
 
