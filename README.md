@@ -102,7 +102,7 @@ Acesse a url de exemplo:
             Cnab240_SIGCB
         </td>
         <td>
-            Homologado
+            DESATIVADO**
         </td>
         <td>
             Cnab240_SIGCB
@@ -282,6 +282,10 @@ Acesse a url de exemplo:
         </td>
     </tr>    
 </table>
+
+** o layout da caixa foi desativado pela caixa , modificações serão necessárias para que voltte a funcionar
+veja essa issue para entender melhor
+https://github.com/QuilhaSoft/OpenCnabPHP/issues/184
 
 ```php
 
