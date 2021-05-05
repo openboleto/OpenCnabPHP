@@ -164,7 +164,7 @@ class Registro1 extends Generico1
             'tipo' => 'int',
             'required' => true
         ),
-        'taxa_juros' => array(        //161/173T13
+        'vlr_juros' => array(        //161/173T13
             'tamanho' => 11,
             'default' => '0',
             'tipo' => 'decimal',
