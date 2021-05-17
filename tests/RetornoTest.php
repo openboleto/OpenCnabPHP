@@ -50,7 +50,7 @@ class RetornoTest extends TestCase
         $newLayout = file_get_contents(__DIR__ . '/../samples/retorno_cnab400_itau.ret');
         $result = $this->retorno->changeLayout($newLayout);
         
-        $this->assertNull($result);
+        $this->assertNotNull($result);
     }
 
     /**
@@ -100,7 +100,7 @@ class RetornoTest extends TestCase
     {
         $registros = $this->retorno->getChild();
         
-        $this->assertNull($registros);
+        $this->assertNotNull($registros);
     }
 
     /**
