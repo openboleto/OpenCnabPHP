@@ -153,7 +153,7 @@ class Registro3T extends Generico3
         'agencia_recebedora'=>array(      //19.3T
             'tamanho'=>5,
             'default'=>'0',
-            'tipo'=>'decimal',
+            'tipo'=>'int',
             'required'=>true),
         'dv_agencia_receb'=>array(        //20.3T
             'tamanho'=>1,

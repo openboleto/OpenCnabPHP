@@ -171,6 +171,7 @@ class Especie {
         $this->res['756'] = $this->sicoob;
         $this->res['748'] = $this->sicredi;
         $this->res['033'] = $this->santander;
+        $this->res['084'] = $this->bradesco;
 
         $this->banco = $this->res[$banco];
     }

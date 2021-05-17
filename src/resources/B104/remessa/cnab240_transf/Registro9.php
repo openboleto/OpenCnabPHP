@@ -1,6 +1,6 @@
 <?php
 /*
- * CnabPHP - Geração de arquivos de remessa e retorno em PHP
+ * CnabPHP - GeraÃ§Ã£o de arquivos de remessa e retorno em PHP
  *
  * LICENSE: The MIT License (MIT)
  *
@@ -23,11 +23,11 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B104\retorno\L050;
-use CnabPHP\resources\generico\retorno\L050\Generico5;
-use CnabPHP\Exception;
+namespace CnabPHP\resources\B104\remessa\cnab240_transf;
+use CnabPHP\resources\generico\remessa\cnab240\Generico9;
+use Exception;
 
-class Registro5 extends Generico5
+class Registro9 extends Generico9
 {
 	protected $meta = array(
 		'codigo_banco'=>array(      //01.5
@@ -37,12 +37,12 @@ class Registro5 extends Generico5
 			'required'=>true),
 		'codigo_lote'=>array(       //02.5
 			'tamanho'=>4,
-			'default'=>1,
+			'default'=>9999,
 			'tipo'=>'int',
 			'required'=>true),
 		'tipo_registro'=>array(     //03.5
 			'tamanho'=>1,
-			'default'=>'5',
+			'default'=>'9',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler1'=>array(          //04.5
@@ -50,39 +50,25 @@ class Registro5 extends Generico5
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'qtd_registros'=>array(      //05.5
+		'qtd_lotes'=>array(      //05.5
 			'tamanho'=>6,
-			'default'=>' ',
+			'default'=>'1',
 			'tipo'=>'int',
 			'required'=>true),
-		'somatorio_valores' => array(//06.5
-			'tamanho' => 16,
-			'default' => '0',
-			'tipo' => 'decimal',
-			'precision' => 2,
-			'required' => true),
-		'somatorio_qtd_moedas'=>array(  //07.5
-			'tamanho'=>13,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>'5',
-			'required'=>true),
-		'aviso_debito'=>array(           //08.5
+		'qtd_registros'=>array(           //06.5
 			'tamanho'=>6,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		
-		'filler2'=>array(        //19.5
-			'tamanho'=>165,
-			'default'=>' ',
-			'tipo'=>'alfa',
+		'filler2'=>array(        //07.5
+			'tamanho'=>6,
+			'default'=>'0',
+			'tipo'=>'int',
 			'required'=>true),
-		'filler3'=>array(           //10.5
-			'tamanho'=>10,
+		'filler3'=>array(           //08.5
+			'tamanho'=>205,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
 }
-?>

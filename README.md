@@ -1,7 +1,6 @@
 ﻿# OpenCnabPHP 
 [![Build Status](https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master)](https://travis-ci.org/QuilhaSoft/OpenCnabPHP)
 
-ACEITAMOS TRABALHO REMOTO!!!! - POR FAVOR AJUDEM NOS NESSA FASE DE CORONAVIRUS!!!
 Considere doar fundos para nos apoiar
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EE7CD4UZEL3A4&source=url)
 
@@ -75,7 +74,7 @@ Acesse a url de exemplo:
             Cnab240
         </td>
         <td>
-            Homologado
+            Beta
         </td>
     </tr>
     <tr>
@@ -103,10 +102,27 @@ Acesse a url de exemplo:
             Cnab240_SIGCB
         </td>
         <td>
-            Homologado
+            DESATIVADO**
         </td>
         <td>
             Cnab240_SIGCB
+        </td>
+        <td>
+            Homologado
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Caixa
+        </td>
+        <td>
+            Cnab240_Transf
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab240_Transf
         </td>
         <td>
             Homologado
@@ -266,6 +282,10 @@ Acesse a url de exemplo:
         </td>
     </tr>    
 </table>
+
+** o layout da caixa foi desativado pela caixa , modificações serão necessárias para que volte a funcionar
+veja essa issue para entender melhor
+https://github.com/QuilhaSoft/OpenCnabPHP/issues/184
 
 ```php
 

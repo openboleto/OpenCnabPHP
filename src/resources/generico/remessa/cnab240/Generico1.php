@@ -141,6 +141,12 @@ class Generico1 extends RegistroRemAbstract
         $this->children[] = new $class($data);
     }
 
+    public function inserirTransferencia($data)
+    {
+        $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3A';
+        $this->children[] = new $class($data);
+    }
+
     public function getText()
     {
         $retorno = '';

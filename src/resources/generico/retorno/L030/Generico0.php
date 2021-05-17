@@ -25,29 +25,15 @@
 */
 namespace CnabPHP\resources\generico\retorno\L030;
 use CnabPHP\RegistroRetAbstract;
+use Exception;
 
 class Generico0 extends RegistroRetAbstract
 {
-	protected $counter;
-	/*protected function set_situacao_arquivo($value)
+	
+	public function getRegistros($lote = 1)
 	{
-		$this->data['situacao_arquivo'] = ($value=='T')?"REMESSA-TESTE":"REMESSA-PRODUCAO";   
+		$lote = $this->children[$lote-1];
+		return $lote->getChilds();
 	}
-	protected function set_data_geracao($value)
-	{
-		$this->data['data_geracao'] =  date('Y-m-d');
-	}
-	protected function set_hora_geracao($value)
-	{
-		$this->data['hora_geracao'] = date('His');
-	}
-	protected function set_numero_inscricao($value)
-	{
-		$this->data['numero_inscricao'] =  str_ireplace(array('.','/','-'),array(''),$value);
-	}
-	public function get_numero_registro(){
-		return null;
-	}
-*/
 }
 ?>

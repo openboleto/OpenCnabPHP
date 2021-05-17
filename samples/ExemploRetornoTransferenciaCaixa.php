@@ -1,6 +1,6 @@
 <?php
 /*
-* CnabPHP - Gera��o de arquivos de remessa e retorno em PHP
+* CnabPHP - Geração de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -23,24 +23,26 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\generico\retorno\L030;
-use CnabPHP\RegistroRetAbstract;
-use CnabPHP\RetornoAbstract;
-use Exception;
+namespace CnabPHP\samples;
+use \CnabPHP\Retorno;
+include("../autoloader.php");
+$fileContent = file_get_contents("ARQUIVORETORNO.txt");
 
-class Generico9 extends RegistroRetAbstract
-{
-	// protected function set_qtd_lotes($value)
-	// {
-	// 	//ArquivoAbstract::$loteCounter++; 
-	// 	$this->data['qtd_lotes'] = RetornoAbstract::$loteCounter;
-	// }
-	// protected function set_qtd_registros($value)
-	// {
-	// 	$lote  = RetornoAbstract::getLote(RetornoAbstract::$loteCounter);
-	// 	var_dump($lote); die;
-	// 	$this->data['qtd_registros'] = $lote->get_counter()+1;
-	// }
+$arquivo = new Retorno($fileContent, true);
+
+$registros = $arquivo->getRegistros();
+foreach($registros as $registro) {
+    $id = $registro->num_atribuido_empresa; //pega o id da transferencia para dar baixa
+    if($id) {
+        if($registro->ocorrencias == "00" && $registro->valor_real) { //se for '00' entao a transferencia foi realizada corretamente
+            //Ja pode dar baixa aqui
+            //Valor pago esta em $registro->valor_real
+            //id da transferencia esta em $id
+        } 
+        else { //qualquer outro valor dierente de 00 (inclusive vazio), significa q deu erro
+            //Ja pode informar que deu erro na transferencia
+            //id da transferencia esta em $id
+        }
+    }
 }
-
 ?>

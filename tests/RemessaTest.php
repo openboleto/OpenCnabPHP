@@ -165,40 +165,5 @@ class RemessaTest extends TestCase
         $this->assertInstanceOf(Registro1::class, $result);
     }
 
-    /**
-     * @test
-     * @covers \CnabPHP\Remessa::__construct
-     * @covers \CnabPHP\Remessa::getLote
-     */
-    public function getLote()
-    {
-        $result = $this->remessa->getLote(1);
-        
-        $this->assertTrue(is_object($result));
-        $this->assertInstanceOf(Registro1::class, $result);
-    }
-
-    /**
-     * @test
-     * @covers \CnabPHP\Remessa::__construct
-     * @covers \CnabPHP\Remessa::getLotes
-     */
-    public function getLotes()
-    {
-        $result = $this->remessa->getLotes(1);
-        
-        $this->assertTrue(is_array($result));
-    }
-
-    /**
-     * @test
-     * @covers \CnabPHP\Remessa::__construct
-     * @covers \CnabPHP\Remessa::getText
-     */
-    public function getText()
-    {
-        $result = $this->remessa->getText(1);
-        
-        $this->assertTrue(is_string($result));
-    }
+    
 }

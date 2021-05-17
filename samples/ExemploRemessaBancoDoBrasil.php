@@ -25,7 +25,7 @@
 */
 
 namespace CnabPHP\samples;
-require_once ("../vendor/autoload.php");
+require_once ("../autoloader.php");
 
 use \CnabPHP\Remessa;
 
@@ -42,7 +42,7 @@ $arquivo = new Remessa("001",'cnab240',array(
 		'numero_sequencial_arquivo'	=>	'00000', //Deve ter no máximo 5 dígitos, pode ficar com zeros.
 		'convenio'	=> '106608', // codigo fornecido pelo banco
 		'carteira'	=> '17', // codigo fornecido pelo banco
-		'situacao_arquivo' =>'' // Deve ficar em branco para ser aceito. (TS para testes)
+		'situacao_arquivo' =>'', // Deve ficar em branco para ser aceito. (TS para testes)
 		'uso_bb1' => '009999999001411222' //Deve ter 18 dígitos
 		//Deve ser preenchido no seguinte formato: convênio + 0014 + carteira + variação da carteira, com zeros a esquerda
 ));
@@ -64,7 +64,8 @@ $lote->inserirDetalhe(array(
 		//2 ou 3 – para carteira 11/17 modalidade Vinculada/Caucionada e carteira 31
 		//4 – para carteira 11/17 modalidade Descontada e carteira 51
 		//7 – para carteira 17 modalidade Simples
-		'carteira'   		=>	'17', // codigo da carteira
+                'emissao_boleto'    => 2, // tipo de emissao do boleto informar 2 para emissao pelo beneficiario e 1 para emissao pelo banco
+                'carteira'   		=>	'17', // codigo da carteira
 		'seu_numero'        =>	"DEV180001",// se nao informado usarei o nosso numero
 		'data_vencimento'   =>	'2018-04-30', // informar a data neste formato AAAA-MM-DD
 		'valor'             =>	'5.00', // Valor do boleto como float valido em php
@@ -101,10 +102,10 @@ $lote->inserirDetalhe(array(
 		'vlr_multa'         => 	'0000000000002.00', // Valor do juros de 2% ao mês
 
 		// Registro 3S3 Mensagens a serem impressas
-		'mensagem_sc_1' 	=> "Após venc. Mora 0,03%/dia e Multa 2,00%",
-		'mensagem_sc_2' 	=> "Não conceder desconto",
-		'mensagem_sc_3' 	=> "Sujeito a protesto após o vencimento",
-		'mensagem_sc_4' 	=> "VelvetTux Soluções em Sistemas <('')",
+		'mensagem_1' 	=> "Após venc. Mora 0,03%/dia e Multa 2,00%",
+		'mensagem_2' 	=> "Não conceder desconto",
+		'mensagem_3' 	=> "Sujeito a protesto após o vencimento",
+		'mensagem_4' 	=> "VelvetTux Soluções em Sistemas <('')",
 
 ));
 
@@ -114,7 +115,7 @@ $remessa = utf8_decode($arquivo->getText()); // observar a header do seu php par
  * Caso as pastas não existam, serão criadas.
  * Os arquivos de remessa serão organizados em ano/mês
 */
-function verificaPastas() {
+/*function verificaPastas() {
 	date_default_timezone_set('America/Sao_Paulo');
 	$base_dir = dir('./data/remessas/');
 
@@ -129,7 +130,7 @@ function verificaPastas() {
 
 // Grava o arquivo
 file_put_contents(verificaPastas()->path.$arquivo->getFileName(), $remessa);
-verificaPastas()->close();
+verificaPastas()->close();*/
 echo $remessa;
 
 ?>

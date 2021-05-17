@@ -54,7 +54,7 @@ abstract class RetornoAbstract
             throw new Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
         }
         if ($codigo_tipo == '1') {
-            throw new Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
+            throw new Exception("Esse é um arquivo de remessa, nao pode ser processado como um retorno bancário.");
         }
         self::$banco = $codigo_banco;
         self::$layout = "L" . $layout_versao;

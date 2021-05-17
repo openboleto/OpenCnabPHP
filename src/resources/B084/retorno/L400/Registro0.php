@@ -57,7 +57,7 @@ class Registro0 extends Generico0
             'tipo'=>'alfa',
             'required'=>true),
         'codigo_empresa'=>array(
-            'tamanho'=>4,
+            'tamanho'=>20,
             'default'=>'',
             'tipo'=>'int',
             'required'=>true),
@@ -73,7 +73,7 @@ class Registro0 extends Generico0
             'required'=>true),
         'nome_banco'=>array(
             'tamanho'=>15,
-            'default'=>'BRADESCO',
+            'default'=>'UNIPRIME',
             'tipo'=>'alfa',
             'required'=>true),
         'data_gravacao'=>array(

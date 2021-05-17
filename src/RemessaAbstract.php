@@ -27,6 +27,9 @@ abstract class RemessaAbstract {
         $class = '\CnabPHP\resources\\B' . self::$banco . '\remessa\\' . self::$layout . '\Registro0';
         self::$entryData = $data;
         self::$hearder = new $class($data);
+        self::$children = array();
+        self::$retorno = array();
+        self::$loteCounter = 1;
         self::$children[] = self::$hearder;
     }
 
