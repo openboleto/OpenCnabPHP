@@ -76,7 +76,7 @@ class RetornoTest extends TestCase
         $lote = 1;
         $registros = $this->retorno->getRegistros($lote);
         
-        $this->assertNull($registros);
+        $this->assertNotNull($registros);
     }
 
     /**
