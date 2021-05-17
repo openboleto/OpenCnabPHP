@@ -30,6 +30,8 @@ abstract class RetornoAbstract
      */
     public function __construct($conteudo)
     {
+        self::$loteCounter  = 1;
+        self::$linesCounter = 0;
         $conteudo = str_replace("\r\n", "\n", $conteudo);
         $lines = explode("\n", $conteudo);
         if (count($lines) < 2) {
