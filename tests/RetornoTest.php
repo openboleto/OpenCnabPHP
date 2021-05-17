@@ -88,7 +88,7 @@ class RetornoTest extends TestCase
     {
         $registros = $this->retorno->getChilds();
         
-        $this->assertNull($registros);
+        $this->assertNotNull($registros);
     }
 
     /**
