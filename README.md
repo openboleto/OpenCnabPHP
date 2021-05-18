@@ -102,7 +102,7 @@ Acesse a url de exemplo:
             Cnab240_SIGCB
         </td>
         <td>
-            Homologado
+            DESATIVADO**
         </td>
         <td>
             Cnab240_SIGCB
@@ -210,7 +210,7 @@ Acesse a url de exemplo:
             Cnab240
         </td>
         <td>
-            Beta
+            Homologado
         </td>
     </tr>
     <tr>
@@ -264,7 +264,28 @@ Acesse a url de exemplo:
             Homologado
         </td>
     </tr>
+    <tr>
+        <td>
+            C6 Bank
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+        <td>
+            Cnab400
+        </td>
+        <td>
+            Homologado
+        </td>
+    </tr>    
 </table>
+
+** o layout da caixa foi desativado pela caixa , modificações serão necessárias para que volte a funcionar
+veja essa issue para entender melhor
+https://github.com/QuilhaSoft/OpenCnabPHP/issues/184
 
 ```php
 
@@ -286,7 +307,7 @@ $lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para
 
 $lote->inserirDetalhe(array(
 
-    'codigo_movimento' => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
+    'codigo_movimento'  => 1, //1 = Entrada de título, para outras opçoes ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
     'nosso_numero'      => 50, // numero sequencial de boleto
     'seu_numero'        => 43,// se nao informado usarei o nosso numero 
     
