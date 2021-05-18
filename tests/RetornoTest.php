@@ -40,18 +40,7 @@ class RetornoTest extends TestCase
         parent::tearDown();
     }
 
-    /**
-     * @test
-     * @covers \CnabPHP\Retorno::__construct
-     * @covers \CnabPHP\Retorno::changeLayout
-     */
-    public function changeLayoutReturnNullWithValidContent()
-    {
-        $newLayout = file_get_contents(__DIR__ . '/../samples/retorno_cnab400_itau.ret');
-        $result = $this->retorno->changeLayout($newLayout);
-        
-        $this->assertNull($result);
-    }
+    
 
     /**
      * @test
@@ -76,7 +65,7 @@ class RetornoTest extends TestCase
         $lote = 1;
         $registros = $this->retorno->getRegistros($lote);
         
-        $this->assertNull($registros);
+        $this->assertNotNull($registros);
     }
 
     /**
@@ -88,7 +77,7 @@ class RetornoTest extends TestCase
     {
         $registros = $this->retorno->getChilds();
         
-        $this->assertNull($registros);
+        $this->assertNotNull($registros);
     }
 
     /**
@@ -100,7 +89,7 @@ class RetornoTest extends TestCase
     {
         $registros = $this->retorno->getChild();
         
-        $this->assertNull($registros);
+        $this->assertNotNull($registros);
     }
 
     /**

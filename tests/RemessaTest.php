@@ -114,19 +114,7 @@ class RemessaTest extends TestCase
         $this->assertNull($result);
     }
 
-    /**
-     * @test
-     * @covers \CnabPHP\Remessa::__construct
-     * @covers \CnabPHP\Remessa::changeLayout
-     */
-    public function changeLayoutReturnNullWithValidContent()
-    {
-        $newLayout = file_get_contents(__DIR__ . '/../samples/retorno_cnab400_itau.ret');
-        $result = $this->remessa->changeLayout($newLayout);
-        
-        $this->assertNull($result);
-    }
-
+    
     /**
      * @test
      * @covers \CnabPHP\Remessa::__construct
