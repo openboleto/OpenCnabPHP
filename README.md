@@ -281,6 +281,23 @@ Acesse a url de exemplo:
             Homologado
         </td>
     </tr>    
+    <tr>
+        <td>
+            Banco ABC
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr>  
 </table>
 
 ** o layout da caixa foi desativado pela caixa , modificações serão necessárias para que volte a funcionar
