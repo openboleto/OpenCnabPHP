@@ -24,6 +24,8 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B246\remessa\cnab240;
+
+use CnabPHP\RemessaAbstract;
 use CnabPHP\resources\generico\remessa\cnab240\Generico1;
 use Exception;
 
@@ -83,12 +85,12 @@ class Registro1 extends Generico1
 		'codigo_beneficiario'=>array(
 			'tamanho'=>20,
 			'default'=>'',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
 		'codigo_beneficiario2'=>array(
 			'tamanho'=>20,
 			'default'=>'0',
-			'tipo'=>'int',
+			'tipo'=>'alfa',
 			'required'=>true),
 		'nome_empresa'=>array(
 			'tamanho'=>30,
@@ -126,4 +128,9 @@ class Registro1 extends Generico1
 			'tipo'=>'alfa',
 			'required'=>true),
 	);
+	protected function set_codigo_beneficiario2($value)
+    {
+        $this->data['codigo_beneficiario2'] = RemessaAbstract::$entryData['codigo_beneficiario'];
+    }
+
 }

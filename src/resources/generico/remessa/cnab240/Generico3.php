@@ -129,6 +129,8 @@ class Generico3 extends RegistroRemAbstract
     {
         $cep = $this->data['cep_pagador'];
         $cep_array = explode('-', $cep);
+        if(count($cep_array)==1)
+        $cep_array = str_split($cep,5);
         $this->data['cep_pagador'] = $cep_array[0];
         $this->data['cep_sufixo'] = $cep_array[1];
     }

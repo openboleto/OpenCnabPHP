@@ -74,7 +74,7 @@ class Registro3P extends Generico3 {
         'codigo_beneficiario' => array(// 8.3P
             'tamanho' => 20,
             'default' => '',
-            'tipo' => 'int',
+            'tipo' => 'alfa',
             'required' => true),
         'direcionamento_cobranca' => array(//12.3P
             'tamanho' => 1,
@@ -89,6 +89,11 @@ class Registro3P extends Generico3 {
         'filler3' => array(//12.3P
             'tamanho' => 2,
             'default' => '0',
+            'tipo' => 'int',
+            'required' => true),
+        'carteira_banco' => array(//14.3P
+            'tamanho' => 3,
+            'default' => '',
             'tipo' => 'int',
             'required' => true),
         'nosso_numero' => array(//13.3P
@@ -303,5 +308,3 @@ class Registro3P extends Generico3 {
     }
 
 }
-
-?>

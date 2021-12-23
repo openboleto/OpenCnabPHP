@@ -72,6 +72,7 @@ class Generico1 extends RegistroRemAbstract
         $this->data['codigo_beneficiario'] = RemessaAbstract::$entryData['codigo_beneficiario'];
     }
 
+
     protected function set_codigo_beneficiario_dv($value)
     {
         $this->data['codigo_beneficiario_dv'] = RemessaAbstract::$entryData['codigo_beneficiario_dv'];

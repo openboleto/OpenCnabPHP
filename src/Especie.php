@@ -163,6 +163,27 @@ class Especie {
         $this->santander[22] = array('abr' => "ME", 'txt' => 'Parcela de ConsÃ³rcio');
         $this->santander[99] = array('abr' => "DIV", 'txt' => 'Outros');
 
+        $this->abc[1] = array('abr' => "CH", 'txt' => 'Cheque');
+        $this->abc[2] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
+        $this->abc[3] = array('abr' => "DMI", 'txt' => 'Mercantil p/ Indicação');
+        $this->abc[4] = array('abr' => "DS", 'txt' => 'Duplicata de Serviço');
+        $this->abc[5] = array('abr' => "DSI", 'txt' => 'Duplicata de Serviço p/ Indicação');
+        $this->abc[6] = array('abr' => "DR", 'txt' => 'Duplicata Rural');
+        $this->abc[7] = array('abr' => "LC", 'txt' => 'Letra de Câmbio');
+        $this->abc[8] = array('abr' => "NCC", 'txt' => 'Nota de Crédito Comercial');
+        $this->abc[9] = array('abr' => "NCE", 'txt' => 'Nota de Crédito a Exportação');
+        $this->abc[10] = array('abr' => "NCI", 'txt' => 'Nota de Crédito a Exportação');
+        $this->abc[11] = array('abr' => "NCR", 'txt' => 'Nota de Crédito Rural');
+        $this->abc[12] = array('abr' => "NP", 'txt' => 'Nota Promissória');
+        $this->abc[13] = array('abr' => "NPR", 'txt' => 'Nota Promissória Rural');
+        $this->abc[14] = array('abr' => "TM", 'txt' => 'Triplicata Mercantil');
+        $this->abc[15] = array('abr' => "TS", 'txt' => 'Triplicata de Serviço');
+        $this->abc[16] = array('abr' => "NS", 'txt' => 'Nota de Seguro');
+        $this->abc[17] = array('abr' => "RC", 'txt' => 'Recibo');
+        $this->abc[18] = array('abr' => "FAT", 'txt' => 'Fatura');
+        $this->abc[19] = array('abr' => "ND", 'txt' => 'Nota de Débito');
+
+
         $this->res['104'] = $this->caixa;
         $this->res['341'] = $this->itau;
         $this->res['001'] = $this->bb;
@@ -172,6 +193,7 @@ class Especie {
         $this->res['748'] = $this->sicredi;
         $this->res['033'] = $this->santander;
         $this->res['084'] = $this->bradesco;
+        $this->res['246'] = $this->abc;
 
         $this->banco = $this->res[$banco];
     }
