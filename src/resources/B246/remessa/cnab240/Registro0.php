@@ -126,7 +126,7 @@ class Registro0 extends Generico0
 			'tamanho'=>20,
 			'default'=>'',
 			'tipo'=>'alfa',
-			'required'=>true),
+			'required'=>false),
 		'versao_aplicativo'=>array(
 			'tamanho'=>4,
 			'default'=>' ',
@@ -142,5 +142,9 @@ class Registro0 extends Generico0
     {
         $this->data['codigo_beneficiario2'] = RemessaAbstract::$entryData['codigo_beneficiario'];
     }
+	protected function set_situacao_arquivo($value) {
+        $this->data['situacao_arquivo'] = "";
+    }
+
 
 }
