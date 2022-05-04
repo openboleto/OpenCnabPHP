@@ -130,8 +130,8 @@ class Registro3Q extends Generico3
 			'required'=>true),
 		'codigo_banco_correspondente'=>array(        //18.3Q
 			'tamanho'=>3,
-			'default'=>' ',
-			'tipo'=>'alfa',
+			'default'=>'0',
+			'tipo'=>'int',
 			'required'=>true),
 		'nosso_numero_banco_correspondente'=>array(            //19.3Q   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
 			'tamanho'=>20,
