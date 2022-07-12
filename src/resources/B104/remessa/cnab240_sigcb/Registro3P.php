@@ -25,7 +25,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
+namespace CnabPHP\resources\B104\remessa\cnab240_sigcb;
 
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\RegistroRemAbstract;
