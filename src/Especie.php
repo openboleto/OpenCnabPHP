@@ -38,6 +38,7 @@ class Especie {
     private $bradesco = array();
     private $santander = array();
     private $c6bank = array();
+    private $bv = array();
     private $banco;
 
     public function __construct($banco = null) {
@@ -182,6 +183,11 @@ class Especie {
         $this->abc[17] = array('abr' => "RC", 'txt' => 'Recibo');
         $this->abc[18] = array('abr' => "FAT", 'txt' => 'Fatura');
         $this->abc[19] = array('abr' => "ND", 'txt' => 'Nota de Débito');
+        
+        $this->bv[1] = array('abr' => "CH", 'txt' => 'Cheque');
+        $this->bv[2] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
+        $this->bv[4] = array('abr' => "DS", 'txt' => 'Duplicata de Serviço');
+        $this->bv[31] = array('abr' => "CC", 'txt' => 'Cartão de Crédito');
 
 
         $this->res['104'] = $this->caixa;
@@ -194,6 +200,7 @@ class Especie {
         $this->res['033'] = $this->santander;
         $this->res['084'] = $this->bradesco;
         $this->res['246'] = $this->abc;
+        $this->res['655'] = $this->dv;
 
         $this->banco = $this->res[$banco];
     }
