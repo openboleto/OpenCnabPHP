@@ -82,7 +82,7 @@ class Registro5 extends Generico5
 			'required' => true
 		),
 		'vlr_titulos_vinculada' => array(    //09.5
-			'tamanho' => 13,
+			'tamanho' => 15,
 			'default' => '0',
 			'tipo' => 'decimal',
 			'precision' => '2',
