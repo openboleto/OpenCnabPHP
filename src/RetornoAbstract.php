@@ -19,6 +19,8 @@ abstract class RetornoAbstract
 
     public static $linesCounter = 0;
 
+    public static $pix = false;
+
     //public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
 
     /**
@@ -50,6 +52,12 @@ abstract class RetornoAbstract
             $layout_versao = '400';
             $codigo_banco = substr($lines[0], 76, 3);
             $codigo_tipo = substr($lines[0], 1, 1);
+
+            if (str_contains($lines[2], 'qrpix.bradesco.com.br')) {
+                self::$pix = true;
+            } else {
+                self::$pix = false;
+            }
         } else {
             throw new Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
         }
@@ -66,6 +74,10 @@ abstract class RetornoAbstract
         $class = 'CnabPHP\resources\\B' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
         $linhasFiltradas = array_filter($lines); // Limpar a última linha em branco
         $this->children[] = new $class($linhasFiltradas[count($linhasFiltradas) - 1]);
+    }
+
+    public function hasPix() {
+        return self::$pix;
     }
 
     /**

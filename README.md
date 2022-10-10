@@ -387,6 +387,33 @@ foreach($registros as $registro)
 }
 ```
 
+Caso o arquivo de retorno seja do Tipo 4 (Bradesco - Layout 400 - Pix), sugestão:
+
+```php
+$fileContent = file_get_contents("retorno_cnab240_caixa.ret");
+
+$arquivo = new Retorno($fileContent);
+
+$registros = $arquivo->getRegistros();
+
+for($i = 0; $i < count($registros); $i++) {
+    $pix = null;
+    if ($arquivo->hasPix() && $arquivo->getLayout() == 'L400') {
+    if ($i%2 == 0) { // Dados do registro na posição 'Par'
+        $registro = $registros[$i];
+    }
+    if (($i+1)%2 != 0) { // Dados do Pix na posição 'Ímpar'
+        $pix = $registros[$i+1];
+    }
+    $i++;
+} else {
+    $registro = $registros[$i];
+}
+
+$spiUrl = $pix->pix_url; // URL para geração do QR Code (Padrão EMV utilizado pelo Banco Central do Brasil)
+$txid = $pix->txid; // Identificador da transação
+```
+
 Aguardando voluntarios para edição e testes dos layouts.
 
 ## Licença
