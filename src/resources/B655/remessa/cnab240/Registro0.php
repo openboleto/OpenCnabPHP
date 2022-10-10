@@ -71,8 +71,8 @@ class Registro0 extends Generico0
 		),
 		'codigo_beneficiario' => array(
 			'tamanho' => 20,
-			'default' => ' ',
-			'tipo' => 'alfa',
+			'default' => '0',
+			'tipo' => 'int',
 			'required' => true
 		),
 		'agencia' => array(
