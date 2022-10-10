@@ -200,7 +200,7 @@ class Especie {
         $this->res['033'] = $this->santander;
         $this->res['084'] = $this->bradesco;
         $this->res['246'] = $this->abc;
-        $this->res['655'] = $this->dv;
+        $this->res['655'] = $this->bv;
 
         $this->banco = $this->res[$banco];
     }
