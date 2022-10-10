@@ -115,12 +115,6 @@ class Registro3P extends Generico3
             'tipo' => 'int',
             'required' => true
         ),
-        'carteira_banco' => array( //14.3P
-            'tamanho' => 3,
-            'default' => '',
-            'tipo' => 'int',
-            'required' => true
-        ),
         'nosso_numero' => array( //13.3P
             'tamanho' => 10,
             'default' => '',
