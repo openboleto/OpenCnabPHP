@@ -53,7 +53,7 @@ abstract class RetornoAbstract
             $codigo_banco = substr($lines[0], 76, 3);
             $codigo_tipo = substr($lines[0], 1, 1);
 
-            if (str_contains($lines[2], 'qrpix.bradesco.com.br')) {
+            if (strpos($lines[2], 'qrpix.bradesco.com.br') !== false) {
                 self::$pix = true;
             } else {
                 self::$pix = false;
