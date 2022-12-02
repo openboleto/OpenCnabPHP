@@ -298,6 +298,23 @@ Acesse a url de exemplo:
             Beta
         </td>
     </tr>  
+	<tr>
+        <td>
+            Banco Votorantin
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+        <td>
+            Cnab240
+        </td>
+        <td>
+            Beta
+        </td>
+    </tr> 
 </table>
 
 ** o layout da caixa foi desativado pela caixa , modificações serão necessárias para que volte a funcionar
