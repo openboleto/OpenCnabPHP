@@ -191,6 +191,5 @@ class Registro1 extends Generico1
             }
         }
         RetornoAbstract::$linesCounter--;
-//        array_pop($this->children);
     }
 }

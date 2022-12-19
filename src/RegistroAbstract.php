@@ -150,7 +150,7 @@ abstract class RegistroAbstract
      * Recebe os parametros abaixo e insere num array para uso fururo
      * @RegistroRemAbstract $child = recebe um filho de RegistroRemAbstract
      */
-    public function addChild(RegistroRemAbstract $child)
+    public function addChild($child)
     {
         $this->children[] = $child;
     }
