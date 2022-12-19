@@ -74,7 +74,7 @@ abstract class RemessaAbstract {
             $class = '\CnabPHP\resources\\B' . self::$banco . '\remessa\\' . self::$layout . '\Registro1';
             $loteData = $data ? $data : RemessaAbstract::$entryData;
             $lote = new $class($loteData);
-            self::$hearder->addChild($lote);
+            self::$children[0]->addChild($lote);
         } else {
             $lote = $this;
         }
@@ -89,9 +89,9 @@ abstract class RemessaAbstract {
      */
     public static function getLote($index) {
         if (strpos(self::$layout, '240')) {
-            return self::$hearder->children[$index - 1];
+            return self::$children[0]->children[$index - 1];
         } else {
-            return self::$hearder;
+            return self::$children[0];
         }
     }
 
