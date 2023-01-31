@@ -233,7 +233,7 @@ class Registro3P extends Generico3 {
             'required' => true),
         'prazo_baixar' => array(//39.3P
             'tamanho' => 3,
-            'default' => '90',
+            'default' => '0',
             'tipo' => 'int',
             'required' => true),
         'codigo_moeda' => array(//40.3P
