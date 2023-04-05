@@ -115,7 +115,7 @@ abstract class RemessaAbstract {
             $child->getText();
         }
         $class = '\CnabPHP\resources\\B' . self::$banco . '\remessa\\' . self::$layout . '\Registro9';
-        $headerArquivo = new $class(array('1' => 1));
+        $headerArquivo = new $class(null);
         $headerArquivo->getText();
         return implode(self::$endLine, self::$retorno) . self::$endLine;
     }
