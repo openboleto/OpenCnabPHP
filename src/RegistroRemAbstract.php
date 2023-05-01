@@ -99,9 +99,9 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
                     throw new Exception('Campo faltante ou com valor nulo:' . $prop);
                 }
             }
-            set_error_handler(function ($severity, $message, $file, $line,$errcontext) {
-                throw new \ErrorException(json_encode($errcontext)."->".$message, $severity, $severity, $file, $line);
-            });
+            // set_error_handler(function ($severity, $message, $file, $line,$errcontext) {
+            //     throw new \ErrorException(json_encode($errcontext)."->".$message, $severity, $severity, $file, $line);
+            // });
 
             switch ($metaData['tipo']) {
                 case 'decimal':

@@ -33,12 +33,13 @@ class Especie {
     private $itau = array();
     private $caixa = array();
     private $bb = array();
-    private $siccob = array();
+    private $sicoob = array();
     private $sicredi = array();
     private $bradesco = array();
     private $santander = array();
     private $c6bank = array();
     private $bv = array();
+    private $abc = array();
     private $banco;
 
     public function __construct($banco = null) {
