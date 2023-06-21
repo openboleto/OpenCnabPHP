@@ -27,7 +27,6 @@ namespace CnabPHP\resources\B237\retorno\L400;
 use CnabPHP\resources\generico\retorno\L400\Generico0;
 use CnabPHP\RetornoAbstract;
 
-// Layout do Arquivo-Retorno - Registro Header Label
 class Registro0 extends Generico0
 {
     public $trailler;
@@ -121,20 +120,11 @@ class Registro0 extends Generico0
     }
     public function inserirDetalhe()
     {
-        $totalLines = count(RetornoAbstract::$lines);
-        $eachLine = RetornoAbstract::$pix ? 3 : 2;
-        $totalLines -= $eachLine;
-
-        while(RetornoAbstract::$linesCounter < ($totalLines))
+        while(RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines)-2))
         {
             $class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro1';
             $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-
-            if (RetornoAbstract::$pix) {
-                $class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro4';
-                $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-                $totalLines++;
-            }
         }
+        //RetornoAbstract::$linesCounter--;
     }
 }

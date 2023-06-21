@@ -216,31 +216,30 @@ class Registro3T extends Generico3
             'required' => true
 		),
         // - ------------------ até aqui é igual para todo registro tipo 3
-        "agencia" => array(
-			'tamanho'=>5,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		"agencia_dv" => array(
-			'tamanho'=>1,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		"conta" => array(
-			'tamanho'=>12,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		"conta_dv" => array(
-			'tamanho'=>1,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
-		"agencia_conta_dv" => array(
-			'tamanho'=>1,
-			'default'=>'',
-			'tipo'=>'int',
-			'required'=>true),
+        'agencia' => array(
+            'tamanho' => 4,
+            'default' => '',
+            'tipo' => 'int',
+            'required' => true
+		),
+        'agencia_dv' => array(
+            'tamanho' => 1,
+            'default' => '',
+            'tipo' => 'alfa',
+            'required' => true
+		),
+        'conta' => array(
+            'tamanho' => 9,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'conta_dv' => array(
+            'tamanho' => 1,
+            'default' => '',
+            'tipo' => 'int',
+            'required' => true
+        ),
         'filler2' => array(
             'tamanho' => 8,
             'default' => ' ',

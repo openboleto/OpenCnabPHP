@@ -23,7 +23,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B246\retorno\L030;
+namespace CnabPHP\resources\B104\retorno\L030;
 use CnabPHP\resources\generico\remessa\cnab240\Generico9;
 use CnabPHP\Exception;
 

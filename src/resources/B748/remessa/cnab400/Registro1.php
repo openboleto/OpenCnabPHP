@@ -152,7 +152,7 @@ class Registro1 extends Generico1 {
         'seu_numero' => array(
             'tamanho' => 10,
             'default' => ' ',
-            'tipo' => 'alfa',
+            'tipo' => 'int',
             'required' => true
         ),
         'data_vencimento' => array(

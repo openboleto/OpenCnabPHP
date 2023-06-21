@@ -349,7 +349,7 @@ class Registro1 extends Generico1
                 $constante = 7;
                 $cont = 0;
             }
-            $calculoDv = $calculoDv + (intval(substr($sequencia,$num,1)) * $constante);
+            $calculoDv = $calculoDv + (substr($sequencia,$num,1) * $constante);
         }
 
         $Resto = $calculoDv % 11;

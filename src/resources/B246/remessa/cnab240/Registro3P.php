@@ -78,10 +78,10 @@ class Registro3P extends Generico3 {
             'required' => true),
         'direcionamento_cobranca' => array(//12.3P
             'tamanho' => 1,
-            'default' => '5',
+            'default' => '0',
             'tipo' => 'int',
             'required' => true),
-        'modalidade_correspondentes' => array(//13.3P
+        'carteira' => array(//13.3P
             'tamanho' => 3,
             'default' => '0',
             'tipo' => 'int',
@@ -123,7 +123,7 @@ class Registro3P extends Generico3 {
             'required' => true),
         'entrega_boleto' => array(//18.3P
             'tamanho' => 1,
-            'default' => '2',
+            'default' => '0',
             'tipo' => 'int', // originalmente no manual esta alfa mas foi mudado para int para funcionar 
             'required' => true),
         'seu_numero' => array(//19.3P   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
@@ -233,7 +233,7 @@ class Registro3P extends Generico3 {
             'required' => true),
         'prazo_baixar' => array(//39.3P
             'tamanho' => 3,
-            'default' => '0',
+            'default' => '90',
             'tipo' => 'int',
             'required' => true),
         'codigo_moeda' => array(//40.3P
