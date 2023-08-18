@@ -122,7 +122,7 @@ class Registro0 extends Generico0 {
 
     public function getFileName() {
         $codigo_meses = array(1=>1,2=>2,3=>3,4=>4,5=>5,6=>6,7=>7,8=>8,9=>9,10=>'O',11=>'N',12=>'D');
-        return $this->entryData['codigo_beneficiario'] . $codigo_meses[date('n')] . date('d') . '.crm';
+        return $this->entryData['codigo_beneficiario'] . $codigo_meses[date('n')] . date('d');
     }
 
 }
