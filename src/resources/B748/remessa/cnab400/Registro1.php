@@ -206,7 +206,7 @@ class Registro1 extends Generico1 {
         ),
         'taxa_juros' => array(
             'tamanho' => 13,
-            'default' => '44',
+            'default' => '33',
             'tipo' => 'decimal',
             'precision' => 0,
             'required' => true
