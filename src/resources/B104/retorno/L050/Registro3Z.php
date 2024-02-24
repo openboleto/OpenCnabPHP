@@ -28,7 +28,7 @@ use CnabPHP\resources\generico\retorno\L050\Generico3;
 //use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
-class Registro3B extends Generico3
+class Registro3Z extends Generico3
 {
 	protected $meta = array(
 		'codigo_banco'=>array(          // 1.3B
