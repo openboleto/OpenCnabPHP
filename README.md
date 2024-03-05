@@ -28,7 +28,7 @@ docker-compose up -d
 ## Instalando via composer:
 
 
-Adicione "quilhasoft/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
+Adicione "openboleto/opencnabphp": "dev-master" ao seu composer.json e rode update ou install
 
 Acesse a url de exemplo: 
 `http://localhost:8080/samples/ExemploRemessa.php`
