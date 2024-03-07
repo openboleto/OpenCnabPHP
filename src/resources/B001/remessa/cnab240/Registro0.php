@@ -152,7 +152,7 @@ class Registro0 extends Generico0
 			'required'=>true),
 		'filler6'=>array(		//Caso a versão do leiaute seja 30,
 			'tamanho'=>3,			//Deve ser preenchido com 'zeros' nas posições 226 a 228.
-			'default'=>'   ',
+			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'filler7'=>array(
