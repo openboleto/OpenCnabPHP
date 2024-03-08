@@ -24,7 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B104\retorno\L101;
-use CnabPHP\resources\generico\remessa\cnab240\Generico5;
+use CnabPHP\resources\generico\retorno\L040\Generico5;
 use CnabPHP\Exception;
 
 class Registro5 extends Generico5
@@ -46,12 +46,12 @@ class Registro5 extends Generico5
 			'tipo'=>'int',
 			'required'=>true),
 		'filler1'=>array(          //04.5
-			'tamanho'=>9,
+			'tamanho'=>1,
 			'default'=>' ',
 			'tipo'=>'alfa',
 			'required'=>true),
 		'qtd_registros'=>array(      //05.5
-			'tamanho'=>6,
+			'tamanho'=>9,
 			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),

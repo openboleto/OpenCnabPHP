@@ -24,123 +24,91 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B104\retorno\L101;
-use CnabPHP\resources\generico\remessa\cnab240\Generico3;
+use CnabPHP\resources\generico\retorno\L040\Generico3;
+//use CnabPHP\RetornoAbstract;
 use CnabPHP\Exception;
 
-class Registro3R extends Generico3
+class Registro3Y08 extends Generico3
 {
 	protected $meta = array(
-		'codigo_banco'=>array(          // 1.3R
+		'codigo_banco'=>array(          // 1.9U
 			'tamanho'=>3,
 			'default'=>'104',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_lote'=>array(           // 2.3R
+		'codigo_lote'=>array(           // 2.9U
 			'tamanho'=>4,
 			'default'=>1,
 			'tipo'=>'int',
 			'required'=>true),
-		'tipo_registro'=>array(         // 3.3R
+		'tipo_registro'=>array(         // 3.9U
 			'tamanho'=>1,
 			'default'=>'3',
 			'tipo'=>'int',
 			'required'=>true),
-		'numero_registro'=>array(       // 4.3R
+		'numero_registro'=>array(       // 4.9U
 			'tamanho'=>5,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),
-		'seguimento'=>array(            // 5.3R
+		'seguimento'=>array(            // 5.9U
 			'tamanho'=>1,
-			'default'=>'R',
+			'default'=>'U',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'filler1'=>array(               // 6.3R
+		'filler1'=>array(               // 6.9U
 			'tamanho'=>1,
 			'default'=>' ',
 			'tipo'=>'int',
 			'required'=>true),
-		'codigo_movimento'=>array(      // 7.3R
+		'codigo_movimento'=>array(      // 7.9U
 			'tamanho'=>2,
-			'default'=>'01', // entrada de titulo
+			'default'=>'', // entrada de titulo
 			'tipo'=>'int',
 			'required'=>true),
 			
 			// - ------------------ até aqui é igual para todo registro tipo 3
 			
-		'codigo_desconto2'=>array(               // 8.3R
-			'tamanho'=>1,
-			'default'=>'0',
+		'identificacao_registro'=>array(               // 8.9U
+			'tamanho'=>2,
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_desconto2'=>array(            // 9.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto2'=>array(       //10.3R
-			'tamanho'=>15,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'codigo_desconto3'=>array(               // 11.3R
-			'tamanho'=>1,
-			'default'=>'0',
+		'codigo_solicitacao'=>array(            // 9.9U
+			'tamanho'=>2,
+			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
-		'data_desconto3'=>array(               //12.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
-			'required'=>true),
-		'vlr_desconto3'=>array(      //13.3R   
-			'tamanho'=>15,
-			'default'=>'0',
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'codigo_multa'=>array(  //14.3R
+		'id_identificador'=>array(       //10.9U
 			'tamanho'=>1,
-			'default'=>'0',
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'numero_solicitacao'=>array(               // 11.9U
+			'tamanho'=>18,
+			'default'=>'',
+			'tipo'=>'int',
+			'required'=>true),
+		'descricao'=>array(               //12.9U
+			'tamanho'=>180,
+			'default'=>'',
 			'tipo'=>'alfa',
 			'required'=>true),
-		'data_multa'=>array(   //15.3R
-			'tamanho'=>8,
-			'default'=>'0',
-			'tipo'=>'date',
+		'quantidade'=>array(      //13.9U   
+			'tamanho'=>4,
+			'default'=>'',
+			'tipo'=>'int',
 			'required'=>true),
-		'vlr_multa'=>array(      //16.3R
-			'tamanho'=>15,
-			'default'=>'0',  
-			'tipo'=>'decimal',
-			'precision'=>2,
-			'required'=>true),
-		'informacao_pagador'=>array(        //17.3R
-			'tamanho'=>10,
+		'erro'=>array(  //14.9U
+			'tamanho'=>3,
 			'default'=>' ',
-			'tipo'=>'alfa',
+			'tipo'=>'int',
 			'required'=>true),
-		'mensagem_3'=>array(          // 18.3
-			'tamanho'=>40,
-			'default'=>' ',
+		'filler2'=>array(   //15.9U
+			'tamanho'=>30,
+			'default'=>'',
 			'tipo'=>'alfa',
-			'required'=>true),
-		'mensagem_4'=>array(        //19.3R
-			'tamanho'=>40,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
-		'email_pagador'=>array(    //20.3R   
-			'tamanho'=>50,
-			'default'=>' ', 
-			'tipo'=>'alfa',
-			'required'=>true),
-		'filler4'=>array(         //21.3R
-			'tamanho'=>11,
-			'default'=>' ',
-			'tipo'=>'alfa',
-			'required'=>true),
+			'required'=>true),	
 	);
 }
 

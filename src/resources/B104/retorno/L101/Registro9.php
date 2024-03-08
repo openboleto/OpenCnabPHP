@@ -24,7 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace CnabPHP\resources\B104\retorno\L101;
-use CnabPHP\resources\generico\remessa\cnab240\Generico9;
+use CnabPHP\resources\generico\retorno\L040\Generico9;
 use CnabPHP\Exception;
 
 class Registro9 extends Generico9
