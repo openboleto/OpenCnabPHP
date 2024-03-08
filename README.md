@@ -1,7 +1,7 @@
 ﻿# OpenCnabPHP 
-[![Build Status](https://travis-ci.org/QuilhaSoft/OpenCnabPHP.svg?branch=master)](https://travis-ci.org/QuilhaSoft/OpenCnabPHP)
 
 Considere doar fundos para nos apoiar
+
 ![qr-code-plus](https://github.com/openboleto/OpenCnabPHP/assets/17881422/dd59a24c-8560-489c-95b0-a1953484fc84)
 
 <ul>
