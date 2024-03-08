@@ -164,7 +164,7 @@ class Registro1 extends Generico1
 	*/
 	public function inserirDetalhe($linhaTxt){
 
-		$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3T';
+		$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3T';
 		self::addChild(new $class($linhaTxt));
 		RetornoAbstract::$linesCounter++;
 		//self::$counter++;

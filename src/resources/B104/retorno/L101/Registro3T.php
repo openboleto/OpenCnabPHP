@@ -267,7 +267,7 @@ class Registro3T extends Generico3
 	}
 	public function inserirDetalhe($data)
 	{
-		$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\remessa\\'.RetornoAbstract::$layout.'\Registro3U';
+		$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\remessa\\'.RetornoAbstract::$layout.'\Registro3U';
 		$this->children[] = new $class($data);
 		RetornoAbstract::$linesCounter++;
 	}    
