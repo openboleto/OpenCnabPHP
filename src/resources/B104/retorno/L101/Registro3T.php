@@ -217,17 +217,19 @@ class Registro3T extends Generico3
 		RetornoAbstract::$linesCounter++;
 		$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3U';
 		$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-		if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],14,1)=="Y"){
-			if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="50")
-			{
-				//RetornoAbstract::$linesCounter++;
-				//$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
-				//$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-			}elseif(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="08")
-			{
-				RetornoAbstract::$linesCounter++;
-				$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y08';
-				$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+		if (isset(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1])) {
+			if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],14,1)=="Y"){
+				if(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="50")
+				{
+					//RetornoAbstract::$linesCounter++;
+					//$class = 'CnabPHP\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
+					//$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+				}elseif(substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter+1],18,2)=="08")
+				{
+					RetornoAbstract::$linesCounter++;
+					$class = 'CnabPHP\resources\\B'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y08';
+					$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+				}
 			}
 		}
 	}
