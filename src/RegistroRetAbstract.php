@@ -67,7 +67,7 @@ abstract class RegistroRetAbstract extends RegistroAbstract
             // executa o Método set_<propriedade>
             call_user_func(array($this, 'set_' . $prop), $value);
         } else {
-            $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
+            $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : array('tipo' => null);
             switch ($metaData['tipo']) {
                 case 'decimal':
                     $inteiro = (int)(substr($value, 0, $metaData['tamanho']));
