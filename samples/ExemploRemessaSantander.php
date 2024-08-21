@@ -31,6 +31,13 @@ require_once ("../autoloader.php");
 
 use CnabPHP\Remessa;
 
+// Exemplo de código de transmissão:
+// AGÊNCIA(4 dígitos) + 0000 (zeros fixo) + CONVENIO (7 dígitos)
+// AG: 1234
+// Fixo: 0000
+// Convênio: 0123456
+// Código de Transmissão será: 123400000123456
+
 $arquivo = new Remessa("033",'cnab240',array(
     'nome_empresa' =>"Empresa ABC", // seu nome de empresa
     'tipo_inscricao'  => 2, // 1 para cpf, 2 cnpj
@@ -39,7 +46,6 @@ $arquivo = new Remessa("033",'cnab240',array(
     'agencia_dv'    => 6, // somente o digito verificador da agencia
     'conta'         => '12345678', // número da conta
     'conta_dv'     => 9, // digito da conta
-    'codigo_transmissao' => '12345678901234567890',
      'codigo_beneficiario'     => '10668', // codigo fornecido pelo banco
      'codigo_beneficiario_dv'     => '2', // codigo fornecido pelo banco
      'numero_sequencial_arquivo'     => 1,
@@ -47,7 +53,7 @@ $arquivo = new Remessa("033",'cnab240',array(
 ));
 
 
-$lote  = $arquivo->addLote(array('tipo_servico'=> 1,'codigo_transmissao' => '12345678901234567890')); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
+$lote  = $arquivo->addLote(array('tipo_servico'=> 1)); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
 $lote->inserirDetalhe(array(
     'conta_cobranca' => '12345678', // número da conta cobranca obs(verificar se eh o mesmo da conta movimento)
