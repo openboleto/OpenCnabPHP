@@ -92,6 +92,8 @@ $lote->inserirDetalhe(array(
     'taxa_juros'         => 30.00, // taxa de juros em percentual
 ));
 $lote->inserirDetalhe(array(
+    'tipo_pix' => 1,
+    'chave_pix' => '03071076207',
     'conta_cobranca' => '12345678', // número da conta cobranca obs(verificar se eh o mesmo da conta movimento)
     'data_segundo_desconto' => '', 
     'codigo_movimento' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs

@@ -386,6 +386,10 @@ class Registro3P extends Generico3 {
                 $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
                 $this->children[] = new $class($data);
             }
+            if (isset($data['tipo_pix']) === true && $data['tipo_pix'] !== null) {
+                $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Y';
+                $this->children[] = new $class($data);
+            }
         }
     }
 
