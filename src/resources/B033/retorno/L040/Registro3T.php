@@ -369,7 +369,11 @@ class Registro3T extends Generico3
             if (isset(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1]) &&
                 substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1], 13, 1) == "Y") {
                 RetornoAbstract::$linesCounter++;
-                $class = 'CnabPHP\resources\\B' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3Y';
+                if (strpos(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1], 'pix.santander.com.br') !== false) {
+                    $class = 'CnabPHP\resources\\B' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3Y';
+                } else {
+                    $class = 'CnabPHP\resources\\B' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\RegistroY03';
+                }
                 $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
             }
         }
