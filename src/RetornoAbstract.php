@@ -21,6 +21,8 @@ abstract class RetornoAbstract
 
     public static $pix = false;
 
+    public $pixQrCode;
+
     //public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
 
     /**
@@ -47,12 +49,18 @@ abstract class RetornoAbstract
             $layout_versao = substr($lines[0], 163, 3);
             $codigo_banco = substr($lines[0], 0, 3);
             $codigo_tipo = substr($lines[0], 142, 1);
+            foreach ($lines as $line) {
+                if (strpos($line, 'pix.santander.com.br') !== false) {
+                    self::$pix = true;
+                    $this->pixQrCode = $line;
+                }
+            }
         } elseif ($length == 400 || $length == 401) {
             $bytes = 400;
             $layout_versao = '400';
             $codigo_banco = substr($lines[0], 76, 3);
             $codigo_tipo = substr($lines[0], 1, 1);
-
+            
             if (strpos($lines[2], 'qrpix.bradesco.com.br') !== false) {
                 self::$pix = true;
             } else {
