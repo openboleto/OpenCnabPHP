@@ -80,13 +80,7 @@ class Registro0 extends Generico0
             'required' => true
         ),
         'codigo_beneficiario' => array(
-            'tamanho' => 6,
-            'default' => '0',
-            'tipo' => 'int',
-            'required' => true
-        ),
-        'codigo_beneficiario_dv' => array(
-            'tamanho' => 1,
+            'tamanho' => 7,
             'default' => '0',
             'tipo' => 'int',
             'required' => true
