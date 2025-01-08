@@ -147,23 +147,19 @@ class Especie {
         $this->sicredi['J'] = array('abr' => "TS", 'txt' => 'Triplicata de Serviço');
         $this->sicredi['K'] = array('abr' => "DIV", 'txt' => 'Outros');
 
-        $this->santander[1] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
-        $this->santander[2] = array('abr' => "NP", 'txt' => 'Nota Promissória');
-        $this->santander[3] = array('abr' => "NS", 'txt' => 'Nota de Seguro');
-        $this->santander[5] = array('abr' => "RC", 'txt' => 'Recibo');
-        $this->santander[6] = array('abr' => "DR", 'txt' => 'Duplicata Rural');
-        $this->santander[8] = array('abr' => "LC", 'txt' => 'Letra de Câmbio');
-        $this->santander[9] = array('abr' => "WRT", 'txt' => 'Warrant');
-        $this->santander[10] = array('abr' => "CH", 'txt' => 'Cheque');
-        $this->santander[12] = array('abr' => "DS", 'txt' => 'Duplicata de Serviço');
-        $this->santander[13] = array('abr' => "ND", 'txt' => 'Nota de Débito');
-        $this->santander[14] = array('abr' => "TM", 'txt' => 'Triplicata Mercantil');
-        $this->santander[15] = array('abr' => "TS", 'txt' => 'Triplicata de Serviço');
-        $this->santander[18] = array('abr' => "FAT", 'txt' => 'Fatura');
-        $this->santander[20] = array('abr' => "AP", 'txt' => 'Apólice de Seguros');
-        $this->santander[21] = array('abr' => "ME", 'txt' => 'Mensalidade escolar');
-        $this->santander[22] = array('abr' => "ME", 'txt' => 'Parcela de ConsÃ³rcio');
-        $this->santander[99] = array('abr' => "DIV", 'txt' => 'Outros');
+        $this->santander[2] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
+        $this->santander[4] = array('abr' => "DS", 'txt' => 'Duplicata de Serviço');
+        $this->santander[7] = array('abr' => "LC", 'txt' => 'Letra de Câmbio');
+        $this->santander[12] = array('abr' => "NP", 'txt' => 'Nota Promissória');
+        $this->santander[13] = array('abr' => "NR", 'txt' => 'Nota Promissória Rural');
+        $this->santander[13] = array('abr' => "NR", 'txt' => 'Nota Promissória Rural');
+        $this->santander[17] = array('abr' => "RC", 'txt' => 'Recibo');
+        $this->santander[20] = array('abr' => "AP", 'txt' => 'Apólice de seguro');
+        $this->santander[31] = array('abr' => "BCC", 'txt' => 'Cartão de crédito');
+        $this->santander[32] = array('abr' => "BDP", 'txt' => 'Boleto de proposta');
+        $this->santander[33] = array('abr' => "BDA", 'txt' => 'Boleto de deposito aporte');
+        $this->santander[97] = array('abr' => "CH", 'txt' => 'Cheque');
+        $this->santander[98] = array('abr' => "ND", 'txt' => 'Nota promissoria direta');
 
         $this->abc[1] = array('abr' => "CH", 'txt' => 'Cheque');
         $this->abc[2] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
