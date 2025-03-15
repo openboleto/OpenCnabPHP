@@ -250,16 +250,17 @@ class Registro1 extends Generico1
 
     public function __construct($data = null)
     {
-        if (empty($this->data))
+        if (empty($this->data)) {
             parent::__construct($data);
-        //$this->inserirMulta($data); nÃ£o consegui validar o arquivo enviando o registro 2, entao temporariamente ficara desativado
+            $this->inserirMulta($data);
+        }
     }
 
 
     public function inserirMulta($data)
     {
         if (isset($data['data_multa'])) {
-            $class = 'CnabPHP\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro2';
+            $class = 'CnabPHP\resources\\B' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro2';
             $this->children[] = new $class($data);
         }
     }
