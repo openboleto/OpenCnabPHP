@@ -27,7 +27,8 @@
 
 namespace CnabPHP;
 
-class Especie {
+class Especie
+{
 
     private $res = array();
     private $itau = array();
@@ -41,8 +42,10 @@ class Especie {
     private $bv = array();
     private $abc = array();
     private $banco;
+    private $daycoval = array();
 
-    public function __construct($banco = null) {
+    public function __construct($banco = null)
+    {
         $this->caixa[1] = array('abr' => "CH", 'txt' => 'Cheque');
         $this->caixa[2] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
         $this->caixa[3] = array('abr' => "DMI", 'txt' => 'Mercantil p/ Indicação');
@@ -180,7 +183,7 @@ class Especie {
         $this->abc[17] = array('abr' => "RC", 'txt' => 'Recibo');
         $this->abc[18] = array('abr' => "FAT", 'txt' => 'Fatura');
         $this->abc[19] = array('abr' => "ND", 'txt' => 'Nota de Débito');
-        
+
         $this->bv[1] = array('abr' => "CH", 'txt' => 'Cheque');
         $this->bv[2] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
         $this->bv[4] = array('abr' => "DS", 'txt' => 'Duplicata de Serviço');
@@ -198,19 +201,41 @@ class Especie {
         $this->res['084'] = $this->bradesco;
         $this->res['246'] = $this->abc;
         $this->res['655'] = $this->bv;
+        $this->res['707'] = $this->daycoval;
+
+        $this->daycoval[1] = array('abr' => "DM", 'txt' => 'Duplicata Mercantil');
+        $this->daycoval[2] = array('abr' => "NP", 'txt' => 'Nota Promissória');
+        $this->daycoval[3] = array('abr' => "NS", 'txt' => 'Nota de Seguro');
+        $this->daycoval[5] = array('abr' => "RC", 'txt' => 'Recibo');
+        $this->daycoval[6] = array('abr' => "DR", 'txt' => 'Duplicata Rural');
+        $this->daycoval[8] = array('abr' => "LC", 'txt' => 'Letra de Câmbio');
+        $this->daycoval[9] = array('abr' => "WRT", 'txt' => 'Warrant');
+        $this->daycoval[10] = array('abr' => "CH", 'txt' => 'Cheque');
+        $this->daycoval[12] = array('abr' => "DS", 'txt' => 'Duplicata de Serviço');
+        $this->daycoval[13] = array('abr' => "ND", 'txt' => 'Nota de Débito');
+        $this->daycoval[14] = array('abr' => "TM", 'txt' => 'Triplicata Mercantil');
+        $this->daycoval[15] = array('abr' => "TS", 'txt' => 'Triplicata de Serviço');
+        $this->daycoval[18] = array('abr' => "FAT", 'txt' => 'Fatura');
+        $this->daycoval[20] = array('abr' => "AP", 'txt' => 'Apólice de Seguros');
+        $this->daycoval[21] = array('abr' => "ME", 'txt' => 'Mensalidade escolar');
+        $this->daycoval[22] = array('abr' => "ME", 'txt' => 'Parcela de Consórcio');
+        $this->daycoval[99] = array('abr' => "DIV", 'txt' => 'Outros');
 
         $this->banco = $this->res[$banco];
     }
 
-    public function getAbr($especie) {
+    public function getAbr($especie)
+    {
         return $this->banco[$especie]['abr'];
     }
 
-    public function getBanco() {
+    public function getBanco()
+    {
         return $this->banco;
     }
 
-    public function getCodigo($abr) {
+    public function getCodigo($abr)
+    {
         foreach ($this->banco as $key => $especie) {
             if ($especie['abr'] == $abr) {
                 return $key;
