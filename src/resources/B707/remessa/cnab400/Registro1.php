@@ -246,7 +246,7 @@ class Registro1 extends Generico1
             'tipo' => 'alfa',
             'required' => true
         ],
-        'numero_sequencial' => [       // 395-400
+        'numero_registro' => [       // 395-400
             'tamanho' => 6,
             'default' => '1',
             'tipo' => 'int',
