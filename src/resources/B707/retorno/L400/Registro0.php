@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace CnabPHP\resources\B748\retorno\L400;
+namespace CnabPHP\resources\B707\retorno\L400;
 use CnabPHP\resources\generico\retorno\L400\Generico0;
 use CnabPHP\RetornoAbstract;
 
@@ -73,7 +73,7 @@ class Registro0 extends Generico0
             'required'=>true),
         'codigo_banco'=>array(
             'tamanho'=>3,
-            'default'=>'748',
+            'default'=>'707',
             'tipo'=>'int',
             'required'=>true),
         'nome_banco'=>array(

@@ -25,7 +25,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CnabPHP\resources\B748\retorno\L400;
+namespace CnabPHP\resources\B707\retorno\L400;
 
 use CnabPHP\resources\generico\retorno\L400\Generico9;
 use CnabPHP\Exception;

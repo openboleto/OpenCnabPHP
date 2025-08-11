@@ -26,25 +26,26 @@
 namespace CnabPHP\samples;
 use \CnabPHP\Retorno;
 include("../autoloader.php");
-$fileContent = file_get_contents("COB08080002802455.RET");
+$fileContent = file_get_contents("retorno400santander.txt");
 
 $arquivo = new Retorno($fileContent);
 
 $registros = $arquivo->getRegistros();
 foreach($registros as $registro)
 {
-	if($registro->codigo_movimento==2){
+    // echo "$registro->codigo_movimento - codigo {$registro->vlr_pago} - valor pago<br><br>";
+	if($registro->codigo_movimento==6){
 		$nossoNumero   = $registro->nosso_numero;
 		$valorRecebido = $registro->vlr_pago;
 		$dataPagamento = $registro->data_ocorrencia;
-		$carteira      = $registro->carteira;
+		// $carteira      = $registro->carteira;
         $vlr_juros_multa = $registro->valor;
         $vlr_desconto = $registro->vlr_desconto;
-        echo $nossoNumero;
-        echo $vlr_desconto;
-        echo $dataPagamento;
-        echo $vlr_juros_multa;
-        var_dump($registro);
+        echo "Nosso número: {$nossoNumero} - Valor pago:{$valorRecebido} - Desconto concedido:{$vlr_desconto} - Data pagamento:{$dataPagamento} - Juros aplicado{$vlr_juros_multa} <br />";
+        // echo $vlr_desconto;
+        // echo $dataPagamento;
+        // echo $vlr_juros_multa;
+        // var_dump($registro);
 		// você ja pode dar baixa
 	}
     

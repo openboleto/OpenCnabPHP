@@ -25,7 +25,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CnabPHP\resources\B748\retorno\L400;
+namespace CnabPHP\resources\B707\retorno\L400;
 
 use CnabPHP\resources\generico\retorno\L400\Generico1;
 use CnabPHP\RetornoAbstract;
@@ -40,64 +40,65 @@ class Registro1 extends Generico1 {
             'tipo' => 'int',
             'required' => true
         ),
-        'cod_carteira' => array( //13.3P
-            'tamanho' => 1,
+        'cod_inscricao' => array( //13.3P
+            'tamanho' => 2,
+            'default' => ' ',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'numero_inscricao' => array(
+            'tamanho' => 14,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true
         ),
         'filler0' => array(
-            'tamanho' => 11,
-            'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true
-        ),
-        'tipo_cobranca' => array(
-            'tamanho' => 1,
-            'default' => 'A',
-            'tipo' => 'alfa',
-            'required' => true
-        ),
-        'codigo_pagador_banco' => array(
-            'tamanho' => 5,
-            'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true
-        ),
-        'codigo_pagador' => array(
-            'tamanho' => 5,
-            'default' => '0',
-            'tipo' => 'alfa',
-            'required' => true
-        ),
-        'boleto_DDA' => array( //13.3P
-            'tamanho' => 1,
-            'default' => '2',
-            'tipo' => 'int',
-            'required' => true
-        ),
-        'filler1' => array(
-            'tamanho' => 22,
+            'tamanho' => 45,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true
         ),
         'nosso_numero' => array(
-            'tamanho' => 15,
+            'tamanho' => 11,
             'default' => ' ',
             'tipo' => 'int',
             'required' => true
         ),
-        'filler12' => array(
-            'tamanho' => 46,
+        'filler2' => array(
+            'tamanho' => 9,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'nossa_carteira' => array(
+            'tamanho' => 3,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+
+        'filler3' => array(
+            'tamanho' => 9,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'filler4' => array(
+            'tamanho' => 13,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'carteira' => array(
+            'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true
         ),
         'codigo_movimento' => array( // codigo da ocorrencia
             'tamanho' => 2,
-            'default' => '02', // entrada de titulo
-            'tipo' => 'alfa',
+            'default' => '02',
+            'tipo' => 'int',
             'required' => true
         ),
         'data_ocorrencia' => array( // data da ocorrencia
@@ -112,7 +113,7 @@ class Registro1 extends Generico1 {
             'tipo' => 'alfa',
             'required' => true
         ),
-        'filler2' => array(
+        'filler5' => array(
             'tamanho' => 20,
             'default' => ' ',
             'tipo' => 'alfa',
@@ -124,43 +125,55 @@ class Registro1 extends Generico1 {
             'tipo' => 'date',
             'required' => true
         ),
-        'valor' => array( //21.3P
+        'valor' => array( //12.3Q
             'tamanho' => 11,
             'default' => '0',
             'tipo' => 'decimal',
             'precision' => 2,
             'required' => true
         ),
-        'filler3' => array(
-            'tamanho' => 9,
-            'default' => ' ',
+        'codigo_banco' => array( //12.3Q
+            'tamanho' => 3,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'agencia' => array( //12.3Q
+            'tamanho' => 4,
+            'default' => '0',
             'tipo' => 'alfa',
             'required' => true
         ),
-        'especie_titulo' => array( //24.3P
+        'agencia_digito' => array( //12.3Q
             'tamanho' => 1,
-            'default' => 'J',
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true
+        ),
+        'especie_titulo' => array( //12.3Q
+            'tamanho' => 2,
+            'default' => '0',
             'tipo' => 'alfa',
             'required' => true
         ),
         'vlr_despesas_cobranca' => array(
-            'tamanho' => 11,
+            'tamanho' => 13,
             'default' => '0',
             'tipo' => 'decimal',
-            'precision' => 2,
+            'precision' => 0,
             'required' => true
         ),
-        'vlr_despesas_protesto' => array(
-            'tamanho' => 11,
-            'default' => '0',
-            'tipo' => 'decimal',
-            'precision' => 2,
-            'required' => true
-        ),
-        'filler42' => array(
+        'filler6' => array(
             'tamanho' => 26,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true
+        ),
+        'vlr_iof' => array(
+            'tamanho' => 11,
             'default' => '0',
-            'tipo' => 'int',
+            'tipo' => 'decimal',
+            'precision' => 2,
             'required' => true
         ),
         'vlr_abatimento' => array(
@@ -177,7 +190,7 @@ class Registro1 extends Generico1 {
             'precision' => 2,
             'required' => true
         ),
-        'vlr_pago' => array( //12.3Q
+        'vlr_pago' => array(
             'tamanho' => 11,
             'default' => '0',
             'tipo' => 'decimal',
@@ -191,47 +204,34 @@ class Registro1 extends Generico1 {
             'precision' => 2,
             'required' => true
         ),
-        'vlr_multa' => array( // 8.3Q
-            'tamanho' => 11,
-            'default' => '0',
-            'tipo' => 'decimal',
-            'precision' => 2,
-            'required' => true
-        ),
-        'filler41' => array(
-            'tamanho' => 2,
+        'filler7' => array(
+            'tamanho' => 97,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true
         ),
-        'ocorrencia_19' => array( //24.3P
+        'moeda' => array(
             'tamanho' => 1,
             'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true
-        ),
-        'filler45' => array( //24.3P
-            'tamanho' => 23,
-            'default' => ' ',
-            'tipo' => 'alfa',
+            'tipo' => 'int',
             'required' => true
         ),
         'motivo_rejeicao' => array( //10.3Q
-            'tamanho' => 10,
+            'tamanho' => 8,
             'default' => '00',
             'tipo' => 'alfa',
             'required' => true
         ),
         'data_credito' => array( //26.3P
-            'tamanho' => 8,
+            'tamanho' => 6,
             'default' => '',
             'tipo' => 'date',
             'required' => true
         ),
-        'filler58' => array(
-            'tamanho' => 58,
-            'default' => ' ',
-            'tipo' => 'alfa',
+        'filler8' => array(
+            'tamanho' => 3,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true
         ),
         'numero_registro' => array( // 4.3R
