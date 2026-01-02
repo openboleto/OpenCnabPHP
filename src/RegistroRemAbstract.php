@@ -108,7 +108,7 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
                     $retorno = (($this->data[$prop] && trim($this->data[$prop]) !== "" ? number_format($this->data[$prop], $metaData['precision'], '', '') : (isset($metaData['default']) ? $metaData['default'] : '')));
                     return str_pad($retorno, $metaData['tamanho'] + $metaData['precision'], '0', STR_PAD_LEFT);
                 case 'int':
-                    $retorno = (isset($this->data[$prop]) && trim($this->data[$prop]) !== "" && (gettype($this->data[$prop]) === 'integer') ? number_format($this->data[$prop], 0, '', '') : (isset($metaData['default']) ? $metaData['default'] : ''));
+                    $retorno = (isset($this->data[$prop]) && trim($this->data[$prop]) !== "" && (is_int($this->data[$prop]) || (is_string($this->data[$prop]) && ctype_digit($this->data[$prop]))) ? number_format($this->data[$prop], 0, '', '') : (isset($metaData['default']) ? $metaData['default'] : ''));
                     return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
                 case 'alfa':
                     $retorno = (isset($this->data[$prop])) ? $this->prepareText($this->data[$prop]) : '';
@@ -137,3 +137,4 @@ abstract class RegistroRemAbstract extends RegistroAbstract {
     }
 
 }
+
