@@ -23,7 +23,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
+namespace CnabPHP\resources\B104\remessa\cnab240_sigcb;
 use CnabPHP\resources\generico\remessa\cnab240\Generico1;
 use Exception;
 
@@ -62,7 +62,7 @@ class Registro1 extends Generico1
 			'required'=>true),
 		'versa_layout'=>array(
 			'tamanho'=>3,
-			'default'=>'030',
+			'default'=>'067',
 			'tipo'=>'int',
 			'required'=>true),
 		'filler2'=>array(
@@ -81,12 +81,12 @@ class Registro1 extends Generico1
 			'tipo'=>'int',
 			'required'=>true),
 		'codigo_beneficiario'=>array(
-			'tamanho'=>6,
+			'tamanho'=>7,
 			'default'=>'',
 			'tipo'=>'int',
 			'required'=>true),
 		'uso_caixa1'=>array(
-			'tamanho'=>14,
+			'tamanho'=>13,
 			'default'=>'0',
 			'tipo'=>'int',
 			'required'=>true),

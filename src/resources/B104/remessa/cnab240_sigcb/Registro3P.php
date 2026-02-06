@@ -25,7 +25,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace CnabPHP\resources\B104\remessa\cnab240_SIGCB;
+namespace CnabPHP\resources\B104\remessa\cnab240_sigcb;
 
 use CnabPHP\resources\generico\remessa\cnab240\Generico3;
 use CnabPHP\RegistroRemAbstract;
@@ -82,12 +82,12 @@ class Registro3P extends Generico3 {
             'tipo' => 'alfa',
             'required' => true),
         'codigo_convenio' => array(//10.3P
-            'tamanho' => 6,
+            'tamanho' => 7,
             'default' => '0',
             'tipo' => 'int',
             'required' => true),
         'filler2' => array(// 11.3P
-            'tamanho' => 8,
+            'tamanho' => 7,
             'default' => '0',
             'tipo' => 'int',
             'required' => true),
